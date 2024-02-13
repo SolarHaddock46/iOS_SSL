@@ -14,6 +14,7 @@
 		33D2245F2B7B6E2A00116BAD /* SSLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2245E2B7B6E2A00116BAD /* SSLTests.swift */; };
 		33D224692B7B6E2A00116BAD /* SSLUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D224682B7B6E2A00116BAD /* SSLUITests.swift */; };
 		33D2246B2B7B6E2A00116BAD /* SSLUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2246A2B7B6E2A00116BAD /* SSLUITestsLaunchTests.swift */; };
+		33D2247E2B7B784200116BAD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 33D2247D2B7B784200116BAD /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		33D224642B7B6E2A00116BAD /* SSLUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSLUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33D224682B7B6E2A00116BAD /* SSLUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLUITests.swift; sourceTree = "<group>"; };
 		33D2246A2B7B6E2A00116BAD /* SSLUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		33D2247D2B7B784200116BAD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				33D2244B2B7B6E2800116BAD /* ViewController.swift */,
 				33D224502B7B6E2A00116BAD /* Assets.xcassets */,
 				33D224552B7B6E2A00116BAD /* Info.plist */,
+				33D2247D2B7B784200116BAD /* Localizable.xcstrings */,
 			);
 			path = SSL;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 33D2243B2B7B6E2800116BAD;
 			productRefGroup = 33D224452B7B6E2800116BAD /* Products */;
@@ -226,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33D2247E2B7B784200116BAD /* Localizable.xcstrings in Resources */,
 				33D224512B7B6E2A00116BAD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

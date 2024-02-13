@@ -9,18 +9,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
-//    private lazy  var testLabel: UILabel = {
-//        let label = UILabel()
-//        label.text = NSLocalizedString("Sign up", comment: "test")
-//        return label
-//    }()
+    private lazy var primaryButton = PrimaryButton(localizationKey: "Sign up")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-//        view.addSubview(testLabel)
-//        testLabel.translatesAutoresizingMaskIntoConstraints = false
-//        testLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        testLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-
+        view.addSubview(primaryButton)
+        primaryButton.translatesAutoresizingMaskIntoConstraints = false
+        primaryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        primaryButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        primaryButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 }

@@ -9,15 +9,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    private lazy var primaryButton = PrimaryButton(localizationKey: "Sign up")
-    
+    private lazy var textField = UserInfoTextField(placeholder: NSLocalizedString("Password", comment: "a"), isSecure: false)
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        view.addSubview(primaryButton)
-        primaryButton.translatesAutoresizingMaskIntoConstraints = false
-        primaryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        primaryButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
-        primaryButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        view.addSubview(textField)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        textField.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 }

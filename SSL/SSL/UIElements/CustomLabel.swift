@@ -5,11 +5,9 @@ class CustomLabel: UILabel {
         super.init(frame: .zero)
         setup(localisationKey: localisationKey)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     private func setup(localisationKey: String) {
         self.text = NSLocalizedString(localisationKey, comment: "comment")
         self.textColor = .white
@@ -20,4 +18,3 @@ class CustomLabel: UILabel {
         }
     }
 }
-

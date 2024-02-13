@@ -16,6 +16,9 @@
 		33D2246B2B7B6E2A00116BAD /* SSLUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2246A2B7B6E2A00116BAD /* SSLUITestsLaunchTests.swift */; };
 		33D2247E2B7B784200116BAD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 33D2247D2B7B784200116BAD /* Localizable.xcstrings */; };
 		33D224822B7B803C00116BAD /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D224812B7B803C00116BAD /* PrimaryButton.swift */; };
+		33D2248A2B7B8C5200116BAD /* InsetedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D224892B7B8C5200116BAD /* InsetedTextField.swift */; };
+		33D2248C2B7B8DC000116BAD /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2248B2B7B8DC000116BAD /* CustomLabel.swift */; };
+		33D2248E2B7B8F3800116BAD /* UserInfoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		33D2247D2B7B784200116BAD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		33D224812B7B803C00116BAD /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		33D224842B7B822900116BAD /* Onest.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Onest.ttf; sourceTree = "<group>"; };
+		33D224892B7B8C5200116BAD /* InsetedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetedTextField.swift; sourceTree = "<group>"; };
+		33D2248B2B7B8DC000116BAD /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				33D224812B7B803C00116BAD /* PrimaryButton.swift */,
+				33D224892B7B8C5200116BAD /* InsetedTextField.swift */,
+				33D2248B2B7B8DC000116BAD /* CustomLabel.swift */,
+				33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -301,7 +310,10 @@
 				33D2244C2B7B6E2800116BAD /* ViewController.swift in Sources */,
 				33D224482B7B6E2800116BAD /* AppDelegate.swift in Sources */,
 				33D224822B7B803C00116BAD /* PrimaryButton.swift in Sources */,
+				33D2248C2B7B8DC000116BAD /* CustomLabel.swift in Sources */,
 				33D2244A2B7B6E2800116BAD /* SceneDelegate.swift in Sources */,
+				33D2248A2B7B8C5200116BAD /* InsetedTextField.swift in Sources */,
+				33D2248E2B7B8F3800116BAD /* UserInfoTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

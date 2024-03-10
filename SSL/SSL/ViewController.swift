@@ -15,7 +15,9 @@ class ViewController: UIViewController {
     
     private lazy var emailField = UserInfoTextField(placeholder: NSLocalizedString("Email", comment: "a"), isSecure: false)
     
-    private lazy var testButton = PrimaryButton(localizationKey: "Sign up")
+    private lazy var testButton = PrimaryButton(localizationKey: "Sign in")
+    
+    private lazy var testSecButton = SecondaryButton(localizationKey: "Sign up")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,7 @@ class ViewController: UIViewController {
         testView.addArrangedSubview(textField)
         testView.addArrangedSubview(emailField)
         testView.addArrangedSubview(testButton)
+        testView.addArrangedSubview(testSecButton)
         
         view.addSubview(testView)
         testView.translatesAutoresizingMaskIntoConstraints = false

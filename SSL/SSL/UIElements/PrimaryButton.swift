@@ -13,7 +13,7 @@ final class PrimaryButton: UIButton {
         backgroundColor = UIColor(red: 63/255, green: 162/255, blue: 254/255, alpha: 1.0)
         layer.cornerRadius = 16
         heightAnchor.constraint(equalToConstant: 48).isActive = true
-        let titleLabel = CustomLabel(localisationKey: localizationKey)
+        let titleLabel = CustomLabel(localisationKey: localizationKey, color: .white)
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

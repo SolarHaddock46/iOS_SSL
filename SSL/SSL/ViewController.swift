@@ -4,7 +4,7 @@ class ViewController: UIViewController {
     
     private lazy var testView: UIStackView = {
         let view = UIStackView()
-        view.spacing = 16
+        view.spacing = 48
         view.axis = .vertical
         return view
     }()

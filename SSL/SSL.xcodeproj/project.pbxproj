@@ -21,6 +21,7 @@
 		33D2248C2B7B8DC000116BAD /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2248B2B7B8DC000116BAD /* CustomLabel.swift */; };
 		33D2248E2B7B8F3800116BAD /* UserInfoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */; };
 		33F177032BB704C300FA1B0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F177022BB704C300FA1B0D /* User.swift */; };
+		33F1770D2BB7111B00FA1B0D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F1770C2BB7111B00FA1B0D /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		33D2248B2B7B8DC000116BAD /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTextField.swift; sourceTree = "<group>"; };
 		33F177022BB704C300FA1B0D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		33F1770C2BB7111B00FA1B0D /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		33D224462B7B6E2800116BAD /* SSL */ = {
 			isa = PBXGroup;
 			children = (
+				33F1770B2BB7110500FA1B0D /* Services */,
 				33F176FF2BB7025900FA1B0D /* Modules */,
 				33D224832B7B819C00116BAD /* Fonts */,
 				33D224802B7B800500116BAD /* UIElements */,
@@ -174,6 +177,14 @@
 				33F177022BB704C300FA1B0D /* User.swift */,
 			);
 			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		33F1770B2BB7110500FA1B0D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				33F1770C2BB7111B00FA1B0D /* APIService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +277,9 @@
 				ru,
 			);
 			mainGroup = 33D2243B2B7B6E2800116BAD;
+			packageReferences = (
+				33F1770A2BB709EC00FA1B0D /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = 33D224452B7B6E2800116BAD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -338,6 +352,7 @@
 				33D2244A2B7B6E2800116BAD /* SceneDelegate.swift in Sources */,
 				33D2248A2B7B8C5200116BAD /* InsetedTextField.swift in Sources */,
 				33D2248E2B7B8F3800116BAD /* UserInfoTextField.swift in Sources */,
+				33F1770D2BB7111B00FA1B0D /* APIService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,6 +682,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		33F1770A2BB709EC00FA1B0D /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 33D2243C2B7B6E2800116BAD /* Project object */;
 }

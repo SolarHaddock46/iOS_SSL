@@ -20,6 +20,7 @@
 		33D2248A2B7B8C5200116BAD /* InsetedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D224892B7B8C5200116BAD /* InsetedTextField.swift */; };
 		33D2248C2B7B8DC000116BAD /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2248B2B7B8DC000116BAD /* CustomLabel.swift */; };
 		33D2248E2B7B8F3800116BAD /* UserInfoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */; };
+		33F177032BB704C300FA1B0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F177022BB704C300FA1B0D /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		33D224892B7B8C5200116BAD /* InsetedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetedTextField.swift; sourceTree = "<group>"; };
 		33D2248B2B7B8DC000116BAD /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTextField.swift; sourceTree = "<group>"; };
+		33F177022BB704C300FA1B0D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 		33D224462B7B6E2800116BAD /* SSL */ = {
 			isa = PBXGroup;
 			children = (
+				33F176FF2BB7025900FA1B0D /* Modules */,
 				33D224832B7B819C00116BAD /* Fonts */,
 				33D224802B7B800500116BAD /* UIElements */,
 				33D224472B7B6E2800116BAD /* AppDelegate.swift */,
@@ -155,6 +158,22 @@
 				33D224842B7B822900116BAD /* Onest.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		33F176FF2BB7025900FA1B0D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				33F177002BB7030F00FA1B0D /* LoginScreen */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		33F177002BB7030F00FA1B0D /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				33F177022BB704C300FA1B0D /* User.swift */,
+			);
+			path = LoginScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +334,7 @@
 				33D224822B7B803C00116BAD /* PrimaryButton.swift in Sources */,
 				33D2248C2B7B8DC000116BAD /* CustomLabel.swift in Sources */,
 				330DADFF2B9E155D0013A394 /* SecondaryButton.swift in Sources */,
+				33F177032BB704C300FA1B0D /* User.swift in Sources */,
 				33D2244A2B7B6E2800116BAD /* SceneDelegate.swift in Sources */,
 				33D2248A2B7B8C5200116BAD /* InsetedTextField.swift in Sources */,
 				33D2248E2B7B8F3800116BAD /* UserInfoTextField.swift in Sources */,

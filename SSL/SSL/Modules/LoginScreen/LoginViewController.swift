@@ -70,9 +70,9 @@ class LoginViewController: UIViewController, PresenterToViewProtocol {
         guard let email = emailTextField.enteredText,
               let password = passwordTextField.enteredText else { return }
         emailTextField.isValid = emailIsValid(email: email)
-        passwordTextField.isValid = passwordIsValid(password: password)
+//        passwordTextField.isValid = passwordIsValid(password: password)
 
-        guard emailIsValid(email: email), passwordIsValid(password: password) else { return }
+        guard emailIsValid(email: email) else { return }
 
         presenter?.startLogin(email: email, password: password)
         showLoading()
@@ -86,13 +86,13 @@ class LoginViewController: UIViewController, PresenterToViewProtocol {
         return true
     }
     
-    private func passwordIsValid(password: String) -> Bool {
-        let pattern = "^(?=.*[A-Z].*[A-Z])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$"
-        guard password.range(of: pattern, options: .regularExpression) != nil else {
-            return false
-        }
-        return true
-    }
+//    private func passwordIsValid(password: String) -> Bool {
+//        let pattern = "^(?=.*[A-Z].*[A-Z])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$"
+//        guard password.range(of: pattern, options: .regularExpression) != nil else {
+//            return false
+//        }
+//        return true
+//    }
 
     func showLoading() {
         activityIndicator.startAnimating()
@@ -105,9 +105,12 @@ class LoginViewController: UIViewController, PresenterToViewProtocol {
     }
 
     func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.hideLoading()
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
     func showLoginSuccess() {

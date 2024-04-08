@@ -9,8 +9,8 @@ class LoginPresenter: ViewToPresenterProtocol, InteractorToPresenterProtocol {
         view?.showAlert(title: "Success", message: response.email)
     }
 
-    func loginFailed(with error: String) {
-        view?.showAlert(title: "Error", message: error)
+    func loginFailed(with error: NetworkError) {
+        view?.showAlert(title: "Error", message: error.localizedDescription)
     }
 
     func startLogin(email: String, password: String) {

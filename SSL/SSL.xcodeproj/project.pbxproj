@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		330DADFF2B9E155D0013A394 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330DADFE2B9E155D0013A394 /* SecondaryButton.swift */; };
+		335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F2F782BC2F8B600153A35 /* NetworkError.swift */; };
 		337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337AC2D82BC1A2C60059629D /* APIRoutes.swift */; };
 		33ABDC522BBF189C00329855 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABDC512BBF189C00329855 /* UserDTO.swift */; };
 		33D224482B7B6E2800116BAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D224472B7B6E2800116BAD /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		330DADFE2B9E155D0013A394 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		335F2F782BC2F8B600153A35 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		337AC2D82BC1A2C60059629D /* APIRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoutes.swift; sourceTree = "<group>"; };
 		33ABDC512BBF189C00329855 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		33D224442B7B6E2800116BAD /* SSL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSL.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,6 +203,7 @@
 				33F1770C2BB7111B00FA1B0D /* LoginAPIManager.swift */,
 				33ABDC512BBF189C00329855 /* UserDTO.swift */,
 				337AC2D82BC1A2C60059629D /* APIRoutes.swift */,
+				335F2F782BC2F8B600153A35 /* NetworkError.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */,
 				33D2244C2B7B6E2800116BAD /* ViewController.swift in Sources */,
 				33D224482B7B6E2800116BAD /* AppDelegate.swift in Sources */,
 				337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */,

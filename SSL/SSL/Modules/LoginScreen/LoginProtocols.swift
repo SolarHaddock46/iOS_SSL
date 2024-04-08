@@ -3,7 +3,7 @@ import UIKit
 
 protocol InteractorToPresenterProtocol {
     func loginSuccess(with response: UserDTO)
-    func loginFailed(with error: String)
+    func loginFailed(with error: NetworkError)
 }
 
 protocol PresenterToInteractorProtocol {

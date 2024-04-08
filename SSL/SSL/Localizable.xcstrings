@@ -12,6 +12,17 @@
         }
       }
     },
+    "Error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ошибка"
+          }
+        }
+      }
+    },
     "Forgot your password?" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -19,6 +30,42 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Забыли пароль?"
+          }
+        }
+      }
+    },
+    "Incorrect server response code: %@" : {
+      "comment" : "a",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неправильный код ответа сервера: %@"
+          }
+        }
+      }
+    },
+    "Invalid email or password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неправильная почта или пароль"
+          }
+        }
+      }
+    },
+    "Invalid user data format" : {
+
+    },
+    "Invalid user info format" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Информация о пользователе получена в неправильном формате"
           }
         }
       }
@@ -63,6 +110,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Зарегистрироваться"
+          }
+        }
+      }
+    },
+    "Unknown error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неизвестная ошибка"
           }
         }
       }

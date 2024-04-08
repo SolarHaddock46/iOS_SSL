@@ -9,15 +9,13 @@ final class LoginAPIManager {
     static func postLogin(email: String, password: String, completion: @escaping (Result<UserDTO?, Error>) -> Void) {
         let baseURL = URL(string: "https://ssl.smalyu.ru")!
         let apiRoutes = APIRoutes()
+        let networkError = NetworkError.self
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path = apiRoutes.loginRoute
         urlComponents?.queryItems = [URLQueryItem(name: "email", value: email),
                                      URLQueryItem(name: "password", value: password)]
         
-        guard let url = urlComponents?.url else {
-            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
-            return
-        }
+        guard let url = urlComponents?.url else { return}
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -39,12 +37,16 @@ final class LoginAPIManager {
             }
             
             guard let data = data else {
-                completion(.failure(NSError(domain: "No data received", code: 0, userInfo: nil)))
+                completion(.failure(networkError.unknownError))
                 return
             }
             
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
-                completion(.failure(NSError(domain: "Invalid response code", code: httpResponse.statusCode, userInfo: nil)))
+                if httpResponse.statusCode == 401 {
+                    completion(.failure(networkError.invalidCredentials))
+                } else {
+                    completion(.failure(networkError.invalidServerResponseCode(httpResponse.statusCode)))
+                }
                 return
             }
             

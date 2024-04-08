@@ -21,6 +21,7 @@ protocol ViewToPresenterProtocol {
 protocol PresenterToViewProtocol {
     var presenter: ViewToPresenterProtocol? { get set }
     func showAlert(title: String, message: String)
+    func hideLoading()
 }
 
 protocol PresenterToRouterProtocol {

@@ -94,14 +94,6 @@ class LoginViewController: UIViewController, PresenterToViewProtocol {
         }
         return true
     }
-    
-//    private func passwordIsValid(password: String) -> Bool {
-//        let pattern = "^(?=.*[A-Z].*[A-Z])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$"
-//        guard password.range(of: pattern, options: .regularExpression) != nil else {
-//            return false
-//        }
-//        return true
-//    }
 
     func showLoading() {
         activityIndicator.startAnimating()
@@ -109,16 +101,18 @@ class LoginViewController: UIViewController, PresenterToViewProtocol {
     }
 
     func hideLoading() {
-        activityIndicator.stopAnimating()
-        loginButton.isEnabled = true
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.loginButton.isEnabled = true
+        }
     }
 
     func showAlert(title: String, message: String) {
         DispatchQueue.main.async {
-            self.hideLoading()
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            self.hideLoading()
         }
     }
 

@@ -6,6 +6,7 @@ enum NetworkError: Error {
     case invalidServerResponseCode(Int)
     case unknownError
     case invalidUserDataFormat
+    case internalError
     
 }
 
@@ -22,6 +23,8 @@ extension NetworkError: LocalizedError {
             return NSLocalizedString("Unknown error", comment: "")
         case .invalidUserDataFormat:
             return NSLocalizedString("Invalid user data format", comment: "")
+        case .internalError:
+            return NSLocalizedString("Internal error", comment: "")
         }
     }
 }

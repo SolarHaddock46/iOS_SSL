@@ -45,6 +45,17 @@
         }
       }
     },
+    "Internal error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Внутренняя ошибка"
+          }
+        }
+      }
+    },
     "Invalid email or password" : {
       "extractionState" : "manual",
       "localizations" : {

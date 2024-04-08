@@ -11,7 +11,7 @@ struct ErrorDetail: Codable {
 
 final class LoginAPIManager {
     static func postLogin(email: String, password: String) async throws -> UserDTO {
-        let baseURL = URL(string: "https://ssl.smalyu.ru")!
+        guard let baseURL = URL(string: "https://ssl.smalyu.ru") else { throw NetworkError.internalError }
         let apiRoutes = APIRoutes()
         let networkError = NetworkError.self
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)

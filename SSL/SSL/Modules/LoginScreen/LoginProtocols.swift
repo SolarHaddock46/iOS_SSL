@@ -8,14 +8,14 @@ protocol InteractorToPresenterProtocol {
 
 protocol PresenterToInteractorProtocol {
     var presenter: InteractorToPresenterProtocol? { get set }
-    func performLogin(with user: UserDTO)
+    func performLogin(with user: UserDTO) async throws
 }
 
 protocol ViewToPresenterProtocol {
     var view: PresenterToViewProtocol? { get set }
     var interactor: PresenterToInteractorProtocol? { get set }
     var router: PresenterToRouterProtocol? { get set }
-    func startLogin(email: String, password: String)
+    func startLogin(email: String, password: String) async throws
 }
 
 protocol PresenterToViewProtocol {

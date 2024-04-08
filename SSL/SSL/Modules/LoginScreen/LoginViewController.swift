@@ -70,12 +70,21 @@ class LoginViewController: UIViewController, PresenterToViewProtocol {
         guard let email = emailTextField.enteredText,
               let password = passwordTextField.enteredText else { return }
         emailTextField.isValid = emailIsValid(email: email)
-//        passwordTextField.isValid = passwordIsValid(password: password)
 
         guard emailIsValid(email: email) else { return }
 
-        presenter?.startLogin(email: email, password: password)
-        showLoading()
+        Task {
+            do {
+                try await presenter?.startLogin(email: email, password: password)
+                showLoading()
+            } catch {
+                if let networkError = error as? NetworkError {
+                    showAlert(title: "Error", message: networkError.localizedDescription)
+                } else {
+                    showAlert(title: "Error", message: error.localizedDescription)
+                }
+            }
+        }
     }
     
     private func emailIsValid(email: String) -> Bool {

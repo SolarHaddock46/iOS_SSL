@@ -57,10 +57,6 @@
       }
     },
     "Invalid user data format" : {
-
-    },
-    "Invalid user info format" : {
-      "extractionState" : "manual",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -121,6 +117,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Неизвестная ошибка"
+          }
+        }
+      }
+    },
+    "Your account is not verified" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваш аккаунт не подтвержден модератором"
           }
         }
       }

@@ -5,8 +5,12 @@ struct LoginRequest: Codable {
     let password: String
 }
 
+struct ErrorDetail: Codable {
+    let detail: String
+}
+
 final class LoginAPIManager {
-    static func postLogin(email: String, password: String, completion: @escaping (Result<UserDTO?, Error>) -> Void) {
+    static func postLogin(email: String, password: String) async throws -> UserDTO {
         let baseURL = URL(string: "https://ssl.smalyu.ru")!
         let apiRoutes = APIRoutes()
         let networkError = NetworkError.self
@@ -15,7 +19,7 @@ final class LoginAPIManager {
         urlComponents?.queryItems = [URLQueryItem(name: "email", value: email),
                                      URLQueryItem(name: "password", value: password)]
         
-        guard let url = urlComponents?.url else { return}
+        guard let url = urlComponents?.url else { throw networkError.unknownError }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -26,38 +30,26 @@ final class LoginAPIManager {
         do {
             request.httpBody = try JSONEncoder().encode(loginData)
         } catch {
-            completion(.failure(error))
-            return
+            throw error
         }
-       
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(networkError.unknownError))
-                return
-            }
-            
-            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
-                if httpResponse.statusCode == 401 {
-                    completion(.failure(networkError.invalidCredentials))
-                } else {
-                    completion(.failure(networkError.invalidServerResponseCode(httpResponse.statusCode)))
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+            if httpResponse.statusCode == 401 {
+                let detailData = try JSONDecoder().decode(ErrorDetail.self, from: data)
+                let detail = detailData.detail
+                if detail == "Неверная почта или пароль" {
+                    throw networkError.invalidCredentials
+                } else if detail == "Ваша почта не подтверждена и аккаунт не подтвержден модератором" {
+                    throw networkError.unverifiedCredentials
                 }
-                return
-            }
-            
-            do {
-                let userDTO = try JSONDecoder().decode(UserDTO.self, from: data)
-                completion(.success(userDTO))
-            } catch {
-                completion(.failure(error))
+            } else {
+                throw networkError.invalidServerResponseCode(httpResponse.statusCode)
             }
         }
-       
-        task.resume()
+        
+        let userDTO = try JSONDecoder().decode(UserDTO.self, from: data)
+        return userDTO
     }
 }

@@ -13,8 +13,8 @@ class LoginPresenter: ViewToPresenterProtocol, InteractorToPresenterProtocol {
         view?.showAlert(title: "Error", message: error.localizedDescription)
     }
 
-    func startLogin(email: String, password: String) {
+    func startLogin(email: String, password: String) async throws {
         let user = UserDTO(email: email, password: password)
-        interactor?.performLogin(with: user)
+        try await interactor?.performLogin(with: user)
     }
 }

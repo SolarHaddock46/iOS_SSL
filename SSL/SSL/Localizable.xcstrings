@@ -34,6 +34,17 @@
         }
       }
     },
+    "I need a HSE pass" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мне нужен пропуск в Вышку"
+          }
+        }
+      }
+    },
     "Incorrect server response code: %@" : {
       "comment" : "a",
       "localizations" : {

@@ -35,10 +35,24 @@
       }
     },
     "Father name" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Имя"
+          }
+        }
+      }
     },
     "First name" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отчество"
+          }
+        }
+      }
     },
     "Forgot your password?" : {
       "extractionState" : "manual",
@@ -47,6 +61,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Забыли пароль?"
+          }
+        }
+      }
+    },
+    "I accept the Terms of use\nand the Privacy Policy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Я принимаю условия использования и политику конфеденциальности"
           }
         }
       }
@@ -128,10 +153,24 @@
       }
     },
     "Register an account" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Регистрация"
+          }
+        }
+      }
     },
     "Second name" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Фамилия"
+          }
+        }
+      }
     },
     "Sign in" : {
       "extractionState" : "manual",

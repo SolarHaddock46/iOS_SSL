@@ -8,7 +8,7 @@ protocol LoginInteractorToPresenterProtocol {
 
 protocol LoginPresenterToInteractorProtocol {
     var presenter: LoginInteractorToPresenterProtocol? { get set }
-    func performLogin(with user: UserDTO) async throws
+    func performLogin(with user: LoginRequestDTO) async throws
 }
 
 protocol LoginViewToPresenterProtocol {

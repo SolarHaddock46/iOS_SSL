@@ -14,7 +14,7 @@ class LoginPresenter: LoginViewToPresenterProtocol, LoginInteractorToPresenterPr
     }
 
     func startLogin(email: String, password: String) async throws {
-        let user = UserDTO(email: email, password: password)
+        let user = LoginRequestDTO(email: email, password: password)
         try await interactor?.performLogin(with: user)
     }
 }

@@ -38,6 +38,7 @@
 		33F6E1562BC690D400CAE32F /* RegisterFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1552BC690D400CAE32F /* RegisterFirstViewController.swift */; };
 		33F6E1582BC690E100CAE32F /* RegisterSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1572BC690E100CAE32F /* RegisterSecondViewController.swift */; };
 		33F6E15A2BC690F400CAE32F /* RegisterSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1592BC690F400CAE32F /* RegisterSuccessViewController.swift */; };
+		33F6E15D2BC692F700CAE32F /* LoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E15C2BC692F700CAE32F /* LoginRequestDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		33F6E1552BC690D400CAE32F /* RegisterFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFirstViewController.swift; sourceTree = "<group>"; };
 		33F6E1572BC690E100CAE32F /* RegisterSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSecondViewController.swift; sourceTree = "<group>"; };
 		33F6E1592BC690F400CAE32F /* RegisterSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSuccessViewController.swift; sourceTree = "<group>"; };
+		33F6E15C2BC692F700CAE32F /* LoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,8 +223,8 @@
 		33F1770B2BB7110500FA1B0D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				33F6E15B2BC692E500CAE32F /* DTO */,
 				33F1770C2BB7111B00FA1B0D /* LoginAPIManager.swift */,
-				33ABDC512BBF189C00329855 /* UserDTO.swift */,
 				337AC2D82BC1A2C60059629D /* APIRoutes.swift */,
 				335F2F782BC2F8B600153A35 /* NetworkError.swift */,
 			);
@@ -241,6 +243,15 @@
 				33F6E1592BC690F400CAE32F /* RegisterSuccessViewController.swift */,
 			);
 			path = RegisterScreen;
+			sourceTree = "<group>";
+		};
+		33F6E15B2BC692E500CAE32F /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				33ABDC512BBF189C00329855 /* UserDTO.swift */,
+				33F6E15C2BC692F700CAE32F /* LoginRequestDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +418,7 @@
 				33F6E15A2BC690F400CAE32F /* RegisterSuccessViewController.swift in Sources */,
 				33F6E1522BC690A600CAE32F /* RegisterPresenter.swift in Sources */,
 				337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */,
+				33F6E15D2BC692F700CAE32F /* LoginRequestDTO.swift in Sources */,
 				33D224822B7B803C00116BAD /* PrimaryButton.swift in Sources */,
 				33D2248C2B7B8DC000116BAD /* CustomLabel.swift in Sources */,
 				330DADFF2B9E155D0013A394 /* SecondaryButton.swift in Sources */,

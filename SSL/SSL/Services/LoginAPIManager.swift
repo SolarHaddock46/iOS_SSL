@@ -1,10 +1,5 @@
 import Foundation
 
-struct LoginRequest: Codable {
-    let email: String
-    let password: String
-}
-
 struct ErrorDetail: Codable {
     let detail: String
 }
@@ -25,8 +20,8 @@ final class LoginAPIManager {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let loginData = LoginRequest(email: email, password: password)
-               
+        let loginData = LoginRequestDTO(email: email, password: password)
+        
         do {
             request.httpBody = try JSONEncoder().encode(loginData)
         } catch {

@@ -4,7 +4,7 @@ final class LoginInteractor: LoginPresenterToInteractorProtocol {
     var presenter: LoginInteractorToPresenterProtocol?
     let networkError = NetworkError.self
     
-    func performLogin(with user: UserDTO) async throws {
+    func performLogin(with user: LoginRequestDTO) async throws {
         do {
             let userDTO = try await LoginAPIManager.postLogin(email: user.email, password: user.password)
             self.presenter?.loginSuccess(with: userDTO)

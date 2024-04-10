@@ -21,7 +21,7 @@ protocol LoginViewToPresenterProtocol {
 protocol LoginPresenterToViewProtocol {
     var presenter: LoginViewToPresenterProtocol? { get set }
     func showAlert(title: String, message: String)
-    func hideLoading()
+//    func hideLoading()
 }
 
 protocol LoginPresenterToRouterProtocol {

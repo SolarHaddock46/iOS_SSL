@@ -15,7 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         let initialViewController = LoginRouter.createModule()
-        window?.rootViewController = initialViewController
+        let navigationController = UINavigationController(rootViewController: initialViewController)
+        navigationController.hidesBarsOnSwipe = true
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 

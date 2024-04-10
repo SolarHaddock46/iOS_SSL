@@ -79,7 +79,7 @@ class RegisterSecondViewController: UIViewController {
             let telegram = telegramTextField.enteredText
             let password1 = password1TextField.enteredText
             let password2 = password2TextField.enteredText
-            showAlert(title: "ok", message: "ok")
+            navigationController?.pushViewController(EmailVerificationViewController(), animated: true)
 //            presenter?.startRegister(email: email, telegram: telegram, password1: password1, password2: password2) { [weak self] error in
 //                if let error = error {
 //                    self?.showAlert(title: "Error", message: "An error occurred during registration: \(error.localizedDescription)")

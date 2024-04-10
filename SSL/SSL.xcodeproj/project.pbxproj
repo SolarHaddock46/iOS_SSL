@@ -37,7 +37,7 @@
 		33F6E1542BC690B100CAE32F /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1532BC690B100CAE32F /* RegisterRouter.swift */; };
 		33F6E1562BC690D400CAE32F /* RegisterFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1552BC690D400CAE32F /* RegisterFirstViewController.swift */; };
 		33F6E1582BC690E100CAE32F /* RegisterSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1572BC690E100CAE32F /* RegisterSecondViewController.swift */; };
-		33F6E15A2BC690F400CAE32F /* RegisterSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1592BC690F400CAE32F /* RegisterSuccessViewController.swift */; };
+		33F6E15A2BC690F400CAE32F /* EmailVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1592BC690F400CAE32F /* EmailVerificationViewController.swift */; };
 		33F6E15D2BC692F700CAE32F /* LoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E15C2BC692F700CAE32F /* LoginRequestDTO.swift */; };
 		33F6E15F2BC6A1F000CAE32F /* UserRegisterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E15E2BC6A1F000CAE32F /* UserRegisterDTO.swift */; };
 		33F6E1612BC6A5B300CAE32F /* RegisterRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1602BC6A5B300CAE32F /* RegisterRequestDTO.swift */; };
@@ -96,7 +96,7 @@
 		33F6E1532BC690B100CAE32F /* RegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
 		33F6E1552BC690D400CAE32F /* RegisterFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFirstViewController.swift; sourceTree = "<group>"; };
 		33F6E1572BC690E100CAE32F /* RegisterSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSecondViewController.swift; sourceTree = "<group>"; };
-		33F6E1592BC690F400CAE32F /* RegisterSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSuccessViewController.swift; sourceTree = "<group>"; };
+		33F6E1592BC690F400CAE32F /* EmailVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationViewController.swift; sourceTree = "<group>"; };
 		33F6E15C2BC692F700CAE32F /* LoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestDTO.swift; sourceTree = "<group>"; };
 		33F6E15E2BC6A1F000CAE32F /* UserRegisterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterDTO.swift; sourceTree = "<group>"; };
 		33F6E1602BC6A5B300CAE32F /* RegisterRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequestDTO.swift; sourceTree = "<group>"; };
@@ -244,7 +244,7 @@
 				33F6E1532BC690B100CAE32F /* RegisterRouter.swift */,
 				33F6E1552BC690D400CAE32F /* RegisterFirstViewController.swift */,
 				33F6E1572BC690E100CAE32F /* RegisterSecondViewController.swift */,
-				33F6E1592BC690F400CAE32F /* RegisterSuccessViewController.swift */,
+				33F6E1592BC690F400CAE32F /* EmailVerificationViewController.swift */,
 			);
 			path = RegisterScreen;
 			sourceTree = "<group>";
@@ -421,7 +421,7 @@
 				335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */,
 				33D2244C2B7B6E2800116BAD /* ViewController.swift in Sources */,
 				33D224482B7B6E2800116BAD /* AppDelegate.swift in Sources */,
-				33F6E15A2BC690F400CAE32F /* RegisterSuccessViewController.swift in Sources */,
+				33F6E15A2BC690F400CAE32F /* EmailVerificationViewController.swift in Sources */,
 				33F6E1522BC690A600CAE32F /* RegisterPresenter.swift in Sources */,
 				337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */,
 				33F6E15D2BC692F700CAE32F /* LoginRequestDTO.swift in Sources */,

@@ -12,6 +12,23 @@
         }
       }
     },
+    "Check your email" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check your email, we've sent you a verification code"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проверьте почту, мы отправили код для подтверждения"
+          }
+        }
+      }
+    },
     "Email" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -19,6 +36,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Email"
+          }
+        }
+      }
+    },
+    "Email verification code" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Код подтверждения"
           }
         }
       }
@@ -163,7 +190,14 @@
       }
     },
     "Repeat password" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пароль повторно"
+          }
+        }
+      }
     },
     "Second name" : {
       "localizations" : {
@@ -198,7 +232,14 @@
       }
     },
     "Telegram" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Telegram"
+          }
+        }
+      }
     },
     "Unknown error" : {
       "extractionState" : "manual",

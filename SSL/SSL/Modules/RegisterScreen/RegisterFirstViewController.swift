@@ -95,8 +95,8 @@ class RegisterFirstViewController: UIViewController, RegisterPresenterToViewProt
 
     @objc func nextStageButtonTapped(_ sender: UIButton) {
         if isFormValid() {
-            showAlert(title: "ok", message: "ok")
-        } 
+            navigationController?.pushViewController(RegisterSecondViewController(), animated: true)
+        }
     }
     
     @objc func toLoginButtonTapped(_ sender: UIButton) {

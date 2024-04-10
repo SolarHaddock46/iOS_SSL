@@ -162,6 +162,9 @@
         }
       }
     },
+    "Repeat password" : {
+
+    },
     "Second name" : {
       "localizations" : {
         "ru" : {
@@ -193,6 +196,9 @@
           }
         }
       }
+    },
+    "Telegram" : {
+
     },
     "Unknown error" : {
       "extractionState" : "manual",

@@ -22,6 +22,10 @@ class UserInfoTextField: UITextField {
             textField.backgroundColor = isValid ? validTextFieldColor : invalidTextFieldColor
         }
     }
+    
+    var isTextEmpty: Bool {
+        return enteredText?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+    }
 
     var textFieldHeight: CGFloat = 48.0
 

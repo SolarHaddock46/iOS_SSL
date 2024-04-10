@@ -32,6 +32,7 @@ class RegisterFirstViewController: UIViewController, RegisterPresenterToViewProt
     private lazy var fatherNameTextField = UserInfoTextField(placeholder: NSLocalizedString("Father name", comment: ""), isSecure: false)
     
     private lazy var hsePassCheckbox = CheckboxWithLabel(localisationKey: "I need a HSE pass")
+    private lazy var acceptConditionsCheckbox = CheckboxWithLabel(localisationKey: "I accept the Terms of use and the Privacy Policy")
     
     private lazy var nextStageButton = PrimaryButton(localizationKey: "Save")
     private lazy var toLoginButton = SecondaryButton(localizationKey: "Log in")
@@ -52,6 +53,7 @@ class RegisterFirstViewController: UIViewController, RegisterPresenterToViewProt
         mainView.addArrangedSubview(secondNameTextField)
         mainView.addArrangedSubview(fatherNameTextField)
         mainView.addArrangedSubview(hsePassCheckbox)
+        mainView.addArrangedSubview(acceptConditionsCheckbox)
         mainView.addArrangedSubview(nextStageButton)
         mainView.addArrangedSubview(toLoginButton)
 
@@ -62,9 +64,10 @@ class RegisterFirstViewController: UIViewController, RegisterPresenterToViewProt
 
         NSLayoutConstraint.activate([
             mainView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            mainView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+//            mainView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             mainView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             mainView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            mainView.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: 16),
             navBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             navBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             navBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16)
@@ -82,24 +85,28 @@ class RegisterFirstViewController: UIViewController, RegisterPresenterToViewProt
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    private func isFormValid() -> Bool {
+        firstNameTextField.isValid = (!firstNameTextField.isTextEmpty)
+        secondNameTextField.isValid = (!secondNameTextField.isTextEmpty)
+        var conditionsAccepted: Bool = acceptConditionsCheckbox.isChecked
+        return firstNameTextField.isValid && secondNameTextField.isValid && conditionsAccepted
+    }
 
     @objc func nextStageButtonTapped(_ sender: UIButton) {
-        firstNameTextField.isValid = !(firstNameTextField.text?.isEmpty ?? true)
-        secondNameTextField.isValid = !(secondNameTextField.text?.isEmpty ?? true)
-        
-        if firstNameTextField.isValid && secondNameTextField.isValid {
-//            navigationController?.pushViewController(RegisterSecondViewController, animated: true)
-        }
+        if isFormValid() {
+            showAlert(title: "ok", message: "ok")
+        } 
     }
     
     @objc func toLoginButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
 
-    private func emailIsValid(email: String) -> Bool {
-        let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        return email.range(of: pattern, options: .regularExpression) != nil
-    }
+//    private func emailIsValid(email: String) -> Bool {
+//        let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+//        return email.range(of: pattern, options: .regularExpression) != nil
+//    }
 
     func showLoading() {
         activityIndicator.startAnimating()

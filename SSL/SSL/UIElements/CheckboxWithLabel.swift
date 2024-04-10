@@ -46,3 +46,15 @@ class CheckboxWithLabel: UIView {
         checkbox.isSelected = checked
     }
 }
+
+extension CheckboxWithLabel {
+  var isChecked: Bool {
+    get {
+      return checkbox.isSelected
+    }
+    set {
+      checkbox.isSelected = newValue
+    }
+  }
+}
+

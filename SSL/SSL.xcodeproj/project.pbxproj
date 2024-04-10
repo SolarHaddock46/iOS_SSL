@@ -29,6 +29,7 @@
 		33F1770F2BB71E3E00FA1B0D /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F1770E2BB71E3E00FA1B0D /* LoginPresenter.swift */; };
 		33F177112BB71F3A00FA1B0D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F177102BB71F3A00FA1B0D /* LoginViewController.swift */; };
 		33F177132BB7211600FA1B0D /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F177122BB7211600FA1B0D /* LoginRouter.swift */; };
+		33F6E1482BC6867900CAE32F /* ProfilePicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1472BC6867900CAE32F /* ProfilePicView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		33F1770E2BB71E3E00FA1B0D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		33F177102BB71F3A00FA1B0D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		33F177122BB7211600FA1B0D /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		33F6E1472BC6867900CAE32F /* ProfilePicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				33D2248B2B7B8DC000116BAD /* CustomLabel.swift */,
 				33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */,
 				330DADFE2B9E155D0013A394 /* SecondaryButton.swift */,
+				33F6E1472BC6867900CAE32F /* ProfilePicView.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				33D2248A2B7B8C5200116BAD /* InsetedTextField.swift in Sources */,
 				33F177132BB7211600FA1B0D /* LoginRouter.swift in Sources */,
 				33F177112BB71F3A00FA1B0D /* LoginViewController.swift in Sources */,
+				33F6E1482BC6867900CAE32F /* ProfilePicView.swift in Sources */,
 				33F1770F2BB71E3E00FA1B0D /* LoginPresenter.swift in Sources */,
 				33F177072BB7061C00FA1B0D /* LoginInteractor.swift in Sources */,
 				33D2248E2B7B8F3800116BAD /* UserInfoTextField.swift in Sources */,

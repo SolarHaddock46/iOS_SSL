@@ -7,6 +7,7 @@ enum NetworkError: Error {
     case unknownError
     case invalidUserDataFormat
     case internalError
+    case emailAlreadyExists
     
 }
 
@@ -25,6 +26,8 @@ extension NetworkError: LocalizedError {
             return NSLocalizedString("Invalid user data format", comment: "")
         case .internalError:
             return NSLocalizedString("Internal error", comment: "")
+        case .emailAlreadyExists:
+            return NSLocalizedString("A user with this email already exists.", comment: "")
         }
     }
 }

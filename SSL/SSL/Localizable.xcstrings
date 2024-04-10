@@ -1,6 +1,17 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "A user with this email already exists." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пользователь с таким адресом электронной почты уже существует."
+          }
+        }
+      }
+    },
     "Email" : {
       "extractionState" : "manual",
       "localizations" : {

@@ -34,6 +34,12 @@
         }
       }
     },
+    "Father name" : {
+
+    },
+    "First name" : {
+
+    },
     "Forgot your password?" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -120,6 +126,12 @@
           }
         }
       }
+    },
+    "Register an account" : {
+
+    },
+    "Second name" : {
+
     },
     "Sign in" : {
       "extractionState" : "manual",

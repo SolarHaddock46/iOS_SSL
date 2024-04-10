@@ -64,6 +64,7 @@ class LoginViewController: UIViewController, LoginPresenterToViewProtocol {
         ])
 
         loginButton.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
+        toRegisterButton.addTarget(self, action: #selector(toRegisterButtonTapped(_:)), for: .touchUpInside)
     }
 
     @objc func loginButtonTapped(_ sender: UIButton) {
@@ -85,6 +86,10 @@ class LoginViewController: UIViewController, LoginPresenterToViewProtocol {
                 }
             }
         }
+    }
+    
+    @objc func toRegisterButtonTapped(_ sender: UIButton) {
+        navigationController?.pushViewController(RegisterFirstViewController(), animated: true)
     }
     
     private func emailIsValid(email: String) -> Bool {

@@ -12,8 +12,8 @@ class CheckboxWithLabel: UIView {
 
     private let label: CustomLabel
 
-    init(localisationKey: String, color: UIColor) {
-        label = CustomLabel(localisationKey: localisationKey, color: color)
+    init(localisationKey: String) {
+        label = CustomLabel(localisationKey: localisationKey)
         super.init(frame: .zero)
         setupView()
     }

@@ -6,7 +6,7 @@ final class RegisterInteractor: RegisterPresenterToInteractorProtocol {
     
     func performRegister(with user: RegisterRequestDTO) async throws {
         do {
-            let userDTO = try await LoginAPIManager.postRegister(firstName: user.firstName, secondName: user.secondName, fatherName: user.fatherName, telegram: user.telegram, email: user.email, password1: user.password1, password2: user.password2, image: user.image, hsePass: user.hsePass, acceptConditions: true)
+            let userDTO = try await LoginAPIManager.postRegister(firstName: user.firstName, secondName: user.secondName, fatherName: user.fatherName, telegram: user.telegram, email: user.email, password1: user.password1, password2: user.password2, image: user.image, hsePass: user.hsePass, acceptConditions: user.acceptConditions)
             self.presenter?.registerSuccess(with: userDTO)
         } catch {
             if let networkError = error as? NetworkError {

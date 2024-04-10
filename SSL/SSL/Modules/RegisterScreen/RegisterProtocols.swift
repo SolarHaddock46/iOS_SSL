@@ -15,7 +15,7 @@ protocol RegisterViewToPresenterProtocol {
     var view: RegisterPresenterToViewProtocol? { get set }
     var interactor: RegisterPresenterToInteractorProtocol? { get set }
     var router: RegisterPresenterToRouterProtocol? { get set }
-    func startRegister(firstName: String, secondName: String, fatherName: String?, telegram: String, email: String, password1: String, password2: String, hsePass: Bool, acceptConditions: Bool) async throws
+    func startRegister(firstName: String, secondName: String, fatherName: String?, telegram: String, email: String, password1: String, password2: String, image: String, hsePass: Bool, acceptConditions: Bool) async throws
 }
 
 protocol RegisterPresenterToViewProtocol {

@@ -1,7 +1,7 @@
 import Foundation
 
-final class LoginInteractor: PresenterToInteractorProtocol {
-    var presenter: InteractorToPresenterProtocol?
+final class LoginInteractor: LoginPresenterToInteractorProtocol {
+    var presenter: LoginInteractorToPresenterProtocol?
     let networkError = NetworkError.self
     
     func performLogin(with user: UserDTO) async throws {

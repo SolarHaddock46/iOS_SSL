@@ -1,9 +1,9 @@
 import Foundation
 
-class LoginPresenter: ViewToPresenterProtocol, InteractorToPresenterProtocol {
-    var view: PresenterToViewProtocol?
-    var interactor: PresenterToInteractorProtocol?
-    var router: PresenterToRouterProtocol?
+class LoginPresenter: LoginViewToPresenterProtocol, LoginInteractorToPresenterProtocol {
+    var view: LoginPresenterToViewProtocol?
+    var interactor: LoginPresenterToInteractorProtocol?
+    var router: LoginPresenterToRouterProtocol?
     
     func loginSuccess(with response: UserDTO) {
         view?.showAlert(title: "Success", message: response.email)

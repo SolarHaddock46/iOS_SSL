@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class LoginRouter: PresenterToRouterProtocol {
+class LoginRouter: LoginPresenterToRouterProtocol {
     static func createModule() -> UIViewController {
         let view = LoginViewController()
         let presenter = LoginPresenter()

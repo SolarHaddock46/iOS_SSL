@@ -1,7 +1,7 @@
 import UIKit
 
-class LoginViewController: UIViewController, PresenterToViewProtocol {
-    var presenter: ViewToPresenterProtocol?
+class LoginViewController: UIViewController, LoginPresenterToViewProtocol {
+    var presenter: LoginViewToPresenterProtocol?
     
     private lazy var testView: UIStackView = {
         let view = UIStackView()

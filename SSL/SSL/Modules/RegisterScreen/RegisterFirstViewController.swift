@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import Photos
 
 class RegisterFirstViewController: UIViewController, RegisterPresenterToViewProtocol {
     var presenter: RegisterViewToPresenterProtocol?
@@ -75,6 +76,7 @@ class RegisterFirstViewController: UIViewController, RegisterPresenterToViewProt
     init() {
         profilePicPicker = ProfilePicView()
         super.init(nibName: nil, bundle: nil)
+        profilePicPicker.delegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -137,3 +139,45 @@ class RegisterFirstViewController: UIViewController, RegisterPresenterToViewProt
 //    }
 
 }
+
+extension RegisterFirstViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else { return }
+        profilePicPicker.avatar = image
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+}
+
+extension RegisterFirstViewController: ProfilePicViewDelegate {
+
+    func profilePicViewDidTapAvatar() {
+        requestPhotoLibraryAccess()
+    }
+
+    func requestPhotoLibraryAccess() {
+        PHPhotoLibrary.requestAuthorization { [weak self] status in
+            switch status {
+            case .authorized, .limited:
+                DispatchQueue.main.async { [weak self] in
+                    self?.showImagePicker()
+                }
+            default:
+                break
+            }
+        }
+    }
+
+    func showImagePicker() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true)
+    }
+}
+
+

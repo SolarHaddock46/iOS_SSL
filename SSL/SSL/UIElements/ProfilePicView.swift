@@ -3,6 +3,7 @@ import UIKit
 
 protocol ProfilePicViewDelegate: AnyObject {
     func profilePicViewDidTapAvatar()
+    func requestPhotoLibraryAccess()
 }
 
 final class ProfilePicView: UIView {

@@ -4,8 +4,8 @@ class CheckboxWithLabel: UIView {
 
     private let checkbox: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("☐", for: .normal)
-        button.setTitle("☑︎", for: .selected)
+        button.setImage(UIImage(systemName: "circle"), for: .normal)
+        button.setImage(UIImage(systemName: "checkmark.circle"), for: .selected)
         button.addTarget(self, action: #selector(checkboxTapped), for: .touchUpInside)
         return button
     }()
@@ -48,13 +48,12 @@ class CheckboxWithLabel: UIView {
 }
 
 extension CheckboxWithLabel {
-  var isChecked: Bool {
-    get {
-      return checkbox.isSelected
+    var isChecked: Bool {
+        get {
+            return checkbox.isSelected
+        }
+        set {
+            checkbox.isSelected = newValue
+        }
     }
-    set {
-      checkbox.isSelected = newValue
-    }
-  }
 }
-

@@ -87,10 +87,14 @@ class RegisterFirstViewController: UIViewController, RegisterPresenterToViewProt
     }
     
     private func isFormValid() -> Bool {
-        firstNameTextField.isValid = (!firstNameTextField.isTextEmpty)
-        secondNameTextField.isValid = (!secondNameTextField.isTextEmpty)
+        let namePattern = "^[a-zA-ZА-Яа-я]+$"
+        
+        firstNameTextField.isValid = (!firstNameTextField.isTextEmpty && (firstNameTextField.enteredText?.range(of: namePattern, options: .regularExpression) != nil))
+        secondNameTextField.isValid = (!secondNameTextField.isTextEmpty && (secondNameTextField.enteredText?.range(of: namePattern, options: .regularExpression) != nil))
+        fatherNameTextField.isValid = (fatherNameTextField.isTextEmpty || (fatherNameTextField.enteredText?.range(of: namePattern, options: .regularExpression) != nil))
+        
         var conditionsAccepted: Bool = acceptConditionsCheckbox.isChecked
-        return firstNameTextField.isValid && secondNameTextField.isValid && conditionsAccepted
+        return firstNameTextField.isValid && secondNameTextField.isValid && fatherNameTextField.isValid && conditionsAccepted
     }
 
     @objc func nextStageButtonTapped(_ sender: UIButton) {

@@ -1,6 +1,6 @@
 import UIKit
 
-class CustomLabel: UILabel {
+class SSLLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)

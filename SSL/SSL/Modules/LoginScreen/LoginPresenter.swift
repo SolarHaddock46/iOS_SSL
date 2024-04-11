@@ -6,7 +6,7 @@ class LoginPresenter: LoginViewToPresenterProtocol, LoginInteractorToPresenterPr
     var router: LoginPresenterToRouterProtocol?
     
     func loginSuccess(with response: UserDTO) {
-        view?.showAlert(title: "Success", message: response.email)
+        view?.showAlert(title: "Success", message: response.tokens.description)
     }
 
     func loginFailed(with error: NetworkError) {

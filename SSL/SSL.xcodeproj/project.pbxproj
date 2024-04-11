@@ -21,7 +21,7 @@
 		33D2247E2B7B784200116BAD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 33D2247D2B7B784200116BAD /* Localizable.xcstrings */; };
 		33D224822B7B803C00116BAD /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D224812B7B803C00116BAD /* PrimaryButton.swift */; };
 		33D2248A2B7B8C5200116BAD /* InsetedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D224892B7B8C5200116BAD /* InsetedTextField.swift */; };
-		33D2248C2B7B8DC000116BAD /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2248B2B7B8DC000116BAD /* CustomLabel.swift */; };
+		33D2248C2B7B8DC000116BAD /* SSLLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2248B2B7B8DC000116BAD /* SSLLabel.swift */; };
 		33D2248E2B7B8F3800116BAD /* UserInfoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */; };
 		33F177072BB7061C00FA1B0D /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F177062BB7061C00FA1B0D /* LoginInteractor.swift */; };
 		33F177092BB706B000FA1B0D /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F177082BB706B000FA1B0D /* LoginProtocols.swift */; };
@@ -80,7 +80,7 @@
 		33D224812B7B803C00116BAD /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		33D224842B7B822900116BAD /* Onest.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Onest.ttf; sourceTree = "<group>"; };
 		33D224892B7B8C5200116BAD /* InsetedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetedTextField.swift; sourceTree = "<group>"; };
-		33D2248B2B7B8DC000116BAD /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		33D2248B2B7B8DC000116BAD /* SSLLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLLabel.swift; sourceTree = "<group>"; };
 		33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTextField.swift; sourceTree = "<group>"; };
 		33F177062BB7061C00FA1B0D /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		33F177082BB706B000FA1B0D /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 			children = (
 				33D224812B7B803C00116BAD /* PrimaryButton.swift */,
 				33D224892B7B8C5200116BAD /* InsetedTextField.swift */,
-				33D2248B2B7B8DC000116BAD /* CustomLabel.swift */,
+				33D2248B2B7B8DC000116BAD /* SSLLabel.swift */,
 				33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */,
 				330DADFE2B9E155D0013A394 /* SecondaryButton.swift */,
 				33F6E1472BC6867900CAE32F /* ProfilePicView.swift */,
@@ -427,7 +427,7 @@
 				33F6E15D2BC692F700CAE32F /* LoginRequestDTO.swift in Sources */,
 				33F6E15F2BC6A1F000CAE32F /* UserRegisterDTO.swift in Sources */,
 				33D224822B7B803C00116BAD /* PrimaryButton.swift in Sources */,
-				33D2248C2B7B8DC000116BAD /* CustomLabel.swift in Sources */,
+				33D2248C2B7B8DC000116BAD /* SSLLabel.swift in Sources */,
 				330DADFF2B9E155D0013A394 /* SecondaryButton.swift in Sources */,
 				33F6E1562BC690D400CAE32F /* RegisterFirstViewController.swift in Sources */,
 				33D2244A2B7B6E2800116BAD /* SceneDelegate.swift in Sources */,

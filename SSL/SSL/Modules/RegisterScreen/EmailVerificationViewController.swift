@@ -27,7 +27,7 @@ class EmailVerificationViewController: UIViewController {
         return navBar
     }()
     
-    private lazy var instructionLabel = CustomLabel(localisationKey: "Check your email")
+    private lazy var instructionLabel = SSLLabel(localisationKey: "Check your email")
     private lazy var codeTextField = UserInfoTextField(placeholder: NSLocalizedString("Email verification code", comment: ""), isSecure: false)
     private lazy var continueButton = PrimaryButton(localizationKey: "Continue")
     private lazy var resendButton = SecondaryButton(localizationKey: "Resend code")

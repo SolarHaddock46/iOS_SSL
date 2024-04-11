@@ -9,7 +9,7 @@ class ViewController: UIViewController {
         return view
     }()
 
-    private lazy var testLabel = CustomLabel(localisationKey: "Log in")
+    private lazy var testLabel = SSLLabel(localisationKey: "Log in")
 
     private lazy var textField = UserInfoTextField(placeholder: NSLocalizedString("Password", comment: "a"), isSecure: true)
 

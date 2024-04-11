@@ -10,10 +10,10 @@ class CheckboxWithLabel: UIView {
         return button
     }()
 
-    private let label: CustomLabel
+    private let label: SSLLabel
 
     init(localisationKey: String) {
-        label = CustomLabel(localisationKey: localisationKey)
+        label = SSLLabel(localisationKey: localisationKey)
         super.init(frame: .zero)
         setupView()
     }

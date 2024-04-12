@@ -99,6 +99,13 @@ class RegisterFirstViewController: UIViewController, RegisterPresenterToViewProt
 
     @objc func nextStageButtonTapped(_ sender: UIButton) {
         if isFormValid() {
+            RegisterDataManager.shared.firstName = firstNameTextField.enteredText
+            RegisterDataManager.shared.secondName = secondNameTextField.enteredText
+            RegisterDataManager.shared.fatherName = fatherNameTextField.enteredText
+            RegisterDataManager.shared.image = "testtesttesttesttest" // костыль, заменить после внедрения механизма выгрузки авы
+            RegisterDataManager.shared.hsePass = hsePassCheckbox.isChecked
+            RegisterDataManager.shared.acceptConditions = acceptConditionsCheckbox.isChecked
+            
             navigationController?.pushViewController(RegisterSecondViewController(), animated: true)
         }
     }

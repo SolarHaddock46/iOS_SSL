@@ -74,20 +74,32 @@ class RegisterSecondViewController: UIViewController {
     }
     
     @objc func registerButtonTapped(_ sender: UIButton) {
+         
         if isFormValid() {
-            let email = emailTextField.enteredText
-            let telegram = telegramTextField.enteredText
-            let password1 = password1TextField.enteredText
-            let password2 = password2TextField.enteredText
-            navigationController?.pushViewController(EmailVerificationViewController(), animated: true)
-//            presenter?.startRegister(email: email, telegram: telegram, password1: password1, password2: password2) { [weak self] error in
-//                if let error = error {
-//                    self?.showAlert(title: "Error", message: "An error occurred during registration: \(error.localizedDescription)")
-//                } else {
-//                    self?.showAlert(title: "Success", message: "Registration successful")
-//                }
+            guard let firstName = RegisterDataManager.shared.firstName,
+                  let secondName = RegisterDataManager.shared.secondName,
+                  let fatherName = RegisterDataManager.shared.fatherName,
+                  let hsePass = RegisterDataManager.shared.hsePass,
+                  let acceptConditions = RegisterDataManager.shared.acceptConditions,
+                  let email = emailTextField.enteredText,
+                  let telegram = telegramTextField.enteredText,
+                  let password1 = password1TextField.enteredText,
+                  let password2 = password2TextField.enteredText,
+                  let image = RegisterDataManager.shared.image else { return }
+            Task {
+                do {
+                    try await presenter?.startRegister(firstName: firstName, secondName: secondName, fatherName: fatherName, telegram: telegram, email: email, password1: password1, password2: password2, image: image, hsePass: hsePass, acceptConditions: acceptConditions)
+                    navigationController?.pushViewController(EmailVerificationViewController(), animated: true)
+                } catch {
+                    if let networkError = error as? NetworkError {
+                        showAlert(title: "Error", message: networkError.localizedDescription)
+                    } else {
+                        showAlert(title: "Error", message: error.localizedDescription)
+                    }
+                }
             }
         }
+    }
     
     func showAlert(title: String, message: String) {
         DispatchQueue.main.async {

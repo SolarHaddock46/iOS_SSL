@@ -41,6 +41,7 @@
 		33F6E15D2BC692F700CAE32F /* LoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E15C2BC692F700CAE32F /* LoginRequestDTO.swift */; };
 		33F6E15F2BC6A1F000CAE32F /* UserRegisterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E15E2BC6A1F000CAE32F /* UserRegisterDTO.swift */; };
 		33F6E1612BC6A5B300CAE32F /* RegisterRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1602BC6A5B300CAE32F /* RegisterRequestDTO.swift */; };
+		33F6E1672BC90E6D00CAE32F /* RegisterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1662BC90E6D00CAE32F /* RegisterDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		33F6E15C2BC692F700CAE32F /* LoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestDTO.swift; sourceTree = "<group>"; };
 		33F6E15E2BC6A1F000CAE32F /* UserRegisterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterDTO.swift; sourceTree = "<group>"; };
 		33F6E1602BC6A5B300CAE32F /* RegisterRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequestDTO.swift; sourceTree = "<group>"; };
+		33F6E1662BC90E6D00CAE32F /* RegisterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 				33F6E1552BC690D400CAE32F /* RegisterFirstViewController.swift */,
 				33F6E1572BC690E100CAE32F /* RegisterSecondViewController.swift */,
 				33F6E1592BC690F400CAE32F /* EmailVerificationViewController.swift */,
+				33F6E1662BC90E6D00CAE32F /* RegisterDataManager.swift */,
 			);
 			path = RegisterScreen;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				33D2248C2B7B8DC000116BAD /* SSLLabel.swift in Sources */,
 				330DADFF2B9E155D0013A394 /* SecondaryButton.swift in Sources */,
 				33F6E1562BC690D400CAE32F /* RegisterFirstViewController.swift in Sources */,
+				33F6E1672BC90E6D00CAE32F /* RegisterDataManager.swift in Sources */,
 				33D2244A2B7B6E2800116BAD /* SceneDelegate.swift in Sources */,
 				33D2248A2B7B8C5200116BAD /* InsetedTextField.swift in Sources */,
 				33F177132BB7211600FA1B0D /* LoginRouter.swift in Sources */,

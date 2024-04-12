@@ -6,7 +6,7 @@ final class RegisterPresenter: RegisterViewToPresenterProtocol, RegisterInteract
     var router: RegisterPresenterToRouterProtocol?
     
     func registerSuccess(with response: UserRegisterDTO) {
-        view?.showAlert(title: "Success", message: response.email)
+        view?.showAlert(title: "Success", message: response.firstName)
     }
 
     func registerFailed(with error: NetworkError) {

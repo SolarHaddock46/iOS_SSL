@@ -9,30 +9,30 @@ struct RegisterErrorDetail: Codable {
 }
 
 struct UserRegisterDTO: Codable {
-    let firstName: String
-    let secondName: String
-    let fatherName: String
+    let first_name: String
+    let last_name: String
+    let father_name: String
     let telegram: String
     let email: String
     let image: String
-    let hsePass: Bool
+    let hse_pass: Bool
 }
 
 struct RegisterRequestDTO: Codable {
-    let firstName: String
-    let secondName: String
-    let fatherName: String
+    let first_name: String
+    let last_name: String
+    let father_name: String
     let telegram: String
     let email: String
     let password1: String
     let password2: String
     let image: String
-    let hsePass: Bool
-    let acceptConditions: Bool
+    let hse_pass: Bool
+    let accept_conditions: Bool
 }
 
 final class RegisterAPIManager {
-    static func postRegister(firstName: String, secondName: String, fatherName: String, telegram: String, email: String, password1: String, password2: String, image: String, hsePass: Bool, acceptConditions: Bool) async throws -> UserRegisterDTO {
+    static func postRegister(first_name: String, last_name: String, father_name: String, telegram: String, email: String, password1: String, password2: String, image: String, hse_pass: Bool, accept_conditions: Bool) async throws -> UserRegisterDTO {
         guard let baseURL = URL(string: "https://ssl.smalyu.ru") else { throw NetworkError.internalError }
         let apiRoutes = APIRoutes()
         let networkError = NetworkError.self
@@ -40,16 +40,16 @@ final class RegisterAPIManager {
         urlComponents?.path = apiRoutes.registerRoute
         
         var queryItems = [
-            URLQueryItem(name: "first_name", value: firstName),
-            URLQueryItem(name: "second_name", value: secondName),
-            URLQueryItem(name: "father_name", value: fatherName),
+            URLQueryItem(name: "first_name", value: first_name),
+            URLQueryItem(name: "last_name", value: last_name),
+            URLQueryItem(name: "father_name", value: father_name),
             URLQueryItem(name: "telegram", value: telegram),
             URLQueryItem(name: "email", value: email),
             URLQueryItem(name: "password1", value: password1),
             URLQueryItem(name: "password2", value: password2),
             URLQueryItem(name: "image", value: image),
-            URLQueryItem(name: "hse_pass", value: String(hsePass)),
-            URLQueryItem(name: "accept_conditions", value: String(acceptConditions))
+            URLQueryItem(name: "hse_pass", value: String(hse_pass)),
+            URLQueryItem(name: "accept_conditions", value: String(accept_conditions))
         ]
     
         urlComponents?.queryItems = queryItems
@@ -59,7 +59,7 @@ final class RegisterAPIManager {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let registerData = RegisterRequestDTO(firstName: firstName, secondName: secondName, fatherName: fatherName, telegram: telegram, email: email, password1: password1, password2: password2, image: image, hsePass: hsePass, acceptConditions: acceptConditions)
+        let registerData = RegisterRequestDTO(first_name: first_name, last_name: last_name, father_name: father_name, telegram: telegram, email: email, password1: password1, password2: password2, image: image, hse_pass: hse_pass, accept_conditions: accept_conditions)
         
         do {
             request.httpBody = try JSONEncoder().encode(registerData)

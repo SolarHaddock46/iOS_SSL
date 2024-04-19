@@ -9,7 +9,7 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     var interactor: RegisterInteractorProtocol?
     
     private var firstName: String = ""
-    private var secondName: String = ""
+    private var lastName: String = ""
     private var fatherName: String = ""
     private var email: String = ""
     private var telegram: String = ""
@@ -152,7 +152,7 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
         if isFirstStageFormValid() {
             isFirstStage = false
             firstName = firstNameTextField.enteredText ?? ""
-            secondName = secondNameTextField.enteredText ?? ""
+            lastName = secondNameTextField.enteredText ?? ""
             fatherName = fatherNameTextField.enteredText ?? ""
             hsePass = hsePassCheckbox.isChecked
             acceptConditions = acceptConditionsCheckbox.isChecked
@@ -168,13 +168,13 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
                 do {
                     try await interactor?.register(
                         firstName: firstName,
-                        secondName: secondName,
+                        lastName: lastName,
                         fatherName: fatherName,
                         telegram: telegramTextField.enteredText ?? "",
                         email: emailTextField.enteredText ?? "",
                         password1: password1TextField.enteredText ?? "",
                         password2: password2TextField.enteredText ?? "",
-                        image: "",
+                        image: "null",
                         hsePass: hsePass,
                         acceptConditions: acceptConditions
                     )

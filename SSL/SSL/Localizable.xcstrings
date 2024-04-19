@@ -41,6 +41,7 @@
       }
     },
     "Email verification code" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {

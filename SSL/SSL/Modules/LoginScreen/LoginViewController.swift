@@ -88,7 +88,8 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
     }
     
     @objc func toRegisterButtonTapped(_ sender: UIButton) {
-        navigationController?.pushViewController(RegisterFirstViewController(), animated: true)
+        let registerScene = RegisterModuleConfigurator.configureModule()
+        navigationController?.pushViewController(registerScene, animated: true)
     }
     
     private func emailIsValid(email: String) -> Bool {

@@ -21,18 +21,18 @@ struct UserRegisterDTO: Codable {
 struct RegisterRequestDTO: Codable {
     let firstName: String
     let secondName: String
-    let fatherName: String?
+    let fatherName: String
     let telegram: String
     let email: String
     let password1: String
     let password2: String
-    let image: String?
+    let image: String
     let hsePass: Bool
     let acceptConditions: Bool
 }
 
 final class RegisterAPIManager {
-    static func postRegister(firstName: String, secondName: String, fatherName: String?, telegram: String, email: String, password1: String, password2: String, image: String?, hsePass: Bool, acceptConditions: Bool) async throws -> UserRegisterDTO {
+    static func postRegister(firstName: String, secondName: String, fatherName: String, telegram: String, email: String, password1: String, password2: String, image: String, hsePass: Bool, acceptConditions: Bool) async throws -> UserRegisterDTO {
         guard let baseURL = URL(string: "https://ssl.smalyu.ru") else { throw NetworkError.internalError }
         let apiRoutes = APIRoutes()
         let networkError = NetworkError.self
@@ -42,22 +42,16 @@ final class RegisterAPIManager {
         var queryItems = [
             URLQueryItem(name: "first_name", value: firstName),
             URLQueryItem(name: "second_name", value: secondName),
+            URLQueryItem(name: "father_name", value: fatherName),
             URLQueryItem(name: "telegram", value: telegram),
             URLQueryItem(name: "email", value: email),
             URLQueryItem(name: "password1", value: password1),
             URLQueryItem(name: "password2", value: password2),
+            URLQueryItem(name: "image", value: image),
             URLQueryItem(name: "hse_pass", value: String(hsePass)),
             URLQueryItem(name: "accept_conditions", value: String(acceptConditions))
         ]
     
-        if let fatherName = fatherName {
-            queryItems.append(URLQueryItem(name: "father_name", value: fatherName))
-        }
-        
-        if let image = image {
-            queryItems.append(URLQueryItem(name: "image", value: image))
-        }
-        
         urlComponents?.queryItems = queryItems
         guard let url = urlComponents?.url else { throw networkError.unknownError }
         

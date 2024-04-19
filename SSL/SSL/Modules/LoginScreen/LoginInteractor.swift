@@ -1,18 +1,23 @@
 import Foundation
 
-final class LoginInteractor: LoginPresenterToInteractorProtocol {
-    var presenter: LoginInteractorToPresenterProtocol?
-    let networkError = NetworkError.self
+protocol LoginInteractorProtocol {
+    var presenter: LoginPresenterProtocol? { get set }
+    func login(email: String, password: String) async throws
+}
+
+class LoginInteractor: LoginInteractorProtocol {
+    var presenter: LoginPresenterProtocol?
     
-    func performLogin(with user: LoginRequestDTO) async throws {
+    func login(email: String, password: String) async throws {
         do {
+            let user = LoginRequestDTO(email: email, password: password)
             let userDTO = try await LoginAPIManager.postLogin(email: user.email, password: user.password)
             self.presenter?.loginSuccess(with: userDTO)
         } catch {
             if let networkError = error as? NetworkError {
                 self.presenter?.loginFailed(with: networkError)
             } else {
-                self.presenter?.loginFailed(with: self.networkError.unknownError)
+                self.presenter?.loginFailed(with: NetworkError.unknownError)
             }
         }
     }

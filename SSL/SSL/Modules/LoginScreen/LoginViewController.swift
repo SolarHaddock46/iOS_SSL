@@ -1,7 +1,14 @@
+import Foundation
 import UIKit
 
-class LoginViewController: UIViewController, LoginPresenterToViewProtocol {
-    var presenter: LoginViewToPresenterProtocol?
+protocol LoginViewControllerProtocol: AnyObject {
+    var interactor: LoginInteractorProtocol? { get set }
+    func showAlert(title: String, message: String)
+//    func navigateToHomeScreen(with userDTO: UserDTO)
+}
+
+class LoginViewController: UIViewController, LoginViewControllerProtocol {
+    var interactor: LoginInteractorProtocol?
     
     private lazy var loginView: UIStackView = {
         let view = UIStackView()
@@ -31,13 +38,7 @@ class LoginViewController: UIViewController, LoginPresenterToViewProtocol {
     
     private lazy var loginButton = PrimaryButton(localizationKey: "Sign in")
     private lazy var toRegisterButton = SecondaryButton(localizationKey: "Sign up")
-
-//    private lazy var activityIndicator: UIActivityIndicatorView = {
-//        let indicator = UIActivityIndicatorView(style: .medium)
-//        indicator.hidesWhenStopped = true
-//        return indicator
-//    }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -46,7 +47,6 @@ class LoginViewController: UIViewController, LoginPresenterToViewProtocol {
         loginView.addArrangedSubview(passwordTextField)
         loginView.addArrangedSubview(loginButton)
         loginView.addArrangedSubview(toRegisterButton)
-//        loginView.addArrangedSubview(activityIndicator)
 
         view.addSubview(navBar)
         view.addSubview(loginView)
@@ -66,7 +66,7 @@ class LoginViewController: UIViewController, LoginPresenterToViewProtocol {
         loginButton.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
         toRegisterButton.addTarget(self, action: #selector(toRegisterButtonTapped(_:)), for: .touchUpInside)
     }
-
+    
     @objc func loginButtonTapped(_ sender: UIButton) {
         guard let email = emailTextField.enteredText,
               let password = passwordTextField.enteredText else { return }
@@ -76,8 +76,7 @@ class LoginViewController: UIViewController, LoginPresenterToViewProtocol {
 
         Task {
             do {
-                try await presenter?.startLogin(email: email, password: password)
-//                showLoading()
+                try await interactor?.login(email: email, password: password)
             } catch {
                 if let networkError = error as? NetworkError {
                     showAlert(title: "Error", message: networkError.localizedDescription)
@@ -99,43 +98,20 @@ class LoginViewController: UIViewController, LoginPresenterToViewProtocol {
         }
         return true
     }
-
-//    func showLoading() {
-//        activityIndicator.startAnimating()
-//        loginButton.isEnabled = false
-//    }
-//
-//    func hideLoading() {
-//        DispatchQueue.main.async {
-//            self.activityIndicator.stopAnimating()
-//            self.loginButton.isEnabled = true
-//        }
-//    }
-
+    
     func showAlert(title: String, message: String) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-//            self.hideLoading()
         }
     }
-
-//    func showLoginSuccess() {
-////        hideLoading()
-//        showAlert(title: "Success", message: "Login successful.")
+    
+//    func navigateToHomeScreen(with userDTO: UserDTO) {
+//        // Implement the navigation logic to the home screen
+//        // Example:
+//        // let homeViewController = HomeViewController(userDTO: userDTO)
+//        // navigationController?.pushViewController(homeViewController, animated: true)
 //    }
-//
-//    func showLoginError(error: Error) {
-//        hideLoading()
-//
-////        if let nsError = error as? NSError,
-////           let data = nsError.userInfo["responseData"] as? Data,
-////           let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-////           let detail = json["detail"] as? String {
-////            showAlert(title: "Ошибка", message: detail)
-////            return
-////        }
-//    }
-
+    
 }

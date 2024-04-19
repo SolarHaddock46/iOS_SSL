@@ -1,20 +1,24 @@
 import Foundation
 
-class LoginPresenter: LoginViewToPresenterProtocol, LoginInteractorToPresenterProtocol {
-    var view: LoginPresenterToViewProtocol?
-    var interactor: LoginPresenterToInteractorProtocol?
-    var router: LoginPresenterToRouterProtocol?
+protocol LoginPresenterProtocol {
+    var viewController: LoginViewControllerProtocol? { get set }
+    func loginSuccess(with userDTO: UserDTO)
+    func loginFailed(with error: NetworkError)
+}
+
+class LoginPresenter: LoginPresenterProtocol {
+    weak var viewController: LoginViewControllerProtocol?
     
-    func loginSuccess(with response: UserDTO) {
-        view?.showAlert(title: "Success", message: response.tokens.access)
+    func loginSuccess(with userDTO: UserDTO) {
+        DispatchQueue.main.async {
+//            self.viewController?.navigateToHomeScreen(with: userDTO)
+            self.viewController?.showAlert(title: "Success", message: userDTO.tokens.access)
+        }
     }
-
+    
     func loginFailed(with error: NetworkError) {
-        view?.showAlert(title: "Error", message: error.localizedDescription)
-    }
-
-    func startLogin(email: String, password: String) async throws {
-        let user = LoginRequestDTO(email: email, password: password)
-        try await interactor?.performLogin(with: user)
+        DispatchQueue.main.async {
+            self.viewController?.showAlert(title: "Error", message: error.localizedDescription)
+        }
     }
 }

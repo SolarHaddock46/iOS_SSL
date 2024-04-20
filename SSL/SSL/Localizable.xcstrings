@@ -67,7 +67,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Имя"
+            "value" : "Отчество"
           }
         }
       }
@@ -77,7 +77,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Отчество"
+            "value" : "Имя"
           }
         }
       }
@@ -96,6 +96,12 @@
     "I accept the Terms of use\nand the Privacy Policy" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I accept the Terms of use and the Privacy Policy"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -165,6 +171,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Войти в аккаунт"
+          }
+        }
+      }
+    },
+    "Next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Далее"
           }
         }
       }

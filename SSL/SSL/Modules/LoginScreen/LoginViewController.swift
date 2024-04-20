@@ -20,11 +20,12 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
     private lazy var navBar: UINavigationBar = {
         let navBar = UINavigationBar()
         let appearance = UINavigationBarAppearance()
+        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont(name: "Onest-Bold", size: 34)!]
         appearance.backgroundColor = .white
         appearance.shadowColor = .gray
+        appearance.largeTitleTextAttributes = attributes
         navBar.standardAppearance = appearance
-        navBar.prefersLargeTitles = true
-        
+        navBar.prefersLargeTitles = true        
         let item = UINavigationItem()
         item.title = {
             return NSLocalizedString("Log in", comment: "comment")

@@ -10,7 +10,7 @@ class UserInfoTextField: UITextField {
     private lazy var textField: InsetedTextField = {
         let textField = InsetedTextField()
         textField.backgroundColor = validTextFieldColor
-        textField.font = .systemFont(ofSize: 16, weight: .regular)
+        textField.font = UIFont(name: "Onest", size: 16)
         textField.layer.cornerRadius = cornerRadius
         textField.layer.borderWidth = 0.5
         textField.layer.borderColor = borderColor.cgColor

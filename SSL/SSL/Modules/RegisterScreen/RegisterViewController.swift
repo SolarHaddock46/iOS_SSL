@@ -28,11 +28,12 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     private lazy var navBar: UINavigationBar = {
         let navBar = UINavigationBar()
         let appearance = UINavigationBarAppearance()
+        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont(name: "Onest-Bold", size: 34)!]
         appearance.backgroundColor = .white
         appearance.shadowColor = .gray
+        appearance.largeTitleTextAttributes = attributes
         navBar.standardAppearance = appearance
         navBar.prefersLargeTitles = true
-        
         let item = UINavigationItem()
         item.title = NSLocalizedString("Register an account", comment: "")
         navBar.setItems([item], animated: true)

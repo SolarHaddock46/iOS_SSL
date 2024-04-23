@@ -17,6 +17,8 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     private var password2: String = ""
     private var hsePass: Bool = false
     private var acceptConditions: Bool = false
+    private var profilePicData: Data?
+
 
     private lazy var mainView: UIStackView = {
         let view = UIStackView()
@@ -41,8 +43,8 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     }()
     
     private var profilePicPicker: ProfilePicView
-    private lazy var firstNameTextField = UserInfoTextField(placeholder: NSLocalizedString("First name", comment: ""), isSecure: false)
     private lazy var secondNameTextField = UserInfoTextField(placeholder: NSLocalizedString("Second name", comment: ""), isSecure: false)
+    private lazy var firstNameTextField = UserInfoTextField(placeholder: NSLocalizedString("First name", comment: ""), isSecure: false)
     private lazy var fatherNameTextField = UserInfoTextField(placeholder: NSLocalizedString("Father name", comment: ""), isSecure: false)
     private lazy var emailTextField = UserInfoTextField(placeholder: NSLocalizedString("Email", comment: ""), isSecure: false)
     private lazy var telegramTextField = UserInfoTextField(placeholder: NSLocalizedString("Telegram", comment: ""), isSecure: false)
@@ -104,8 +106,8 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
         mainView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
         mainView.addArrangedSubview(profilePicPicker)
-        mainView.addArrangedSubview(firstNameTextField)
         mainView.addArrangedSubview(secondNameTextField)
+        mainView.addArrangedSubview(firstNameTextField)
         mainView.addArrangedSubview(fatherNameTextField)
         mainView.addArrangedSubview(hsePassCheckbox)
         mainView.addArrangedSubview(acceptConditionsCheckbox)
@@ -164,35 +166,36 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     }
 
     @objc func registerButtonTapped(_ sender: UIButton) {
-        if isSecondStageFormValid() {
-            Task {
-                do {
-                    try await interactor?.register(
-                        firstName: firstName,
-                        lastName: lastName,
-                        fatherName: fatherName,
-                        telegram: telegramTextField.enteredText ?? "",
-                        email: emailTextField.enteredText ?? "",
-                        password1: password1TextField.enteredText ?? "",
-                        password2: password2TextField.enteredText ?? "",
-                        image: "null",
-                        hsePass: hsePass,
-                        acceptConditions: acceptConditions
-                    )
-                    // navigationController?.pushViewController(EmailVerificationViewController(), animated: true)
-                    showAlert(title: "Success", message: firstName)
-                } catch {
-                    if let networkError = error as? NetworkError {
-                        showAlert(title: "Error", message: networkError.localizedDescription)
-                    } else {
-                        showAlert(title: "Error", message: error.localizedDescription)
+            if isSecondStageFormValid() {
+                Task {
+                    do {
+                        let imageBase64 = profilePicData?.base64EncodedString() ?? ""
+                        try await interactor?.register(
+                            firstName: firstName,
+                            lastName: lastName,
+                            fatherName: fatherName,
+                            telegram: telegramTextField.enteredText ?? "",
+                            email: emailTextField.enteredText ?? "",
+                            password1: password1TextField.enteredText ?? "",
+                            password2: password2TextField.enteredText ?? "",
+                            image: imageBase64,
+                            hsePass: hsePass,
+                            acceptConditions: acceptConditions
+                        )
+                        // navigationController?.pushViewController(EmailVerificationViewController(), animated: true)
+                        showAlert(title: "Success", message: firstName)
+                    } catch {
+                        if let networkError = error as? NetworkError {
+                            showAlert(title: "Error", message: networkError.localizedDescription)
+                        } else {
+                            showAlert(title: "Error", message: error.localizedDescription)
+                        }
                     }
                 }
+            } else {
+                showAlert(title: "Error", message: "Please fill in all required fields and make sure passwords match.")
             }
-        } else {
-            showAlert(title: "Error", message: "Please fill in all required fields and make sure passwords match.")
         }
-    }
     
     @objc func toLoginButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
@@ -206,6 +209,31 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            profilePicPicker.avatar = pickedImage
+            
+            let targetSize = CGSize(width: 200, height: 200)
+            if let resizedImage = resizeImage(pickedImage, targetSize: targetSize) {
+                profilePicData = resizedImage.jpegData(compressionQuality: 0.8)
+            }
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+
+    func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage? {
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+        let resizedImage = renderer.image { _ in
+            image.draw(in: CGRect(origin: .zero, size: targetSize))
+        }
+        return resizedImage
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+
 }
 
 extension RegisterViewController: ProfilePicViewDelegate {

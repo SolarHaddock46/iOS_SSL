@@ -28,8 +28,6 @@ final class LoginAPIManager {
         let networkError = NetworkError.self
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path = apiRoutes.loginRoute
-        urlComponents?.queryItems = [URLQueryItem(name: "email", value: email),
-                                     URLQueryItem(name: "password", value: password)]
         
         guard let url = urlComponents?.url else { throw networkError.unknownError }
         

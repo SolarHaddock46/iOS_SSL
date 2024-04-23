@@ -259,6 +259,17 @@
         }
       }
     },
+    "This password is too common." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Этот пароль слишком широко распространен."
+          }
+        }
+      }
+    },
     "Unknown error" : {
       "extractionState" : "manual",
       "localizations" : {

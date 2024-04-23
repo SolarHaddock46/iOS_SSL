@@ -19,6 +19,7 @@ class RegisterInteractor: RegisterInteractorProtocol {
                 self.presenter?.registerFailed(with: networkError)
             } else {
                 self.presenter?.registerFailed(with: self.networkError.unknownError)
+                print(error.localizedDescription)
             }
         }
     }

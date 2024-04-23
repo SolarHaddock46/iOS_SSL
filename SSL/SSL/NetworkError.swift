@@ -8,6 +8,7 @@ enum NetworkError: Error {
     case invalidUserDataFormat
     case internalError
     case emailAlreadyExists
+    case weakPassword
     
 }
 
@@ -28,6 +29,8 @@ extension NetworkError: LocalizedError {
             return NSLocalizedString("Internal error", comment: "")
         case .emailAlreadyExists:
             return NSLocalizedString("A user with this email already exists.", comment: "")
+        case .weakPassword:
+            return NSLocalizedString("This password is too common.", comment: "")
         }
     }
 }

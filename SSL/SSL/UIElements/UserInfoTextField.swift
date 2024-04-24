@@ -31,25 +31,21 @@ class UserInfoTextField: UITextField {
 
     init(placeholder: String, isSecure: Bool) {
         super.init(frame: .zero)
-        setup(placeholder: placeholder, isSecure: isSecure)
-    }
-
-    required init(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    private func setup(placeholder: String, isSecure: Bool) {
         backgroundColor = .white
         textField.placeholder = placeholder
         textField.isSecureTextEntry = isSecure
         addSubview(textField)
         textField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            textField.topAnchor.constraint(equalTo: self.topAnchor),
-            textField.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            textField.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            textField.topAnchor.constraint(equalTo: topAnchor),
+            textField.leadingAnchor.constraint(equalTo: leadingAnchor),
+            textField.trailingAnchor.constraint(equalTo: trailingAnchor),
             textField.heightAnchor.constraint(equalToConstant: textFieldHeight)
         ])
+    }
+
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 

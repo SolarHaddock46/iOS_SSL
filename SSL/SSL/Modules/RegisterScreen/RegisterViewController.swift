@@ -19,7 +19,6 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     private var acceptConditions: Bool = false
     private var profilePicData: Data?
 
-
     private lazy var mainView: UIStackView = {
         let view = UIStackView()
         view.spacing = 48
@@ -166,42 +165,40 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     }
 
     @objc func registerButtonTapped(_ sender: UIButton) {
-            if isSecondStageFormValid() {
-                Task {
-                    do {
-                        let imageBase64 = profilePicData?.base64EncodedString() ?? ""
-                        try await interactor?.register(
-                            firstName: firstName,
-                            lastName: lastName,
-                            fatherName: fatherName,
-                            telegram: telegramTextField.enteredText ?? "",
-                            email: emailTextField.enteredText ?? "",
-                            password1: password1TextField.enteredText ?? "",
-                            password2: password2TextField.enteredText ?? "",
-                            image: imageBase64,
-                            hsePass: hsePass,
-                            acceptConditions: acceptConditions
-                        )
-                        // navigationController?.pushViewController(EmailVerificationViewController(), animated: true)
-                        showAlert(title: "Success", message: firstName)
-                    } catch {
-                        if let networkError = error as? NetworkError {
-                            showAlert(title: "Error", message: networkError.localizedDescription)
-                        } else {
-                            showAlert(title: "Error", message: error.localizedDescription)
-                        }
+        if isSecondStageFormValid() {
+            Task {
+                do {
+                    try await interactor?.register(
+                        firstName: firstName,
+                        lastName: lastName,
+                        fatherName: fatherName,
+                        telegram: telegramTextField.enteredText ?? "",
+                        email: emailTextField.enteredText ?? "",
+                        password1: password1TextField.enteredText ?? "",
+                        password2: password2TextField.enteredText ?? "",
+                        image: profilePicData,
+                        hsePass: hsePass,
+                        acceptConditions: acceptConditions
+                    )
+                    // navigationController?.pushViewController(EmailVerificationViewController(), animated: true)
+                    showAlert(title: "Success", message: firstName)
+                } catch {
+                    if let networkError = error as? NetworkError {
+                        showAlert(title: "Error", message: networkError.localizedDescription)
+                    } else {
+                        showAlert(title: "Error", message: error.localizedDescription)
                     }
                 }
-            } else {
-                showAlert(title: "Error", message: "Please fill in all required fields and make sure passwords match.")
             }
+        } else {
+            showAlert(title: "Error", message: "Please fill in all required fields and make sure passwords match.")
         }
+    }
     
     @objc func toLoginButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
 
-    
     func showAlert(title: String, message: String) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -210,7 +207,7 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
         }
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profilePicPicker.avatar = pickedImage
             

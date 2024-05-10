@@ -33,11 +33,11 @@ struct RegisterRequestDTO: Codable {
 
 final class RegisterAPIManager {
     static func postRegister(first_name: String, last_name: String, father_name: String, telegram: String, email: String, password1: String, password2: String, imageData: Data?, hse_pass: Bool, accept_conditions: Bool) async throws -> UserRegisterDTO {
-        guard let baseURL = URL(string: "https://ssl.smalyu.ru") else {
+        let apiRoutes = APIRoutes()
+        guard let baseURL = apiRoutes.baseURL else {
             throw NetworkError.internalError
         }
 
-        let apiRoutes = APIRoutes()
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path = apiRoutes.registerRoute
 

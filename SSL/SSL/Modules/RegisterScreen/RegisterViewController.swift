@@ -19,7 +19,7 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     private var acceptConditions: Bool = false
     private var profilePicData: Data?
 
-    private lazy var mainView: UIStackView = {
+    private lazy var mainStackView: UIStackView = {
         let view = UIStackView()
         view.spacing = 48
         view.axis = .vertical
@@ -82,15 +82,15 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
         setupFirstStageUI()
         
         view.addSubview(navBar)
-        view.addSubview(mainView)
-        mainView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(mainStackView)
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
         navBar.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            mainView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            mainView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            mainView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            mainView.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: 16),
+            mainStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            mainStackView.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: 16),
             navBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             navBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             navBar.centerXAnchor.constraint(equalTo: view.centerXAnchor)
@@ -102,28 +102,28 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     }
     
     private func setupFirstStageUI() {
-        mainView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        mainStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
-        mainView.addArrangedSubview(profilePicPicker)
-        mainView.addArrangedSubview(secondNameTextField)
-        mainView.addArrangedSubview(firstNameTextField)
-        mainView.addArrangedSubview(fatherNameTextField)
-        mainView.addArrangedSubview(hsePassCheckbox)
-        mainView.addArrangedSubview(acceptConditionsCheckbox)
-        mainView.addArrangedSubview(nextStageButton)
-        mainView.addArrangedSubview(toLoginButton)
-        mainView.addArrangedSubview(activityIndicator)
+        mainStackView.addArrangedSubview(profilePicPicker)
+        mainStackView.addArrangedSubview(secondNameTextField)
+        mainStackView.addArrangedSubview(firstNameTextField)
+        mainStackView.addArrangedSubview(fatherNameTextField)
+        mainStackView.addArrangedSubview(hsePassCheckbox)
+        mainStackView.addArrangedSubview(acceptConditionsCheckbox)
+        mainStackView.addArrangedSubview(nextStageButton)
+        mainStackView.addArrangedSubview(toLoginButton)
+        mainStackView.addArrangedSubview(activityIndicator)
     }
     
     private func setupSecondStageUI() {
-        mainView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        mainStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
-        mainView.addArrangedSubview(emailTextField)
-        mainView.addArrangedSubview(telegramTextField)
-        mainView.addArrangedSubview(password1TextField)
-        mainView.addArrangedSubview(password2TextField)
-        mainView.addArrangedSubview(registerButton)
-        mainView.addArrangedSubview(activityIndicator)
+        mainStackView.addArrangedSubview(emailTextField)
+        mainStackView.addArrangedSubview(telegramTextField)
+        mainStackView.addArrangedSubview(password1TextField)
+        mainStackView.addArrangedSubview(password2TextField)
+        mainStackView.addArrangedSubview(registerButton)
+        mainStackView.addArrangedSubview(activityIndicator)
     }
     
     private func isFirstStageFormValid() -> Bool {

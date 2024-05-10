@@ -9,7 +9,7 @@ protocol LoginViewControllerProtocol: AnyObject {
 class LoginViewController: UIViewController, LoginViewControllerProtocol {
     var interactor: LoginInteractorProtocol?
     
-    private lazy var loginView: UIStackView = {
+    private lazy var loginStackView: UIStackView = {
         let view = UIStackView()
         view.spacing = 48
         view.axis = .vertical
@@ -43,21 +43,21 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
         super.viewDidLoad()
         view.backgroundColor = .white
 
-        loginView.addArrangedSubview(emailTextField)
-        loginView.addArrangedSubview(passwordTextField)
-        loginView.addArrangedSubview(loginButton)
-        loginView.addArrangedSubview(toRegisterButton)
+        loginStackView.addArrangedSubview(emailTextField)
+        loginStackView.addArrangedSubview(passwordTextField)
+        loginStackView.addArrangedSubview(loginButton)
+        loginStackView.addArrangedSubview(toRegisterButton)
 
         view.addSubview(navBar)
-        view.addSubview(loginView)
-        loginView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loginStackView)
+        loginStackView.translatesAutoresizingMaskIntoConstraints = false
         navBar.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            loginView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            loginView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            loginView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            loginStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loginStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            loginStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            loginStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             navBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             navBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             navBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16)

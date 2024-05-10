@@ -4,7 +4,6 @@ import UIKit
 protocol LoginViewControllerProtocol: AnyObject {
     var interactor: LoginInteractorProtocol? { get set }
     func showAlert(title: String, message: String)
-//    func navigateToHomeScreen(with userDTO: UserDTO)
 }
 
 class LoginViewController: UIViewController, LoginViewControllerProtocol {
@@ -108,12 +107,4 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
-//    func navigateToHomeScreen(with userDTO: UserDTO) {
-//        // Implement the navigation logic to the home screen
-//        // Example:
-//        // let homeViewController = HomeViewController(userDTO: userDTO)
-//        // navigationController?.pushViewController(homeViewController, animated: true)
-//    }
-    
 }

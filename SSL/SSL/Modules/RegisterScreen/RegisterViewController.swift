@@ -183,7 +183,6 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
                         hsePass: hsePass,
                         acceptConditions: acceptConditions
                     )
-                    // navigationController?.pushViewController(EmailVerificationViewController(), animated: true)
                     showAlert(title: "Success", message: firstName)
                 } catch {
                     if let networkError = error as? NetworkError {

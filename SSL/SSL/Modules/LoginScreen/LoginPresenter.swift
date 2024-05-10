@@ -11,7 +11,6 @@ class LoginPresenter: LoginPresenterProtocol {
     
     func loginSuccess(with userDTO: UserDTO) {
         DispatchQueue.main.async {
-//            self.viewController?.navigateToHomeScreen(with: userDTO)
             self.viewController?.showAlert(title: "Success", message: userDTO.tokens.access)
         }
     }

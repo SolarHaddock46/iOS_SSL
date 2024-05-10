@@ -23,11 +23,7 @@ class SSLLabel: UILabel {
 
     private func setup(localisationKey: String, color: UIColor) {
         self.textColor = color
-        if let customFont = UIFont(name: "Onest", size: 16) {
-            self.font = customFont
-        } else {
-            self.font = UIFont.systemFont(ofSize: 16)
-        }
+        self.font = UIFont.onest(ofSize: 16) 
         self.text = NSLocalizedString(localisationKey, comment: "comment")
     }
 }

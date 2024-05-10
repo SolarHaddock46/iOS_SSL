@@ -29,7 +29,7 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     private lazy var navBar: UINavigationBar = {
         let navBar = UINavigationBar()
         let appearance = UINavigationBarAppearance()
-        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont(name: "Onest-Bold", size: 34)!]
+        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.onestBold(ofSize: 34)]
         appearance.backgroundColor = .white
         appearance.shadowColor = .gray
         appearance.largeTitleTextAttributes = attributes

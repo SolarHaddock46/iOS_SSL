@@ -1,4 +1,3 @@
-import Foundation
 import UIKit
 
 protocol LoginViewControllerProtocol: AnyObject {
@@ -24,7 +23,7 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
         appearance.shadowColor = .gray
         appearance.largeTitleTextAttributes = attributes
         navBar.standardAppearance = appearance
-        navBar.prefersLargeTitles = true        
+        navBar.prefersLargeTitles = true
         let item = UINavigationItem()
         item.title = {
             return NSLocalizedString("Log in", comment: "comment")
@@ -39,8 +38,16 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
     private lazy var loginButton = PrimaryButton(localizationKey: "Sign in")
     private lazy var toRegisterButton = SecondaryButton(localizationKey: "Sign up")
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        setupLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupLayout() {
         view.backgroundColor = .white
 
         loginStackView.addArrangedSubview(emailTextField)
@@ -65,6 +72,10 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
 
         loginButton.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
         toRegisterButton.addTarget(self, action: #selector(toRegisterButtonTapped(_:)), for: .touchUpInside)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
     @objc func loginButtonTapped(_ sender: UIButton) {

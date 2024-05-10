@@ -210,14 +210,20 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            profilePicPicker.avatar = pickedImage
-            
-            let targetSize = CGSize(width: 1024, height: 1024)
-            if let resizedImage = resizeImage(pickedImage, targetSize: targetSize) {
-                profilePicData = resizedImage.jpegData(compressionQuality: 0.8)
-            }
+        guard let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            picker.dismiss(animated: true, completion: nil)
+            return
         }
+        
+        profilePicPicker.avatar = pickedImage
+        
+        let targetSize = CGSize(width: 1024, height: 1024)
+        guard let resizedImage = resizeImage(pickedImage, targetSize: targetSize) else {
+            picker.dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        profilePicData = resizedImage.jpegData(compressionQuality: 0.8)
         picker.dismiss(animated: true, completion: nil)
     }
 

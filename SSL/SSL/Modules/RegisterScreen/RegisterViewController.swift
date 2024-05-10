@@ -127,8 +127,8 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     }
     
     private func isFirstStageFormValid() -> Bool {
-        let namePattern = "^[a-zA-ZА-Яа-я]+$"
-        
+        let namePattern = "^[a-zA-ZА-Яа-я\\s]{1,150}$"
+                
         firstNameTextField.isValid = (!firstNameTextField.isTextEmpty && (firstNameTextField.enteredText?.range(of: namePattern, options: .regularExpression) != nil))
         secondNameTextField.isValid = (!secondNameTextField.isTextEmpty && (secondNameTextField.enteredText?.range(of: namePattern, options: .regularExpression) != nil))
         fatherNameTextField.isValid = (fatherNameTextField.isTextEmpty || (fatherNameTextField.enteredText?.range(of: namePattern, options: .regularExpression) != nil))
@@ -138,8 +138,11 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     }
     
     private func isSecondStageFormValid() -> Bool {
-        emailTextField.isValid = !emailTextField.isTextEmpty
-        telegramTextField.isValid = !telegramTextField.isTextEmpty
+        let emailPattern = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}$"
+        let telegramPattern = "^(?![^@]*@)[a-zA-Z0-9_]{5,100}$"
+        
+        emailTextField.isValid = (!emailTextField.isTextEmpty && (emailTextField.enteredText?.range(of: emailPattern, options: .regularExpression) != nil))
+        telegramTextField.isValid = (!telegramTextField.isTextEmpty && (telegramTextField.enteredText?.range(of: telegramPattern, options: .regularExpression) != nil))
         password1TextField.isValid = !password1TextField.isTextEmpty
         password2TextField.isValid = !password2TextField.isTextEmpty
         
@@ -211,7 +214,7 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profilePicPicker.avatar = pickedImage
             
-            let targetSize = CGSize(width: 200, height: 200)
+            let targetSize = CGSize(width: 1024, height: 1024)
             if let resizedImage = resizeImage(pickedImage, targetSize: targetSize) {
                 profilePicData = resizedImage.jpegData(compressionQuality: 0.8)
             }

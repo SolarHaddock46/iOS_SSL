@@ -13,16 +13,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
         let window = UIWindow(windowScene: windowScene)
-        
-        // Configure the login module using the configurator
         let loginViewController = LoginModuleConfigurator.configureModule()
-        
-        // Set the login view controller as the root view controller
         let navigationController = UINavigationController(rootViewController: loginViewController)
         window.rootViewController = navigationController
-        
         self.window = window
         window.makeKeyAndVisible()
     }

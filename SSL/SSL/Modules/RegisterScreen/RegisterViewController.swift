@@ -77,6 +77,10 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLayout()
+    }
+        
+    private func setupLayout() {
         view.backgroundColor = .white
         navigationItem.leftBarButtonItem = nil
         setupFirstStageUI()
@@ -95,10 +99,9 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
             navBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             navBar.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-        
         nextStageButton.addTarget(self, action: #selector(nextStageButtonTapped(_:)), for: .touchUpInside)
-        registerButton.addTarget(self, action: #selector(registerButtonTapped(_:)), for: .touchUpInside)
-        toLoginButton.addTarget(self, action: #selector(toLoginButtonTapped(_:)), for: .touchUpInside)
+                registerButton.addTarget(self, action: #selector(registerButtonTapped(_:)), for: .touchUpInside)
+                toLoginButton.addTarget(self, action: #selector(toLoginButtonTapped(_:)), for: .touchUpInside)
     }
     
     private func setupFirstStageUI() {

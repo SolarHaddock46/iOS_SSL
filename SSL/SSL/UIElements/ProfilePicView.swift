@@ -28,7 +28,7 @@ final class ProfilePicView: UIView {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
-        imageView.layer.borderColor = UIColor.link.cgColor
+        imageView.layer.borderColor = UIColor.picViewBorderColor
         imageView.layer.borderWidth = 3
         
         imageView.addGestureRecognizer(avatarChangeRecognizer)

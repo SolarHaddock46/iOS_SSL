@@ -2,9 +2,9 @@ import UIKit
 
 class UserInfoTextField: UITextField {
 
-    private let validTextFieldColor: UIColor = .white
-    private let invalidTextFieldColor: UIColor = UIColor(red: 0.89, green: 0.411, blue: 0.345, alpha: 0.12)
-    private let borderColor: UIColor = UIColor(red: 0.463, green: 0.463, blue: 0.502, alpha: 1.0)
+    private let validTextFieldColor: UIColor = .validTextColor
+    private let invalidTextFieldColor: UIColor = .invalidTextFieldColor
+    private let borderColor: UIColor = .textFieldBorderColor
     private let cornerRadius: CGFloat = 8.0
 
     private lazy var textField: InsetedTextField = {

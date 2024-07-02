@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		330DADFF2B9E155D0013A394 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330DADFE2B9E155D0013A394 /* SecondaryButton.swift */; };
+		3333322F2C34347300B6021D /* Onest-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3333322E2C34347300B6021D /* Onest-Bold.ttf */; };
+		333332312C34356F00B6021D /* SSLNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333332302C34356F00B6021D /* SSLNavigationController.swift */; };
 		335B0A0C2BD2A3890029CEBD /* LoginAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A0B2BD2A3890029CEBD /* LoginAPIManager.swift */; };
 		335B0A0E2BD2A5830029CEBD /* LoginModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A0D2BD2A5830029CEBD /* LoginModuleConfigurator.swift */; };
 		335B0A112BD2AD3B0029CEBD /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A102BD2AD3B0029CEBD /* RegisterInteractor.swift */; };
@@ -18,7 +20,6 @@
 		335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F2F782BC2F8B600153A35 /* NetworkError.swift */; };
 		33658EB72BD1655D0043F37D /* RegisterAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33658EB62BD1655D0043F37D /* RegisterAPIManager.swift */; };
 		337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337AC2D82BC1A2C60059629D /* APIRoutes.swift */; };
-		338FF53E2BD448FB000C97DF /* Onest-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 338FF53D2BD448FA000C97DF /* Onest-Bold.ttf */; };
 		339732322BEE1F4A009ECB44 /* SSLColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732312BEE1F4A009ECB44 /* SSLColors.swift */; };
 		339732342BEE8DFD009ECB44 /* SSLFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732332BEE8DFD009ECB44 /* SSLFonts.swift */; };
 		33BC80722BD290540065FB60 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC80712BD290540065FB60 /* LoginViewController.swift */; };
@@ -59,6 +60,8 @@
 
 /* Begin PBXFileReference section */
 		330DADFE2B9E155D0013A394 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		3333322E2C34347300B6021D /* Onest-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-Bold.ttf"; sourceTree = "<group>"; };
+		333332302C34356F00B6021D /* SSLNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLNavigationController.swift; sourceTree = "<group>"; };
 		335B0A0B2BD2A3890029CEBD /* LoginAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIManager.swift; sourceTree = "<group>"; };
 		335B0A0D2BD2A5830029CEBD /* LoginModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModuleConfigurator.swift; sourceTree = "<group>"; };
 		335B0A102BD2AD3B0029CEBD /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
@@ -68,7 +71,6 @@
 		335F2F782BC2F8B600153A35 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		33658EB62BD1655D0043F37D /* RegisterAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAPIManager.swift; sourceTree = "<group>"; };
 		337AC2D82BC1A2C60059629D /* APIRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoutes.swift; sourceTree = "<group>"; };
-		338FF53D2BD448FA000C97DF /* Onest-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Onest-Bold.ttf"; path = "../../../../Downloads/Onest-3/static/Onest-Bold.ttf"; sourceTree = "<group>"; };
 		339732312BEE1F4A009ECB44 /* SSLColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLColors.swift; sourceTree = "<group>"; };
 		339732332BEE8DFD009ECB44 /* SSLFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLFonts.swift; sourceTree = "<group>"; };
 		33BC80712BD290540065FB60 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				330DADFE2B9E155D0013A394 /* SecondaryButton.swift */,
 				33F6E1472BC6867900CAE32F /* ProfilePicView.swift */,
 				33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */,
+				333332302C34356F00B6021D /* SSLNavigationController.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -219,7 +222,7 @@
 		33D224832B7B819C00116BAD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				338FF53D2BD448FA000C97DF /* Onest-Bold.ttf */,
+				3333322E2C34347300B6021D /* Onest-Bold.ttf */,
 				33D224842B7B822900116BAD /* Onest.ttf */,
 			);
 			path = Fonts;
@@ -352,7 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33D2247E2B7B784200116BAD /* Localizable.xcstrings in Resources */,
-				338FF53E2BD448FB000C97DF /* Onest-Bold.ttf in Resources */,
+				3333322F2C34347300B6021D /* Onest-Bold.ttf in Resources */,
 				33D224512B7B6E2A00116BAD /* Assets.xcassets in Resources */,
 				335B0A182BD3D5400029CEBD /* Onest.ttf in Resources */,
 			);
@@ -401,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				335B0A112BD2AD3B0029CEBD /* RegisterInteractor.swift in Sources */,
+				333332312C34356F00B6021D /* SSLNavigationController.swift in Sources */,
 				33BC80722BD290540065FB60 /* LoginViewController.swift in Sources */,
 				335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */,
 				33D2244C2B7B6E2800116BAD /* ViewController.swift in Sources */,

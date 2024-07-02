@@ -9,32 +9,14 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
     var interactor: LoginInteractorProtocol?
     
     private lazy var loginStackView: UIStackView = {
-        let view = UIStackView()
-        view.spacing = 48
-        view.axis = .vertical
-        return view
+        let stackView = UIStackView()
+        stackView.spacing = 48
+        stackView.axis = .vertical
+        return stackView
     }()
     
-    private lazy var navBar: UINavigationBar = {
-        let navBar = UINavigationBar()
-        let appearance = UINavigationBarAppearance()
-        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.onestBold(ofSize: 34)]
-        appearance.backgroundColor = .white
-        appearance.shadowColor = .gray
-        appearance.largeTitleTextAttributes = attributes
-        navBar.standardAppearance = appearance
-        navBar.prefersLargeTitles = true
-        let item = UINavigationItem()
-        item.title = {
-            return NSLocalizedString("Log in", comment: "comment")
-        }()
-        navBar.setItems([item], animated: true)
-        return navBar
-    }()
-
-    private lazy var emailTextField = UserInfoTextField(placeholder: NSLocalizedString("Email", comment: "a"), isSecure: false)
-    private lazy var passwordTextField = UserInfoTextField(placeholder: NSLocalizedString("Password", comment: "a"), isSecure: true)
-    
+    private lazy var emailTextField = UserInfoTextField(placeholder: NSLocalizedString("Email", comment: "Email placeholder"), isSecure: false)
+    private lazy var passwordTextField = UserInfoTextField(placeholder: NSLocalizedString("Password", comment: "Password placeholder"), isSecure: true)
     private lazy var loginButton = PrimaryButton(localizationKey: "Sign in")
     private lazy var toRegisterButton = SecondaryButton(localizationKey: "Sign up")
     
@@ -55,19 +37,15 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
         loginStackView.addArrangedSubview(loginButton)
         loginStackView.addArrangedSubview(toRegisterButton)
 
-        view.addSubview(navBar)
         view.addSubview(loginStackView)
+        
         loginStackView.translatesAutoresizingMaskIntoConstraints = false
-        navBar.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             loginStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            loginStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100), // Adjusted for better layout
             loginStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            loginStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            navBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            navBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            navBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16)
+            loginStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
 
         loginButton.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
@@ -76,8 +54,14 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateTitle()
     }
-    
+
+    func updateTitle(with title: String? = NSLocalizedString("Log in", comment: "")) {
+        self.title = title
+        self.navigationController?.navigationBar.layoutIfNeeded()
+    }
+
     @objc func loginButtonTapped(_ sender: UIButton) {
         guard let email = emailTextField.enteredText,
               let password = passwordTextField.enteredText else { return }
@@ -105,10 +89,7 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
     
     private func emailIsValid(email: String) -> Bool {
         let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        guard email.range(of: pattern, options: .regularExpression) != nil else {
-            return false
-        }
-        return true
+        return email.range(of: pattern, options: .regularExpression) != nil
     }
     
     func showAlert(title: String, message: String) {

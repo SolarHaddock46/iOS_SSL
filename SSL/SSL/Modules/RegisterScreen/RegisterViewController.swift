@@ -26,21 +26,6 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
         return view
     }()
     
-    private lazy var navBar: UINavigationBar = {
-        let navBar = UINavigationBar()
-        let appearance = UINavigationBarAppearance()
-        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.onestBold(ofSize: 34)]
-        appearance.backgroundColor = .white
-        appearance.shadowColor = .gray
-        appearance.largeTitleTextAttributes = attributes
-        navBar.standardAppearance = appearance
-        navBar.prefersLargeTitles = true
-        let item = UINavigationItem()
-        item.title = NSLocalizedString("Register an account", comment: "")
-        navBar.setItems([item], animated: true)
-        return navBar
-    }()
-    
     private var profilePicPicker: ProfilePicView
     private lazy var secondNameTextField = UserInfoTextField(placeholder: NSLocalizedString("Second name", comment: ""), isSecure: false)
     private lazy var firstNameTextField = UserInfoTextField(placeholder: NSLocalizedString("First name", comment: ""), isSecure: false)
@@ -78,26 +63,27 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        updateTitle()
     }
+
+    func updateTitle(with title: String? = NSLocalizedString("Register an account", comment: "")) {
+        self.title = title
+        self.navigationController?.navigationBar.layoutIfNeeded()
+    }
+
         
     private func setupLayout() {
         view.backgroundColor = .white
         navigationItem.leftBarButtonItem = nil
         setupFirstStageUI()
         
-        view.addSubview(navBar)
         view.addSubview(mainStackView)
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        navBar.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             mainStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            mainStackView.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: 16),
-            navBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            navBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            navBar.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         nextStageButton.addTarget(self, action: #selector(nextStageButtonTapped(_:)), for: .touchUpInside)
                 registerButton.addTarget(self, action: #selector(registerButtonTapped(_:)), for: .touchUpInside)

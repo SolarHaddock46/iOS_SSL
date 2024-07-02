@@ -27,20 +27,20 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     }()
     
     private var profilePicPicker: ProfilePicView
-    private lazy var secondNameTextField = UserInfoTextField(placeholder: NSLocalizedString("Second name", comment: ""), isSecure: false)
-    private lazy var firstNameTextField = UserInfoTextField(placeholder: NSLocalizedString("First name", comment: ""), isSecure: false)
-    private lazy var fatherNameTextField = UserInfoTextField(placeholder: NSLocalizedString("Father name", comment: ""), isSecure: false)
-    private lazy var emailTextField = UserInfoTextField(placeholder: NSLocalizedString("Email", comment: ""), isSecure: false)
-    private lazy var telegramTextField = UserInfoTextField(placeholder: NSLocalizedString("Telegram", comment: ""), isSecure: false)
-    private lazy var password1TextField = UserInfoTextField(placeholder: NSLocalizedString("Password", comment: ""), isSecure: true)
-    private lazy var password2TextField = UserInfoTextField(placeholder: NSLocalizedString("Repeat password", comment: ""), isSecure: true)
+    private var secondNameTextField = UserInfoTextField(placeholder: NSLocalizedString("Second name", comment: ""), isSecure: false)
+    private var firstNameTextField = UserInfoTextField(placeholder: NSLocalizedString("First name", comment: ""), isSecure: false)
+    private var fatherNameTextField = UserInfoTextField(placeholder: NSLocalizedString("Father name", comment: ""), isSecure: false)
+    private var emailTextField = UserInfoTextField(placeholder: NSLocalizedString("Email", comment: ""), isSecure: false)
+    private var telegramTextField = UserInfoTextField(placeholder: NSLocalizedString("Telegram", comment: ""), isSecure: false)
+    private var password1TextField = UserInfoTextField(placeholder: NSLocalizedString("Password", comment: ""), isSecure: true)
+    private var password2TextField = UserInfoTextField(placeholder: NSLocalizedString("Repeat password", comment: ""), isSecure: true)
     
-    private lazy var hsePassCheckbox = CheckboxWithLabel(localisationKey: "I need a HSE pass")
-    private lazy var acceptConditionsCheckbox = CheckboxWithLabel(localisationKey: "I accept the Terms of use and the Privacy Policy")
+    private var hsePassCheckbox = CheckboxWithLabel(localisationKey: "I need a HSE pass")
+    private var acceptConditionsCheckbox = CheckboxWithLabel(localisationKey: "I accept the Terms of use and the Privacy Policy")
     
-    private lazy var nextStageButton = PrimaryButton(localizationKey: "Next")
-    private lazy var registerButton = PrimaryButton(localizationKey: "Register")
-    private lazy var toLoginButton = SecondaryButton(localizationKey: "Log in")
+    private var nextStageButton = PrimaryButton(localizationKey: "Next")
+    private var registerButton = PrimaryButton(localizationKey: "Register")
+    private var toLoginButton = SecondaryButton(localizationKey: "Log in")
     
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .medium)

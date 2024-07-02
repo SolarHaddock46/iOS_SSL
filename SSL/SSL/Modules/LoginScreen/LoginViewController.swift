@@ -15,10 +15,10 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
         return stackView
     }()
     
-    private lazy var emailTextField = UserInfoTextField(placeholder: NSLocalizedString("Email", comment: "Email placeholder"), isSecure: false)
+    private var emailTextField = UserInfoTextField(placeholder: NSLocalizedString("Email", comment: "Email placeholder"), isSecure: false)
     private lazy var passwordTextField = UserInfoTextField(placeholder: NSLocalizedString("Password", comment: "Password placeholder"), isSecure: true)
-    private lazy var loginButton = PrimaryButton(localizationKey: "Sign in")
-    private lazy var toRegisterButton = SecondaryButton(localizationKey: "Sign up")
+    private var loginButton = PrimaryButton(localizationKey: "Sign in")
+    private var toRegisterButton = SecondaryButton(localizationKey: "Sign up")
     
     init() {
         super.init(nibName: nil, bundle: nil)

@@ -26,4 +26,9 @@ class SSLNavigationController: UINavigationController {
         navigationBar.prefersLargeTitles = true
         navigationBar.isTranslucent = false
     }
+
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        viewController.navigationItem.hidesBackButton = true
+        super.pushViewController(viewController, animated: animated)
+    }
 }

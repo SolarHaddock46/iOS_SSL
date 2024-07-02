@@ -43,7 +43,7 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
 
         NSLayoutConstraint.activate([
             loginStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100), // Adjusted for better layout
+            loginStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
             loginStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             loginStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])

@@ -24,13 +24,11 @@ class RegisterInteractor: RegisterInteractorProtocol {
                 accept_conditions: acceptConditions
             )
             self.presenter?.registerSuccess(with: userDTO)
+        } catch let error as NetworkError {
+            self.presenter?.registerFailed(with: error)
         } catch {
-            if let networkError = error as? NetworkError {
-                self.presenter?.registerFailed(with: networkError)
-            } else {
-                self.presenter?.registerFailed(with: self.networkError.unknownError)
-                print(error.localizedDescription)
-            }
+            self.presenter?.registerFailed(with: self.networkError.unknownError)
+            print(error.localizedDescription)
         }
     }
 }

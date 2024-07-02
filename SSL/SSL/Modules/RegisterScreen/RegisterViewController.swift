@@ -173,12 +173,10 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
                         acceptConditions: acceptConditions
                     )
                     showAlert(title: "Success", message: firstName)
+                } catch let error as NetworkError {
+                    showAlert(title: "Error", message: error.localizedDescription)
                 } catch {
-                    if let networkError = error as? NetworkError {
-                        showAlert(title: "Error", message: networkError.localizedDescription)
-                    } else {
-                        showAlert(title: "Error", message: error.localizedDescription)
-                    }
+                    showAlert(title: "Error", message: error.localizedDescription)
                 }
             }
         } else {

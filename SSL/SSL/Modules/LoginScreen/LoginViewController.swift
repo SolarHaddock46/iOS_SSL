@@ -72,12 +72,10 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
         Task {
             do {
                 try await interactor?.login(email: email, password: password)
+            } catch let error as NetworkError {
+                showAlert(title: "Error", message: error.localizedDescription)
             } catch {
-                if let networkError = error as? NetworkError {
-                    showAlert(title: "Error", message: networkError.localizedDescription)
-                } else {
-                    showAlert(title: "Error", message: error.localizedDescription)
-                }
+                showAlert(title: "Error", message: error.localizedDescription)
             }
         }
     }

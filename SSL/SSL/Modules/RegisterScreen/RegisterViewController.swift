@@ -26,6 +26,8 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
         return view
     }()
     
+    let validator = SSLValidator()
+    
     private var profilePicPicker: ProfilePicView
     private var secondNameTextField = UserInfoTextField(placeholder: NSLocalizedString("Second name", comment: ""), isSecure: false)
     private var firstNameTextField = UserInfoTextField(placeholder: NSLocalizedString("First name", comment: ""), isSecure: false)
@@ -71,7 +73,6 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
         self.navigationController?.navigationBar.layoutIfNeeded()
     }
 
-        
     private func setupLayout() {
         view.backgroundColor = .white
         navigationItem.leftBarButtonItem = nil
@@ -116,22 +117,19 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     }
     
     private func isFirstStageFormValid() -> Bool {
-        let namePattern = "^[a-zA-ZА-Яа-я\\s]{1,150}$"
                 
-        firstNameTextField.isValid = (!firstNameTextField.isTextEmpty && (firstNameTextField.enteredText?.range(of: namePattern, options: .regularExpression) != nil))
-        secondNameTextField.isValid = (!secondNameTextField.isTextEmpty && (secondNameTextField.enteredText?.range(of: namePattern, options: .regularExpression) != nil))
-        fatherNameTextField.isValid = (fatherNameTextField.isTextEmpty || (fatherNameTextField.enteredText?.range(of: namePattern, options: .regularExpression) != nil))
+        firstNameTextField.isValid = SSLValidator.nameIsValid(name: firstNameTextField.enteredText)
+        secondNameTextField.isValid = SSLValidator.nameIsValid(name: secondNameTextField.enteredText)
+        fatherNameTextField.isValid = SSLValidator.nameIsValid(name: fatherNameTextField.enteredText)
         
         let conditionsAccepted: Bool = acceptConditionsCheckbox.isChecked
         return firstNameTextField.isValid && secondNameTextField.isValid && fatherNameTextField.isValid && conditionsAccepted
     }
     
     private func isSecondStageFormValid() -> Bool {
-        let emailPattern = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}$"
-        let telegramPattern = "^(?![^@]*@)[a-zA-Z0-9_]{5,100}$"
         
-        emailTextField.isValid = (!emailTextField.isTextEmpty && (emailTextField.enteredText?.range(of: emailPattern, options: .regularExpression) != nil))
-        telegramTextField.isValid = (!telegramTextField.isTextEmpty && (telegramTextField.enteredText?.range(of: telegramPattern, options: .regularExpression) != nil))
+        emailTextField.isValid = SSLValidator.emailIsValid(email: emailTextField.enteredText)
+        telegramTextField.isValid = SSLValidator.telegramIsValid(telegram: telegramTextField.enteredText)
         password1TextField.isValid = !password1TextField.isTextEmpty
         password2TextField.isValid = !password2TextField.isTextEmpty
         

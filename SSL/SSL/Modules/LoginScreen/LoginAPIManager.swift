@@ -32,7 +32,7 @@ final class LoginAPIManager {
         guard let url = urlComponents?.url else { throw networkError.unknownError }
         
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let loginData = LoginRequestDTO(email: email, password: password)

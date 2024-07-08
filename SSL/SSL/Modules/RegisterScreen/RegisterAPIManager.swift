@@ -48,31 +48,28 @@ final class RegisterAPIManager {
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.post.rawValue
 
-        let boundary = UUID().uuidString
-        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-
-        var body = Data()
+        let multipartData = MultipartFormData()
 
         let registerData = RegisterRequestDTO(first_name: first_name, last_name: last_name, father_name: father_name, telegram: telegram, email: email, password1: password1, password2: password2, hse_pass: hse_pass, accept_conditions: accept_conditions)
         let jsonData = try JSONEncoder().encode(registerData)
-        appendFormData(&body, boundary: boundary, name: "data", data: jsonData)
+        multipartData.append(jsonData, forKey: "data", fileName: "data.json", mimeType: "application/json")
 
-        appendFormData(&body, boundary: boundary, name: "first_name", data: first_name.data(using: .utf8)!)
-        appendFormData(&body, boundary: boundary, name: "last_name", data: last_name.data(using: .utf8)!)
-        appendFormData(&body, boundary: boundary, name: "father_name", data: father_name.data(using: .utf8)!)
-        appendFormData(&body, boundary: boundary, name: "telegram", data: telegram.data(using: .utf8)!)
-        appendFormData(&body, boundary: boundary, name: "email", data: email.data(using: .utf8)!)
-        appendFormData(&body, boundary: boundary, name: "password1", data: password1.data(using: .utf8)!)
-        appendFormData(&body, boundary: boundary, name: "password2", data: password2.data(using: .utf8)!)
-        appendFormData(&body, boundary: boundary, name: "hse_pass", data: "\(hse_pass)".data(using: .utf8)!)
-        appendFormData(&body, boundary: boundary, name: "accept_conditions", data: "\(accept_conditions)".data(using: .utf8)!)
+        multipartData.append(first_name, forKey: "first_name")
+        multipartData.append(last_name, forKey: "last_name")
+        multipartData.append(father_name, forKey: "father_name")
+        multipartData.append(telegram, forKey: "telegram")
+        multipartData.append(email, forKey: "email")
+        multipartData.append(password1, forKey: "password1")
+        multipartData.append(password2, forKey: "password2")
+        multipartData.append("\(hse_pass)", forKey: "hse_pass")
+        multipartData.append("\(accept_conditions)", forKey: "accept_conditions")
 
         if let imageData = imageData {
-            appendFormData(&body, boundary: boundary, name: "image", fileName: "image.jpg", data: imageData, mimeType: "image/jpeg")
+            multipartData.append(imageData, forKey: "image", fileName: "image.jpg", mimeType: "image/jpeg")
         }
 
-        appendBoundaryEnd(&body, boundary: boundary)
-        request.httpBody = body
+        request.setValue(multipartData.contentType(), forHTTPHeaderField: "Content-Type")
+        request.httpBody = multipartData.finish()
 
         let (data, response) = try await URLSession.shared.data(for: request)
 
@@ -96,24 +93,5 @@ final class RegisterAPIManager {
 
         let userDTO = try JSONDecoder().decode(UserRegisterDTO.self, from: data)
         return userDTO
-    }
-
-    private static func appendFormData(_ body: inout Data, boundary: String, name: String, data: Data) {
-        body.append("--\(boundary)\r\n".data(using: .utf8)!)
-        body.append("Content-Disposition: form-data; name=\"\(name)\"\r\n\r\n".data(using: .utf8)!)
-        body.append(data)
-        body.append("\r\n".data(using: .utf8)!)
-    }
-
-    private static func appendFormData(_ body: inout Data, boundary: String, name: String, fileName: String, data: Data, mimeType: String) {
-        body.append("--\(boundary)\r\n".data(using: .utf8)!)
-        body.append("Content-Disposition: form-data; name=\"\(name)\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
-        body.append("Content-Type: \(mimeType)\r\n\r\n".data(using: .utf8)!)
-        body.append(data)
-        body.append("\r\n".data(using: .utf8)!)
-    }
-
-    private static func appendBoundaryEnd(_ body: inout Data, boundary: String) {
-        body.append("--\(boundary)--\r\n".data(using: .utf8)!)
     }
 }

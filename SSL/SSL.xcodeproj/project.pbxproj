@@ -41,6 +41,7 @@
 		33F6E1482BC6867900CAE32F /* ProfilePicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1472BC6867900CAE32F /* ProfilePicView.swift */; };
 		33F6E14A2BC68B3E00CAE32F /* CheckboxWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */; };
 		33FF0F6D2C3C1CC60070FA9E /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */; };
+		33FF0F6F2C3C2A730070FA9E /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF0F6E2C3C2A730070FA9E /* MultipartFormData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		33F6E1472BC6867900CAE32F /* ProfilePicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicView.swift; sourceTree = "<group>"; };
 		33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxWithLabel.swift; sourceTree = "<group>"; };
 		33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		33FF0F6E2C3C2A730070FA9E /* MultipartFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 			children = (
 				337AC2D82BC1A2C60059629D /* APIRoutes.swift */,
 				33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */,
+				33FF0F6E2C3C2A730070FA9E /* MultipartFormData.swift */,
 				339732312BEE1F4A009ECB44 /* SSLColors.swift */,
 				339732332BEE8DFD009ECB44 /* SSLFonts.swift */,
 				335F2F782BC2F8B600153A35 /* NetworkError.swift */,
@@ -411,6 +414,7 @@
 			files = (
 				335B0A112BD2AD3B0029CEBD /* RegisterInteractor.swift in Sources */,
 				333332312C34356F00B6021D /* SSLNavigationController.swift in Sources */,
+				33FF0F6F2C3C2A730070FA9E /* MultipartFormData.swift in Sources */,
 				33BC80722BD290540065FB60 /* LoginViewController.swift in Sources */,
 				335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */,
 				33D2244C2B7B6E2800116BAD /* ViewController.swift in Sources */,

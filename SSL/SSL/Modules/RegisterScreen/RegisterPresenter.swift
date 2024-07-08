@@ -10,7 +10,7 @@ class RegisterPresenter: RegisterPresenterProtocol {
     weak var viewController: RegisterViewControllerProtocol?
     
     func registerSuccess(with response: UserRegisterDTO) {
-        viewController?.showAlert(title: "Success", message: response.first_name)
+        viewController?.showAlert(title: "Success", message: response.firstName)
     }
 
     func registerFailed(with error: NetworkError) {

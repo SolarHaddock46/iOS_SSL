@@ -10,29 +10,29 @@ struct RegisterErrorDetail: Codable {
 }
 
 struct UserRegisterDTO: Codable {
-    let first_name: String
-    let last_name: String
-    let father_name: String
+    let firstName: String
+    let lastName: String
+    let fatherName: String
     let telegram: String
     let email: String
     let image: String?
-    let hse_pass: Bool
+    let hsePass: Bool
 }
 
 struct RegisterRequestDTO: Codable {
-    let first_name: String
-    let last_name: String
-    let father_name: String
+    let firstName: String
+    let lastName: String
+    let fatherName: String
     let telegram: String
     let email: String
     let password1: String
     let password2: String
-    let hse_pass: Bool
-    let accept_conditions: Bool
+    let hsePass: Bool
+    let acceptConditions: Bool
 }
 
 final class RegisterAPIManager {
-    static func postRegister(first_name: String, last_name: String, father_name: String, telegram: String, email: String, password1: String, password2: String, imageData: Data?, hse_pass: Bool, accept_conditions: Bool) async throws -> UserRegisterDTO {
+    static func postRegister(firstName: String, lastName: String, fatherName: String, telegram: String, email: String, password1: String, password2: String, imageData: Data?, hsePass: Bool, acceptConditions: Bool) async throws -> UserRegisterDTO {
         let apiRoutes = APIRoutes()
         guard let baseURL = apiRoutes.baseURL else {
             throw NetworkError.internalError
@@ -50,19 +50,19 @@ final class RegisterAPIManager {
 
         let multipartData = MultipartFormData()
 
-        let registerData = RegisterRequestDTO(first_name: first_name, last_name: last_name, father_name: father_name, telegram: telegram, email: email, password1: password1, password2: password2, hse_pass: hse_pass, accept_conditions: accept_conditions)
+        let registerData = RegisterRequestDTO(firstName: firstName, lastName: lastName, fatherName: fatherName, telegram: telegram, email: email, password1: password1, password2: password2, hsePass: hsePass, acceptConditions: acceptConditions)
         let jsonData = try JSONEncoder().encode(registerData)
         multipartData.append(jsonData, forKey: "data", fileName: "data.json", mimeType: "application/json")
 
-        multipartData.append(first_name, forKey: "first_name")
-        multipartData.append(last_name, forKey: "last_name")
-        multipartData.append(father_name, forKey: "father_name")
+        multipartData.append(firstName, forKey: "first_name")
+        multipartData.append(lastName, forKey: "last_name")
+        multipartData.append(fatherName, forKey: "father_name")
         multipartData.append(telegram, forKey: "telegram")
         multipartData.append(email, forKey: "email")
         multipartData.append(password1, forKey: "password1")
         multipartData.append(password2, forKey: "password2")
-        multipartData.append("\(hse_pass)", forKey: "hse_pass")
-        multipartData.append("\(accept_conditions)", forKey: "accept_conditions")
+        multipartData.append("\(hsePass)", forKey: "hse_pass")
+        multipartData.append("\(acceptConditions)", forKey: "accept_conditions")
 
         if let imageData = imageData {
             multipartData.append(imageData, forKey: "image", fileName: "image.jpg", mimeType: "image/jpeg")

@@ -65,10 +65,11 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
     @objc func loginButtonTapped(_ sender: UIButton) {
         guard let email = emailTextField.enteredText,
               let password = passwordTextField.enteredText else { return }
-        emailTextField.isValid = emailIsValid(email: email)
-
-        guard emailIsValid(email: email) else { return }
-
+        emailTextField.isValid = SSLValidator.emailIsValid(email: email)
+        passwordTextField.isValid = passwordTextField.enteredText != ""
+        
+        guard emailTextField.isValid && passwordTextField.isValid else { return }
+        
         Task {
             do {
                 try await interactor?.login(email: email, password: password)
@@ -83,11 +84,6 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
     @objc func toRegisterButtonTapped(_ sender: UIButton) {
         let registerScene = RegisterModuleConfigurator.configureModule()
         navigationController?.pushViewController(registerScene, animated: true)
-    }
-    
-    private func emailIsValid(email: String) -> Bool {
-        let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        return email.range(of: pattern, options: .regularExpression) != nil
     }
     
     func showAlert(title: String, message: String) {

@@ -117,10 +117,10 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     }
     
     private func isFirstStageFormValid() -> Bool {
-                
+        
         firstNameTextField.isValid = SSLValidator.nameIsValid(name: firstNameTextField.enteredText)
         secondNameTextField.isValid = SSLValidator.nameIsValid(name: secondNameTextField.enteredText)
-        fatherNameTextField.isValid = SSLValidator.nameIsValid(name: fatherNameTextField.enteredText)
+        fatherNameTextField.isValid = (fatherNameTextField.enteredText != "") ? SSLValidator.nameIsValid(name: fatherNameTextField.enteredText) : true
         
         let conditionsAccepted: Bool = acceptConditionsCheckbox.isChecked
         return firstNameTextField.isValid && secondNameTextField.isValid && fatherNameTextField.isValid && conditionsAccepted

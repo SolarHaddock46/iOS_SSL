@@ -2,7 +2,7 @@ import UIKit
 import Photos
 
 protocol RegisterViewControllerProtocol: AnyObject {
-    func showAlert(title: String, message: String)
+    var interactor: RegisterInteractorProtocol? { get set }
 }
 
 class RegisterViewController: UIViewController, RegisterViewControllerProtocol, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
@@ -19,43 +19,31 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     private var acceptConditions: Bool = false
     private var profilePicData: Data?
 
-    private lazy var mainView: UIStackView = {
+    private lazy var mainStackView: UIStackView = {
         let view = UIStackView()
         view.spacing = 48
         view.axis = .vertical
         return view
     }()
     
-    private lazy var navBar: UINavigationBar = {
-        let navBar = UINavigationBar()
-        let appearance = UINavigationBarAppearance()
-        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont(name: "Onest-Bold", size: 34)!]
-        appearance.backgroundColor = .white
-        appearance.shadowColor = .gray
-        appearance.largeTitleTextAttributes = attributes
-        navBar.standardAppearance = appearance
-        navBar.prefersLargeTitles = true
-        let item = UINavigationItem()
-        item.title = NSLocalizedString("Register an account", comment: "")
-        navBar.setItems([item], animated: true)
-        return navBar
-    }()
-    
+    let validator = SSLValidator()
+    private var dialogPresenter: SSLDialogPresenter?
+
     private var profilePicPicker: ProfilePicView
-    private lazy var secondNameTextField = UserInfoTextField(placeholder: NSLocalizedString("Second name", comment: ""), isSecure: false)
-    private lazy var firstNameTextField = UserInfoTextField(placeholder: NSLocalizedString("First name", comment: ""), isSecure: false)
-    private lazy var fatherNameTextField = UserInfoTextField(placeholder: NSLocalizedString("Father name", comment: ""), isSecure: false)
-    private lazy var emailTextField = UserInfoTextField(placeholder: NSLocalizedString("Email", comment: ""), isSecure: false)
-    private lazy var telegramTextField = UserInfoTextField(placeholder: NSLocalizedString("Telegram", comment: ""), isSecure: false)
-    private lazy var password1TextField = UserInfoTextField(placeholder: NSLocalizedString("Password", comment: ""), isSecure: true)
-    private lazy var password2TextField = UserInfoTextField(placeholder: NSLocalizedString("Repeat password", comment: ""), isSecure: true)
+    private var secondNameTextField = UserInfoTextField(placeholder: NSLocalizedString("Second name", comment: ""), isSecure: false)
+    private var firstNameTextField = UserInfoTextField(placeholder: NSLocalizedString("First name", comment: ""), isSecure: false)
+    private var fatherNameTextField = UserInfoTextField(placeholder: NSLocalizedString("Father name", comment: ""), isSecure: false)
+    private var emailTextField = UserInfoTextField(placeholder: NSLocalizedString("Email", comment: ""), isSecure: false)
+    private var telegramTextField = UserInfoTextField(placeholder: NSLocalizedString("Telegram", comment: ""), isSecure: false)
+    private var password1TextField = UserInfoTextField(placeholder: NSLocalizedString("Password", comment: ""), isSecure: true)
+    private var password2TextField = UserInfoTextField(placeholder: NSLocalizedString("Repeat password", comment: ""), isSecure: true)
     
-    private lazy var hsePassCheckbox = CheckboxWithLabel(localisationKey: "I need a HSE pass")
-    private lazy var acceptConditionsCheckbox = CheckboxWithLabel(localisationKey: "I accept the Terms of use and the Privacy Policy")
+    private var hsePassCheckbox = CheckboxWithLabel(localisationKey: "I need a HSE pass")
+    private var acceptConditionsCheckbox = CheckboxWithLabel(localisationKey: "I accept the Terms of use and the Privacy Policy")
     
-    private lazy var nextStageButton = PrimaryButton(localizationKey: "Next")
-    private lazy var registerButton = PrimaryButton(localizationKey: "Register")
-    private lazy var toLoginButton = SecondaryButton(localizationKey: "Log in")
+    private var nextStageButton = PrimaryButton(localizationKey: "Next")
+    private var registerButton = PrimaryButton(localizationKey: "Register")
+    private var toLoginButton = SecondaryButton(localizationKey: "Log in")
     
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .medium)
@@ -69,6 +57,7 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
         profilePicPicker = ProfilePicView()
         super.init(nibName: nil, bundle: nil)
         profilePicPicker.delegate = self
+        dialogPresenter = SSLDialogPresenter(viewController: self)
     }
     
     required init?(coder: NSCoder) {
@@ -77,72 +66,70 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLayout()
+        updateTitle()
+    }
+
+    func updateTitle(with title: String? = NSLocalizedString("Register an account", comment: "")) {
+        self.title = title
+        self.navigationController?.navigationBar.layoutIfNeeded()
+    }
+
+    private func setupLayout() {
         view.backgroundColor = .white
         navigationItem.leftBarButtonItem = nil
         setupFirstStageUI()
         
-        view.addSubview(navBar)
-        view.addSubview(mainView)
-        mainView.translatesAutoresizingMaskIntoConstraints = false
-        navBar.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(mainStackView)
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            mainView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            mainView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            mainView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            mainView.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: 16),
-            navBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            navBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            navBar.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            mainStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
-        
         nextStageButton.addTarget(self, action: #selector(nextStageButtonTapped(_:)), for: .touchUpInside)
         registerButton.addTarget(self, action: #selector(registerButtonTapped(_:)), for: .touchUpInside)
         toLoginButton.addTarget(self, action: #selector(toLoginButtonTapped(_:)), for: .touchUpInside)
     }
     
     private func setupFirstStageUI() {
-        mainView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        mainStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
-        mainView.addArrangedSubview(profilePicPicker)
-        mainView.addArrangedSubview(secondNameTextField)
-        mainView.addArrangedSubview(firstNameTextField)
-        mainView.addArrangedSubview(fatherNameTextField)
-        mainView.addArrangedSubview(hsePassCheckbox)
-        mainView.addArrangedSubview(acceptConditionsCheckbox)
-        mainView.addArrangedSubview(nextStageButton)
-        mainView.addArrangedSubview(toLoginButton)
-        mainView.addArrangedSubview(activityIndicator)
+        mainStackView.addArrangedSubview(profilePicPicker)
+        mainStackView.addArrangedSubview(secondNameTextField)
+        mainStackView.addArrangedSubview(firstNameTextField)
+        mainStackView.addArrangedSubview(fatherNameTextField)
+        mainStackView.addArrangedSubview(hsePassCheckbox)
+        mainStackView.addArrangedSubview(acceptConditionsCheckbox)
+        mainStackView.addArrangedSubview(nextStageButton)
+        mainStackView.addArrangedSubview(toLoginButton)
+        mainStackView.addArrangedSubview(activityIndicator)
     }
     
     private func setupSecondStageUI() {
-        mainView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        mainStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
-        mainView.addArrangedSubview(emailTextField)
-        mainView.addArrangedSubview(telegramTextField)
-        mainView.addArrangedSubview(password1TextField)
-        mainView.addArrangedSubview(password2TextField)
-        mainView.addArrangedSubview(registerButton)
-        mainView.addArrangedSubview(activityIndicator)
+        mainStackView.addArrangedSubview(emailTextField)
+        mainStackView.addArrangedSubview(telegramTextField)
+        mainStackView.addArrangedSubview(password1TextField)
+        mainStackView.addArrangedSubview(password2TextField)
+        mainStackView.addArrangedSubview(registerButton)
+        mainStackView.addArrangedSubview(activityIndicator)
     }
     
     private func isFirstStageFormValid() -> Bool {
-        let namePattern = "^[a-zA-ZА-Яа-я\\s]{1,150}$"
-                
-        firstNameTextField.isValid = (!firstNameTextField.isTextEmpty && (firstNameTextField.enteredText?.range(of: namePattern, options: .regularExpression) != nil))
-        secondNameTextField.isValid = (!secondNameTextField.isTextEmpty && (secondNameTextField.enteredText?.range(of: namePattern, options: .regularExpression) != nil))
-        fatherNameTextField.isValid = (fatherNameTextField.isTextEmpty || (fatherNameTextField.enteredText?.range(of: namePattern, options: .regularExpression) != nil))
+        firstNameTextField.isValid = SSLValidator.nameIsValid(name: firstNameTextField.enteredText)
+        secondNameTextField.isValid = SSLValidator.nameIsValid(name: secondNameTextField.enteredText)
+        fatherNameTextField.isValid = (fatherNameTextField.enteredText != "") ? SSLValidator.nameIsValid(name: fatherNameTextField.enteredText) : true
         
         let conditionsAccepted: Bool = acceptConditionsCheckbox.isChecked
         return firstNameTextField.isValid && secondNameTextField.isValid && fatherNameTextField.isValid && conditionsAccepted
     }
     
     private func isSecondStageFormValid() -> Bool {
-        let emailPattern = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}$"
-        let telegramPattern = "^(?![^@]*@)[a-zA-Z0-9_]{5,100}$"
-        
-        emailTextField.isValid = (!emailTextField.isTextEmpty && (emailTextField.enteredText?.range(of: emailPattern, options: .regularExpression) != nil))
-        telegramTextField.isValid = (!telegramTextField.isTextEmpty && (telegramTextField.enteredText?.range(of: telegramPattern, options: .regularExpression) != nil))
+        emailTextField.isValid = SSLValidator.emailIsValid(email: emailTextField.enteredText)
+        telegramTextField.isValid = SSLValidator.telegramIsValid(telegram: telegramTextField.enteredText)
         password1TextField.isValid = !password1TextField.isTextEmpty
         password2TextField.isValid = !password2TextField.isTextEmpty
         
@@ -163,7 +150,7 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
             acceptConditions = acceptConditionsCheckbox.isChecked
             setupSecondStageUI()
         } else {
-            showAlert(title: "Error", message: "Please fill in all required fields and accept the terms.")
+            dialogPresenter?.showAlert(title: "Error", message: "Please fill in all required fields and accept the terms.")
         }
     }
 
@@ -183,42 +170,37 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
                         hsePass: hsePass,
                         acceptConditions: acceptConditions
                     )
-                    // navigationController?.pushViewController(EmailVerificationViewController(), animated: true)
-                    showAlert(title: "Success", message: firstName)
+                    dialogPresenter?.showAlert(title: "Success", message: firstName)
+                } catch let error as NetworkError {
+                    dialogPresenter?.showAlert(title: "Error", message: error.localizedDescription)
                 } catch {
-                    if let networkError = error as? NetworkError {
-                        showAlert(title: "Error", message: networkError.localizedDescription)
-                    } else {
-                        showAlert(title: "Error", message: error.localizedDescription)
-                    }
+                    dialogPresenter?.showAlert(title: "Error", message: error.localizedDescription)
                 }
             }
         } else {
-            showAlert(title: "Error", message: "Please fill in all required fields and make sure passwords match.")
+            dialogPresenter?.showAlert(title: "Error", message: "Please fill in all required fields and make sure passwords match.")
         }
     }
     
     @objc func toLoginButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
-
-    func showAlert(title: String, message: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            profilePicPicker.avatar = pickedImage
-            
-            let targetSize = CGSize(width: 1024, height: 1024)
-            if let resizedImage = resizeImage(pickedImage, targetSize: targetSize) {
-                profilePicData = resizedImage.jpegData(compressionQuality: 0.8)
-            }
+        guard let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            picker.dismiss(animated: true, completion: nil)
+            return
         }
+        
+        profilePicPicker.avatar = pickedImage
+        
+        let targetSize = CGSize(width: 1024, height: 1024)
+        guard let resizedImage = resizeImage(pickedImage, targetSize: targetSize) else {
+            picker.dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        profilePicData = resizedImage.jpegData(compressionQuality: 0.8)
         picker.dismiss(animated: true, completion: nil)
     }
 

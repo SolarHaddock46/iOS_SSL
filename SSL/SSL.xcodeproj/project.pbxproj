@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		330DADFF2B9E155D0013A394 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330DADFE2B9E155D0013A394 /* SecondaryButton.swift */; };
+		3333322F2C34347300B6021D /* Onest-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3333322E2C34347300B6021D /* Onest-Bold.ttf */; };
+		333332312C34356F00B6021D /* SSLNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333332302C34356F00B6021D /* SSLNavigationController.swift */; };
+		333332332C34554C00B6021D /* SSLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333332322C34554C00B6021D /* SSLValidator.swift */; };
 		335B0A0C2BD2A3890029CEBD /* LoginAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A0B2BD2A3890029CEBD /* LoginAPIManager.swift */; };
 		335B0A0E2BD2A5830029CEBD /* LoginModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A0D2BD2A5830029CEBD /* LoginModuleConfigurator.swift */; };
 		335B0A112BD2AD3B0029CEBD /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A102BD2AD3B0029CEBD /* RegisterInteractor.swift */; };
@@ -17,8 +20,11 @@
 		335B0A182BD3D5400029CEBD /* Onest.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33D224842B7B822900116BAD /* Onest.ttf */; };
 		335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F2F782BC2F8B600153A35 /* NetworkError.swift */; };
 		33658EB72BD1655D0043F37D /* RegisterAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33658EB62BD1655D0043F37D /* RegisterAPIManager.swift */; };
+		337726CA2C3D9C670010240F /* HTTPCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337726C92C3D9C670010240F /* HTTPCode.swift */; };
+		337726CC2C3D9E4E0010240F /* VerbalServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337726CB2C3D9E4E0010240F /* VerbalServerResponse.swift */; };
 		337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337AC2D82BC1A2C60059629D /* APIRoutes.swift */; };
-		338FF53E2BD448FB000C97DF /* Onest-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 338FF53D2BD448FA000C97DF /* Onest-Bold.ttf */; };
+		339732322BEE1F4A009ECB44 /* SSLColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732312BEE1F4A009ECB44 /* SSLColors.swift */; };
+		339732342BEE8DFD009ECB44 /* SSLFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732332BEE8DFD009ECB44 /* SSLFonts.swift */; };
 		33BC80722BD290540065FB60 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC80712BD290540065FB60 /* LoginViewController.swift */; };
 		33BC80742BD2905F0065FB60 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC80732BD2905F0065FB60 /* LoginPresenter.swift */; };
 		33BC80772BD2906E0065FB60 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC80762BD2906E0065FB60 /* LoginInteractor.swift */; };
@@ -36,6 +42,9 @@
 		33D2248E2B7B8F3800116BAD /* UserInfoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */; };
 		33F6E1482BC6867900CAE32F /* ProfilePicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1472BC6867900CAE32F /* ProfilePicView.swift */; };
 		33F6E14A2BC68B3E00CAE32F /* CheckboxWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */; };
+		33FF0F6D2C3C1CC60070FA9E /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */; };
+		33FF0F6F2C3C2A730070FA9E /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF0F6E2C3C2A730070FA9E /* MultipartFormData.swift */; };
+		33FF0F712C3C359B0070FA9E /* SSLDialogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF0F702C3C359B0070FA9E /* SSLDialogPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +66,9 @@
 
 /* Begin PBXFileReference section */
 		330DADFE2B9E155D0013A394 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		3333322E2C34347300B6021D /* Onest-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-Bold.ttf"; sourceTree = "<group>"; };
+		333332302C34356F00B6021D /* SSLNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLNavigationController.swift; sourceTree = "<group>"; };
+		333332322C34554C00B6021D /* SSLValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLValidator.swift; sourceTree = "<group>"; };
 		335B0A0B2BD2A3890029CEBD /* LoginAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIManager.swift; sourceTree = "<group>"; };
 		335B0A0D2BD2A5830029CEBD /* LoginModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModuleConfigurator.swift; sourceTree = "<group>"; };
 		335B0A102BD2AD3B0029CEBD /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
@@ -65,8 +77,11 @@
 		335B0A162BD2B2CA0029CEBD /* RegisterModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModuleConfigurator.swift; sourceTree = "<group>"; };
 		335F2F782BC2F8B600153A35 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		33658EB62BD1655D0043F37D /* RegisterAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAPIManager.swift; sourceTree = "<group>"; };
+		337726C92C3D9C670010240F /* HTTPCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCode.swift; sourceTree = "<group>"; };
+		337726CB2C3D9E4E0010240F /* VerbalServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalServerResponse.swift; sourceTree = "<group>"; };
 		337AC2D82BC1A2C60059629D /* APIRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoutes.swift; sourceTree = "<group>"; };
-		338FF53D2BD448FA000C97DF /* Onest-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Onest-Bold.ttf"; path = "../../../../Downloads/Onest-3/static/Onest-Bold.ttf"; sourceTree = "<group>"; };
+		339732312BEE1F4A009ECB44 /* SSLColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLColors.swift; sourceTree = "<group>"; };
+		339732332BEE8DFD009ECB44 /* SSLFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLFonts.swift; sourceTree = "<group>"; };
 		33BC80712BD290540065FB60 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		33BC80732BD2905F0065FB60 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		33BC80762BD2906E0065FB60 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
@@ -89,6 +104,9 @@
 		33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTextField.swift; sourceTree = "<group>"; };
 		33F6E1472BC6867900CAE32F /* ProfilePicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicView.swift; sourceTree = "<group>"; };
 		33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxWithLabel.swift; sourceTree = "<group>"; };
+		33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		33FF0F6E2C3C2A730070FA9E /* MultipartFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
+		33FF0F702C3C359B0070FA9E /* SSLDialogPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLDialogPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +146,25 @@
 			path = RegisterScreen;
 			sourceTree = "<group>";
 		};
+		337726C52C3D98ED0010240F /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				337AC2D82BC1A2C60059629D /* APIRoutes.swift */,
+				33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */,
+				335F2F782BC2F8B600153A35 /* NetworkError.swift */,
+				337726C92C3D9C670010240F /* HTTPCode.swift */,
+				337726CB2C3D9E4E0010240F /* VerbalServerResponse.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		337726C62C3D98FD0010240F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		33BC806D2BD290250065FB60 /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,8 +200,8 @@
 		33D224462B7B6E2800116BAD /* SSL */ = {
 			isa = PBXGroup;
 			children = (
-				337AC2D82BC1A2C60059629D /* APIRoutes.swift */,
-				335F2F782BC2F8B600153A35 /* NetworkError.swift */,
+				337726C62C3D98FD0010240F /* Extensions */,
+				337726C52C3D98ED0010240F /* Enums */,
 				33F1770B2BB7110500FA1B0D /* Services */,
 				33F176FF2BB7025900FA1B0D /* Modules */,
 				33D224832B7B819C00116BAD /* Fonts */,
@@ -199,6 +236,8 @@
 		33D224802B7B800500116BAD /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				339732332BEE8DFD009ECB44 /* SSLFonts.swift */,
+				339732312BEE1F4A009ECB44 /* SSLColors.swift */,
 				33D224812B7B803C00116BAD /* PrimaryButton.swift */,
 				33D224892B7B8C5200116BAD /* InsetedTextField.swift */,
 				33D2248B2B7B8DC000116BAD /* SSLLabel.swift */,
@@ -206,6 +245,7 @@
 				330DADFE2B9E155D0013A394 /* SecondaryButton.swift */,
 				33F6E1472BC6867900CAE32F /* ProfilePicView.swift */,
 				33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */,
+				333332302C34356F00B6021D /* SSLNavigationController.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -213,7 +253,7 @@
 		33D224832B7B819C00116BAD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				338FF53D2BD448FA000C97DF /* Onest-Bold.ttf */,
+				3333322E2C34347300B6021D /* Onest-Bold.ttf */,
 				33D224842B7B822900116BAD /* Onest.ttf */,
 			);
 			path = Fonts;
@@ -231,6 +271,9 @@
 		33F1770B2BB7110500FA1B0D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				33FF0F6E2C3C2A730070FA9E /* MultipartFormData.swift */,
+				333332322C34554C00B6021D /* SSLValidator.swift */,
+				33FF0F702C3C359B0070FA9E /* SSLDialogPresenter.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -328,7 +371,6 @@
 			);
 			mainGroup = 33D2243B2B7B6E2800116BAD;
 			packageReferences = (
-				33F1770A2BB709EC00FA1B0D /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 33D224452B7B6E2800116BAD /* Products */;
 			projectDirPath = "";
@@ -347,7 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33D2247E2B7B784200116BAD /* Localizable.xcstrings in Resources */,
-				338FF53E2BD448FB000C97DF /* Onest-Bold.ttf in Resources */,
+				3333322F2C34347300B6021D /* Onest-Bold.ttf in Resources */,
 				33D224512B7B6E2A00116BAD /* Assets.xcassets in Resources */,
 				335B0A182BD3D5400029CEBD /* Onest.ttf in Resources */,
 			);
@@ -396,23 +438,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				335B0A112BD2AD3B0029CEBD /* RegisterInteractor.swift in Sources */,
+				333332312C34356F00B6021D /* SSLNavigationController.swift in Sources */,
+				33FF0F712C3C359B0070FA9E /* SSLDialogPresenter.swift in Sources */,
+				33FF0F6F2C3C2A730070FA9E /* MultipartFormData.swift in Sources */,
 				33BC80722BD290540065FB60 /* LoginViewController.swift in Sources */,
 				335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */,
 				33D2244C2B7B6E2800116BAD /* ViewController.swift in Sources */,
+				337726CC2C3D9E4E0010240F /* VerbalServerResponse.swift in Sources */,
+				33FF0F6D2C3C1CC60070FA9E /* HTTPMethod.swift in Sources */,
 				33D224482B7B6E2800116BAD /* AppDelegate.swift in Sources */,
 				335B0A0C2BD2A3890029CEBD /* LoginAPIManager.swift in Sources */,
+				339732322BEE1F4A009ECB44 /* SSLColors.swift in Sources */,
 				337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */,
 				33D224822B7B803C00116BAD /* PrimaryButton.swift in Sources */,
 				33BC80772BD2906E0065FB60 /* LoginInteractor.swift in Sources */,
 				335B0A0E2BD2A5830029CEBD /* LoginModuleConfigurator.swift in Sources */,
 				33D2248C2B7B8DC000116BAD /* SSLLabel.swift in Sources */,
+				337726CA2C3D9C670010240F /* HTTPCode.swift in Sources */,
 				330DADFF2B9E155D0013A394 /* SecondaryButton.swift in Sources */,
+				339732342BEE8DFD009ECB44 /* SSLFonts.swift in Sources */,
 				33658EB72BD1655D0043F37D /* RegisterAPIManager.swift in Sources */,
 				33D2244A2B7B6E2800116BAD /* SceneDelegate.swift in Sources */,
 				33D2248A2B7B8C5200116BAD /* InsetedTextField.swift in Sources */,
 				33BC80742BD2905F0065FB60 /* LoginPresenter.swift in Sources */,
 				335B0A152BD2AD550029CEBD /* RegisterPresenter.swift in Sources */,
 				335B0A132BD2AD490029CEBD /* RegisterViewController.swift in Sources */,
+				333332332C34554C00B6021D /* SSLValidator.swift in Sources */,
 				33F6E1482BC6867900CAE32F /* ProfilePicView.swift in Sources */,
 				33F6E14A2BC68B3E00CAE32F /* CheckboxWithLabel.swift in Sources */,
 				335B0A172BD2B2CA0029CEBD /* RegisterModuleConfigurator.swift in Sources */,
@@ -748,17 +799,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		33F1770A2BB709EC00FA1B0D /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 15.0.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 33D2243C2B7B6E2800116BAD /* Project object */;
 }

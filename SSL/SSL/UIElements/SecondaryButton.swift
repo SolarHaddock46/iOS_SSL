@@ -5,7 +5,7 @@ final class SecondaryButton: UIButton {
     init(localizationKey: String) {
         super.init(frame: .zero)
         backgroundColor = .clear
-        let titleLabel = SSLLabel(localisationKey: localizationKey, color: UIColor(red: 63/255, green: 162/255, blue: 254/255, alpha: 1.0))
+        let titleLabel = SSLLabel(localisationKey: localizationKey, color: .buttonBackgroundColor)
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

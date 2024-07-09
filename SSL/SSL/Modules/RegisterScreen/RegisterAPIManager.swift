@@ -10,34 +10,34 @@ struct RegisterErrorDetail: Codable {
 }
 
 struct UserRegisterDTO: Codable {
-    let first_name: String
-    let last_name: String
-    let father_name: String
+    let firstName: String
+    let lastName: String
+    let fatherName: String
     let telegram: String
     let email: String
     let image: String?
-    let hse_pass: Bool
+    let hsePass: Bool
 }
 
 struct RegisterRequestDTO: Codable {
-    let first_name: String
-    let last_name: String
-    let father_name: String
+    let firstName: String
+    let lastName: String
+    let fatherName: String
     let telegram: String
     let email: String
     let password1: String
     let password2: String
-    let hse_pass: Bool
-    let accept_conditions: Bool
+    let hsePass: Bool
+    let acceptConditions: Bool
 }
 
 final class RegisterAPIManager {
-    static func postRegister(first_name: String, last_name: String, father_name: String, telegram: String, email: String, password1: String, password2: String, imageData: Data?, hse_pass: Bool, accept_conditions: Bool) async throws -> UserRegisterDTO {
-        guard let baseURL = URL(string: "https://ssl.smalyu.ru") else {
+    static func postRegister(firstName: String, lastName: String, fatherName: String, telegram: String, email: String, password1: String, password2: String, imageData: Data?, hsePass: Bool, acceptConditions: Bool) async throws -> UserRegisterDTO {
+        let apiRoutes = APIRoutes()
+        guard let baseURL = apiRoutes.baseURL else {
             throw NetworkError.internalError
         }
 
-        let apiRoutes = APIRoutes()
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path = apiRoutes.registerRoute
 
@@ -46,46 +46,43 @@ final class RegisterAPIManager {
         }
 
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = HTTPMethod.post
 
-        let boundary = UUID().uuidString
-        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        let multipartData = MultipartFormData()
 
-        var body = Data()
-
-        let registerData = RegisterRequestDTO(first_name: first_name, last_name: last_name, father_name: father_name, telegram: telegram, email: email, password1: password1, password2: password2, hse_pass: hse_pass, accept_conditions: accept_conditions)
+        let registerData = RegisterRequestDTO(firstName: firstName, lastName: lastName, fatherName: fatherName, telegram: telegram, email: email, password1: password1, password2: password2, hsePass: hsePass, acceptConditions: acceptConditions)
         let jsonData = try JSONEncoder().encode(registerData)
-        appendFormData(&body, boundary: boundary, name: "data", data: jsonData)
+        multipartData.append(jsonData, forKey: "data", fileName: "data.json", mimeType: "application/json")
 
-        appendFormData(&body, boundary: boundary, name: "first_name", data: first_name.data(using: .utf8)!)
-        appendFormData(&body, boundary: boundary, name: "last_name", data: last_name.data(using: .utf8)!)
-        appendFormData(&body, boundary: boundary, name: "father_name", data: father_name.data(using: .utf8)!)
-        appendFormData(&body, boundary: boundary, name: "telegram", data: telegram.data(using: .utf8)!)
-        appendFormData(&body, boundary: boundary, name: "email", data: email.data(using: .utf8)!)
-        appendFormData(&body, boundary: boundary, name: "password1", data: password1.data(using: .utf8)!)
-        appendFormData(&body, boundary: boundary, name: "password2", data: password2.data(using: .utf8)!)
-        appendFormData(&body, boundary: boundary, name: "hse_pass", data: "\(hse_pass)".data(using: .utf8)!)
-        appendFormData(&body, boundary: boundary, name: "accept_conditions", data: "\(accept_conditions)".data(using: .utf8)!)
+        multipartData.append(firstName, forKey: "first_name")
+        multipartData.append(lastName, forKey: "last_name")
+        multipartData.append(fatherName, forKey: "father_name")
+        multipartData.append(telegram, forKey: "telegram")
+        multipartData.append(email, forKey: "email")
+        multipartData.append(password1, forKey: "password1")
+        multipartData.append(password2, forKey: "password2")
+        multipartData.append("\(hsePass)", forKey: "hse_pass")
+        multipartData.append("\(acceptConditions)", forKey: "accept_conditions")
 
         if let imageData = imageData {
-            appendFormData(&body, boundary: boundary, name: "image", fileName: "image.jpg", data: imageData, mimeType: "image/jpeg")
+            multipartData.append(imageData, forKey: "image", fileName: "image.jpg", mimeType: "image/jpeg")
         }
 
-        appendBoundaryEnd(&body, boundary: boundary)
-        request.httpBody = body
+        request.setValue(multipartData.contentType(), forHTTPHeaderField: "Content-Type")
+        request.httpBody = multipartData.finish()
 
         let (data, response) = try await URLSession.shared.data(for: request)
 
-        if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 201 {
-            if httpResponse.statusCode == 400 {
+        if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != HTTPCode.ok {
+            if httpResponse.statusCode == HTTPCode.badRequest {
                 let detailData = try JSONDecoder().decode(RegisterErrorDetail.self, from: data)
                 if let emailDetails = detailData.errors.email, !emailDetails.isEmpty {
-                    if emailDetails[0] == "пользователь с таким Адрес электронной почты уже существует." {
+                    if emailDetails[0] == VerbalServerResponse.emailAlreadyExists {
                         throw NetworkError.emailAlreadyExists
                     }
                 }
                 if let passwordDetails = detailData.errors.password, !passwordDetails.isEmpty {
-                    if passwordDetails[0] == "Введённый пароль слишком широко распространён." {
+                    if passwordDetails[0] == VerbalServerResponse.weakPassword {
                         throw NetworkError.weakPassword
                     }
                 }
@@ -96,24 +93,5 @@ final class RegisterAPIManager {
 
         let userDTO = try JSONDecoder().decode(UserRegisterDTO.self, from: data)
         return userDTO
-    }
-
-    private static func appendFormData(_ body: inout Data, boundary: String, name: String, data: Data) {
-        body.append("--\(boundary)\r\n".data(using: .utf8)!)
-        body.append("Content-Disposition: form-data; name=\"\(name)\"\r\n\r\n".data(using: .utf8)!)
-        body.append(data)
-        body.append("\r\n".data(using: .utf8)!)
-    }
-
-    private static func appendFormData(_ body: inout Data, boundary: String, name: String, fileName: String, data: Data, mimeType: String) {
-        body.append("--\(boundary)\r\n".data(using: .utf8)!)
-        body.append("Content-Disposition: form-data; name=\"\(name)\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
-        body.append("Content-Type: \(mimeType)\r\n\r\n".data(using: .utf8)!)
-        body.append(data)
-        body.append("\r\n".data(using: .utf8)!)
-    }
-
-    private static func appendBoundaryEnd(_ body: inout Data, boundary: String) {
-        body.append("--\(boundary)--\r\n".data(using: .utf8)!)
     }
 }

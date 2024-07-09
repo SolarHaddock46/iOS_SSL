@@ -6,11 +6,13 @@ final class PrimaryButton: UIButton {
         super.init(frame: .zero)
         setup(localizationKey: localizationKey)
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     private func setup(localizationKey: String) {
-        backgroundColor = UIColor(red: 63/255, green: 162/255, blue: 254/255, alpha: 1.0)
+        backgroundColor = .buttonBackgroundColor
         layer.cornerRadius = 16
         heightAnchor.constraint(equalToConstant: 48).isActive = true
         let titleLabel = SSLLabel(localisationKey: localizationKey, color: .white)

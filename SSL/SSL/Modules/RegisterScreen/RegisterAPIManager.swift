@@ -46,7 +46,7 @@ final class RegisterAPIManager {
         }
 
         var request = URLRequest(url: url)
-        request.httpMethod = HTTPMethod.post.rawValue
+        request.httpMethod = HTTPMethod.post
 
         let multipartData = MultipartFormData()
 

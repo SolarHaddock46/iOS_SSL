@@ -3,8 +3,8 @@ import Foundation
 class SSLValidator {
     static func emailIsValid(email: String?) -> Bool {
         guard let email = email else { return false }
-        let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        return email.range(of: pattern, options: .regularExpression) != nil
+        let emailPattern = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}$"
+        return email.range(of: emailPattern, options: .regularExpression) != nil
     }
     
     static func nameIsValid(name: String?) -> Bool {

@@ -2,7 +2,7 @@ import UIKit
 import Photos
 
 protocol RegisterViewControllerProtocol: AnyObject {
-    func showAlert(title: String, message: String)
+    var interactor: RegisterInteractorProtocol? { get set }
 }
 
 class RegisterViewController: UIViewController, RegisterViewControllerProtocol, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
@@ -27,7 +27,8 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     }()
     
     let validator = SSLValidator()
-    
+    private var dialogPresenter: SSLDialogPresenter?
+
     private var profilePicPicker: ProfilePicView
     private var secondNameTextField = UserInfoTextField(placeholder: NSLocalizedString("Second name", comment: ""), isSecure: false)
     private var firstNameTextField = UserInfoTextField(placeholder: NSLocalizedString("First name", comment: ""), isSecure: false)
@@ -56,6 +57,7 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
         profilePicPicker = ProfilePicView()
         super.init(nibName: nil, bundle: nil)
         profilePicPicker.delegate = self
+        dialogPresenter = SSLDialogPresenter(viewController: self)
     }
     
     required init?(coder: NSCoder) {
@@ -84,11 +86,11 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
         NSLayoutConstraint.activate([
             mainStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
         nextStageButton.addTarget(self, action: #selector(nextStageButtonTapped(_:)), for: .touchUpInside)
-                registerButton.addTarget(self, action: #selector(registerButtonTapped(_:)), for: .touchUpInside)
-                toLoginButton.addTarget(self, action: #selector(toLoginButtonTapped(_:)), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(registerButtonTapped(_:)), for: .touchUpInside)
+        toLoginButton.addTarget(self, action: #selector(toLoginButtonTapped(_:)), for: .touchUpInside)
     }
     
     private func setupFirstStageUI() {
@@ -117,7 +119,6 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     }
     
     private func isFirstStageFormValid() -> Bool {
-        
         firstNameTextField.isValid = SSLValidator.nameIsValid(name: firstNameTextField.enteredText)
         secondNameTextField.isValid = SSLValidator.nameIsValid(name: secondNameTextField.enteredText)
         fatherNameTextField.isValid = (fatherNameTextField.enteredText != "") ? SSLValidator.nameIsValid(name: fatherNameTextField.enteredText) : true
@@ -127,7 +128,6 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     }
     
     private func isSecondStageFormValid() -> Bool {
-        
         emailTextField.isValid = SSLValidator.emailIsValid(email: emailTextField.enteredText)
         telegramTextField.isValid = SSLValidator.telegramIsValid(telegram: telegramTextField.enteredText)
         password1TextField.isValid = !password1TextField.isTextEmpty
@@ -150,7 +150,7 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
             acceptConditions = acceptConditionsCheckbox.isChecked
             setupSecondStageUI()
         } else {
-            showAlert(title: "Error", message: "Please fill in all required fields and accept the terms.")
+            dialogPresenter?.showAlert(title: "Error", message: "Please fill in all required fields and accept the terms.")
         }
     }
 
@@ -170,28 +170,20 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
                         hsePass: hsePass,
                         acceptConditions: acceptConditions
                     )
-                    showAlert(title: "Success", message: firstName)
+                    dialogPresenter?.showAlert(title: "Success", message: firstName)
                 } catch let error as NetworkError {
-                    showAlert(title: "Error", message: error.localizedDescription)
+                    dialogPresenter?.showAlert(title: "Error", message: error.localizedDescription)
                 } catch {
-                    showAlert(title: "Error", message: error.localizedDescription)
+                    dialogPresenter?.showAlert(title: "Error", message: error.localizedDescription)
                 }
             }
         } else {
-            showAlert(title: "Error", message: "Please fill in all required fields and make sure passwords match.")
+            dialogPresenter?.showAlert(title: "Error", message: "Please fill in all required fields and make sure passwords match.")
         }
     }
     
     @objc func toLoginButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
-    }
-
-    func showAlert(title: String, message: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {

@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 protocol RegisterPresenterProtocol: AnyObject {
     var viewController: RegisterViewControllerProtocol? { get set }
@@ -8,11 +9,13 @@ protocol RegisterPresenterProtocol: AnyObject {
 
 class RegisterPresenter: RegisterPresenterProtocol {
     weak var viewController: RegisterViewControllerProtocol?
-    
+    private var dialogPresenter: SSLDialogPresenter?
+
     func registerSuccess(with response: UserRegisterDTO) {
-        viewController?.showAlert(title: "Success", message: response.firstName)
+        dialogPresenter?.showAlert(title: "Success", message: response.firstName)
     }
 
     func registerFailed(with error: NetworkError) {
-        viewController?.showAlert(title: "Error", message: error.localizedDescription)
-    }}
+        dialogPresenter?.showAlert(title: "Error", message: error.localizedDescription)
+    }
+}

@@ -1,3 +1,4 @@
+import Foundation
 import UIKit
 
 protocol LoginViewControllerProtocol: AnyObject {
@@ -7,6 +8,7 @@ protocol LoginViewControllerProtocol: AnyObject {
 
 class LoginViewController: UIViewController, LoginViewControllerProtocol {
     var interactor: LoginInteractorProtocol?
+    private var sslDialogPresenter: SSLDialogPresenter?
     
     private lazy var loginStackView: UIStackView = {
         let stackView = UIStackView()
@@ -22,6 +24,7 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
     
     init() {
         super.init(nibName: nil, bundle: nil)
+        sslDialogPresenter = SSLDialogPresenter(viewController: self)
         setupLayout()
     }
     
@@ -74,9 +77,9 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
             do {
                 try await interactor?.login(email: email, password: password)
             } catch let error as NetworkError {
-                showAlert(title: "Error", message: error.localizedDescription)
+                sslDialogPresenter?.showAlert(title: "Error", message: error.localizedDescription)
             } catch {
-                showAlert(title: "Error", message: error.localizedDescription)
+                sslDialogPresenter?.showAlert(title: "Error", message: error.localizedDescription)
             }
         }
     }
@@ -86,11 +89,8 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
         navigationController?.pushViewController(registerScene, animated: true)
     }
     
+    // я хз почему, но в LoginPresenter напрямую использовать SSLDialogPresenter не получается, поэтому пока оставил функцию как костыль
     func showAlert(title: String, message: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+        sslDialogPresenter?.showAlert(title: title, message: message)
     }
 }

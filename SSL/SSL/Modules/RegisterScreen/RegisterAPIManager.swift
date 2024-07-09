@@ -73,8 +73,8 @@ final class RegisterAPIManager {
 
         let (data, response) = try await URLSession.shared.data(for: request)
 
-        if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 201 {
-            if httpResponse.statusCode == 400 {
+        if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != HTTPCode.ok {
+            if httpResponse.statusCode == HTTPCode.badRequest {
                 let detailData = try JSONDecoder().decode(RegisterErrorDetail.self, from: data)
                 if let emailDetails = detailData.errors.email, !emailDetails.isEmpty {
                     if emailDetails[0] == "пользователь с таким Адрес электронной почты уже существует." {

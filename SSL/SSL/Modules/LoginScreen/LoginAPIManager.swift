@@ -45,8 +45,8 @@ final class LoginAPIManager {
         
         let (data, response) = try await URLSession.shared.data(for: request)
         
-        if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
-            if httpResponse.statusCode == 401 {
+        if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != HTTPCode.ok {
+            if httpResponse.statusCode == HTTPCode.unauthorized {
                 let detailData = try JSONDecoder().decode(LoginErrorDetail.self, from: data)
                 let detail = detailData.detail
                 if detail == "Неверная почта или пароль" {

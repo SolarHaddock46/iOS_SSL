@@ -20,6 +20,7 @@
 		335B0A182BD3D5400029CEBD /* Onest.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33D224842B7B822900116BAD /* Onest.ttf */; };
 		335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F2F782BC2F8B600153A35 /* NetworkError.swift */; };
 		33658EB72BD1655D0043F37D /* RegisterAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33658EB62BD1655D0043F37D /* RegisterAPIManager.swift */; };
+		337726CA2C3D9C670010240F /* HTTPCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337726C92C3D9C670010240F /* HTTPCode.swift */; };
 		337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337AC2D82BC1A2C60059629D /* APIRoutes.swift */; };
 		339732322BEE1F4A009ECB44 /* SSLColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732312BEE1F4A009ECB44 /* SSLColors.swift */; };
 		339732342BEE8DFD009ECB44 /* SSLFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732332BEE8DFD009ECB44 /* SSLFonts.swift */; };
@@ -75,6 +76,7 @@
 		335B0A162BD2B2CA0029CEBD /* RegisterModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModuleConfigurator.swift; sourceTree = "<group>"; };
 		335F2F782BC2F8B600153A35 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		33658EB62BD1655D0043F37D /* RegisterAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAPIManager.swift; sourceTree = "<group>"; };
+		337726C92C3D9C670010240F /* HTTPCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCode.swift; sourceTree = "<group>"; };
 		337AC2D82BC1A2C60059629D /* APIRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoutes.swift; sourceTree = "<group>"; };
 		339732312BEE1F4A009ECB44 /* SSLColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLColors.swift; sourceTree = "<group>"; };
 		339732332BEE8DFD009ECB44 /* SSLFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLFonts.swift; sourceTree = "<group>"; };
@@ -142,6 +144,24 @@
 			path = RegisterScreen;
 			sourceTree = "<group>";
 		};
+		337726C52C3D98ED0010240F /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				337AC2D82BC1A2C60059629D /* APIRoutes.swift */,
+				33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */,
+				335F2F782BC2F8B600153A35 /* NetworkError.swift */,
+				337726C92C3D9C670010240F /* HTTPCode.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		337726C62C3D98FD0010240F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		33BC806D2BD290250065FB60 /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,12 +197,8 @@
 		33D224462B7B6E2800116BAD /* SSL */ = {
 			isa = PBXGroup;
 			children = (
-				337AC2D82BC1A2C60059629D /* APIRoutes.swift */,
-				33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */,
-				33FF0F6E2C3C2A730070FA9E /* MultipartFormData.swift */,
-				339732312BEE1F4A009ECB44 /* SSLColors.swift */,
-				339732332BEE8DFD009ECB44 /* SSLFonts.swift */,
-				335F2F782BC2F8B600153A35 /* NetworkError.swift */,
+				337726C62C3D98FD0010240F /* Extensions */,
+				337726C52C3D98ED0010240F /* Enums */,
 				33F1770B2BB7110500FA1B0D /* Services */,
 				33F176FF2BB7025900FA1B0D /* Modules */,
 				33D224832B7B819C00116BAD /* Fonts */,
@@ -217,6 +233,8 @@
 		33D224802B7B800500116BAD /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				339732332BEE8DFD009ECB44 /* SSLFonts.swift */,
+				339732312BEE1F4A009ECB44 /* SSLColors.swift */,
 				33D224812B7B803C00116BAD /* PrimaryButton.swift */,
 				33D224892B7B8C5200116BAD /* InsetedTextField.swift */,
 				33D2248B2B7B8DC000116BAD /* SSLLabel.swift */,
@@ -250,6 +268,7 @@
 		33F1770B2BB7110500FA1B0D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				33FF0F6E2C3C2A730070FA9E /* MultipartFormData.swift */,
 				333332322C34554C00B6021D /* SSLValidator.swift */,
 				33FF0F702C3C359B0070FA9E /* SSLDialogPresenter.swift */,
 			);
@@ -431,6 +450,7 @@
 				33BC80772BD2906E0065FB60 /* LoginInteractor.swift in Sources */,
 				335B0A0E2BD2A5830029CEBD /* LoginModuleConfigurator.swift in Sources */,
 				33D2248C2B7B8DC000116BAD /* SSLLabel.swift in Sources */,
+				337726CA2C3D9C670010240F /* HTTPCode.swift in Sources */,
 				330DADFF2B9E155D0013A394 /* SecondaryButton.swift in Sources */,
 				339732342BEE8DFD009ECB44 /* SSLFonts.swift in Sources */,
 				33658EB72BD1655D0043F37D /* RegisterAPIManager.swift in Sources */,

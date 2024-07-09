@@ -21,6 +21,7 @@
 		335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F2F782BC2F8B600153A35 /* NetworkError.swift */; };
 		33658EB72BD1655D0043F37D /* RegisterAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33658EB62BD1655D0043F37D /* RegisterAPIManager.swift */; };
 		337726CA2C3D9C670010240F /* HTTPCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337726C92C3D9C670010240F /* HTTPCode.swift */; };
+		337726CC2C3D9E4E0010240F /* VerbalServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337726CB2C3D9E4E0010240F /* VerbalServerResponse.swift */; };
 		337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337AC2D82BC1A2C60059629D /* APIRoutes.swift */; };
 		339732322BEE1F4A009ECB44 /* SSLColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732312BEE1F4A009ECB44 /* SSLColors.swift */; };
 		339732342BEE8DFD009ECB44 /* SSLFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732332BEE8DFD009ECB44 /* SSLFonts.swift */; };
@@ -77,6 +78,7 @@
 		335F2F782BC2F8B600153A35 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		33658EB62BD1655D0043F37D /* RegisterAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAPIManager.swift; sourceTree = "<group>"; };
 		337726C92C3D9C670010240F /* HTTPCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCode.swift; sourceTree = "<group>"; };
+		337726CB2C3D9E4E0010240F /* VerbalServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalServerResponse.swift; sourceTree = "<group>"; };
 		337AC2D82BC1A2C60059629D /* APIRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoutes.swift; sourceTree = "<group>"; };
 		339732312BEE1F4A009ECB44 /* SSLColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLColors.swift; sourceTree = "<group>"; };
 		339732332BEE8DFD009ECB44 /* SSLFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLFonts.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */,
 				335F2F782BC2F8B600153A35 /* NetworkError.swift */,
 				337726C92C3D9C670010240F /* HTTPCode.swift */,
+				337726CB2C3D9E4E0010240F /* VerbalServerResponse.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				33BC80722BD290540065FB60 /* LoginViewController.swift in Sources */,
 				335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */,
 				33D2244C2B7B6E2800116BAD /* ViewController.swift in Sources */,
+				337726CC2C3D9E4E0010240F /* VerbalServerResponse.swift in Sources */,
 				33FF0F6D2C3C1CC60070FA9E /* HTTPMethod.swift in Sources */,
 				33D224482B7B6E2800116BAD /* AppDelegate.swift in Sources */,
 				335B0A0C2BD2A3890029CEBD /* LoginAPIManager.swift in Sources */,

@@ -49,9 +49,9 @@ final class LoginAPIManager {
             if httpResponse.statusCode == HTTPCode.unauthorized {
                 let detailData = try JSONDecoder().decode(LoginErrorDetail.self, from: data)
                 let detail = detailData.detail
-                if detail == "Неверная почта или пароль" {
+                if detail == VerbalServerResponse.invalidCredentials {
                     throw networkError.invalidCredentials
-                } else if detail == "Ваша почта не подтверждена и аккаунт не подтвержден модератором" {
+                } else if detail == VerbalServerResponse.unverifiedCredentials {
                     throw networkError.unverifiedCredentials
                 }
             } else {

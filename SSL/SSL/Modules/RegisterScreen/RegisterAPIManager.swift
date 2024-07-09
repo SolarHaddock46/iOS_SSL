@@ -77,12 +77,12 @@ final class RegisterAPIManager {
             if httpResponse.statusCode == HTTPCode.badRequest {
                 let detailData = try JSONDecoder().decode(RegisterErrorDetail.self, from: data)
                 if let emailDetails = detailData.errors.email, !emailDetails.isEmpty {
-                    if emailDetails[0] == "пользователь с таким Адрес электронной почты уже существует." {
+                    if emailDetails[0] == VerbalServerResponse.emailAlreadyExists {
                         throw NetworkError.emailAlreadyExists
                     }
                 }
                 if let passwordDetails = detailData.errors.password, !passwordDetails.isEmpty {
-                    if passwordDetails[0] == "Введённый пароль слишком широко распространён." {
+                    if passwordDetails[0] == VerbalServerResponse.weakPassword {
                         throw NetworkError.weakPassword
                     }
                 }

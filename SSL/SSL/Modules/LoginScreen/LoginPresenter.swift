@@ -7,6 +7,7 @@ protocol LoginPresenterProtocol {
 }
 
 class LoginPresenter: LoginPresenterProtocol {
+    
     weak var viewController: LoginViewControllerProtocol?
     
     func loginSuccess(with userDTO: UserDTO) {

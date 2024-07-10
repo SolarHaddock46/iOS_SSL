@@ -1,6 +1,7 @@
 import Foundation
 
 class MultipartFormData {
+    
     private let boundary: String
     private var data: Data
 

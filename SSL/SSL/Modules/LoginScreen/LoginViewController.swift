@@ -7,8 +7,9 @@ protocol LoginViewControllerProtocol: AnyObject {
 }
 
 class LoginViewController: UIViewController, LoginViewControllerProtocol {
+    
     var interactor: LoginInteractorProtocol?
-    private var sslDialogPresenter: SSLDialogPresenter?
+    private var sslDialogPresenter: RegisterDialog?
     
     private lazy var loginStackView: UIStackView = {
         let stackView = UIStackView()
@@ -24,7 +25,7 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        sslDialogPresenter = SSLDialogPresenter(viewController: self)
+        sslDialogPresenter = RegisterDialog(viewController: self)
         setupLayout()
     }
     
@@ -47,8 +48,7 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
         NSLayoutConstraint.activate([
             loginStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
-            loginStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            loginStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            loginStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16)
         ])
 
         loginButton.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
@@ -85,7 +85,7 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
     }
     
     @objc func toRegisterButtonTapped(_ sender: UIButton) {
-        let registerScene = RegisterModuleConfigurator.configureModule()
+        let registerScene = RegisterBuilder.build()
         navigationController?.pushViewController(registerScene, animated: true)
     }
     

@@ -22,6 +22,7 @@ struct LoginErrorDetail: Codable {
 }
 
 final class LoginAPIManager {
+    
     static func postLogin(email: String, password: String) async throws -> UserDTO {
         let apiRoutes = APIRoutes()
         guard let baseURL = apiRoutes.baseURL else { throw NetworkError.internalError }

@@ -6,6 +6,7 @@ protocol RegisterInteractorProtocol: AnyObject {
 }
 
 class RegisterInteractor: RegisterInteractorProtocol {
+    
     var presenter: RegisterPresenterProtocol?
     let networkError = NetworkError.self
     

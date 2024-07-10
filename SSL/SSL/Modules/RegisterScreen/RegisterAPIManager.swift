@@ -32,6 +32,7 @@ struct RegisterRequestDTO: Codable {
 }
 
 final class RegisterAPIManager {
+    
     static func postRegister(firstName: String, lastName: String, fatherName: String, telegram: String, email: String, password1: String, password2: String, imageData: Data?, hsePass: Bool, acceptConditions: Bool) async throws -> UserRegisterDTO {
         let apiRoutes = APIRoutes()
         guard let baseURL = apiRoutes.baseURL else {

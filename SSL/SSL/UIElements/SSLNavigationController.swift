@@ -1,6 +1,7 @@
 import UIKit
 
 class SSLNavigationController: UINavigationController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()

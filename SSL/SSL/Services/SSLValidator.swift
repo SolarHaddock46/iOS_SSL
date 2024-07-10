@@ -1,6 +1,7 @@
 import Foundation
 
 class SSLValidator {
+    
     static func emailIsValid(email: String?) -> Bool {
         guard let email = email else { return false }
         let emailPattern = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}$"

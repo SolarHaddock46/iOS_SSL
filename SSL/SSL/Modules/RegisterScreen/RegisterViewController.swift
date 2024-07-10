@@ -6,6 +6,7 @@ protocol RegisterViewControllerProtocol: AnyObject {
 }
 
 class RegisterViewController: UIViewController, RegisterViewControllerProtocol, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
     var interactor: RegisterInteractorProtocol?
     
     private var firstName: String = ""
@@ -27,7 +28,7 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     }()
     
     let validator = SSLValidator()
-    private var dialogPresenter: SSLDialogPresenter?
+    private var dialogPresenter: RegisterDialog?
 
     private var profilePicPicker: ProfilePicView
     private var secondNameTextField = UserInfoTextField(placeholder: NSLocalizedString("Second name", comment: ""), isSecure: false)
@@ -57,7 +58,7 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
         profilePicPicker = ProfilePicView()
         super.init(nibName: nil, bundle: nil)
         profilePicPicker.delegate = self
-        dialogPresenter = SSLDialogPresenter(viewController: self)
+        dialogPresenter = RegisterDialog(viewController: self)
     }
     
     required init?(coder: NSCoder) {

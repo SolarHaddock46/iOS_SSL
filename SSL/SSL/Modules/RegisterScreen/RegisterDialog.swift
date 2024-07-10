@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class SSLDialogPresenter {
+class RegisterDialog {
     private weak var viewController: UIViewController?
 
     init(viewController: UIViewController) {

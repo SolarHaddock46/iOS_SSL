@@ -8,8 +8,9 @@ protocol RegisterPresenterProtocol: AnyObject {
 }
 
 class RegisterPresenter: RegisterPresenterProtocol {
+    
     weak var viewController: RegisterViewControllerProtocol?
-    private var dialogPresenter: SSLDialogPresenter?
+    private var dialogPresenter: RegisterDialog?
 
     func registerSuccess(with response: UserRegisterDTO) {
         dialogPresenter?.showAlert(title: "Success", message: response.firstName)

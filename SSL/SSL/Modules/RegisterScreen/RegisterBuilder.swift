@@ -1,7 +1,8 @@
 import Foundation
 
-class RegisterModuleConfigurator {
-    static func configureModule() -> RegisterViewController {
+class RegisterBuilder {
+    
+    static func build() -> RegisterViewController {
         let registerViewController = RegisterViewController()
         let registerPresenter = RegisterPresenter()
         let registerInteractor = RegisterInteractor()

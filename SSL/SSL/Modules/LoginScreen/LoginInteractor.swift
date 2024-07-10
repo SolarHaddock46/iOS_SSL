@@ -6,6 +6,7 @@ protocol LoginInteractorProtocol {
 }
 
 class LoginInteractor: LoginInteractorProtocol {
+    
     var presenter: LoginPresenterProtocol?
     
     func login(email: String, password: String) async throws {

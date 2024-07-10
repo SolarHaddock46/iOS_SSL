@@ -12,11 +12,11 @@
 		333332312C34356F00B6021D /* SSLNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333332302C34356F00B6021D /* SSLNavigationController.swift */; };
 		333332332C34554C00B6021D /* SSLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333332322C34554C00B6021D /* SSLValidator.swift */; };
 		335B0A0C2BD2A3890029CEBD /* LoginAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A0B2BD2A3890029CEBD /* LoginAPIManager.swift */; };
-		335B0A0E2BD2A5830029CEBD /* LoginModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A0D2BD2A5830029CEBD /* LoginModuleConfigurator.swift */; };
+		335B0A0E2BD2A5830029CEBD /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A0D2BD2A5830029CEBD /* LoginBuilder.swift */; };
 		335B0A112BD2AD3B0029CEBD /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A102BD2AD3B0029CEBD /* RegisterInteractor.swift */; };
 		335B0A132BD2AD490029CEBD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A122BD2AD490029CEBD /* RegisterViewController.swift */; };
 		335B0A152BD2AD550029CEBD /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A142BD2AD550029CEBD /* RegisterPresenter.swift */; };
-		335B0A172BD2B2CA0029CEBD /* RegisterModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A162BD2B2CA0029CEBD /* RegisterModuleConfigurator.swift */; };
+		335B0A172BD2B2CA0029CEBD /* RegisterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A162BD2B2CA0029CEBD /* RegisterBuilder.swift */; };
 		335B0A182BD3D5400029CEBD /* Onest.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33D224842B7B822900116BAD /* Onest.ttf */; };
 		335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F2F782BC2F8B600153A35 /* NetworkError.swift */; };
 		33658EB72BD1655D0043F37D /* RegisterAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33658EB62BD1655D0043F37D /* RegisterAPIManager.swift */; };
@@ -25,6 +25,7 @@
 		337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337AC2D82BC1A2C60059629D /* APIRoutes.swift */; };
 		339732322BEE1F4A009ECB44 /* SSLColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732312BEE1F4A009ECB44 /* SSLColors.swift */; };
 		339732342BEE8DFD009ECB44 /* SSLFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732332BEE8DFD009ECB44 /* SSLFonts.swift */; };
+		33A677182C3ECA2800876024 /* RegisterDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A677172C3ECA2800876024 /* RegisterDialog.swift */; };
 		33BC80722BD290540065FB60 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC80712BD290540065FB60 /* LoginViewController.swift */; };
 		33BC80742BD2905F0065FB60 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC80732BD2905F0065FB60 /* LoginPresenter.swift */; };
 		33BC80772BD2906E0065FB60 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC80762BD2906E0065FB60 /* LoginInteractor.swift */; };
@@ -44,7 +45,6 @@
 		33F6E14A2BC68B3E00CAE32F /* CheckboxWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */; };
 		33FF0F6D2C3C1CC60070FA9E /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */; };
 		33FF0F6F2C3C2A730070FA9E /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF0F6E2C3C2A730070FA9E /* MultipartFormData.swift */; };
-		33FF0F712C3C359B0070FA9E /* SSLDialogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF0F702C3C359B0070FA9E /* SSLDialogPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,11 +70,11 @@
 		333332302C34356F00B6021D /* SSLNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLNavigationController.swift; sourceTree = "<group>"; };
 		333332322C34554C00B6021D /* SSLValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLValidator.swift; sourceTree = "<group>"; };
 		335B0A0B2BD2A3890029CEBD /* LoginAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIManager.swift; sourceTree = "<group>"; };
-		335B0A0D2BD2A5830029CEBD /* LoginModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModuleConfigurator.swift; sourceTree = "<group>"; };
+		335B0A0D2BD2A5830029CEBD /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
 		335B0A102BD2AD3B0029CEBD /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
 		335B0A122BD2AD490029CEBD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		335B0A142BD2AD550029CEBD /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
-		335B0A162BD2B2CA0029CEBD /* RegisterModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModuleConfigurator.swift; sourceTree = "<group>"; };
+		335B0A162BD2B2CA0029CEBD /* RegisterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBuilder.swift; sourceTree = "<group>"; };
 		335F2F782BC2F8B600153A35 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		33658EB62BD1655D0043F37D /* RegisterAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAPIManager.swift; sourceTree = "<group>"; };
 		337726C92C3D9C670010240F /* HTTPCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCode.swift; sourceTree = "<group>"; };
@@ -82,6 +82,7 @@
 		337AC2D82BC1A2C60059629D /* APIRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoutes.swift; sourceTree = "<group>"; };
 		339732312BEE1F4A009ECB44 /* SSLColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLColors.swift; sourceTree = "<group>"; };
 		339732332BEE8DFD009ECB44 /* SSLFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLFonts.swift; sourceTree = "<group>"; };
+		33A677172C3ECA2800876024 /* RegisterDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDialog.swift; sourceTree = "<group>"; };
 		33BC80712BD290540065FB60 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		33BC80732BD2905F0065FB60 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		33BC80762BD2906E0065FB60 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 		33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxWithLabel.swift; sourceTree = "<group>"; };
 		33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		33FF0F6E2C3C2A730070FA9E /* MultipartFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
-		33FF0F702C3C359B0070FA9E /* SSLDialogPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLDialogPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,11 +137,12 @@
 		335B0A0F2BD2AD210029CEBD /* RegisterScreen */ = {
 			isa = PBXGroup;
 			children = (
+				33A677172C3ECA2800876024 /* RegisterDialog.swift */,
 				335B0A122BD2AD490029CEBD /* RegisterViewController.swift */,
 				335B0A102BD2AD3B0029CEBD /* RegisterInteractor.swift */,
 				335B0A142BD2AD550029CEBD /* RegisterPresenter.swift */,
 				33658EB62BD1655D0043F37D /* RegisterAPIManager.swift */,
-				335B0A162BD2B2CA0029CEBD /* RegisterModuleConfigurator.swift */,
+				335B0A162BD2B2CA0029CEBD /* RegisterBuilder.swift */,
 			);
 			path = RegisterScreen;
 			sourceTree = "<group>";
@@ -172,7 +173,7 @@
 				33BC80762BD2906E0065FB60 /* LoginInteractor.swift */,
 				33BC80732BD2905F0065FB60 /* LoginPresenter.swift */,
 				335B0A0B2BD2A3890029CEBD /* LoginAPIManager.swift */,
-				335B0A0D2BD2A5830029CEBD /* LoginModuleConfigurator.swift */,
+				335B0A0D2BD2A5830029CEBD /* LoginBuilder.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -273,7 +274,6 @@
 			children = (
 				33FF0F6E2C3C2A730070FA9E /* MultipartFormData.swift */,
 				333332322C34554C00B6021D /* SSLValidator.swift */,
-				33FF0F702C3C359B0070FA9E /* SSLDialogPresenter.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -439,7 +439,6 @@
 			files = (
 				335B0A112BD2AD3B0029CEBD /* RegisterInteractor.swift in Sources */,
 				333332312C34356F00B6021D /* SSLNavigationController.swift in Sources */,
-				33FF0F712C3C359B0070FA9E /* SSLDialogPresenter.swift in Sources */,
 				33FF0F6F2C3C2A730070FA9E /* MultipartFormData.swift in Sources */,
 				33BC80722BD290540065FB60 /* LoginViewController.swift in Sources */,
 				335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */,
@@ -452,12 +451,13 @@
 				337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */,
 				33D224822B7B803C00116BAD /* PrimaryButton.swift in Sources */,
 				33BC80772BD2906E0065FB60 /* LoginInteractor.swift in Sources */,
-				335B0A0E2BD2A5830029CEBD /* LoginModuleConfigurator.swift in Sources */,
+				335B0A0E2BD2A5830029CEBD /* LoginBuilder.swift in Sources */,
 				33D2248C2B7B8DC000116BAD /* SSLLabel.swift in Sources */,
 				337726CA2C3D9C670010240F /* HTTPCode.swift in Sources */,
 				330DADFF2B9E155D0013A394 /* SecondaryButton.swift in Sources */,
 				339732342BEE8DFD009ECB44 /* SSLFonts.swift in Sources */,
 				33658EB72BD1655D0043F37D /* RegisterAPIManager.swift in Sources */,
+				33A677182C3ECA2800876024 /* RegisterDialog.swift in Sources */,
 				33D2244A2B7B6E2800116BAD /* SceneDelegate.swift in Sources */,
 				33D2248A2B7B8C5200116BAD /* InsetedTextField.swift in Sources */,
 				33BC80742BD2905F0065FB60 /* LoginPresenter.swift in Sources */,
@@ -466,7 +466,7 @@
 				333332332C34554C00B6021D /* SSLValidator.swift in Sources */,
 				33F6E1482BC6867900CAE32F /* ProfilePicView.swift in Sources */,
 				33F6E14A2BC68B3E00CAE32F /* CheckboxWithLabel.swift in Sources */,
-				335B0A172BD2B2CA0029CEBD /* RegisterModuleConfigurator.swift in Sources */,
+				335B0A172BD2B2CA0029CEBD /* RegisterBuilder.swift in Sources */,
 				33D2248E2B7B8F3800116BAD /* UserInfoTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

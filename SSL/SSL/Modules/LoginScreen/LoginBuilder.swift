@@ -1,7 +1,8 @@
 import UIKit
 
-class LoginModuleConfigurator {
-    static func configureModule() -> LoginViewController {
+class LoginBuilder {
+    
+    static func build() -> LoginViewController {
         let loginViewController = LoginViewController()
         let loginInteractor = LoginInteractor()
         let loginPresenter = LoginPresenter()

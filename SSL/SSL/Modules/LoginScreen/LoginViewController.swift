@@ -73,7 +73,7 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
         
         guard emailTextField.isValid && passwordTextField.isValid else { return }
         
-        Task {
+        Task(priority: .high) {
             do {
                 try await interactor?.login(email: email, password: password)
             } catch let error as NetworkError {

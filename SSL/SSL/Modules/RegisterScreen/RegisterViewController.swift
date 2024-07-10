@@ -157,7 +157,7 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
 
     @objc func registerButtonTapped(_ sender: UIButton) {
         if isSecondStageFormValid() {
-            Task {
+            Task(priority: .high) {
                 do {
                     try await interactor?.register(
                         firstName: firstName,

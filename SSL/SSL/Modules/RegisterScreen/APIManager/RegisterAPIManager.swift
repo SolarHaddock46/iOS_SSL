@@ -1,36 +1,5 @@
 import Foundation
 
-struct RegisterErrorDetail: Codable {
-    struct Errors: Codable {
-        let email: [String]?
-        let password: [String]?
-    }
-
-    let errors: Errors
-}
-
-struct UserRegisterDTO: Codable {
-    let firstName: String
-    let lastName: String
-    let fatherName: String
-    let telegram: String
-    let email: String
-    let image: String?
-    let hsePass: Bool
-}
-
-struct RegisterRequestDTO: Codable {
-    let firstName: String
-    let lastName: String
-    let fatherName: String
-    let telegram: String
-    let email: String
-    let password1: String
-    let password2: String
-    let hsePass: Bool
-    let acceptConditions: Bool
-}
-
 final class RegisterAPIManager {
     
     static func postRegister(firstName: String, lastName: String, fatherName: String, telegram: String, email: String, password1: String, password2: String, imageData: Data?, hsePass: Bool, acceptConditions: Bool) async throws -> UserRegisterDTO {

@@ -1,26 +1,5 @@
 import Foundation
 
-struct Tokens: Codable {
-    let refresh: String
-    let access: String
-    let id: Int
-}
-
-struct UserDTO: Codable {
-    let email: String
-    let password: String
-    let tokens: Tokens
-}
-
-struct LoginRequestDTO: Codable {
-    let email: String
-    let password: String
-}
-
-struct LoginErrorDetail: Codable {
-    let detail: String
-}
-
 final class LoginAPIManager {
     
     static func postLogin(email: String, password: String) async throws -> UserDTO {

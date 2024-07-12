@@ -3,10 +3,11 @@ import UIKit
 class CheckboxWithLabel: UIView {
 
     private let checkbox: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton(type: .custom)
         button.setImage(UIImage(systemName: "circle"), for: .normal)
-        button.setImage(UIImage(systemName: "checkmark.circle"), for: .selected)
+        button.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .selected)
         button.addTarget(self, action: #selector(checkboxTapped), for: .touchUpInside)
+        button.tintColor = .systemBlue
         return button
     }()
 
@@ -40,10 +41,20 @@ class CheckboxWithLabel: UIView {
 
     @objc private func checkboxTapped(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        updateCheckboxImages()
+    }
+
+    private func updateCheckboxImages() {
+        let circleImage = UIImage(systemName: "circle")?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
+        let checkmarkImage = UIImage(systemName: "checkmark.circle.fill")?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
+        
+        checkbox.setImage(circleImage, for: .normal)
+        checkbox.setImage(checkmarkImage, for: .selected)
     }
 
     func setChecked(_ checked: Bool) {
         checkbox.isSelected = checked
+        updateCheckboxImages()
     }
 }
 
@@ -54,6 +65,7 @@ extension CheckboxWithLabel {
         }
         set {
             checkbox.isSelected = newValue
+            updateCheckboxImages()
         }
     }
 }

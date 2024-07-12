@@ -32,6 +32,7 @@
 		33A677222C3ECE6F00876024 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A677212C3ECE6F00876024 /* UserDTO.swift */; };
 		33A677242C3ECE7A00876024 /* LoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A677232C3ECE7A00876024 /* LoginRequestDTO.swift */; };
 		33A677262C3ECE8C00876024 /* LoginErrorDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A677252C3ECE8C00876024 /* LoginErrorDetail.swift */; };
+		33A6772A2C402B5600876024 /* TemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A677292C402B5600876024 /* TemplateViewController.swift */; };
 		33BC80722BD290540065FB60 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC80712BD290540065FB60 /* LoginViewController.swift */; };
 		33BC80742BD2905F0065FB60 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC80732BD2905F0065FB60 /* LoginPresenter.swift */; };
 		33BC80772BD2906E0065FB60 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC80762BD2906E0065FB60 /* LoginInteractor.swift */; };
@@ -95,6 +96,7 @@
 		33A677212C3ECE6F00876024 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		33A677232C3ECE7A00876024 /* LoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestDTO.swift; sourceTree = "<group>"; };
 		33A677252C3ECE8C00876024 /* LoginErrorDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginErrorDetail.swift; sourceTree = "<group>"; };
+		33A677292C402B5600876024 /* TemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
 		33BC80712BD290540065FB60 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		33BC80732BD2905F0065FB60 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		33BC80762BD2906E0065FB60 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				33F6E1472BC6867900CAE32F /* ProfilePicView.swift */,
 				33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */,
 				333332302C34356F00B6021D /* SSLNavigationController.swift */,
+				33A677292C402B5600876024 /* TemplateViewController.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				339732322BEE1F4A009ECB44 /* SSLColors.swift in Sources */,
 				337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */,
 				33D224822B7B803C00116BAD /* PrimaryButton.swift in Sources */,
+				33A6772A2C402B5600876024 /* TemplateViewController.swift in Sources */,
 				33BC80772BD2906E0065FB60 /* LoginInteractor.swift in Sources */,
 				335B0A0E2BD2A5830029CEBD /* LoginBuilder.swift in Sources */,
 				33D2248C2B7B8DC000116BAD /* SSLLabel.swift in Sources */,

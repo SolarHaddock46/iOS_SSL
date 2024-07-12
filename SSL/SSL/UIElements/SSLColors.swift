@@ -6,4 +6,5 @@ extension UIColor {
     static let textFieldBorderColor = UIColor(red: 0.463, green: 0.463, blue: 0.502, alpha: 1.0)
     static let validTextColor: UIColor = .white
     static let picViewBorderColor = UIColor.link.cgColor
+    static let templateBackgroundColor = UIColor(red: 248/255, green: 249/255, blue: 251/255, alpha: 1.0)
 }

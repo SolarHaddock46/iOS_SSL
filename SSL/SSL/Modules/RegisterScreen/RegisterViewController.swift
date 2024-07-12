@@ -5,7 +5,7 @@ protocol RegisterViewControllerProtocol: AnyObject {
     var interactor: RegisterInteractorProtocol? { get set }
 }
 
-class RegisterViewController: UIViewController, RegisterViewControllerProtocol, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class RegisterViewController: TemplateViewController, RegisterViewControllerProtocol, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     var interactor: RegisterInteractorProtocol?
     
@@ -77,18 +77,9 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol, 
     }
 
     private func setupLayout() {
-        view.backgroundColor = .white
-        navigationItem.leftBarButtonItem = nil
+        addContentSubview(mainStackView)        
         setupFirstStageUI()
         
-        view.addSubview(mainStackView)
-        mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            mainStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
-        ])
         nextStageButton.addTarget(self, action: #selector(nextStageButtonTapped(_:)), for: .touchUpInside)
         registerButton.addTarget(self, action: #selector(registerButtonTapped(_:)), for: .touchUpInside)
         toLoginButton.addTarget(self, action: #selector(toLoginButtonTapped(_:)), for: .touchUpInside)

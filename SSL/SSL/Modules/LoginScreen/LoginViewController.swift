@@ -34,7 +34,6 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
-        updateTitle()
     }
     
     private func setupLayout() {
@@ -47,11 +46,6 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
         
         loginButton.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
         toRegisterButton.addTarget(self, action: #selector(toRegisterButtonTapped(_:)), for: .touchUpInside)
-    }
-    
-    func updateTitle(with title: String? = NSLocalizedString("Log in", comment: "")) {
-        self.title = title
-        self.navigationController?.navigationBar.layoutIfNeeded()
     }
     
     @objc func loginButtonTapped(_ sender: UIButton) {

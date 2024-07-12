@@ -198,6 +198,7 @@
       }
     },
     "Register an account" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {

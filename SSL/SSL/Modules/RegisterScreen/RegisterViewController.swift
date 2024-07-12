@@ -68,12 +68,6 @@ class RegisterViewController: TemplateViewController, RegisterViewControllerProt
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
-        updateTitle()
-    }
-
-    func updateTitle(with title: String? = NSLocalizedString("Register an account", comment: "")) {
-        self.title = title
-        self.navigationController?.navigationBar.layoutIfNeeded()
     }
 
     private func setupLayout() {

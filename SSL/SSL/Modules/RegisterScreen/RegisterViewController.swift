@@ -30,6 +30,7 @@ class RegisterViewController: TemplateViewController, RegisterViewControllerProt
     let validator = SSLValidator()
     private var dialogPresenter: RegisterDialog?
 
+    private var heading = SSLLabel(localizationKey: "Register an account", isHeading: true)
     private var profilePicPicker: ProfilePicView
     private var secondNameTextField = UserInfoTextField(placeholder: NSLocalizedString("Second name", comment: ""), isSecure: false)
     private var firstNameTextField = UserInfoTextField(placeholder: NSLocalizedString("First name", comment: ""), isSecure: false)
@@ -82,6 +83,7 @@ class RegisterViewController: TemplateViewController, RegisterViewControllerProt
     private func setupFirstStageUI() {
         mainStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
+        mainStackView.addArrangedSubview(heading)
         mainStackView.addArrangedSubview(profilePicPicker)
         mainStackView.addArrangedSubview(secondNameTextField)
         mainStackView.addArrangedSubview(firstNameTextField)
@@ -96,6 +98,7 @@ class RegisterViewController: TemplateViewController, RegisterViewControllerProt
     private func setupSecondStageUI() {
         mainStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
+        mainStackView.addArrangedSubview(heading)
         mainStackView.addArrangedSubview(emailTextField)
         mainStackView.addArrangedSubview(telegramTextField)
         mainStackView.addArrangedSubview(password1TextField)

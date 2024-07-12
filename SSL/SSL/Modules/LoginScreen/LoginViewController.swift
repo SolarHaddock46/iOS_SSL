@@ -17,6 +17,7 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
         return stackView
     }()
     
+    private var heading = SSLLabel(localizationKey: "Log in", isHeading: true)
     private var emailTextField = UserInfoTextField(placeholder: NSLocalizedString("Email", comment: "Email placeholder"), isSecure: false)
     private lazy var passwordTextField = UserInfoTextField(placeholder: NSLocalizedString("Password", comment: "Password placeholder"), isSecure: true)
     private var loginButton = PrimaryButton(localizationKey: "Sign in")
@@ -37,6 +38,7 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
     }
     
     private func setupLayout() {
+        loginStackView.addArrangedSubview(heading)
         loginStackView.addArrangedSubview(emailTextField)
         loginStackView.addArrangedSubview(passwordTextField)
         loginStackView.addArrangedSubview(loginButton)

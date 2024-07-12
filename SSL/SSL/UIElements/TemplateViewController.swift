@@ -10,8 +10,8 @@ class TemplateViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .logoTextColor
-        label.font = UIFont(name: "Rubik-ExtraBold", size: 34)
+        label.textColor = .mainTextColor
+        label.font = UIFont.rubikExtraBold(ofSize: 34)
         
         let attributedText = NSMutableAttributedString(string: "Soft Skills Lab")
         let range = (attributedText.string as NSString).range(of: "Lab")
@@ -21,7 +21,7 @@ class TemplateViewController: UIViewController {
         label.attributedText = attributedText
         return label
     }()
-
+    
     let contentView: UIView = {
         let view = UIView()
         view.backgroundColor = .white

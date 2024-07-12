@@ -36,6 +36,7 @@
 		33BC80722BD290540065FB60 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC80712BD290540065FB60 /* LoginViewController.swift */; };
 		33BC80742BD2905F0065FB60 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC80732BD2905F0065FB60 /* LoginPresenter.swift */; };
 		33BC80772BD2906E0065FB60 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC80762BD2906E0065FB60 /* LoginInteractor.swift */; };
+		33C065DA2C414D1700CE3181 /* Rubik-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33C065D92C414D1700CE3181 /* Rubik-ExtraBold.ttf */; };
 		33D224482B7B6E2800116BAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D224472B7B6E2800116BAD /* AppDelegate.swift */; };
 		33D2244A2B7B6E2800116BAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D224492B7B6E2800116BAD /* SceneDelegate.swift */; };
 		33D2244C2B7B6E2800116BAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2244B2B7B6E2800116BAD /* ViewController.swift */; };
@@ -100,6 +101,7 @@
 		33BC80712BD290540065FB60 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		33BC80732BD2905F0065FB60 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		33BC80762BD2906E0065FB60 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		33C065D92C414D1700CE3181 /* Rubik-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-ExtraBold.ttf"; sourceTree = "<group>"; };
 		33D224442B7B6E2800116BAD /* SSL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33D224472B7B6E2800116BAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33D224492B7B6E2800116BAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 		33D224832B7B819C00116BAD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				33C065D92C414D1700CE3181 /* Rubik-ExtraBold.ttf */,
 				3333322E2C34347300B6021D /* Onest-Bold.ttf */,
 				33D224842B7B822900116BAD /* Onest.ttf */,
 			);
@@ -426,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33D2247E2B7B784200116BAD /* Localizable.xcstrings in Resources */,
+				33C065DA2C414D1700CE3181 /* Rubik-ExtraBold.ttf in Resources */,
 				3333322F2C34347300B6021D /* Onest-Bold.ttf in Resources */,
 				33D224512B7B6E2A00116BAD /* Assets.xcassets in Resources */,
 				335B0A182BD3D5400029CEBD /* Onest.ttf in Resources */,
@@ -680,6 +684,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SSL/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to set your profile pic.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -709,6 +714,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SSL/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to set your profile pic.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

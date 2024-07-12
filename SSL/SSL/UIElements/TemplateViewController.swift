@@ -8,16 +8,19 @@ class TemplateViewController: UIViewController {
         return view
     }()
 
-//    private let titleLabel: UILabel = {
-//        let label = UILabel()
-//        label.textColor = UIColor(red: 0.173, green: 0.212, blue: 0.251, alpha: 1)
-//        label.font = UIFont(name: "Rubik-ExtraBold", size: 34)
-//        let paragraphStyle = NSMutableParagraphStyle()
-//        paragraphStyle.lineHeightMultiple = 1.24
-//        label.textAlignment = .center
-//        label.attributedText = NSMutableAttributedString(string: "Soft Skills Lab", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
-//        return label
-//    }()
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .logoTextColor
+        label.font = UIFont(name: "Rubik-ExtraBold", size: 34)
+        
+        let attributedText = NSMutableAttributedString(string: "Soft Skills Lab")
+        let range = (attributedText.string as NSString).range(of: "Lab")
+        attributedText.addAttribute(.foregroundColor, value: UIColor.buttonBackgroundColor, range: range)
+        
+        label.textAlignment = .center
+        label.attributedText = attributedText
+        return label
+    }()
 
     let contentView: UIView = {
         let view = UIView()
@@ -52,8 +55,8 @@ class TemplateViewController: UIViewController {
             backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-//        backgroundView.addSubview(titleLabel)
-//        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         backgroundView.addSubview(navigationBar)
         
@@ -61,10 +64,10 @@ class TemplateViewController: UIViewController {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-//            titleLabel.widthAnchor.constraint(equalToConstant: 256),
-//            titleLabel.heightAnchor.constraint(equalToConstant: 52),
-//            titleLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor, constant: -0.5),
-//            titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 131),
+            titleLabel.widthAnchor.constraint(equalToConstant: 256),
+            titleLabel.heightAnchor.constraint(equalToConstant: 52),
+            titleLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor, constant: -0.5),
+            titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 131),
             
             navigationBar.topAnchor.constraint(equalTo: backgroundView.safeAreaLayoutGuide.topAnchor),
             navigationBar.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),

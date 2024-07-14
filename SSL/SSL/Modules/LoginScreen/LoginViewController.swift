@@ -70,7 +70,7 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
     }
     
     @objc func toRegisterButtonTapped(_ sender: UIButton) {
-        let registerScene = RegisterBuilder.build()
+        let registerScene = RegisterAssembly.build()
         navigationController?.pushViewController(registerScene, animated: true)
     }
     

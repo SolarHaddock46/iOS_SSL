@@ -12,7 +12,7 @@ class RegisterInteractor: RegisterInteractorProtocol {
     
     func register(firstName: String, lastName: String, fatherName: String, telegram: String, email: String, password1: String, password2: String, image: Data?, hsePass: Bool, acceptConditions: Bool) async throws {
         do {
-            let userDTO = try await RegisterAPIManager.postRegister(
+            let userDTO = try await RegisterWorker.postRegister(
                 firstName: firstName,
                 lastName: lastName,
                 fatherName: fatherName,

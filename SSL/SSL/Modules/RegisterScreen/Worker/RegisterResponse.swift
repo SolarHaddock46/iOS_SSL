@@ -1,6 +1,6 @@
 import Foundation
 
-struct UserRegisterDTO: Codable {
+struct RegisterResponse: Codable {
     let firstName: String
     let lastName: String
     let fatherName: String

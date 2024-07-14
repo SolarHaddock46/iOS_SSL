@@ -1,6 +1,6 @@
 import Foundation
 
-class RegisterBuilder {
+class RegisterAssembly {
     
     static func build() -> RegisterViewController {
         let registerViewController = RegisterViewController()

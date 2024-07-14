@@ -1,8 +1,8 @@
 import Foundation
 
-final class RegisterAPIManager {
+final class RegisterWorker {
     
-    static func postRegister(firstName: String, lastName: String, fatherName: String, telegram: String, email: String, password1: String, password2: String, imageData: Data?, hsePass: Bool, acceptConditions: Bool) async throws -> UserRegisterDTO {
+    static func postRegister(firstName: String, lastName: String, fatherName: String, telegram: String, email: String, password1: String, password2: String, imageData: Data?, hsePass: Bool, acceptConditions: Bool) async throws -> RegisterResponse {
         let apiRoutes = APIRoutes()
         guard let baseURL = apiRoutes.baseURL else {
             throw NetworkError.internalError
@@ -20,7 +20,7 @@ final class RegisterAPIManager {
 
         let multipartData = MultipartFormData()
 
-        let registerData = RegisterRequestDTO(firstName: firstName, lastName: lastName, fatherName: fatherName, telegram: telegram, email: email, password1: password1, password2: password2, hsePass: hsePass, acceptConditions: acceptConditions)
+        let registerData = RegisterRequest(firstName: firstName, lastName: lastName, fatherName: fatherName, telegram: telegram, email: email, password1: password1, password2: password2, hsePass: hsePass, acceptConditions: acceptConditions)
         let jsonData = try JSONEncoder().encode(registerData)
         multipartData.append(jsonData, forKey: "data", fileName: "data.json", mimeType: "application/json")
 
@@ -61,7 +61,7 @@ final class RegisterAPIManager {
             }
         }
 
-        let userDTO = try JSONDecoder().decode(UserRegisterDTO.self, from: data)
+        let userDTO = try JSONDecoder().decode(RegisterResponse.self, from: data)
         return userDTO
     }
 }

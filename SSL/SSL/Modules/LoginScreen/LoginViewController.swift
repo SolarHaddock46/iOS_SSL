@@ -6,12 +6,12 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
     
     private lazy var elements: [ContentElement] = {
         return [
-            .heading(text: "Log in", bottomMargin: 44),
-            .textField(name: "email", placeholder: NSLocalizedString("Email", comment: "Email placeholder"), isSecure: false, bottomMargin: 18),
-            .textField(name: "password", placeholder: NSLocalizedString("Password", comment: "Password placeholder"), isSecure: true, bottomMargin: 44),
-            .secondaryButton(title: "Forgot your password?", action: #selector(loginButtonTapped(_:)), bottomMargin: 10),
-            .primaryButton(title: "Sign in", action: #selector(loginButtonTapped(_:)), bottomMargin: 8),
-            .secondaryButton(title: "Sign up", action: #selector(toRegisterButtonTapped(_:)), bottomMargin: 0)
+            .heading(text: "Log in", topMargin: 0),
+            .textField(name: "email", placeholder: NSLocalizedString("Email", comment: "Email placeholder"), isSecure: false, topMargin: 44),
+            .textField(name: "password", placeholder: NSLocalizedString("Password", comment: "Password placeholder"), isSecure: true, topMargin: 18),
+            .secondaryButton(title: "Forgot your password?", action: #selector(forgotPasswordButtonTapped(_:)), topMargin: 30),
+            .primaryButton(title: "Sign in", action: #selector(loginButtonTapped(_:)), topMargin: 14),
+            .secondaryButton(title: "Sign up", action: #selector(toRegisterButtonTapped(_:)), topMargin: 8)
         ]
     }()
     
@@ -59,6 +59,10 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
                 dialog?.showAlert(title: "Error", message: error.localizedDescription)
             }
         }
+    }
+    
+    @objc func forgotPasswordButtonTapped(_ sender: UIButton) {
+        print("SHIT")
     }
     
     @objc func toRegisterButtonTapped(_ sender: UIButton) {

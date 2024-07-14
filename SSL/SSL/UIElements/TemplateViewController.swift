@@ -1,12 +1,12 @@
 import UIKit
 
 enum ContentElement {
-    case label(text: String, bottomMargin: CGFloat)
-    case heading(text: String, bottomMargin: CGFloat)
-    case textField(name: String, placeholder: String, isSecure: Bool, bottomMargin: CGFloat)
-    case primaryButton(title: String, action: Selector, bottomMargin: CGFloat)
-    case secondaryButton(title: String, action: Selector, bottomMargin: CGFloat)
-    case customView(UIView, bottomMargin: CGFloat)
+    case label(text: String, topMargin: CGFloat)
+    case heading(text: String, topMargin: CGFloat)
+    case textField(name: String, placeholder: String, isSecure: Bool, topMargin: CGFloat)
+    case primaryButton(title: String, action: Selector, topMargin: CGFloat)
+    case secondaryButton(title: String, action: Selector, topMargin: CGFloat)
+    case customView(UIView, topMargin: CGFloat)
 }
 
 class TemplateViewController: UIViewController {
@@ -94,29 +94,29 @@ class TemplateViewController: UIViewController {
         
         elements.forEach { element in
             let view: UIView
-            let bottomMargin: CGFloat
+            let topMargin: CGFloat
             
             switch element {
             case .label(let text, let margin):
                 view = createLabel(withText: text)
-                bottomMargin = margin
+                topMargin = margin
             case .heading(let text, let margin):
                 view = createHeading(withText: text)
-                bottomMargin = margin
+                topMargin = margin
             case .textField(let name, let placeholder, let isSecure, let margin):
                 let textField = UserInfoTextField(placeholder: placeholder, isSecure: isSecure)
                 textFieldsByName[name] = textField
                 view = textField
-                bottomMargin = margin
+                topMargin = margin
             case .primaryButton(let title, let action, let margin):
                 view = createPrimaryButton(title: title, action: action)
-                bottomMargin = margin
+                topMargin = margin
             case .secondaryButton(let title, let action, let margin):
                 view = createSecondaryButton(title: title, action: action)
-                bottomMargin = margin
+                topMargin = margin
             case .customView(let customView, let margin):
                 view = customView
-                bottomMargin = margin
+                topMargin = margin
             }
             
             contentView.addSubview(view)
@@ -124,7 +124,7 @@ class TemplateViewController: UIViewController {
             
             if let previous = previousView {
                 NSLayoutConstraint.activate([
-                    view.topAnchor.constraint(equalTo: previous.bottomAnchor, constant: bottomMargin)
+                    view.topAnchor.constraint(equalTo: previous.bottomAnchor, constant: topMargin)
                 ])
             } else {
                 NSLayoutConstraint.activate([
@@ -155,16 +155,16 @@ class TemplateViewController: UIViewController {
         return SSLLabel(localizationKey: text, isHeading: true)
     }
     
-    private func createPrimaryButton(title: String, action: Selector) -> PrimaryButton {
-        let button = PrimaryButton(localizationKey: title)
-        button.addTarget(self, action: action, for: .touchUpInside)
-        return button
+    private func createPrimaryButton(title: String, action: Selector) -> PrimaryButtonContainer {
+        let buttonContainer = PrimaryButtonContainer(localizationKey: title)
+        buttonContainer.addTarget(self, action: action, for: .touchUpInside)
+        return buttonContainer
     }
     
-    private func createSecondaryButton(title: String, action: Selector) -> SecondaryButton {
-        let button = SecondaryButton(localizationKey: title)
-        button.addTarget(self, action: action, for: .touchUpInside)
-        return button
+    private func createSecondaryButton(title: String, action: Selector) -> SecondaryButtonContainer {
+        let buttonContainer = SecondaryButtonContainer(localizationKey: title)
+        buttonContainer.addTarget(self, action: action, for: .touchUpInside)
+        return buttonContainer
     }
     
     func getTextFieldValue(forName name: String) -> String? {

@@ -26,6 +26,8 @@
 		3389DC8F2C43E8F2000F3935 /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC8E2C43E8F2000F3935 /* LoginProtocols.swift */; };
 		3389DC912C43E991000F3935 /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC902C43E991000F3935 /* LoginModels.swift */; };
 		3389DC962C43F22A000F3935 /* LoginDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC952C43F229000F3935 /* LoginDialog.swift */; };
+		3389DC992C44275A000F3935 /* PrimaryButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC982C44275A000F3935 /* PrimaryButtonContainer.swift */; };
+		3389DC9C2C442834000F3935 /* SecondaryButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC9B2C442834000F3935 /* SecondaryButtonContainer.swift */; };
 		339732322BEE1F4A009ECB44 /* SSLColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732312BEE1F4A009ECB44 /* SSLColors.swift */; };
 		339732342BEE8DFD009ECB44 /* SSLFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732332BEE8DFD009ECB44 /* SSLFonts.swift */; };
 		33A677182C3ECA2800876024 /* RegisterDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A677172C3ECA2800876024 /* RegisterDialog.swift */; };
@@ -91,6 +93,8 @@
 		3389DC8E2C43E8F2000F3935 /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
 		3389DC902C43E991000F3935 /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
 		3389DC952C43F229000F3935 /* LoginDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDialog.swift; sourceTree = "<group>"; };
+		3389DC982C44275A000F3935 /* PrimaryButtonContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonContainer.swift; sourceTree = "<group>"; };
+		3389DC9B2C442834000F3935 /* SecondaryButtonContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonContainer.swift; sourceTree = "<group>"; };
 		339732312BEE1F4A009ECB44 /* SSLColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLColors.swift; sourceTree = "<group>"; };
 		339732332BEE8DFD009ECB44 /* SSLFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLFonts.swift; sourceTree = "<group>"; };
 		33A677172C3ECA2800876024 /* RegisterDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDialog.swift; sourceTree = "<group>"; };
@@ -191,6 +195,24 @@
 			path = TextField;
 			sourceTree = "<group>";
 		};
+		3389DC972C442747000F3935 /* PrimaryButton */ = {
+			isa = PBXGroup;
+			children = (
+				33D224812B7B803C00116BAD /* PrimaryButton.swift */,
+				3389DC982C44275A000F3935 /* PrimaryButtonContainer.swift */,
+			);
+			path = PrimaryButton;
+			sourceTree = "<group>";
+		};
+		3389DC9A2C4427D0000F3935 /* SecondaryButton */ = {
+			isa = PBXGroup;
+			children = (
+				330DADFE2B9E155D0013A394 /* SecondaryButton.swift */,
+				3389DC9B2C442834000F3935 /* SecondaryButtonContainer.swift */,
+			);
+			path = SecondaryButton;
+			sourceTree = "<group>";
+		};
 		33A677192C3ECCA500876024 /* Worker */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,12 +306,12 @@
 		33D224802B7B800500116BAD /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				3389DC9A2C4427D0000F3935 /* SecondaryButton */,
+				3389DC972C442747000F3935 /* PrimaryButton */,
 				3389DC922C43F050000F3935 /* TextField */,
 				339732332BEE8DFD009ECB44 /* SSLFonts.swift */,
 				339732312BEE1F4A009ECB44 /* SSLColors.swift */,
-				33D224812B7B803C00116BAD /* PrimaryButton.swift */,
 				33D2248B2B7B8DC000116BAD /* SSLLabel.swift */,
-				330DADFE2B9E155D0013A394 /* SecondaryButton.swift */,
 				33F6E1472BC6867900CAE32F /* ProfilePicView.swift */,
 				33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */,
 				333332302C34356F00B6021D /* SSLNavigationController.swift */,
@@ -486,6 +508,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3389DC9C2C442834000F3935 /* SecondaryButtonContainer.swift in Sources */,
 				335B0A112BD2AD3B0029CEBD /* RegisterInteractor.swift in Sources */,
 				3389DC912C43E991000F3935 /* LoginModels.swift in Sources */,
 				333332312C34356F00B6021D /* SSLNavigationController.swift in Sources */,
@@ -501,6 +524,7 @@
 				335B0A0C2BD2A3890029CEBD /* LoginWorker.swift in Sources */,
 				339732322BEE1F4A009ECB44 /* SSLColors.swift in Sources */,
 				337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */,
+				3389DC992C44275A000F3935 /* PrimaryButtonContainer.swift in Sources */,
 				33D224822B7B803C00116BAD /* PrimaryButton.swift in Sources */,
 				33A6772A2C402B5600876024 /* TemplateViewController.swift in Sources */,
 				33BC80772BD2906E0065FB60 /* LoginInteractor.swift in Sources */,

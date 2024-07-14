@@ -1,86 +1,72 @@
 import UIKit
 
 class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
-
     var interactor: LoginInteractorProtocol?
-    private var sslDialogPresenter: LoginDialog?
-
-    private var emailTextFieldContainer: UserInfoTextFieldContainer?
-    private var passwordTextFieldContainer: UserInfoTextFieldContainer?
-
-    private var emailTextField: UserInfoTextField?
-    private var passwordTextField: UserInfoTextField?
-
+    private var dialog: LoginDialog?
+    
+    private lazy var elements: [ContentElement] = {
+        return [
+            .heading(text: "Log in", bottomMargin: 44),
+            .textField(name: "email", placeholder: NSLocalizedString("Email", comment: "Email placeholder"), isSecure: false, bottomMargin: 18),
+            .textField(name: "password", placeholder: NSLocalizedString("Password", comment: "Password placeholder"), isSecure: true, bottomMargin: 44),
+            .secondaryButton(title: "Forgot your password?", action: #selector(loginButtonTapped(_:)), bottomMargin: 10),
+            .primaryButton(title: "Sign in", action: #selector(loginButtonTapped(_:)), bottomMargin: 8),
+            .secondaryButton(title: "Sign up", action: #selector(toRegisterButtonTapped(_:)), bottomMargin: 0)
+        ]
+    }()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
-        sslDialogPresenter = LoginDialog(viewController: self)
+        dialog = LoginDialog(viewController: self)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLayoutUsingEnum()
+        setupLayout()
     }
-
-    private func setupLayoutUsingEnum() {
-        let emailContainer = UserInfoTextFieldContainer(placeholder: NSLocalizedString("Email", comment: "Email placeholder"), isSecure: false)
-        let passwordContainer = UserInfoTextFieldContainer(placeholder: NSLocalizedString("Password", comment: "Password placeholder"), isSecure: true)
-
-        self.emailTextFieldContainer = emailContainer
-        self.passwordTextFieldContainer = passwordContainer
-
-        self.emailTextField = emailContainer.getTextField()
-        self.passwordTextField = passwordContainer.getTextField()
-
-        let elements: [ContentElement] = [
-            .heading(text: "Log in"),
-            .customView(emailContainer),
-            .customView(passwordContainer),
-            .primaryButton(title: "Sign in", action: #selector(loginButtonTapped)),
-            .secondaryButton(title: "Sign up", action: #selector(toRegisterButtonTapped))
-        ]
-
+    
+    private func setupLayout() {
         setupContentView(withElements: elements)
     }
-
-    @objc private func loginButtonTapped() async throws {
-        // Check if any of the fields is empty
-        guard let email = emailTextField?.enteredText, !email.isEmpty,
-              let password = passwordTextField?.enteredText, !password.isEmpty else {
-            emailTextField?.isValid = !(emailTextField?.enteredText?.isEmpty ?? true)
-            passwordTextField?.isValid = !(passwordTextField?.enteredText?.isEmpty ?? true)
+    
+    @objc func loginButtonTapped(_ sender: UIButton) {
+        guard let email = getTextFieldValue(forName: "email"),
+              let password = getTextFieldValue(forName: "password") else {
             return
         }
-
-        // Validate email and password
+        
+        let emailTextField = textFieldsByName["email"]
+        let passwordTextField = textFieldsByName["password"]
+        
         emailTextField?.isValid = SSLValidator.emailIsValid(email: email)
         passwordTextField?.isValid = !password.isEmpty
-
-        // Check if both fields are valid before proceeding
-        guard emailTextField?.isValid == true, passwordTextField?.isValid == true else {
+        
+        guard let isEmailValid = emailTextField?.isValid, isEmailValid,
+              let isPasswordValid = passwordTextField?.isValid, isPasswordValid else {
             return
         }
-
-        try await interactor?.login(email: email, password: password)
+        
+        Task(priority: .high) {
+            do {
+                try await interactor?.login(email: email, password: password)
+            } catch let error as NetworkError {
+                dialog?.showAlert(title: "Error", message: error.localizedDescription)
+            } catch {
+                dialog?.showAlert(title: "Error", message: error.localizedDescription)
+            }
+        }
     }
-
-    @objc private func toRegisterButtonTapped() {
+    
+    @objc func toRegisterButtonTapped(_ sender: UIButton) {
         let registerScene = RegisterAssembly.build()
         navigationController?.pushViewController(registerScene, animated: true)
     }
-
+    
     func showAlert(title: String, message: String) {
-        sslDialogPresenter?.showAlert(title: title, message: message)
-    }
-
-    func displayLoginSuccess(message: String) {
-        showAlert(title: "Success", message: message)
-    }
-
-    func displayLoginError(message: String) {
-        showAlert(title: "Error", message: message)
+        dialog?.showAlert(title: title, message: message)
     }
 }

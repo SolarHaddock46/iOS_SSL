@@ -28,7 +28,7 @@ class RegisterViewController: TemplateViewController, RegisterViewControllerProt
     }()
     
     let validator = SSLValidator()
-    private var dialogPresenter: RegisterDialog?
+    private var dialogPresenter: LoginDialog?
 
     private var heading = SSLLabel(localizationKey: "Register an account", isHeading: true)
     private var profilePicPicker: ProfilePicView
@@ -59,7 +59,7 @@ class RegisterViewController: TemplateViewController, RegisterViewControllerProt
         profilePicPicker = ProfilePicView()
         super.init(nibName: nil, bundle: nil)
         profilePicPicker.delegate = self
-        dialogPresenter = RegisterDialog(viewController: self)
+        dialogPresenter = LoginDialog(viewController: self)
     }
     
     required init?(coder: NSCoder) {

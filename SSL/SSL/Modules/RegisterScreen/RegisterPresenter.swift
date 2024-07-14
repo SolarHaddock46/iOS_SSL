@@ -10,7 +10,7 @@ protocol RegisterPresenterProtocol: AnyObject {
 class RegisterPresenter: RegisterPresenterProtocol {
     
     weak var viewController: RegisterViewControllerProtocol?
-    private var dialogPresenter: RegisterDialog?
+    private var dialogPresenter: LoginDialog?
 
     func registerSuccess(with response: RegisterResponse) {
         dialogPresenter?.showAlert(title: "Success", message: response.firstName)

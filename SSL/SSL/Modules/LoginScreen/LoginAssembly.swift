@@ -4,7 +4,7 @@ class LoginAssembly {
     static func build() -> LoginViewController {
         let viewController = LoginViewController()
         let interactor = LoginInteractor()
-        let presenter = LoginPresenter()
+        let presenter = LoginPresenter(viewController: viewController)
         
         viewController.interactor = interactor
         interactor.presenter = presenter

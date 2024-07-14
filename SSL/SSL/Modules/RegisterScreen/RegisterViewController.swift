@@ -72,7 +72,7 @@ class RegisterViewController: TemplateViewController, RegisterViewControllerProt
     }
 
     private func setupLayout() {
-        addContentSubview(mainStackView)        
+//        addContentSubview(mainStackView)        
         setupFirstStageUI()
         
         nextStageButton.addTarget(self, action: #selector(nextStageButtonTapped(_:)), for: .touchUpInside)

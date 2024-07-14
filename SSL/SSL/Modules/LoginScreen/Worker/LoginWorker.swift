@@ -1,8 +1,8 @@
 import Foundation
 
-final class LoginAPIManager {
+final class LoginWorker {
     
-    static func postLogin(email: String, password: String) async throws -> UserDTO {
+    static func postLogin(email: String, password: String) async throws -> LoginResponseDTO {
         let apiRoutes = APIRoutes()
         guard let baseURL = apiRoutes.baseURL else { throw NetworkError.internalError }
         let networkError = NetworkError.self
@@ -39,7 +39,7 @@ final class LoginAPIManager {
             }
         }
         
-        let userDTO = try JSONDecoder().decode(UserDTO.self, from: data)
+        let userDTO = try JSONDecoder().decode(LoginResponseDTO.self, from: data)
         return userDTO
     }
 }

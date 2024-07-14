@@ -19,7 +19,9 @@ class UserInfoTextField: UITextField {
 
     var isValid: Bool = true {
         didSet {
-            textField.backgroundColor = isValid ? validTextFieldColor : invalidTextFieldColor
+            DispatchQueue.main.async {
+                self.textField.backgroundColor = self.isValid ? self.validTextFieldColor : self.invalidTextFieldColor
+            }
         }
     }
     

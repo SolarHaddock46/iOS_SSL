@@ -19,17 +19,17 @@ class SSLLabel: UILabel {
     
     init(localizationKey: String, isHeading: Bool) {
         super.init(frame: .zero)
-        setup(localisationKey: localizationKey, color: .mainTextColor, size: 28, isBold: true)
+        setup(localisationKey: localizationKey, color: .mainTextColor, size: 28, isMedium: true)
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setup(localisationKey: String, color: UIColor, size: CGFloat, isBold: Bool = false) {
+    private func setup(localisationKey: String, color: UIColor, size: CGFloat, isMedium: Bool = false) {
         self.textColor = color
-        if isBold {
-            self.font = UIFont.onestBold(ofSize: size)
+        if isMedium {
+            self.font = UIFont.onestMedium(ofSize: size)
 
         } else {
             self.font = UIFont.onest(ofSize: size)

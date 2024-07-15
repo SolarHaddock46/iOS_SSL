@@ -67,10 +67,8 @@ class TemplateViewController: UIViewController {
         backgroundView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.widthAnchor.constraint(equalToConstant: 256),
-            titleLabel.heightAnchor.constraint(equalToConstant: 52),
-            titleLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor, constant: -0.5),
-            titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 131)
+            titleLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40)
         ])
         
         backgroundView.addSubview(navigationBar)
@@ -84,7 +82,7 @@ class TemplateViewController: UIViewController {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             contentView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
-            contentView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
+            contentView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 18),
             contentView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16)
         ])
     }

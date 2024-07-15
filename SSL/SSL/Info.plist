@@ -5,6 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Onest-Bold.ttf</string>
+		<string>Onest-Medium.ttf</string>
 		<string>Rubik-ExtraBold.ttf</string>
 		<string>Onest.ttf</string>
 	</array>

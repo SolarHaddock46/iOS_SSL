@@ -29,6 +29,7 @@
 		3389DC992C44275A000F3935 /* PrimaryButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC982C44275A000F3935 /* PrimaryButtonContainer.swift */; };
 		3389DC9C2C442834000F3935 /* SecondaryButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC9B2C442834000F3935 /* SecondaryButtonContainer.swift */; };
 		3389DC9E2C442CEF000F3935 /* UserInfoTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC9D2C442CEF000F3935 /* UserInfoTextFieldContainer.swift */; };
+		3389DCA02C4549E0000F3935 /* Onest-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3389DC9F2C4549E0000F3935 /* Onest-Medium.ttf */; };
 		339732322BEE1F4A009ECB44 /* SSLColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732312BEE1F4A009ECB44 /* SSLColors.swift */; };
 		339732342BEE8DFD009ECB44 /* SSLFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732332BEE8DFD009ECB44 /* SSLFonts.swift */; };
 		33A677182C3ECA2800876024 /* RegisterDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A677172C3ECA2800876024 /* RegisterDialog.swift */; };
@@ -97,6 +98,7 @@
 		3389DC982C44275A000F3935 /* PrimaryButtonContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonContainer.swift; sourceTree = "<group>"; };
 		3389DC9B2C442834000F3935 /* SecondaryButtonContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonContainer.swift; sourceTree = "<group>"; };
 		3389DC9D2C442CEF000F3935 /* UserInfoTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTextFieldContainer.swift; sourceTree = "<group>"; };
+		3389DC9F2C4549E0000F3935 /* Onest-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-Medium.ttf"; sourceTree = "<group>"; };
 		339732312BEE1F4A009ECB44 /* SSLColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLColors.swift; sourceTree = "<group>"; };
 		339732332BEE8DFD009ECB44 /* SSLFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLFonts.swift; sourceTree = "<group>"; };
 		33A677172C3ECA2800876024 /* RegisterDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDialog.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 		33D224832B7B819C00116BAD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				3389DC9F2C4549E0000F3935 /* Onest-Medium.ttf */,
 				33C065D92C414D1700CE3181 /* Rubik-ExtraBold.ttf */,
 				3333322E2C34347300B6021D /* Onest-Bold.ttf */,
 				33D224842B7B822900116BAD /* Onest.ttf */,
@@ -464,6 +467,7 @@
 				33D2247E2B7B784200116BAD /* Localizable.xcstrings in Resources */,
 				33C065DA2C414D1700CE3181 /* Rubik-ExtraBold.ttf in Resources */,
 				3333322F2C34347300B6021D /* Onest-Bold.ttf in Resources */,
+				3389DCA02C4549E0000F3935 /* Onest-Medium.ttf in Resources */,
 				33D224512B7B6E2A00116BAD /* Assets.xcassets in Resources */,
 				335B0A182BD3D5400029CEBD /* Onest.ttf in Resources */,
 			);

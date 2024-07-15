@@ -12,4 +12,8 @@ extension UIFont {
     static func rubikExtraBold(ofSize size: CGFloat) -> UIFont {
         return UIFont(name: "Rubik-ExtraBold", size: size) ?? UIFont.boldSystemFont(ofSize: size)
     }
+    
+    static func onestMedium(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: "Onest-Medium", size: size) ?? UIFont.systemFont(ofSize: size)
+    }
 }

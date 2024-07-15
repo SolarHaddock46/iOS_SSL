@@ -89,7 +89,7 @@ class TemplateViewController: UIViewController {
         ])
     }
     
-    func setupContentView(withElements elements: [ContentElement], margin: CGFloat = 16) {
+    func setupContentView(withElements elements: [ContentElement], horizontalPadding: CGFloat = 16, verticalPadding: CGFloat = 28) {
         var previousView: UIView?
         
         elements.forEach { element in
@@ -104,9 +104,9 @@ class TemplateViewController: UIViewController {
                 view = createHeading(withText: text)
                 topMargin = margin
             case .textField(let name, let placeholder, let isSecure, let margin):
-                let textField = UserInfoTextField(placeholder: placeholder, isSecure: isSecure)
-                textFieldsByName[name] = textField
-                view = textField
+                let textFieldContainer = UserInfoTextFieldContainer(placeholder: placeholder, isSecure: isSecure)
+                textFieldsByName[name] = textFieldContainer.textField
+                view = textFieldContainer
                 topMargin = margin
             case .primaryButton(let title, let action, let margin):
                 view = createPrimaryButton(title: title, action: action)
@@ -128,13 +128,13 @@ class TemplateViewController: UIViewController {
                 ])
             } else {
                 NSLayoutConstraint.activate([
-                    view.topAnchor.constraint(equalTo: contentView.topAnchor, constant: margin)
+                    view.topAnchor.constraint(equalTo: contentView.topAnchor, constant: verticalPadding)
                 ])
             }
             
             NSLayoutConstraint.activate([
-                view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
-                view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin)
+                view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: horizontalPadding),
+                view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -horizontalPadding)
             ])
             
             previousView = view
@@ -142,7 +142,7 @@ class TemplateViewController: UIViewController {
         
         if let lastView = previousView {
             NSLayoutConstraint.activate([
-                lastView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -margin)
+                lastView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -verticalPadding)
             ])
         }
     }

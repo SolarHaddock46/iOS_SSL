@@ -28,6 +28,7 @@
 		3389DC962C43F22A000F3935 /* LoginDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC952C43F229000F3935 /* LoginDialog.swift */; };
 		3389DC992C44275A000F3935 /* PrimaryButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC982C44275A000F3935 /* PrimaryButtonContainer.swift */; };
 		3389DC9C2C442834000F3935 /* SecondaryButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC9B2C442834000F3935 /* SecondaryButtonContainer.swift */; };
+		3389DC9E2C442CEF000F3935 /* UserInfoTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC9D2C442CEF000F3935 /* UserInfoTextFieldContainer.swift */; };
 		339732322BEE1F4A009ECB44 /* SSLColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732312BEE1F4A009ECB44 /* SSLColors.swift */; };
 		339732342BEE8DFD009ECB44 /* SSLFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732332BEE8DFD009ECB44 /* SSLFonts.swift */; };
 		33A677182C3ECA2800876024 /* RegisterDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A677172C3ECA2800876024 /* RegisterDialog.swift */; };
@@ -95,6 +96,7 @@
 		3389DC952C43F229000F3935 /* LoginDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDialog.swift; sourceTree = "<group>"; };
 		3389DC982C44275A000F3935 /* PrimaryButtonContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonContainer.swift; sourceTree = "<group>"; };
 		3389DC9B2C442834000F3935 /* SecondaryButtonContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonContainer.swift; sourceTree = "<group>"; };
+		3389DC9D2C442CEF000F3935 /* UserInfoTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTextFieldContainer.swift; sourceTree = "<group>"; };
 		339732312BEE1F4A009ECB44 /* SSLColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLColors.swift; sourceTree = "<group>"; };
 		339732332BEE8DFD009ECB44 /* SSLFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLFonts.swift; sourceTree = "<group>"; };
 		33A677172C3ECA2800876024 /* RegisterDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDialog.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				33D224892B7B8C5200116BAD /* InsetedTextField.swift */,
 				33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */,
+				3389DC9D2C442CEF000F3935 /* UserInfoTextFieldContainer.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				33BC80742BD2905F0065FB60 /* LoginPresenter.swift in Sources */,
 				335B0A152BD2AD550029CEBD /* RegisterPresenter.swift in Sources */,
 				3389DC962C43F22A000F3935 /* LoginDialog.swift in Sources */,
+				3389DC9E2C442CEF000F3935 /* UserInfoTextFieldContainer.swift in Sources */,
 				335B0A132BD2AD490029CEBD /* RegisterViewController.swift in Sources */,
 				333332332C34554C00B6021D /* SSLValidator.swift in Sources */,
 				33F6E1482BC6867900CAE32F /* ProfilePicView.swift in Sources */,

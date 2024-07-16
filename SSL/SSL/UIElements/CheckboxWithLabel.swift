@@ -32,11 +32,17 @@ class CheckboxWithLabel: UIView {
 
         NSLayoutConstraint.activate([
             checkbox.leadingAnchor.constraint(equalTo: leadingAnchor),
-            checkbox.centerYAnchor.constraint(equalTo: centerYAnchor),
+            checkbox.topAnchor.constraint(equalTo: topAnchor),
+            checkbox.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor),
             label.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 8),
             label.topAnchor.constraint(equalTo: topAnchor),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor),
             label.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+        
+        label.numberOfLines = 0
+        label.setContentHuggingPriority(.required, for: .vertical)
+        label.setContentCompressionResistancePriority(.required, for: .vertical)
     }
 
     @objc private func checkboxTapped(_ sender: UIButton) {

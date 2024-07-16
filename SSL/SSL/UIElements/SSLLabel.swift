@@ -35,10 +35,13 @@ class SSLLabel: UILabel {
         self.textColor = color
         if isMedium {
             self.font = UIFont.onestMedium(ofSize: size)
-
         } else {
             self.font = UIFont.onest(ofSize: size)
         }
         self.text = NSLocalizedString(localisationKey, comment: "comment")
+        
+        self.numberOfLines = 0
+        self.setContentHuggingPriority(.required, for: .vertical)
+        self.setContentCompressionResistancePriority(.required, for: .vertical)
     }
 }

@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class LoginDialog {
+class RegisterSecondDialog {
     private weak var viewController: UIViewController?
 
     init(viewController: UIViewController) {

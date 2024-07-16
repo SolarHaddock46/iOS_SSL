@@ -20,7 +20,7 @@ extension NetworkError: LocalizedError {
         case .unverifiedCredentials:
             return NSLocalizedString("Your account is not verified", comment: "")
         case .invalidServerResponseCode(let statusCode):
-            return String.localizedStringWithFormat(NSLocalizedString("Incorrect server response code: %@", comment: ""), statusCode)
+            return String.localizedStringWithFormat(NSLocalizedString("Incorrect server response code: %@", comment: ""), String(statusCode))
         case .unknownError:
             return NSLocalizedString("Unknown error", comment: "")
         case .invalidUserDataFormat:

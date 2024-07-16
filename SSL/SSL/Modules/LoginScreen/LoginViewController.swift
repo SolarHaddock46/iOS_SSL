@@ -2,6 +2,7 @@ import UIKit
 
 class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
     var interactor: LoginInteractorProtocol?
+    var router: RoutingLogic
     private var dialog: LoginDialog?
     
     private lazy var elements: [ContentElement] = {
@@ -15,7 +16,8 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
         ]
     }()
     
-    init() {
+    init(router: RoutingLogic) {
+        self.router = router
         super.init(nibName: nil, bundle: nil)
         dialog = LoginDialog(viewController: self)
     }
@@ -26,7 +28,7 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLayout()
+        setupContentView(withElements: elements)
     }
     
     private func setupLayout() {
@@ -66,8 +68,7 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
     }
     
     @objc func toRegisterButtonTapped(_ sender: UIButton) {
-        let registerScene = RegisterAssembly.build()
-        navigationController?.pushViewController(registerScene, animated: true)
+        router.navigate(source: self, destination: .registerFirst, data: nil)
     }
     
     func showAlert(title: String, message: String) {

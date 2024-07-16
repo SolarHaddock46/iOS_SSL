@@ -4,6 +4,7 @@ enum ContentElement {
     case label(text: String, topMargin: CGFloat)
     case heading(text: String, topMargin: CGFloat)
     case textField(name: String, placeholder: String, isSecure: Bool, topMargin: CGFloat)
+    case checkbox(name: String, label: String, isChecked: Bool, topMargin: CGFloat)
     case primaryButton(title: String, action: Selector, topMargin: CGFloat)
     case secondaryButton(title: String, action: Selector, topMargin: CGFloat)
     case customView(UIView, topMargin: CGFloat)
@@ -48,6 +49,7 @@ class TemplateViewController: UIViewController {
     }()
     
     var textFieldsByName: [String: UserInfoTextField] = [:]
+    var checkboxesByName: [String: CheckboxWithLabel] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +117,12 @@ class TemplateViewController: UIViewController {
             case .customView(let customView, let margin):
                 view = customView
                 topMargin = margin
+            case .checkbox(let name, let label, let isChecked, let margin):
+                let checkboxView = CheckboxWithLabel(localisationKey: label)
+                checkboxView.isChecked = isChecked
+                checkboxesByName[name] = checkboxView
+                view = checkboxView
+                topMargin = margin
             }
             
             contentView.addSubview(view)
@@ -167,5 +175,9 @@ class TemplateViewController: UIViewController {
     
     func getTextFieldValue(forName name: String) -> String? {
         return textFieldsByName[name]?.enteredText
+    }
+    
+    func getCheckboxState(forName name: String) -> Bool? {
+        return checkboxesByName[name]?.isChecked
     }
 }

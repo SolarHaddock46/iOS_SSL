@@ -250,12 +250,12 @@
         }
       }
     },
-    "Telegram" : {
+    "Telegram (without @)" : {
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Telegram"
+            "value" : "Telegram (без @)"
           }
         }
       }

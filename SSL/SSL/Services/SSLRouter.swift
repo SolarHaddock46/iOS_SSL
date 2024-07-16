@@ -6,6 +6,7 @@ enum Destination {
     case registerSecond
     case forgotPassword
     case confirmationCode
+    case newPassword
 }
 
 protocol SSLRoutingLogic {
@@ -30,6 +31,9 @@ final class SSLRouter: SSLRoutingLogic {
             source.navigationController?.pushViewController(vc, animated: true)
         case .confirmationCode:
             let vc = ConfirmationCodeAssembly.build()
+            source.navigationController?.pushViewController(vc, animated: true)
+        case .newPassword:
+            let vc = NewPasswordAssembly.build()
             source.navigationController?.pushViewController(vc, animated: true)
         }
     }

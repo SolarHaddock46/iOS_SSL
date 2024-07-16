@@ -52,7 +52,7 @@ final class ConfirmationCodeViewController: TemplateViewController, Confirmation
     }
     
     @objc func confirmButtonTapped(_ sender: UIButton) {
-        router.navigate(source: self, destination: .registerFirst, data: nil)
+        router.navigate(source: self, destination: .newPassword, data: nil)
     }
 }
 

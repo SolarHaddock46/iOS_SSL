@@ -70,6 +70,13 @@
 		33D3AA2C2C46BB3A009E474A /* ForgotPasswordEmailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA252C46BB3A009E474A /* ForgotPasswordEmailModels.swift */; };
 		33D3AA2D2C46BB3A009E474A /* ForgotPasswordEmailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA262C46BB3A009E474A /* ForgotPasswordEmailAssembly.swift */; };
 		33D3AA2E2C46BB3A009E474A /* ForgotPasswordEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA272C46BB3A009E474A /* ForgotPasswordEmailPresenter.swift */; };
+		33D3AA372C46C75F009E474A /* NewPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA302C46C75F009E474A /* NewPasswordPresenter.swift */; };
+		33D3AA382C46C75F009E474A /* NewPasswordAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA312C46C75F009E474A /* NewPasswordAssembly.swift */; };
+		33D3AA392C46C75F009E474A /* NewPasswordProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA322C46C75F009E474A /* NewPasswordProtocols.swift */; };
+		33D3AA3A2C46C75F009E474A /* NewPasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA332C46C75F009E474A /* NewPasswordModels.swift */; };
+		33D3AA3B2C46C75F009E474A /* NewPasswordWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA342C46C75F009E474A /* NewPasswordWorker.swift */; };
+		33D3AA3C2C46C75F009E474A /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA352C46C75F009E474A /* NewPasswordViewController.swift */; };
+		33D3AA3D2C46C75F009E474A /* NewPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA362C46C75F009E474A /* NewPasswordInteractor.swift */; };
 		33F6E1482BC6867900CAE32F /* ProfilePicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1472BC6867900CAE32F /* ProfilePicView.swift */; };
 		33F6E14A2BC68B3E00CAE32F /* CheckboxWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */; };
 		33FF0F6D2C3C1CC60070FA9E /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */; };
@@ -161,6 +168,13 @@
 		33D3AA252C46BB3A009E474A /* ForgotPasswordEmailModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailModels.swift; sourceTree = "<group>"; };
 		33D3AA262C46BB3A009E474A /* ForgotPasswordEmailAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailAssembly.swift; sourceTree = "<group>"; };
 		33D3AA272C46BB3A009E474A /* ForgotPasswordEmailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailPresenter.swift; sourceTree = "<group>"; };
+		33D3AA302C46C75F009E474A /* NewPasswordPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordPresenter.swift; sourceTree = "<group>"; };
+		33D3AA312C46C75F009E474A /* NewPasswordAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordAssembly.swift; sourceTree = "<group>"; };
+		33D3AA322C46C75F009E474A /* NewPasswordProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordProtocols.swift; sourceTree = "<group>"; };
+		33D3AA332C46C75F009E474A /* NewPasswordModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordModels.swift; sourceTree = "<group>"; };
+		33D3AA342C46C75F009E474A /* NewPasswordWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordWorker.swift; sourceTree = "<group>"; };
+		33D3AA352C46C75F009E474A /* NewPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
+		33D3AA362C46C75F009E474A /* NewPasswordInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordInteractor.swift; sourceTree = "<group>"; };
 		33F6E1472BC6867900CAE32F /* ProfilePicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicView.swift; sourceTree = "<group>"; };
 		33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxWithLabel.swift; sourceTree = "<group>"; };
 		33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -394,6 +408,13 @@
 		33D3AA2F2C46C326009E474A /* NewPasswordScreen */ = {
 			isa = PBXGroup;
 			children = (
+				33D3AA312C46C75F009E474A /* NewPasswordAssembly.swift */,
+				33D3AA362C46C75F009E474A /* NewPasswordInteractor.swift */,
+				33D3AA332C46C75F009E474A /* NewPasswordModels.swift */,
+				33D3AA302C46C75F009E474A /* NewPasswordPresenter.swift */,
+				33D3AA322C46C75F009E474A /* NewPasswordProtocols.swift */,
+				33D3AA352C46C75F009E474A /* NewPasswordViewController.swift */,
+				33D3AA342C46C75F009E474A /* NewPasswordWorker.swift */,
 			);
 			path = NewPasswordScreen;
 			sourceTree = "<group>";
@@ -583,8 +604,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3389DC9C2C442834000F3935 /* SecondaryButtonContainer.swift in Sources */,
+				33D3AA3D2C46C75F009E474A /* NewPasswordInteractor.swift in Sources */,
+				33D3AA372C46C75F009E474A /* NewPasswordPresenter.swift in Sources */,
 				3389DC912C43E991000F3935 /* LoginModels.swift in Sources */,
 				333332312C34356F00B6021D /* SSLNavigationController.swift in Sources */,
+				33D3AA3B2C46C75F009E474A /* NewPasswordWorker.swift in Sources */,
 				33D3AA292C46BB3A009E474A /* ForgotPasswordEmailWorker.swift in Sources */,
 				33FF0F6F2C3C2A730070FA9E /* MultipartFormData.swift in Sources */,
 				33BC80722BD290540065FB60 /* LoginViewController.swift in Sources */,
@@ -600,6 +624,7 @@
 				3389DCB22C4557A5000F3935 /* RegisterFirstViewController.swift in Sources */,
 				3389DCB72C4562B1000F3935 /* RegisterFirstDialog.swift in Sources */,
 				3389DCB42C4557A5000F3935 /* RegisterFirstAssembly.swift in Sources */,
+				33D3AA392C46C75F009E474A /* NewPasswordProtocols.swift in Sources */,
 				339732322BEE1F4A009ECB44 /* SSLColors.swift in Sources */,
 				337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */,
 				3389DC992C44275A000F3935 /* PrimaryButtonContainer.swift in Sources */,
@@ -626,16 +651,19 @@
 				33BC80742BD2905F0065FB60 /* LoginPresenter.swift in Sources */,
 				3389DC962C43F22A000F3935 /* LoginDialog.swift in Sources */,
 				3389DC9E2C442CEF000F3935 /* UserInfoTextFieldContainer.swift in Sources */,
+				33D3AA382C46C75F009E474A /* NewPasswordAssembly.swift in Sources */,
 				333332332C34554C00B6021D /* SSLValidator.swift in Sources */,
 				3389DCC12C4594C4000F3935 /* RegisterSecondPresenter.swift in Sources */,
 				33D3AA282C46BB3A009E474A /* ForgotPasswordEmailInteractor.swift in Sources */,
 				3389DCC22C4594C4000F3935 /* RegisterSecondWorker.swift in Sources */,
 				3389DCC42C4594C4000F3935 /* RegisterSecondModels.swift in Sources */,
 				3389DCC52C4594C4000F3935 /* RegisterSecondViewController.swift in Sources */,
+				33D3AA3C2C46C75F009E474A /* NewPasswordViewController.swift in Sources */,
 				3389DCC62C4594C4000F3935 /* RegisterSecondProtocols.swift in Sources */,
 				3389DCC72C4594C4000F3935 /* RegisterSecondAssembly.swift in Sources */,
 				3389DCC82C4594C4000F3935 /* RegisterSecondInteractor.swift in Sources */,
 				3389DCA22C455643000F3935 /* SSLRouter.swift in Sources */,
+				33D3AA3A2C46C75F009E474A /* NewPasswordModels.swift in Sources */,
 				33F6E1482BC6867900CAE32F /* ProfilePicView.swift in Sources */,
 				33F6E14A2BC68B3E00CAE32F /* CheckboxWithLabel.swift in Sources */,
 				33D2248E2B7B8F3800116BAD /* UserInfoTextField.swift in Sources */,

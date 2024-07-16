@@ -3,7 +3,7 @@ import Photos
 
 final class RegisterFirstViewController: TemplateViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    private let router: RoutingLogic
+    private let router: SSLRoutingLogic
     
     private var dialog: RegisterFirstDialog?
     private var profilePicPicker: ProfilePicView
@@ -16,13 +16,13 @@ final class RegisterFirstViewController: TemplateViewController, UIImagePickerCo
             .textField(name: "First name", placeholder: NSLocalizedString("First name", comment: ""), isSecure: false, topMargin: 18),
             .textField(name: "Father name", placeholder: NSLocalizedString("Father name", comment: ""), isSecure: false, topMargin: 18),
             .checkbox(name: "hsePass", label: "I need a HSE Pass", isChecked: false, topMargin: 18),
-            .checkbox(name: "conditions", label: "I accept the Terms of use and the Privacy Policy", isChecked: false, topMargin: 18),
+            .checkbox(name: "conditions", label: "I accept the Terms of use and the Privacy Policy", isChecked: false, topMargin: 17),
             .primaryButton(title: "Next", action: #selector(nextButtonTapped(_:)), topMargin: 11),
-            .secondaryButton(title: "Log in", action: #selector(toLoginButtonTapped(_:)), topMargin: 11)
+            .secondaryButton(title: "Log in", action: #selector(toLoginButtonTapped(_:)), topMargin: 16)
         ]
     }()
 
-    init(router: RoutingLogic) {
+    init(router: SSLRoutingLogic) {
         self.router = router
         profilePicPicker = ProfilePicView()
         super.init(nibName: nil, bundle: nil)

@@ -3,6 +3,7 @@ import UIKit
 enum ContentElement {
     case label(text: String, topMargin: CGFloat)
     case heading(text: String, topMargin: CGFloat)
+    case subtext(text: String, topMargin: CGFloat)
     case textField(name: String, placeholder: String, isSecure: Bool, topMargin: CGFloat)
     case checkbox(name: String, label: String, isChecked: Bool, topMargin: CGFloat)
     case primaryButton(title: String, action: Selector, topMargin: CGFloat)
@@ -103,6 +104,9 @@ class TemplateViewController: UIViewController {
             case .heading(let text, let margin):
                 view = createHeading(withText: text)
                 topMargin = margin
+            case .subtext(let text, let margin):
+                view = createSubtext(withText: text)
+                topMargin = margin
             case .textField(let name, let placeholder, let isSecure, let margin):
                 let textFieldContainer = UserInfoTextFieldContainer(placeholder: placeholder, isSecure: isSecure)
                 textFieldsByName[name] = textFieldContainer.textField
@@ -159,6 +163,10 @@ class TemplateViewController: UIViewController {
     
     private func createHeading(withText text: String) -> UILabel {
         return SSLLabel(localizationKey: text, isHeading: true)
+    }
+    
+    private func createSubtext(withText text: String) -> UILabel {
+        return SSLLabel(localizationKey: text, isSubtext: true)
     }
     
     private func createPrimaryButton(title: String, action: Selector) -> PrimaryButtonContainer {

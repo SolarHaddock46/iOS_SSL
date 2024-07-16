@@ -2,22 +2,22 @@ import UIKit
 
 final class RegisterSecondViewController: TemplateViewController, RegisterSecondViewControllerProtocol {
     var interactor: RegisterSecondInteractorProtocol
-    private let router: RoutingLogic
+    private let router: SSLRoutingLogic
     private var formData: RegisterFirstFormData
     private var dialog: RegisterSecondDialog?
     
     private var elements: [ContentElement] = {
         return [
             .heading(text: "Register an account", topMargin: 0),
-            .textField(name: "Email", placeholder: NSLocalizedString("Email", comment: ""), isSecure: false, topMargin: 44),
-            .textField(name: "Telegram", placeholder: NSLocalizedString("Telegram (without @)", comment: ""), isSecure: false, topMargin: 44),
+            .textField(name: "Email", placeholder: NSLocalizedString("Email", comment: ""), isSecure: false, topMargin: 40),
+            .textField(name: "Telegram", placeholder: NSLocalizedString("Telegram (without @)", comment: ""), isSecure: false, topMargin: 18),
             .textField(name: "Password1", placeholder: NSLocalizedString("Password", comment: ""), isSecure: true, topMargin: 18),
             .textField(name: "Password2", placeholder: NSLocalizedString("Repeat password", comment: ""), isSecure: true, topMargin: 18),
-            .primaryButton(title: "Register", action: #selector(registerButtonTapped(_:)), topMargin: 11)
+            .primaryButton(title: "Register", action: #selector(registerButtonTapped(_:)), topMargin: 40)
         ]
     }()
 
-    init(formData: RegisterFirstFormData, interactor: RegisterSecondInteractorProtocol, router: RoutingLogic) {
+    init(formData: RegisterFirstFormData, interactor: RegisterSecondInteractorProtocol, router: SSLRoutingLogic) {
         self.formData = formData
         self.interactor = interactor
         self.router = router

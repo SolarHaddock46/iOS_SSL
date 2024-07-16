@@ -21,6 +21,11 @@ class SSLLabel: UILabel {
         super.init(frame: .zero)
         setup(localisationKey: localizationKey, color: .mainTextColor, size: 28, isMedium: true)
     }
+    
+    init(localizationKey: String, isSubtext: Bool) {
+        super.init(frame: .zero)
+        setup(localisationKey: localizationKey, color: .subTextColor, size: 16)
+    }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

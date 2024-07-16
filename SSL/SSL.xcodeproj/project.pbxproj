@@ -56,6 +56,20 @@
 		33D2248A2B7B8C5200116BAD /* InsetedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D224892B7B8C5200116BAD /* InsetedTextField.swift */; };
 		33D2248C2B7B8DC000116BAD /* SSLLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2248B2B7B8DC000116BAD /* SSLLabel.swift */; };
 		33D2248E2B7B8F3800116BAD /* UserInfoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */; };
+		33D3AA182C46B75F009E474A /* ConfirmationCodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA102C46B75F009E474A /* ConfirmationCodePresenter.swift */; };
+		33D3AA192C46B75F009E474A /* ConfirmationCodeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA112C46B75F009E474A /* ConfirmationCodeWorker.swift */; };
+		33D3AA1B2C46B75F009E474A /* ConfirmationCodeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA132C46B75F009E474A /* ConfirmationCodeModels.swift */; };
+		33D3AA1C2C46B75F009E474A /* ConfirmationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA142C46B75F009E474A /* ConfirmationCodeViewController.swift */; };
+		33D3AA1D2C46B75F009E474A /* ConfirmationCodeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA152C46B75F009E474A /* ConfirmationCodeProtocols.swift */; };
+		33D3AA1E2C46B75F009E474A /* ConfirmationCodeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA162C46B75F009E474A /* ConfirmationCodeAssembly.swift */; };
+		33D3AA1F2C46B75F009E474A /* ConfirmationCodeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA172C46B75F009E474A /* ConfirmationCodeInteractor.swift */; };
+		33D3AA282C46BB3A009E474A /* ForgotPasswordEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA212C46BB3A009E474A /* ForgotPasswordEmailInteractor.swift */; };
+		33D3AA292C46BB3A009E474A /* ForgotPasswordEmailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA222C46BB3A009E474A /* ForgotPasswordEmailWorker.swift */; };
+		33D3AA2A2C46BB3A009E474A /* ForgotPasswordEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA232C46BB3A009E474A /* ForgotPasswordEmailViewController.swift */; };
+		33D3AA2B2C46BB3A009E474A /* ForgotPasswordEmailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA242C46BB3A009E474A /* ForgotPasswordEmailProtocols.swift */; };
+		33D3AA2C2C46BB3A009E474A /* ForgotPasswordEmailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA252C46BB3A009E474A /* ForgotPasswordEmailModels.swift */; };
+		33D3AA2D2C46BB3A009E474A /* ForgotPasswordEmailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA262C46BB3A009E474A /* ForgotPasswordEmailAssembly.swift */; };
+		33D3AA2E2C46BB3A009E474A /* ForgotPasswordEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA272C46BB3A009E474A /* ForgotPasswordEmailPresenter.swift */; };
 		33F6E1482BC6867900CAE32F /* ProfilePicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1472BC6867900CAE32F /* ProfilePicView.swift */; };
 		33F6E14A2BC68B3E00CAE32F /* CheckboxWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */; };
 		33FF0F6D2C3C1CC60070FA9E /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */; };
@@ -133,6 +147,20 @@
 		33D224892B7B8C5200116BAD /* InsetedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetedTextField.swift; sourceTree = "<group>"; };
 		33D2248B2B7B8DC000116BAD /* SSLLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLLabel.swift; sourceTree = "<group>"; };
 		33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTextField.swift; sourceTree = "<group>"; };
+		33D3AA102C46B75F009E474A /* ConfirmationCodePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodePresenter.swift; sourceTree = "<group>"; };
+		33D3AA112C46B75F009E474A /* ConfirmationCodeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeWorker.swift; sourceTree = "<group>"; };
+		33D3AA132C46B75F009E474A /* ConfirmationCodeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeModels.swift; sourceTree = "<group>"; };
+		33D3AA142C46B75F009E474A /* ConfirmationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeViewController.swift; sourceTree = "<group>"; };
+		33D3AA152C46B75F009E474A /* ConfirmationCodeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeProtocols.swift; sourceTree = "<group>"; };
+		33D3AA162C46B75F009E474A /* ConfirmationCodeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeAssembly.swift; sourceTree = "<group>"; };
+		33D3AA172C46B75F009E474A /* ConfirmationCodeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeInteractor.swift; sourceTree = "<group>"; };
+		33D3AA212C46BB3A009E474A /* ForgotPasswordEmailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailInteractor.swift; sourceTree = "<group>"; };
+		33D3AA222C46BB3A009E474A /* ForgotPasswordEmailWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailWorker.swift; sourceTree = "<group>"; };
+		33D3AA232C46BB3A009E474A /* ForgotPasswordEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailViewController.swift; sourceTree = "<group>"; };
+		33D3AA242C46BB3A009E474A /* ForgotPasswordEmailProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailProtocols.swift; sourceTree = "<group>"; };
+		33D3AA252C46BB3A009E474A /* ForgotPasswordEmailModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailModels.swift; sourceTree = "<group>"; };
+		33D3AA262C46BB3A009E474A /* ForgotPasswordEmailAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailAssembly.swift; sourceTree = "<group>"; };
+		33D3AA272C46BB3A009E474A /* ForgotPasswordEmailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailPresenter.swift; sourceTree = "<group>"; };
 		33F6E1472BC6867900CAE32F /* ProfilePicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicView.swift; sourceTree = "<group>"; };
 		33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxWithLabel.swift; sourceTree = "<group>"; };
 		33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -335,9 +363,47 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		33D3AA0F2C46B6EE009E474A /* ConfirmationCodeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				33D3AA102C46B75F009E474A /* ConfirmationCodePresenter.swift */,
+				33D3AA112C46B75F009E474A /* ConfirmationCodeWorker.swift */,
+				33D3AA132C46B75F009E474A /* ConfirmationCodeModels.swift */,
+				33D3AA142C46B75F009E474A /* ConfirmationCodeViewController.swift */,
+				33D3AA152C46B75F009E474A /* ConfirmationCodeProtocols.swift */,
+				33D3AA162C46B75F009E474A /* ConfirmationCodeAssembly.swift */,
+				33D3AA172C46B75F009E474A /* ConfirmationCodeInteractor.swift */,
+			);
+			path = ConfirmationCodeScreen;
+			sourceTree = "<group>";
+		};
+		33D3AA202C46BAA4009E474A /* ForgotPasswordEmailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				33D3AA262C46BB3A009E474A /* ForgotPasswordEmailAssembly.swift */,
+				33D3AA212C46BB3A009E474A /* ForgotPasswordEmailInteractor.swift */,
+				33D3AA252C46BB3A009E474A /* ForgotPasswordEmailModels.swift */,
+				33D3AA272C46BB3A009E474A /* ForgotPasswordEmailPresenter.swift */,
+				33D3AA242C46BB3A009E474A /* ForgotPasswordEmailProtocols.swift */,
+				33D3AA232C46BB3A009E474A /* ForgotPasswordEmailViewController.swift */,
+				33D3AA222C46BB3A009E474A /* ForgotPasswordEmailWorker.swift */,
+			);
+			path = ForgotPasswordEmailScreen;
+			sourceTree = "<group>";
+		};
+		33D3AA2F2C46C326009E474A /* NewPasswordScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NewPasswordScreen;
+			sourceTree = "<group>";
+		};
 		33F176FF2BB7025900FA1B0D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				33D3AA2F2C46C326009E474A /* NewPasswordScreen */,
+				33D3AA202C46BAA4009E474A /* ForgotPasswordEmailScreen */,
+				33D3AA0F2C46B6EE009E474A /* ConfirmationCodeScreen */,
 				3389DCB82C4594A3000F3935 /* RegisterSecondScreen */,
 				3389DCA52C45577A000F3935 /* RegisterFirstScreen */,
 				33BC806D2BD290250065FB60 /* LoginScreen */,
@@ -519,11 +585,14 @@
 				3389DC9C2C442834000F3935 /* SecondaryButtonContainer.swift in Sources */,
 				3389DC912C43E991000F3935 /* LoginModels.swift in Sources */,
 				333332312C34356F00B6021D /* SSLNavigationController.swift in Sources */,
+				33D3AA292C46BB3A009E474A /* ForgotPasswordEmailWorker.swift in Sources */,
 				33FF0F6F2C3C2A730070FA9E /* MultipartFormData.swift in Sources */,
 				33BC80722BD290540065FB60 /* LoginViewController.swift in Sources */,
 				335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */,
+				33D3AA2A2C46BB3A009E474A /* ForgotPasswordEmailViewController.swift in Sources */,
 				337726CC2C3D9E4E0010240F /* VerbalServerResponse.swift in Sources */,
 				33FF0F6D2C3C1CC60070FA9E /* HTTPMethod.swift in Sources */,
+				33D3AA2C2C46BB3A009E474A /* ForgotPasswordEmailModels.swift in Sources */,
 				3389DC8F2C43E8F2000F3935 /* LoginProtocols.swift in Sources */,
 				33D224482B7B6E2800116BAD /* AppDelegate.swift in Sources */,
 				335B0A0C2BD2A3890029CEBD /* LoginWorker.swift in Sources */,
@@ -535,6 +604,14 @@
 				337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */,
 				3389DC992C44275A000F3935 /* PrimaryButtonContainer.swift in Sources */,
 				33D224822B7B803C00116BAD /* PrimaryButton.swift in Sources */,
+				33D3AA2B2C46BB3A009E474A /* ForgotPasswordEmailProtocols.swift in Sources */,
+				33D3AA182C46B75F009E474A /* ConfirmationCodePresenter.swift in Sources */,
+				33D3AA192C46B75F009E474A /* ConfirmationCodeWorker.swift in Sources */,
+				33D3AA1B2C46B75F009E474A /* ConfirmationCodeModels.swift in Sources */,
+				33D3AA1C2C46B75F009E474A /* ConfirmationCodeViewController.swift in Sources */,
+				33D3AA1D2C46B75F009E474A /* ConfirmationCodeProtocols.swift in Sources */,
+				33D3AA1E2C46B75F009E474A /* ConfirmationCodeAssembly.swift in Sources */,
+				33D3AA1F2C46B75F009E474A /* ConfirmationCodeInteractor.swift in Sources */,
 				33A6772A2C402B5600876024 /* TemplateViewController.swift in Sources */,
 				3389DCCA2C45A22F000F3935 /* RegisterSecondDialog.swift in Sources */,
 				33BC80772BD2906E0065FB60 /* LoginInteractor.swift in Sources */,
@@ -542,6 +619,7 @@
 				33D2248C2B7B8DC000116BAD /* SSLLabel.swift in Sources */,
 				337726CA2C3D9C670010240F /* HTTPCode.swift in Sources */,
 				330DADFF2B9E155D0013A394 /* SecondaryButton.swift in Sources */,
+				33D3AA2D2C46BB3A009E474A /* ForgotPasswordEmailAssembly.swift in Sources */,
 				339732342BEE8DFD009ECB44 /* SSLFonts.swift in Sources */,
 				33D2244A2B7B6E2800116BAD /* SceneDelegate.swift in Sources */,
 				33D2248A2B7B8C5200116BAD /* InsetedTextField.swift in Sources */,
@@ -550,6 +628,7 @@
 				3389DC9E2C442CEF000F3935 /* UserInfoTextFieldContainer.swift in Sources */,
 				333332332C34554C00B6021D /* SSLValidator.swift in Sources */,
 				3389DCC12C4594C4000F3935 /* RegisterSecondPresenter.swift in Sources */,
+				33D3AA282C46BB3A009E474A /* ForgotPasswordEmailInteractor.swift in Sources */,
 				3389DCC22C4594C4000F3935 /* RegisterSecondWorker.swift in Sources */,
 				3389DCC42C4594C4000F3935 /* RegisterSecondModels.swift in Sources */,
 				3389DCC52C4594C4000F3935 /* RegisterSecondViewController.swift in Sources */,
@@ -560,6 +639,7 @@
 				33F6E1482BC6867900CAE32F /* ProfilePicView.swift in Sources */,
 				33F6E14A2BC68B3E00CAE32F /* CheckboxWithLabel.swift in Sources */,
 				33D2248E2B7B8F3800116BAD /* UserInfoTextField.swift in Sources */,
+				33D3AA2E2C46BB3A009E474A /* ForgotPasswordEmailPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

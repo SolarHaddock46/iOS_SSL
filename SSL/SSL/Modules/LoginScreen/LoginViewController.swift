@@ -2,7 +2,7 @@ import UIKit
 
 class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
     var interactor: LoginInteractorProtocol?
-    var router: RoutingLogic
+    var router: SSLRoutingLogic
     private var dialog: LoginDialog?
     
     private lazy var elements: [ContentElement] = {
@@ -16,7 +16,7 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
         ]
     }()
     
-    init(router: RoutingLogic) {
+    init(router: SSLRoutingLogic) {
         self.router = router
         super.init(nibName: nil, bundle: nil)
         dialog = LoginDialog(viewController: self)
@@ -64,7 +64,7 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
     }
     
     @objc func forgotPasswordButtonTapped(_ sender: UIButton) {
-        print("SHIT")
+        router.navigate(source: self, destination: .forgotPassword, data: nil)
     }
     
     @objc func toRegisterButtonTapped(_ sender: UIButton) {

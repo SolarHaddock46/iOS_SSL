@@ -5,13 +5,14 @@ enum Destination {
     case registerFirst
     case registerSecond
     case forgotPassword
+    case confirmationCode
 }
 
-protocol RoutingLogic {
+protocol SSLRoutingLogic {
     func navigate(source: UIViewController, destination: Destination, data: Any?)
 }
 
-final class SSLRouter: RoutingLogic {
+final class SSLRouter: SSLRoutingLogic {
     weak var viewController: UIViewController?
     
     func navigate(source: UIViewController, destination: Destination, data: Any?) {
@@ -25,8 +26,11 @@ final class SSLRouter: RoutingLogic {
                 source.navigationController?.pushViewController(vc, animated: true)
             }
         case .forgotPassword:
-            // Handle forgot password navigation
-            print("forgot password")
+            let vc = ForgotPasswordEmailAssembly.build()
+            source.navigationController?.pushViewController(vc, animated: true)
+        case .confirmationCode:
+            let vc = ConfirmationCodeAssembly.build()
+            source.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

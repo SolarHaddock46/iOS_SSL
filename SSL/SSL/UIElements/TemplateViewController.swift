@@ -34,15 +34,16 @@ class TemplateViewController: UIViewController {
         return label
     }()
     
-    let contentView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.layer.cornerRadius = 16
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOpacity = 0.1
-        view.layer.shadowOffset = CGSize(width: 0, height: 2)
-        view.layer.shadowRadius = 4
-        return view
+    let contentView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.backgroundColor = .white
+        stackView.layer.cornerRadius = 16
+        stackView.layer.shadowColor = UIColor.black.cgColor
+        stackView.layer.shadowOpacity = 0.1
+        stackView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        stackView.layer.shadowRadius = 4
+        return stackView
     }()
     
     let navigationBar: UINavigationBar = {
@@ -96,8 +97,6 @@ class TemplateViewController: UIViewController {
     }
     
     func setupContentView(withElements elements: [ContentElement]) {
-        var previousView: UIView?
-        
         elements.forEach { element in
             let view: UIView
             
@@ -124,36 +123,16 @@ class TemplateViewController: UIViewController {
                 checkboxesByName[name] = checkboxView
                 view = checkboxView
             case .spacing(let height):
-                view = UIView()
-                view.heightAnchor.constraint(equalToConstant: height).isActive = true
+                let spacerView = UIView()
+                spacerView.heightAnchor.constraint(equalToConstant: height).isActive = true
+                view = spacerView
             }
             
-            contentView.addSubview(view)
-            view.translatesAutoresizingMaskIntoConstraints = false
-            
-            if let previous = previousView {
-                NSLayoutConstraint.activate([
-                    view.topAnchor.constraint(equalTo: previous.bottomAnchor)
-                ])
-            } else {
-                NSLayoutConstraint.activate([
-                    view.topAnchor.constraint(equalTo: contentView.topAnchor, constant: verticalPadding)
-                ])
-            }
-            
-            NSLayoutConstraint.activate([
-                view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: horizontalPadding),
-                view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -horizontalPadding)
-            ])
-            
-            previousView = view
+            contentView.addArrangedSubview(view)
         }
         
-        if let lastView = previousView {
-            NSLayoutConstraint.activate([
-                lastView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -verticalPadding)
-            ])
-        }
+        contentView.layoutMargins = UIEdgeInsets(top: verticalPadding, left: horizontalPadding, bottom: verticalPadding, right: horizontalPadding)
+        contentView.isLayoutMarginsRelativeArrangement = true
     }
     
     private func createLabel(withText text: String) -> UILabel {

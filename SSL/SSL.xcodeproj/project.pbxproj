@@ -11,6 +11,7 @@
 		3333322F2C34347300B6021D /* Onest-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3333322E2C34347300B6021D /* Onest-Bold.ttf */; };
 		333332312C34356F00B6021D /* SSLNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333332302C34356F00B6021D /* SSLNavigationController.swift */; };
 		333332332C34554C00B6021D /* SSLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333332322C34554C00B6021D /* SSLValidator.swift */; };
+		333C6A282C4962FD00A4814C /* Onest-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 333C6A272C4962FD00A4814C /* Onest-Light.ttf */; };
 		335B0A0C2BD2A3890029CEBD /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A0B2BD2A3890029CEBD /* LoginWorker.swift */; };
 		335B0A0E2BD2A5830029CEBD /* LoginAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A0D2BD2A5830029CEBD /* LoginAssembly.swift */; };
 		335B0A182BD3D5400029CEBD /* Onest.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33D224842B7B822900116BAD /* Onest.ttf */; };
@@ -105,6 +106,7 @@
 		3333322E2C34347300B6021D /* Onest-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-Bold.ttf"; sourceTree = "<group>"; };
 		333332302C34356F00B6021D /* SSLNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLNavigationController.swift; sourceTree = "<group>"; };
 		333332322C34554C00B6021D /* SSLValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLValidator.swift; sourceTree = "<group>"; };
+		333C6A272C4962FD00A4814C /* Onest-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-Light.ttf"; sourceTree = "<group>"; };
 		335B0A0B2BD2A3890029CEBD /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
 		335B0A0D2BD2A5830029CEBD /* LoginAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembly.swift; sourceTree = "<group>"; };
 		335F2F782BC2F8B600153A35 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 		33D224832B7B819C00116BAD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				333C6A272C4962FD00A4814C /* Onest-Light.ttf */,
 				3389DC9F2C4549E0000F3935 /* Onest-Medium.ttf */,
 				33C065D92C414D1700CE3181 /* Rubik-ExtraBold.ttf */,
 				3333322E2C34347300B6021D /* Onest-Bold.ttf */,
@@ -555,6 +558,7 @@
 				33D2247E2B7B784200116BAD /* Localizable.xcstrings in Resources */,
 				33C065DA2C414D1700CE3181 /* Rubik-ExtraBold.ttf in Resources */,
 				3333322F2C34347300B6021D /* Onest-Bold.ttf in Resources */,
+				333C6A282C4962FD00A4814C /* Onest-Light.ttf in Resources */,
 				3389DCA02C4549E0000F3935 /* Onest-Medium.ttf in Resources */,
 				33D224512B7B6E2A00116BAD /* Assets.xcassets in Resources */,
 				335B0A182BD3D5400029CEBD /* Onest.ttf in Resources */,

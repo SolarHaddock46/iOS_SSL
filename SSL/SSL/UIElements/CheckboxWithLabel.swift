@@ -14,7 +14,7 @@ class CheckboxWithLabel: UIView {
     private let label: SSLLabel
 
     init(localisationKey: String) {
-        label = SSLLabel(localisationKey: localisationKey)
+        label = SSLLabel(localisationKey: localisationKey, size: 13)
         super.init(frame: .zero)
         setupView()
     }

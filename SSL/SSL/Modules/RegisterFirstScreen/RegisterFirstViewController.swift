@@ -11,8 +11,9 @@ final class RegisterFirstViewController: TemplateViewController, UIImagePickerCo
     private var elements: [ContentElement] = {
         return [
             .heading(text: "Register an account"),
+            .spacing(height: 24),
             .customView(UIView()),
-            .spacing(height: 44),
+            .spacing(height: 24),
             .textField(name: "Second name", placeholder: NSLocalizedString("Second name", comment: ""), isSecure: false),
             .spacing(height: 18),
             .textField(name: "First name", placeholder: NSLocalizedString("First name", comment: ""), isSecure: false),
@@ -31,9 +32,11 @@ final class RegisterFirstViewController: TemplateViewController, UIImagePickerCo
 
     init(router: SSLRoutingLogic) {
         self.router = router
-        profilePicPicker = ProfilePicView()
+        self.profilePicPicker = ProfilePicView()
+        profilePicPicker.descriptionText = NSLocalizedString("Add a profile picture", comment: "")
         super.init(nibName: nil, bundle: nil)
         dialog = RegisterFirstDialog(viewController: self)
+        elements[1] = .customView(profilePicPicker)
         profilePicPicker.delegate = self
     }
 

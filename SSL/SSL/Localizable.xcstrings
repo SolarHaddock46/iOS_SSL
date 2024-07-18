@@ -12,6 +12,9 @@
         }
       }
     },
+    "Add a profile picture" : {
+
+    },
     "Check your email" : {
       "extractionState" : "manual",
       "localizations" : {

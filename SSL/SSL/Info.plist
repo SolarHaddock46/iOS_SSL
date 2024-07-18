@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Onest-Light.ttf</string>
 		<string>Onest-Bold.ttf</string>
 		<string>Onest-Medium.ttf</string>
 		<string>Rubik-ExtraBold.ttf</string>

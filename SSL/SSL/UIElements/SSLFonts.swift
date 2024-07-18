@@ -9,11 +9,15 @@ extension UIFont {
         return UIFont(name: "Onest-Bold", size: size) ?? UIFont.boldSystemFont(ofSize: size)
     }
     
-    static func rubikExtraBold(ofSize size: CGFloat) -> UIFont {
-        return UIFont(name: "Rubik-ExtraBold", size: size) ?? UIFont.boldSystemFont(ofSize: size)
-    }
-    
     static func onestMedium(ofSize size: CGFloat) -> UIFont {
         return UIFont(name: "Onest-Medium", size: size) ?? UIFont.systemFont(ofSize: size)
+    }
+    
+    static func onestLight(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: "Onest-Light", size: size) ?? UIFont.systemFont(ofSize: size)
+    }
+    
+    static func rubikExtraBold(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: "Rubik-ExtraBold", size: size) ?? UIFont.boldSystemFont(ofSize: size)
     }
 }

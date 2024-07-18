@@ -11,6 +11,11 @@ class SSLLabel: UILabel {
         self.init(frame: .zero)
         setup(localisationKey: localisationKey, color: .mainTextColor, size: 16)
     }
+    
+    init(localisationKey: String, size: CGFloat) {
+        super.init(frame: .zero)
+        setup(localisationKey: localisationKey, color: .mainTextColor, size: size)
+    }
 
     init(localisationKey: String, color: UIColor) {
         super.init(frame: .zero)

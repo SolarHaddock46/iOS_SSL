@@ -118,7 +118,7 @@ class TemplateViewController: UIViewController {
             case .customView(let customView):
                 view = customView
             case .checkbox(let name, let label, let isChecked):
-                let checkboxView = CheckboxWithLabel(localisationKey: label)
+                let checkboxView = CheckboxWithLabel(localizationKey: label)
                 checkboxView.isChecked = isChecked
                 checkboxesByName[name] = checkboxView
                 view = checkboxView

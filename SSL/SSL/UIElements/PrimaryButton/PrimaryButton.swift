@@ -15,7 +15,7 @@ final class PrimaryButton: UIButton {
         backgroundColor = .buttonBackgroundColor
         layer.cornerRadius = 16
         heightAnchor.constraint(equalToConstant: 48).isActive = true
-        let titleLabel = SSLLabel(localisationKey: localizationKey, color: .white)
+        let titleLabel = SSLLabel(localizationKey: localizationKey, color: .white)
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

@@ -53,7 +53,7 @@ final class NewPasswordViewController: TemplateViewController, NewPasswordViewCo
 //    }
     
     @objc func resetButtonTapped(_ sender: UIButton) {
-        navigationController?.popToRootViewController(animated: true)
+        router.navigate(source: self, destination: .success, data: nil)
     }
 }
 

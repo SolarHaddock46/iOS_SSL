@@ -8,12 +8,17 @@ final class RegisterSecondViewController: TemplateViewController, RegisterSecond
     
     private var elements: [ContentElement] = {
         return [
-            .heading(text: "Register an account", topMargin: 0),
-            .textField(name: "Email", placeholder: NSLocalizedString("Email", comment: ""), isSecure: false, topMargin: 40),
-            .textField(name: "Telegram", placeholder: NSLocalizedString("Telegram (without @)", comment: ""), isSecure: false, topMargin: 18),
-            .textField(name: "Password1", placeholder: NSLocalizedString("Password", comment: ""), isSecure: true, topMargin: 18),
-            .textField(name: "Password2", placeholder: NSLocalizedString("Repeat password", comment: ""), isSecure: true, topMargin: 18),
-            .primaryButton(title: "Register", action: #selector(registerButtonTapped(_:)), topMargin: 40)
+            .heading(text: "Register an account"),
+            .spacing(height: 40),
+            .textField(name: "Email", placeholder: NSLocalizedString("Email", comment: ""), isSecure: false),
+            .spacing(height: 18),
+            .textField(name: "Telegram", placeholder: NSLocalizedString("Telegram (without @)", comment: ""), isSecure: false),
+            .spacing(height: 18),
+            .textField(name: "Password1", placeholder: NSLocalizedString("Password", comment: ""), isSecure: true),
+            .spacing(height: 18),
+            .textField(name: "Password2", placeholder: NSLocalizedString("Repeat password", comment: ""), isSecure: true),
+            .spacing(height: 40),
+            .primaryButton(title: "Register", action: #selector(registerButtonTapped(_:)))
         ]
     }()
 

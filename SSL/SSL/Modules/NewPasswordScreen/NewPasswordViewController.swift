@@ -14,11 +14,15 @@ final class NewPasswordViewController: TemplateViewController, NewPasswordViewCo
     
     private var elements: [ContentElement] = {
        return [
-        .heading(text: "Enter a new password", topMargin: 0),
-        .subtext(text: "Your password must contain at least 8 Latin letters, numbers, or characters", topMargin: 16),
-        .textField(name: "Password1", placeholder: NSLocalizedString("Password", comment: ""), isSecure: false, topMargin: 16),
-        .textField(name: "Password2", placeholder: NSLocalizedString("Repeat password", comment: ""), isSecure: false, topMargin: 16),
-        .primaryButton(title: "Save", action: #selector(resetButtonTapped(_:)), topMargin: 32)
+        .heading(text: "Enter a new password"),
+        .spacing(height: 16),
+        .subtext(text: "Your password must contain at least 8 Latin letters, numbers, or characters"),
+        .spacing(height: 16),
+        .textField(name: "Password1", placeholder: NSLocalizedString("Password", comment: ""), isSecure: false),
+        .spacing(height: 16),
+        .textField(name: "Password2", placeholder: NSLocalizedString("Repeat password", comment: ""), isSecure: false),
+        .spacing(height: 32),
+        .primaryButton(title: "Save", action: #selector(resetButtonTapped(_:)))
        ]
     }()
 

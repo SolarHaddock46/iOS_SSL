@@ -13,11 +13,15 @@ final class ConfirmationCodeViewController: TemplateViewController, Confirmation
     private var router: SSLRoutingLogic
     private var elements: [ContentElement] = {
        return [
-        .heading(text: "Confirmation code", topMargin: 0),
-        .subtext(text: "We have sent you a confirmation code, please check your email", topMargin: 16),
-        .textField(name: "Confirmation code", placeholder: NSLocalizedString("Confirmation code", comment: ""), isSecure: false, topMargin: 32),
-        .secondaryButton(title: "Send again", action: #selector(sendAgainButtonTapped(_:)), topMargin: 8),
-        .primaryButton(title: "Continue", action: #selector(confirmButtonTapped(_:)), topMargin: 11)
+        .heading(text: "Confirmation code"),
+        .spacing(height: 16),
+        .subtext(text: "We have sent you a confirmation code, please check your email"),
+        .spacing(height: 32),
+        .textField(name: "Confirmation code", placeholder: NSLocalizedString("Confirmation code", comment: ""), isSecure: false),
+        .spacing(height: 8),
+        .secondaryButton(title: "Send again", action: #selector(sendAgainButtonTapped(_:))),
+        .spacing(height: 11),
+        .primaryButton(title: "Continue", action: #selector(confirmButtonTapped(_:)))
        ]
     }()
 

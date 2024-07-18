@@ -14,10 +14,13 @@ final class ForgotPasswordEmailViewController: TemplateViewController, ForgotPas
     
     private var elements: [ContentElement] = {
        return [
-        .heading(text: "Reset password", topMargin: 0),
-        .subtext(text: "Enter the email address associated with your account", topMargin: 32),
-        .textField(name: "Email", placeholder: NSLocalizedString("Email", comment: ""), isSecure: false, topMargin: 16),
-        .primaryButton(title: "Reset", action: #selector(resetButtonTapped(_:)), topMargin: 11)
+        .heading(text: "Reset password"),
+        .spacing(height: 32),
+        .subtext(text: "Enter the email address associated with your account"),
+        .spacing(height: 16),
+        .textField(name: "Email", placeholder: NSLocalizedString("Email", comment: ""), isSecure: false),
+        .spacing(height: 11),
+        .primaryButton(title: "Reset", action: #selector(resetButtonTapped(_:)))
        ]
     }()
 

@@ -1,17 +1,19 @@
 import UIKit
 
 enum ContentElement {
-    case label(text: String, topMargin: CGFloat)
-    case heading(text: String, topMargin: CGFloat)
-    case subtext(text: String, topMargin: CGFloat)
-    case textField(name: String, placeholder: String, isSecure: Bool, topMargin: CGFloat)
-    case checkbox(name: String, label: String, isChecked: Bool, topMargin: CGFloat)
-    case primaryButton(title: String, action: Selector, topMargin: CGFloat)
-    case secondaryButton(title: String, action: Selector, topMargin: CGFloat)
-    case customView(UIView, topMargin: CGFloat)
+    case label(text: String)
+    case heading(text: String)
+    case subtext(text: String)
+    case textField(name: String, placeholder: String, isSecure: Bool)
+    case checkbox(name: String, label: String, isChecked: Bool)
+    case primaryButton(title: String, action: Selector)
+    case secondaryButton(title: String, action: Selector)
+    case customView(UIView)
+    case spacing(height: CGFloat)
 }
 
 class TemplateViewController: UIViewController {
+    
     private let backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .templateBackgroundColor
@@ -48,6 +50,9 @@ class TemplateViewController: UIViewController {
         navBar.translatesAutoresizingMaskIntoConstraints = false
         return navBar
     }()
+    
+    let horizontalPadding: CGFloat = 16
+    let verticalPadding: CGFloat = 28
     
     var textFieldsByName: [String: UserInfoTextField] = [:]
     var checkboxesByName: [String: CheckboxWithLabel] = [:]
@@ -90,43 +95,37 @@ class TemplateViewController: UIViewController {
         ])
     }
     
-    func setupContentView(withElements elements: [ContentElement], horizontalPadding: CGFloat = 16, verticalPadding: CGFloat = 28) {
+    func setupContentView(withElements elements: [ContentElement]) {
         var previousView: UIView?
         
         elements.forEach { element in
             let view: UIView
-            let topMargin: CGFloat
             
             switch element {
-            case .label(let text, let margin):
+            case .label(let text):
                 view = createLabel(withText: text)
-                topMargin = margin
-            case .heading(let text, let margin):
+            case .heading(let text):
                 view = createHeading(withText: text)
-                topMargin = margin
-            case .subtext(let text, let margin):
+            case .subtext(let text):
                 view = createSubtext(withText: text)
-                topMargin = margin
-            case .textField(let name, let placeholder, let isSecure, let margin):
+            case .textField(let name, let placeholder, let isSecure):
                 let textFieldContainer = UserInfoTextFieldContainer(placeholder: placeholder, isSecure: isSecure)
                 textFieldsByName[name] = textFieldContainer.textField
                 view = textFieldContainer
-                topMargin = margin
-            case .primaryButton(let title, let action, let margin):
+            case .primaryButton(let title, let action):
                 view = createPrimaryButton(title: title, action: action)
-                topMargin = margin
-            case .secondaryButton(let title, let action, let margin):
+            case .secondaryButton(let title, let action):
                 view = createSecondaryButton(title: title, action: action)
-                topMargin = margin
-            case .customView(let customView, let margin):
+            case .customView(let customView):
                 view = customView
-                topMargin = margin
-            case .checkbox(let name, let label, let isChecked, let margin):
+            case .checkbox(let name, let label, let isChecked):
                 let checkboxView = CheckboxWithLabel(localisationKey: label)
                 checkboxView.isChecked = isChecked
                 checkboxesByName[name] = checkboxView
                 view = checkboxView
-                topMargin = margin
+            case .spacing(let height):
+                view = UIView()
+                view.heightAnchor.constraint(equalToConstant: height).isActive = true
             }
             
             contentView.addSubview(view)
@@ -134,7 +133,7 @@ class TemplateViewController: UIViewController {
             
             if let previous = previousView {
                 NSLayoutConstraint.activate([
-                    view.topAnchor.constraint(equalTo: previous.bottomAnchor, constant: topMargin)
+                    view.topAnchor.constraint(equalTo: previous.bottomAnchor)
                 ])
             } else {
                 NSLayoutConstraint.activate([

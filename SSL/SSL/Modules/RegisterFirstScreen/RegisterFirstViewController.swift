@@ -10,15 +10,22 @@ final class RegisterFirstViewController: TemplateViewController, UIImagePickerCo
     private var profilePicData: Data?
     private var elements: [ContentElement] = {
         return [
-            .heading(text: "Register an account", topMargin: 0),
-            .customView(UIView(), topMargin: 0),
-            .textField(name: "Second name", placeholder: NSLocalizedString("Second name", comment: ""), isSecure: false, topMargin: 44),
-            .textField(name: "First name", placeholder: NSLocalizedString("First name", comment: ""), isSecure: false, topMargin: 18),
-            .textField(name: "Father name", placeholder: NSLocalizedString("Father name", comment: ""), isSecure: false, topMargin: 18),
-            .checkbox(name: "hsePass", label: "I need a HSE Pass", isChecked: false, topMargin: 18),
-            .checkbox(name: "conditions", label: "I accept the Terms of use and the Privacy Policy", isChecked: false, topMargin: 17),
-            .primaryButton(title: "Next", action: #selector(nextButtonTapped(_:)), topMargin: 11),
-            .secondaryButton(title: "Log in", action: #selector(toLoginButtonTapped(_:)), topMargin: 16)
+            .heading(text: "Register an account"),
+            .customView(UIView()),
+            .spacing(height: 44),
+            .textField(name: "Second name", placeholder: NSLocalizedString("Second name", comment: ""), isSecure: false),
+            .spacing(height: 18),
+            .textField(name: "First name", placeholder: NSLocalizedString("First name", comment: ""), isSecure: false),
+            .spacing(height: 18),
+            .textField(name: "Father name", placeholder: NSLocalizedString("Father name", comment: ""), isSecure: false),
+            .spacing(height: 18),
+            .checkbox(name: "hsePass", label: "I need a HSE Pass", isChecked: false),
+            .spacing(height: 17),
+            .checkbox(name: "conditions", label: "I accept the Terms of use and the Privacy Policy", isChecked: false),
+            .spacing(height: 11),
+            .primaryButton(title: "Next", action: #selector(nextButtonTapped(_:))),
+            .spacing(height: 16),
+            .secondaryButton(title: "Log in", action: #selector(toLoginButtonTapped(_:)))
         ]
     }()
 

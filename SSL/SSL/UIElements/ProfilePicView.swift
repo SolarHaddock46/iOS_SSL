@@ -23,10 +23,10 @@ final class ProfilePicView: UIView {
         imageView.backgroundColor = .lightGray
         imageView.tintColor = .gray
         
-        let placeholderImage = UIImage(systemName: "person.fill")?.withRenderingMode(.alwaysTemplate)
+        let placeholderImage = UIImage(named: "placeholder_image")
         imageView.image = placeholderImage
         
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
         imageView.layer.borderColor = UIColor.clear.cgColor

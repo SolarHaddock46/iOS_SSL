@@ -51,10 +51,10 @@ class CheckboxWithLabel: UIView {
     }
 
     private func updateCheckboxImages() {
-        let circleImage = UIImage(systemName: "circle")?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
-        let checkmarkImage = UIImage(systemName: "checkmark.circle.fill")?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
+        let rectangleImage = UIImage(systemName: "square")?.withTintColor(.buttonBackgroundColor, renderingMode: .alwaysOriginal)
+        let checkmarkImage = UIImage(systemName: "checkmark.square.fill")?.withTintColor(.buttonBackgroundColor, renderingMode: .alwaysOriginal)
         
-        checkbox.setImage(circleImage, for: .normal)
+        checkbox.setImage(rectangleImage, for: .normal)
         checkbox.setImage(checkmarkImage, for: .selected)
     }
 

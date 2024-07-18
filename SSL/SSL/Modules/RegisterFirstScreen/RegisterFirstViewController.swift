@@ -104,15 +104,14 @@ final class RegisterFirstViewController: TemplateViewController, UIImagePickerCo
             picker.dismiss(animated: true, completion: nil)
             return
         }
-        
-        profilePicPicker.avatar = pickedImage
-        
+                
         let targetSize = CGSize(width: 1024, height: 1024)
         guard let resizedImage = resizeImage(pickedImage, targetSize: targetSize) else {
             picker.dismiss(animated: true, completion: nil)
             return
         }
         
+        profilePicPicker.avatar = resizedImage
         profilePicData = resizedImage.jpegData(compressionQuality: 0.8)
         picker.dismiss(animated: true, completion: nil)
     }

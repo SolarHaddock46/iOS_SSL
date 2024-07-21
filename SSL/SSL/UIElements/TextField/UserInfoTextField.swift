@@ -1,6 +1,6 @@
 import UIKit
 
-class UserInfoTextField: UIView {
+class UserInfoTextField: UIView, UITextFieldDelegate {
     private let validTextFieldColor: UIColor = .validTextColor
     private let invalidTextFieldColor: UIColor = .invalidTextFieldColor
     private let borderColor: UIColor = .textFieldBorderColor
@@ -13,6 +13,7 @@ class UserInfoTextField: UIView {
         textField.layer.cornerRadius = cornerRadius
         textField.layer.borderWidth = 0.5
         textField.layer.borderColor = borderColor.cgColor
+        textField.delegate = self
         return textField
     }()
     
@@ -26,10 +27,10 @@ class UserInfoTextField: UIView {
     
     var isTextEmpty: Bool {
         return textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
-
     }
     
     var textFieldHeight: CGFloat = 48.0
+    
     init(placeholder: String, isSecure: Bool) {
         super.init(frame: .zero)
         backgroundColor = .white
@@ -51,6 +52,17 @@ class UserInfoTextField: UIView {
             textField.trailingAnchor.constraint(equalTo: trailingAnchor),
             textField.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        endEditing(true)
     }
 }
 

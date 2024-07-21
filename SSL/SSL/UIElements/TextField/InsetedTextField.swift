@@ -2,7 +2,7 @@ import UIKit
 
 final class InsetedTextField: UITextField {
 
-    let padding = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+    let padding = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
 
         override func textRect(forBounds bounds: CGRect) -> CGRect {
             return bounds.inset(by: padding)

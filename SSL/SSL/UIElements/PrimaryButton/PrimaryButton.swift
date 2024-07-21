@@ -13,7 +13,7 @@ final class PrimaryButton: UIButton {
     
     private func setup(localizationKey: String) {
         backgroundColor = .buttonBackgroundColor
-        layer.cornerRadius = 16
+        layer.cornerRadius = 10
         heightAnchor.constraint(equalToConstant: 48).isActive = true
         let titleLabel = SSLLabel(localizationKey: localizationKey, color: .white)
         addSubview(titleLabel)

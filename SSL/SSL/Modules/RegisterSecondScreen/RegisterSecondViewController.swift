@@ -44,12 +44,12 @@ final class RegisterSecondViewController: TemplateViewController, RegisterSecond
         let password1TextField = textFieldsByName["Password1"]
         let password2TextField = textFieldsByName["Password2"]
         
-        emailTextField?.isValid = SSLValidator.emailIsValid(email: emailTextField?.enteredText ?? "")
-        telegramTextField?.isValid = SSLValidator.telegramIsValid(telegram: telegramTextField?.enteredText ?? "")
+        emailTextField?.isValid = SSLValidator.emailIsValid(email: emailTextField?.text ?? "")
+        telegramTextField?.isValid = SSLValidator.telegramIsValid(telegram: telegramTextField?.text ?? "")
         password1TextField?.isValid = !(password1TextField?.isTextEmpty ?? true)
         password2TextField?.isValid = !(password2TextField?.isTextEmpty ?? true)
         
-        if password1TextField?.enteredText != password2TextField?.enteredText {
+        if password1TextField?.text != password2TextField?.text {
             password2TextField?.isValid = false
         }
         

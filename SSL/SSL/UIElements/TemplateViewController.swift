@@ -207,7 +207,7 @@ class TemplateViewController: UIViewController {
     }
     
     func getTextFieldValue(forName name: String) -> String? {
-        return textFieldsByName[name]?.enteredText
+        return textFieldsByName[name]?.text
     }
     
     func getCheckboxState(forName name: String) -> Bool? {

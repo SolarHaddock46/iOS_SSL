@@ -1,12 +1,11 @@
 import UIKit
 
-class UserInfoTextField: UITextField {
-
+class UserInfoTextField: UIView {
     private let validTextFieldColor: UIColor = .validTextColor
     private let invalidTextFieldColor: UIColor = .invalidTextFieldColor
     private let borderColor: UIColor = .textFieldBorderColor
     private let cornerRadius: CGFloat = 8.0
-
+    
     private lazy var textField: InsetedTextField = {
         let textField = InsetedTextField()
         textField.backgroundColor = validTextFieldColor
@@ -16,7 +15,7 @@ class UserInfoTextField: UITextField {
         textField.layer.borderColor = borderColor.cgColor
         return textField
     }()
-
+    
     var isValid: Bool = true {
         didSet {
             DispatchQueue.main.async {
@@ -26,33 +25,37 @@ class UserInfoTextField: UITextField {
     }
     
     var isTextEmpty: Bool {
-        return enteredText?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+        return textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+
     }
-
+    
     var textFieldHeight: CGFloat = 48.0
-
     init(placeholder: String, isSecure: Bool) {
         super.init(frame: .zero)
         backgroundColor = .white
         textField.placeholder = placeholder
         textField.isSecureTextEntry = isSecure
         addSubview(textField)
+        setupConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupConstraints() {
         textField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: topAnchor),
             textField.leadingAnchor.constraint(equalTo: leadingAnchor),
             textField.trailingAnchor.constraint(equalTo: trailingAnchor),
-            textField.heightAnchor.constraint(equalToConstant: textFieldHeight)
+            textField.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-    }
-
-    required init(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 
 extension UserInfoTextField {
-    var enteredText: String? {
+    var text: String? {
         return textField.text
     }
 }

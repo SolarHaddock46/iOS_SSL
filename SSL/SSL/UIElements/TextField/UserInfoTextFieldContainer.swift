@@ -29,8 +29,4 @@ final class UserInfoTextFieldContainer: UIView {
         get { textField.isValid }
         set { textField.isValid = newValue }
     }
-    
-    var enteredText: String? {
-        return textField.enteredText
-    }
 }

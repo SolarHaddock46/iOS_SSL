@@ -5,6 +5,20 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
     var router: SSLRoutingLogic
     private var dialog: LoginDialog?
     
+    private let signUpLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .mainTextColor
+        label.font = UIFont.onest(ofSize: 14)
+        
+        let attributedText = NSMutableAttributedString(string: "Don't have an account? Sign up")
+        let range = (attributedText.string as NSString).range(of: "Sign up")
+        attributedText.addAttribute(.foregroundColor, value: UIColor.buttonBackgroundColor, range: range)
+        
+        label.textAlignment = .center
+        label.attributedText = attributedText
+        return label
+    }()
+    
     private lazy var elements: [ContentElement] = {
         return [
             .heading(text: "Log in"),
@@ -13,11 +27,15 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
             .spacing(height: 18),
             .textField(name: "password", placeholder: NSLocalizedString("Password", comment: "Password placeholder"), isSecure: true),
             .spacing(height: 11),
-            .secondaryButton(title: "Forgot your password?", action: #selector(forgotPasswordButtonTapped(_:))),
+            .secondaryButton(title: .text("Forgot your password?"), action: #selector(forgotPasswordButtonTapped(_:)), alignment: .trailing),
             .spacing(height: 11),
             .primaryButton(title: "Sign in", action: #selector(loginButtonTapped(_:))),
             .spacing(height: 8),
-            .secondaryButton(title: "Sign up", action: #selector(toRegisterButtonTapped(_:)))
+            .secondaryButton(
+                title: .attributedText(signUpLabel.attributedText ?? NSAttributedString(string: "")),
+                action: #selector(toRegisterButtonTapped(_:)),
+                alignment: .center
+            )
         ]
     }()
     

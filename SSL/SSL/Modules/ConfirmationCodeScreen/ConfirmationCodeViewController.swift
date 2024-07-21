@@ -19,7 +19,7 @@ final class ConfirmationCodeViewController: TemplateViewController, Confirmation
         .spacing(height: 32),
         .textField(name: "Confirmation code", placeholder: NSLocalizedString("Confirmation code", comment: ""), isSecure: false),
         .spacing(height: 8),
-        .secondaryButton(title: "Send again", action: #selector(sendAgainButtonTapped(_:))),
+        .secondaryButton(title: .text("Send again"), action: #selector(sendAgainButtonTapped(_:))),
         .spacing(height: 11),
         .primaryButton(title: "Continue", action: #selector(confirmButtonTapped(_:)))
        ]

@@ -26,7 +26,7 @@ final class RegisterFirstViewController: TemplateViewController, UIImagePickerCo
             .spacing(height: 11),
             .primaryButton(title: "Next", action: #selector(nextButtonTapped(_:))),
             .spacing(height: 16),
-            .secondaryButton(title: "Log in", action: #selector(toLoginButtonTapped(_:)))
+            .secondaryButton(title: .text("Log in"), action: #selector(toLoginButtonTapped(_:)))
         ]
     }()
 

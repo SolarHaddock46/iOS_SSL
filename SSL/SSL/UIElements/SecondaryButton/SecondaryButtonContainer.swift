@@ -1,10 +1,16 @@
 import UIKit
 
 final class SecondaryButtonContainer: UIView {
-    private let button: SecondaryButton
+    let button: SecondaryButton
     
     init(localizationKey: String) {
         button = SecondaryButton(localizationKey: localizationKey)
+        super.init(frame: .zero)
+        setup()
+    }
+    
+    init(attributedTitle: NSAttributedString) {
+        button = SecondaryButton(attributedTitle: attributedTitle)
         super.init(frame: .zero)
         setup()
     }

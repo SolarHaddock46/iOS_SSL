@@ -7,9 +7,20 @@ enum ContentElement {
     case textField(name: String, placeholder: String, isSecure: Bool)
     case checkbox(name: String, label: String, isChecked: Bool)
     case primaryButton(title: String, action: Selector)
-    case secondaryButton(title: String, action: Selector)
+    case secondaryButton(title: SecondaryButtonTitle, action: Selector, alignment: SecondaryButtonAlignment = .center)
     case customView(UIView)
     case spacing(height: CGFloat)
+}
+
+enum SecondaryButtonAlignment {
+    case leading
+    case center
+    case trailing
+}
+
+enum SecondaryButtonTitle {
+    case text(String)
+    case attributedText(NSAttributedString)
 }
 
 class TemplateViewController: UIViewController {
@@ -34,7 +45,7 @@ class TemplateViewController: UIViewController {
         return label
     }()
     
-    let contentView: UIStackView = {
+    private let contentView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.backgroundColor = .white
@@ -46,14 +57,14 @@ class TemplateViewController: UIViewController {
         return stackView
     }()
     
-    let navigationBar: UINavigationBar = {
+    private let navigationBar: UINavigationBar = {
         let navBar = UINavigationBar()
         navBar.translatesAutoresizingMaskIntoConstraints = false
         return navBar
     }()
     
-    let horizontalPadding: CGFloat = 16
-    let verticalPadding: CGFloat = 28
+    private let horizontalPadding: CGFloat = 16
+    private let verticalPadding: CGFloat = 28
     
     var textFieldsByName: [String: UserInfoTextField] = [:]
     var checkboxesByName: [String: CheckboxWithLabel] = [:]
@@ -92,7 +103,8 @@ class TemplateViewController: UIViewController {
         NSLayoutConstraint.activate([
             contentView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
             contentView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 18),
-            contentView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16)
+            contentView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
+            contentView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16)
         ])
     }
     
@@ -113,8 +125,8 @@ class TemplateViewController: UIViewController {
                 view = textFieldContainer
             case .primaryButton(let title, let action):
                 view = createPrimaryButton(title: title, action: action)
-            case .secondaryButton(let title, let action):
-                view = createSecondaryButton(title: title, action: action)
+            case .secondaryButton(let title, let action, let alignment):
+                view = createSecondaryButton(title: title, action: action, alignment: alignment)
             case .customView(let customView):
                 view = customView
             case .checkbox(let name, let label, let isChecked):
@@ -153,10 +165,45 @@ class TemplateViewController: UIViewController {
         return buttonContainer
     }
     
-    private func createSecondaryButton(title: String, action: Selector) -> SecondaryButtonContainer {
-        let buttonContainer = SecondaryButtonContainer(localizationKey: title)
+    private func createSecondaryButton(title: SecondaryButtonTitle, action: Selector, alignment: SecondaryButtonAlignment) -> UIView {
+        let buttonContainer: SecondaryButtonContainer
+        
+        switch title {
+        case .text(let text):
+            buttonContainer = SecondaryButtonContainer(localizationKey: text)
+        case .attributedText(let attributedText):
+            buttonContainer = SecondaryButtonContainer(attributedTitle: attributedText)
+        }
+        
         buttonContainer.addTarget(self, action: action, for: .touchUpInside)
-        return buttonContainer
+        
+        let containerView = UIView()
+        containerView.addSubview(buttonContainer)
+        
+        buttonContainer.translatesAutoresizingMaskIntoConstraints = false
+        
+        switch alignment {
+        case .leading:
+            NSLayoutConstraint.activate([
+                buttonContainer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+                buttonContainer.topAnchor.constraint(equalTo: containerView.topAnchor),
+                buttonContainer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+            ])
+        case .center:
+            NSLayoutConstraint.activate([
+                buttonContainer.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+                buttonContainer.topAnchor.constraint(equalTo: containerView.topAnchor),
+                buttonContainer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+            ])
+        case .trailing:
+            NSLayoutConstraint.activate([
+                buttonContainer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+                buttonContainer.topAnchor.constraint(equalTo: containerView.topAnchor),
+                buttonContainer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+            ])
+        }
+        
+        return containerView
     }
     
     func getTextFieldValue(forName name: String) -> String? {

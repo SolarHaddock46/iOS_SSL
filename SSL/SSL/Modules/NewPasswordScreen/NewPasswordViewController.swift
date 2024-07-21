@@ -39,6 +39,11 @@ final class NewPasswordViewController: TemplateViewController, NewPasswordViewCo
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentView(withElements: elements)
+        
+        let crossButton = UIBarButtonItem(title: "✕", style: .plain, target: self, action: #selector(crossButtonTapped))
+        navigationItem.rightBarButtonItem = crossButton
+        
+        navigationItem.hidesBackButton = true
 //        initForm()
     }
 
@@ -55,6 +60,11 @@ final class NewPasswordViewController: TemplateViewController, NewPasswordViewCo
     @objc func resetButtonTapped(_ sender: UIButton) {
         router.navigate(source: self, destination: .success, data: nil)
     }
+    
+    @objc private func crossButtonTapped() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+
 }
 
 

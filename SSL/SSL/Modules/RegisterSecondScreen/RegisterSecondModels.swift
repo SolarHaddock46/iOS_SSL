@@ -1,5 +1,23 @@
 import Foundation
 
+struct RegisterEndpoint: Endpoint {
+    var baseURL: URL? {
+        return APIRoutes().baseURL
+    }
+    
+    var path: String {
+        return APIRoutes().registerRoute
+    }
+    
+    var method: String {
+        return HTTPMethod.post
+    }
+    
+    var headers: [String: String]? {
+        return ["Content-Type": "application/json"]
+    }
+}
+
 struct RegisterRequest: Codable {
     let firstName: String
     let lastName: String

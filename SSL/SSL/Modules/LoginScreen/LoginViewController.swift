@@ -54,10 +54,6 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
         setupContentView(withElements: elements)
     }
     
-    private func setupLayout() {
-        setupContentView(withElements: elements)
-    }
-    
     @objc func loginButtonTapped(_ sender: UIButton) {
         guard let email = getTextFieldValue(forName: "email"),
               let password = getTextFieldValue(forName: "password") else {
@@ -78,10 +74,8 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
         Task(priority: .high) {
             do {
                 try await interactor?.login(email: email, password: password)
-            } catch let error as NetworkError {
-                dialog?.showAlert(title: "Error", message: error.localizedDescription)
             } catch {
-                dialog?.showAlert(title: "Error", message: error.localizedDescription)
+                showAlert(title: "Error", message: error.localizedDescription)
             }
         }
     }
@@ -98,3 +92,4 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
         dialog?.showAlert(title: title, message: message)
     }
 }
+

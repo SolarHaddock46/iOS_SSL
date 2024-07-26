@@ -206,6 +206,29 @@ class TemplateViewController: UIViewController {
         return containerView
     }
     
+    func addCloseButton() {
+        let closeButton = createCloseButton()
+        contentView.addSubview(closeButton)
+        
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
+            closeButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            closeButton.widthAnchor.constraint(equalToConstant: 30),
+            closeButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
+    private func createCloseButton() -> UIButton {
+        let button = PrimaryButton(localizationKey: "✕", color: .closeButtonbackgroundColor, textColor: .mainTextColor)
+        button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        return button
+    }
+    
+    @objc private func closeButtonTapped() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     func getTextFieldValue(forName name: String) -> String? {
         return textFieldsByName[name]?.text
     }

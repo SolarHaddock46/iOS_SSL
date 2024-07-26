@@ -14,7 +14,7 @@ final class NewPasswordViewController: TemplateViewController, NewPasswordViewCo
     
     private var elements: [ContentElement] = {
        return [
-        .heading(text: "Enter a new password"),
+        .heading(text: "Change password"),
         .spacing(height: 16),
         .subtext(text: "Your password must contain at least 8 Latin letters, numbers, or characters"),
         .spacing(height: 16),
@@ -39,9 +39,10 @@ final class NewPasswordViewController: TemplateViewController, NewPasswordViewCo
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentView(withElements: elements)
+        addCloseButton()
         
-        let crossButton = UIBarButtonItem(title: "✕", style: .plain, target: self, action: #selector(crossButtonTapped))
-        navigationItem.rightBarButtonItem = crossButton
+//        let crossButton = UIBarButtonItem(title: "✕", style: .plain, target: self, action: #selector(crossButtonTapped))
+//        navigationItem.rightBarButtonItem = crossButton
         
         navigationItem.hidesBackButton = true
 //        initForm()

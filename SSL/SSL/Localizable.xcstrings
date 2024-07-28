@@ -1,6 +1,40 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "A user with this email already exists." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пользователь с таким адресом электронной почты уже существует."
+          }
+        }
+      }
+    },
+    "Add a profile picture" : {
+
+    },
+    "Check your email" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check your email, we've sent you a verification code"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проверьте почту, мы отправили код для подтверждения"
+          }
+        }
+      }
+    },
+    "Confirmation code" : {
+
+    },
     "Email" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -8,6 +42,48 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Email"
+          }
+        }
+      }
+    },
+    "Email verification code" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Код подтверждения"
+          }
+        }
+      }
+    },
+    "Error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ошибка"
+          }
+        }
+      }
+    },
+    "Father name" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отчество"
+          }
+        }
+      }
+    },
+    "First name" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Имя"
           }
         }
       }
@@ -23,13 +99,95 @@
         }
       }
     },
+    "I accept the Terms of use\nand the Privacy Policy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I accept the Terms of use and the Privacy Policy"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Я принимаю условия использования и политику конфеденциальности"
+          }
+        }
+      }
+    },
+    "I need a HSE pass" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мне нужен пропуск в Вышку"
+          }
+        }
+      }
+    },
+    "Incorrect server response code: %@" : {
+      "comment" : "a",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неправильный код ответа сервера: %@"
+          }
+        }
+      }
+    },
+    "Internal error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Внутренняя ошибка"
+          }
+        }
+      }
+    },
+    "Invalid email or password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неправильная почта или пароль"
+          }
+        }
+      }
+    },
+    "Invalid user data format" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Информация о пользователе получена в неправильном формате"
+          }
+        }
+      }
+    },
     "Log in" : {
       "extractionState" : "manual",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Войти в аккаунт"
+            "value" : "Вход в аккаунт"
+          }
+        }
+      }
+    },
+    "Next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Далее"
           }
         }
       }
@@ -41,6 +199,37 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Пароль"
+          }
+        }
+      }
+    },
+    "Register an account" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Регистрация"
+          }
+        }
+      }
+    },
+    "Repeat password" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пароль повторно"
+          }
+        }
+      }
+    },
+    "Second name" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Фамилия"
           }
         }
       }
@@ -63,6 +252,48 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Зарегистрироваться"
+          }
+        }
+      }
+    },
+    "Telegram (without @)" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Telegram (без @)"
+          }
+        }
+      }
+    },
+    "This password is too common." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Этот пароль слишком широко распространен."
+          }
+        }
+      }
+    },
+    "Unknown error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неизвестная ошибка"
+          }
+        }
+      }
+    },
+    "Your account is not verified" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваш аккаунт не подтвержден модератором"
           }
         }
       }

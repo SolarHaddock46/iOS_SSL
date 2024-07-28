@@ -1,0 +1,36 @@
+import Foundation
+
+enum NetworkError: Error {
+    case invalidCredentials
+    case unverifiedCredentials
+    case invalidServerResponseCode(Int)
+    case unknownError
+    case invalidUserDataFormat
+    case internalError
+    case emailAlreadyExists
+    case weakPassword
+    
+}
+
+extension NetworkError: LocalizedError {
+    var localizedDescription: String {
+        switch self {
+        case .invalidCredentials:
+            return NSLocalizedString("Invalid email or password", comment: "")
+        case .unverifiedCredentials:
+            return NSLocalizedString("Your account is not verified", comment: "")
+        case .invalidServerResponseCode(let statusCode):
+            return String.localizedStringWithFormat(NSLocalizedString("Incorrect server response code: %@", comment: ""), String(statusCode))
+        case .unknownError:
+            return NSLocalizedString("Unknown error", comment: "")
+        case .invalidUserDataFormat:
+            return NSLocalizedString("Invalid user data format", comment: "")
+        case .internalError:
+            return NSLocalizedString("Internal error", comment: "")
+        case .emailAlreadyExists:
+            return NSLocalizedString("A user with this email already exists.", comment: "")
+        case .weakPassword:
+            return NSLocalizedString("This password is too common.", comment: "")
+        }
+    }
+}

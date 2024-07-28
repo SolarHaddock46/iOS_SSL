@@ -7,14 +7,88 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		330DADFF2B9E155D0013A394 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330DADFE2B9E155D0013A394 /* SecondaryButton.swift */; };
+		3315363A2C4D5A72002BA7C0 /* SSLNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331536392C4D5A72002BA7C0 /* SSLNetworkService.swift */; };
+		3315363E2C4D5DA6002BA7C0 /* SSLNetworkModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3315363D2C4D5DA6002BA7C0 /* SSLNetworkModelProtocols.swift */; };
+		3333322F2C34347300B6021D /* Onest-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3333322E2C34347300B6021D /* Onest-Bold.ttf */; };
+		333332312C34356F00B6021D /* SSLNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333332302C34356F00B6021D /* SSLNavigationController.swift */; };
+		333332332C34554C00B6021D /* SSLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333332322C34554C00B6021D /* SSLValidator.swift */; };
+		333C6A282C4962FD00A4814C /* Onest-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 333C6A272C4962FD00A4814C /* Onest-Light.ttf */; };
+		333C6A312C496DD100A4814C /* SuccessProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C6A2A2C496DD100A4814C /* SuccessProtocols.swift */; };
+		333C6A322C496DD100A4814C /* SuccessInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C6A2B2C496DD100A4814C /* SuccessInteractor.swift */; };
+		333C6A332C496DD100A4814C /* SuccessAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C6A2C2C496DD100A4814C /* SuccessAssembly.swift */; };
+		333C6A342C496DD100A4814C /* SuccessPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C6A2D2C496DD100A4814C /* SuccessPresenter.swift */; };
+		333C6A352C496DD100A4814C /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C6A2E2C496DD100A4814C /* SuccessViewController.swift */; };
+		333C6A362C496DD100A4814C /* SuccessWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C6A2F2C496DD100A4814C /* SuccessWorker.swift */; };
+		333C6A372C496DD100A4814C /* SuccessModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C6A302C496DD100A4814C /* SuccessModels.swift */; };
+		335B0A0E2BD2A5830029CEBD /* LoginAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0A0D2BD2A5830029CEBD /* LoginAssembly.swift */; };
+		335B0A182BD3D5400029CEBD /* Onest.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33D224842B7B822900116BAD /* Onest.ttf */; };
+		335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F2F782BC2F8B600153A35 /* NetworkError.swift */; };
+		337726CA2C3D9C670010240F /* HTTPCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337726C92C3D9C670010240F /* HTTPCode.swift */; };
+		337726CC2C3D9E4E0010240F /* VerbalServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337726CB2C3D9E4E0010240F /* VerbalServerResponse.swift */; };
+		337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337AC2D82BC1A2C60059629D /* APIRoutes.swift */; };
+		3389DC8F2C43E8F2000F3935 /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC8E2C43E8F2000F3935 /* LoginProtocols.swift */; };
+		3389DC912C43E991000F3935 /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC902C43E991000F3935 /* LoginModels.swift */; };
+		3389DC962C43F22A000F3935 /* LoginDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC952C43F229000F3935 /* LoginDialog.swift */; };
+		3389DC992C44275A000F3935 /* PrimaryButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC982C44275A000F3935 /* PrimaryButtonContainer.swift */; };
+		3389DC9C2C442834000F3935 /* SecondaryButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC9B2C442834000F3935 /* SecondaryButtonContainer.swift */; };
+		3389DC9E2C442CEF000F3935 /* UserInfoTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DC9D2C442CEF000F3935 /* UserInfoTextFieldContainer.swift */; };
+		3389DCA02C4549E0000F3935 /* Onest-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3389DC9F2C4549E0000F3935 /* Onest-Medium.ttf */; };
+		3389DCA22C455643000F3935 /* SSLRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DCA12C455643000F3935 /* SSLRouter.swift */; };
+		3389DCB12C4557A5000F3935 /* RegisterFirstModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DCA92C4557A5000F3935 /* RegisterFirstModels.swift */; };
+		3389DCB22C4557A5000F3935 /* RegisterFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DCAA2C4557A5000F3935 /* RegisterFirstViewController.swift */; };
+		3389DCB42C4557A5000F3935 /* RegisterFirstAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DCAC2C4557A5000F3935 /* RegisterFirstAssembly.swift */; };
+		3389DCB72C4562B1000F3935 /* RegisterFirstDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DCB62C4562B1000F3935 /* RegisterFirstDialog.swift */; };
+		3389DCC12C4594C4000F3935 /* RegisterSecondPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DCB92C4594C4000F3935 /* RegisterSecondPresenter.swift */; };
+		3389DCC42C4594C4000F3935 /* RegisterSecondModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DCBC2C4594C4000F3935 /* RegisterSecondModels.swift */; };
+		3389DCC52C4594C4000F3935 /* RegisterSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DCBD2C4594C4000F3935 /* RegisterSecondViewController.swift */; };
+		3389DCC62C4594C4000F3935 /* RegisterSecondProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DCBE2C4594C4000F3935 /* RegisterSecondProtocols.swift */; };
+		3389DCC72C4594C4000F3935 /* RegisterSecondAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DCBF2C4594C4000F3935 /* RegisterSecondAssembly.swift */; };
+		3389DCC82C4594C4000F3935 /* RegisterSecondInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DCC02C4594C4000F3935 /* RegisterSecondInteractor.swift */; };
+		3389DCCA2C45A22F000F3935 /* RegisterSecondDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DCC92C45A22F000F3935 /* RegisterSecondDialog.swift */; };
+		339732322BEE1F4A009ECB44 /* SSLColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732312BEE1F4A009ECB44 /* SSLColors.swift */; };
+		339732342BEE8DFD009ECB44 /* SSLFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732332BEE8DFD009ECB44 /* SSLFonts.swift */; };
+		33A6772A2C402B5600876024 /* TemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A677292C402B5600876024 /* TemplateViewController.swift */; };
+		33BC80722BD290540065FB60 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC80712BD290540065FB60 /* LoginViewController.swift */; };
+		33BC80742BD2905F0065FB60 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC80732BD2905F0065FB60 /* LoginPresenter.swift */; };
+		33BC80772BD2906E0065FB60 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC80762BD2906E0065FB60 /* LoginInteractor.swift */; };
+		33C065DA2C414D1700CE3181 /* Rubik-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33C065D92C414D1700CE3181 /* Rubik-ExtraBold.ttf */; };
 		33D224482B7B6E2800116BAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D224472B7B6E2800116BAD /* AppDelegate.swift */; };
 		33D2244A2B7B6E2800116BAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D224492B7B6E2800116BAD /* SceneDelegate.swift */; };
-		33D2244C2B7B6E2800116BAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2244B2B7B6E2800116BAD /* ViewController.swift */; };
 		33D224512B7B6E2A00116BAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33D224502B7B6E2A00116BAD /* Assets.xcassets */; };
 		33D2245F2B7B6E2A00116BAD /* SSLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2245E2B7B6E2A00116BAD /* SSLTests.swift */; };
 		33D224692B7B6E2A00116BAD /* SSLUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D224682B7B6E2A00116BAD /* SSLUITests.swift */; };
 		33D2246B2B7B6E2A00116BAD /* SSLUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2246A2B7B6E2A00116BAD /* SSLUITestsLaunchTests.swift */; };
 		33D2247E2B7B784200116BAD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 33D2247D2B7B784200116BAD /* Localizable.xcstrings */; };
+		33D224822B7B803C00116BAD /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D224812B7B803C00116BAD /* PrimaryButton.swift */; };
+		33D2248A2B7B8C5200116BAD /* InsetedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D224892B7B8C5200116BAD /* InsetedTextField.swift */; };
+		33D2248C2B7B8DC000116BAD /* SSLLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2248B2B7B8DC000116BAD /* SSLLabel.swift */; };
+		33D2248E2B7B8F3800116BAD /* UserInfoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */; };
+		33D3AA182C46B75F009E474A /* ConfirmationCodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA102C46B75F009E474A /* ConfirmationCodePresenter.swift */; };
+		33D3AA192C46B75F009E474A /* ConfirmationCodeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA112C46B75F009E474A /* ConfirmationCodeWorker.swift */; };
+		33D3AA1B2C46B75F009E474A /* ConfirmationCodeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA132C46B75F009E474A /* ConfirmationCodeModels.swift */; };
+		33D3AA1C2C46B75F009E474A /* ConfirmationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA142C46B75F009E474A /* ConfirmationCodeViewController.swift */; };
+		33D3AA1D2C46B75F009E474A /* ConfirmationCodeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA152C46B75F009E474A /* ConfirmationCodeProtocols.swift */; };
+		33D3AA1E2C46B75F009E474A /* ConfirmationCodeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA162C46B75F009E474A /* ConfirmationCodeAssembly.swift */; };
+		33D3AA1F2C46B75F009E474A /* ConfirmationCodeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA172C46B75F009E474A /* ConfirmationCodeInteractor.swift */; };
+		33D3AA282C46BB3A009E474A /* ForgotPasswordEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA212C46BB3A009E474A /* ForgotPasswordEmailInteractor.swift */; };
+		33D3AA292C46BB3A009E474A /* ForgotPasswordEmailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA222C46BB3A009E474A /* ForgotPasswordEmailWorker.swift */; };
+		33D3AA2A2C46BB3A009E474A /* ForgotPasswordEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA232C46BB3A009E474A /* ForgotPasswordEmailViewController.swift */; };
+		33D3AA2B2C46BB3A009E474A /* ForgotPasswordEmailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA242C46BB3A009E474A /* ForgotPasswordEmailProtocols.swift */; };
+		33D3AA2C2C46BB3A009E474A /* ForgotPasswordEmailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA252C46BB3A009E474A /* ForgotPasswordEmailModels.swift */; };
+		33D3AA2D2C46BB3A009E474A /* ForgotPasswordEmailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA262C46BB3A009E474A /* ForgotPasswordEmailAssembly.swift */; };
+		33D3AA2E2C46BB3A009E474A /* ForgotPasswordEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA272C46BB3A009E474A /* ForgotPasswordEmailPresenter.swift */; };
+		33D3AA372C46C75F009E474A /* NewPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA302C46C75F009E474A /* NewPasswordPresenter.swift */; };
+		33D3AA382C46C75F009E474A /* NewPasswordAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA312C46C75F009E474A /* NewPasswordAssembly.swift */; };
+		33D3AA392C46C75F009E474A /* NewPasswordProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA322C46C75F009E474A /* NewPasswordProtocols.swift */; };
+		33D3AA3A2C46C75F009E474A /* NewPasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA332C46C75F009E474A /* NewPasswordModels.swift */; };
+		33D3AA3B2C46C75F009E474A /* NewPasswordWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA342C46C75F009E474A /* NewPasswordWorker.swift */; };
+		33D3AA3C2C46C75F009E474A /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA352C46C75F009E474A /* NewPasswordViewController.swift */; };
+		33D3AA3D2C46C75F009E474A /* NewPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D3AA362C46C75F009E474A /* NewPasswordInteractor.swift */; };
+		33F6E1482BC6867900CAE32F /* ProfilePicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1472BC6867900CAE32F /* ProfilePicView.swift */; };
+		33F6E14A2BC68B3E00CAE32F /* CheckboxWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */; };
+		33FF0F6D2C3C1CC60070FA9E /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */; };
+		33FF0F6F2C3C2A730070FA9E /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF0F6E2C3C2A730070FA9E /* MultipartFormData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +109,54 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		330DADFE2B9E155D0013A394 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		331536392C4D5A72002BA7C0 /* SSLNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLNetworkService.swift; sourceTree = "<group>"; };
+		3315363D2C4D5DA6002BA7C0 /* SSLNetworkModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLNetworkModelProtocols.swift; sourceTree = "<group>"; };
+		3333322E2C34347300B6021D /* Onest-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-Bold.ttf"; sourceTree = "<group>"; };
+		333332302C34356F00B6021D /* SSLNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLNavigationController.swift; sourceTree = "<group>"; };
+		333332322C34554C00B6021D /* SSLValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLValidator.swift; sourceTree = "<group>"; };
+		333C6A272C4962FD00A4814C /* Onest-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-Light.ttf"; sourceTree = "<group>"; };
+		333C6A2A2C496DD100A4814C /* SuccessProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessProtocols.swift; sourceTree = "<group>"; };
+		333C6A2B2C496DD100A4814C /* SuccessInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessInteractor.swift; sourceTree = "<group>"; };
+		333C6A2C2C496DD100A4814C /* SuccessAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessAssembly.swift; sourceTree = "<group>"; };
+		333C6A2D2C496DD100A4814C /* SuccessPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessPresenter.swift; sourceTree = "<group>"; };
+		333C6A2E2C496DD100A4814C /* SuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
+		333C6A2F2C496DD100A4814C /* SuccessWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessWorker.swift; sourceTree = "<group>"; };
+		333C6A302C496DD100A4814C /* SuccessModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessModels.swift; sourceTree = "<group>"; };
+		335B0A0D2BD2A5830029CEBD /* LoginAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembly.swift; sourceTree = "<group>"; };
+		335F2F782BC2F8B600153A35 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		337726C92C3D9C670010240F /* HTTPCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCode.swift; sourceTree = "<group>"; };
+		337726CB2C3D9E4E0010240F /* VerbalServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalServerResponse.swift; sourceTree = "<group>"; };
+		337AC2D82BC1A2C60059629D /* APIRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoutes.swift; sourceTree = "<group>"; };
+		3389DC8E2C43E8F2000F3935 /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
+		3389DC902C43E991000F3935 /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
+		3389DC952C43F229000F3935 /* LoginDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDialog.swift; sourceTree = "<group>"; };
+		3389DC982C44275A000F3935 /* PrimaryButtonContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonContainer.swift; sourceTree = "<group>"; };
+		3389DC9B2C442834000F3935 /* SecondaryButtonContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonContainer.swift; sourceTree = "<group>"; };
+		3389DC9D2C442CEF000F3935 /* UserInfoTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTextFieldContainer.swift; sourceTree = "<group>"; };
+		3389DC9F2C4549E0000F3935 /* Onest-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Onest-Medium.ttf"; sourceTree = "<group>"; };
+		3389DCA12C455643000F3935 /* SSLRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLRouter.swift; sourceTree = "<group>"; };
+		3389DCA92C4557A5000F3935 /* RegisterFirstModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFirstModels.swift; sourceTree = "<group>"; };
+		3389DCAA2C4557A5000F3935 /* RegisterFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFirstViewController.swift; sourceTree = "<group>"; };
+		3389DCAC2C4557A5000F3935 /* RegisterFirstAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFirstAssembly.swift; sourceTree = "<group>"; };
+		3389DCB62C4562B1000F3935 /* RegisterFirstDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFirstDialog.swift; sourceTree = "<group>"; };
+		3389DCB92C4594C4000F3935 /* RegisterSecondPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSecondPresenter.swift; sourceTree = "<group>"; };
+		3389DCBC2C4594C4000F3935 /* RegisterSecondModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSecondModels.swift; sourceTree = "<group>"; };
+		3389DCBD2C4594C4000F3935 /* RegisterSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSecondViewController.swift; sourceTree = "<group>"; };
+		3389DCBE2C4594C4000F3935 /* RegisterSecondProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSecondProtocols.swift; sourceTree = "<group>"; };
+		3389DCBF2C4594C4000F3935 /* RegisterSecondAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSecondAssembly.swift; sourceTree = "<group>"; };
+		3389DCC02C4594C4000F3935 /* RegisterSecondInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSecondInteractor.swift; sourceTree = "<group>"; };
+		3389DCC92C45A22F000F3935 /* RegisterSecondDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSecondDialog.swift; sourceTree = "<group>"; };
+		339732312BEE1F4A009ECB44 /* SSLColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLColors.swift; sourceTree = "<group>"; };
+		339732332BEE8DFD009ECB44 /* SSLFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLFonts.swift; sourceTree = "<group>"; };
+		33A677292C402B5600876024 /* TemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
+		33BC80712BD290540065FB60 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		33BC80732BD2905F0065FB60 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		33BC80762BD2906E0065FB60 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		33C065D92C414D1700CE3181 /* Rubik-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-ExtraBold.ttf"; sourceTree = "<group>"; };
 		33D224442B7B6E2800116BAD /* SSL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33D224472B7B6E2800116BAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33D224492B7B6E2800116BAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		33D2244B2B7B6E2800116BAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		33D224502B7B6E2A00116BAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33D224552B7B6E2A00116BAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33D2245A2B7B6E2A00116BAD /* SSLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +165,36 @@
 		33D224682B7B6E2A00116BAD /* SSLUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLUITests.swift; sourceTree = "<group>"; };
 		33D2246A2B7B6E2A00116BAD /* SSLUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		33D2247D2B7B784200116BAD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		33D224812B7B803C00116BAD /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		33D224842B7B822900116BAD /* Onest.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Onest.ttf; sourceTree = "<group>"; };
+		33D224892B7B8C5200116BAD /* InsetedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetedTextField.swift; sourceTree = "<group>"; };
+		33D2248B2B7B8DC000116BAD /* SSLLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLLabel.swift; sourceTree = "<group>"; };
+		33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTextField.swift; sourceTree = "<group>"; };
+		33D3AA102C46B75F009E474A /* ConfirmationCodePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodePresenter.swift; sourceTree = "<group>"; };
+		33D3AA112C46B75F009E474A /* ConfirmationCodeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeWorker.swift; sourceTree = "<group>"; };
+		33D3AA132C46B75F009E474A /* ConfirmationCodeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeModels.swift; sourceTree = "<group>"; };
+		33D3AA142C46B75F009E474A /* ConfirmationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeViewController.swift; sourceTree = "<group>"; };
+		33D3AA152C46B75F009E474A /* ConfirmationCodeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeProtocols.swift; sourceTree = "<group>"; };
+		33D3AA162C46B75F009E474A /* ConfirmationCodeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeAssembly.swift; sourceTree = "<group>"; };
+		33D3AA172C46B75F009E474A /* ConfirmationCodeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeInteractor.swift; sourceTree = "<group>"; };
+		33D3AA212C46BB3A009E474A /* ForgotPasswordEmailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailInteractor.swift; sourceTree = "<group>"; };
+		33D3AA222C46BB3A009E474A /* ForgotPasswordEmailWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailWorker.swift; sourceTree = "<group>"; };
+		33D3AA232C46BB3A009E474A /* ForgotPasswordEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailViewController.swift; sourceTree = "<group>"; };
+		33D3AA242C46BB3A009E474A /* ForgotPasswordEmailProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailProtocols.swift; sourceTree = "<group>"; };
+		33D3AA252C46BB3A009E474A /* ForgotPasswordEmailModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailModels.swift; sourceTree = "<group>"; };
+		33D3AA262C46BB3A009E474A /* ForgotPasswordEmailAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailAssembly.swift; sourceTree = "<group>"; };
+		33D3AA272C46BB3A009E474A /* ForgotPasswordEmailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordEmailPresenter.swift; sourceTree = "<group>"; };
+		33D3AA302C46C75F009E474A /* NewPasswordPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordPresenter.swift; sourceTree = "<group>"; };
+		33D3AA312C46C75F009E474A /* NewPasswordAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordAssembly.swift; sourceTree = "<group>"; };
+		33D3AA322C46C75F009E474A /* NewPasswordProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordProtocols.swift; sourceTree = "<group>"; };
+		33D3AA332C46C75F009E474A /* NewPasswordModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordModels.swift; sourceTree = "<group>"; };
+		33D3AA342C46C75F009E474A /* NewPasswordWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordWorker.swift; sourceTree = "<group>"; };
+		33D3AA352C46C75F009E474A /* NewPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
+		33D3AA362C46C75F009E474A /* NewPasswordInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordInteractor.swift; sourceTree = "<group>"; };
+		33F6E1472BC6867900CAE32F /* ProfilePicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicView.swift; sourceTree = "<group>"; };
+		33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxWithLabel.swift; sourceTree = "<group>"; };
+		33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		33FF0F6E2C3C2A730070FA9E /* MultipartFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +222,108 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		331536382C4D5963002BA7C0 /* SSLNetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				331536392C4D5A72002BA7C0 /* SSLNetworkService.swift */,
+				3315363D2C4D5DA6002BA7C0 /* SSLNetworkModelProtocols.swift */,
+			);
+			path = SSLNetworkService;
+			sourceTree = "<group>";
+		};
+		333C6A292C496C5700A4814C /* SuccessScreen */ = {
+			isa = PBXGroup;
+			children = (
+				333C6A2C2C496DD100A4814C /* SuccessAssembly.swift */,
+				333C6A2B2C496DD100A4814C /* SuccessInteractor.swift */,
+				333C6A302C496DD100A4814C /* SuccessModels.swift */,
+				333C6A2D2C496DD100A4814C /* SuccessPresenter.swift */,
+				333C6A2A2C496DD100A4814C /* SuccessProtocols.swift */,
+				333C6A2E2C496DD100A4814C /* SuccessViewController.swift */,
+				333C6A2F2C496DD100A4814C /* SuccessWorker.swift */,
+			);
+			path = SuccessScreen;
+			sourceTree = "<group>";
+		};
+		337726C52C3D98ED0010240F /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				337AC2D82BC1A2C60059629D /* APIRoutes.swift */,
+				33FF0F6C2C3C1CC50070FA9E /* HTTPMethod.swift */,
+				335F2F782BC2F8B600153A35 /* NetworkError.swift */,
+				337726C92C3D9C670010240F /* HTTPCode.swift */,
+				337726CB2C3D9E4E0010240F /* VerbalServerResponse.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		3389DC922C43F050000F3935 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				33D224892B7B8C5200116BAD /* InsetedTextField.swift */,
+				33D2248D2B7B8F3800116BAD /* UserInfoTextField.swift */,
+				3389DC9D2C442CEF000F3935 /* UserInfoTextFieldContainer.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		3389DC972C442747000F3935 /* PrimaryButton */ = {
+			isa = PBXGroup;
+			children = (
+				33D224812B7B803C00116BAD /* PrimaryButton.swift */,
+				3389DC982C44275A000F3935 /* PrimaryButtonContainer.swift */,
+			);
+			path = PrimaryButton;
+			sourceTree = "<group>";
+		};
+		3389DC9A2C4427D0000F3935 /* SecondaryButton */ = {
+			isa = PBXGroup;
+			children = (
+				330DADFE2B9E155D0013A394 /* SecondaryButton.swift */,
+				3389DC9B2C442834000F3935 /* SecondaryButtonContainer.swift */,
+			);
+			path = SecondaryButton;
+			sourceTree = "<group>";
+		};
+		3389DCA52C45577A000F3935 /* RegisterFirstScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3389DCA92C4557A5000F3935 /* RegisterFirstModels.swift */,
+				3389DCAA2C4557A5000F3935 /* RegisterFirstViewController.swift */,
+				3389DCAC2C4557A5000F3935 /* RegisterFirstAssembly.swift */,
+				3389DCB62C4562B1000F3935 /* RegisterFirstDialog.swift */,
+			);
+			path = RegisterFirstScreen;
+			sourceTree = "<group>";
+		};
+		3389DCB82C4594A3000F3935 /* RegisterSecondScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3389DCB92C4594C4000F3935 /* RegisterSecondPresenter.swift */,
+				3389DCBC2C4594C4000F3935 /* RegisterSecondModels.swift */,
+				3389DCBD2C4594C4000F3935 /* RegisterSecondViewController.swift */,
+				3389DCBE2C4594C4000F3935 /* RegisterSecondProtocols.swift */,
+				3389DCBF2C4594C4000F3935 /* RegisterSecondAssembly.swift */,
+				3389DCC02C4594C4000F3935 /* RegisterSecondInteractor.swift */,
+				3389DCC92C45A22F000F3935 /* RegisterSecondDialog.swift */,
+			);
+			path = RegisterSecondScreen;
+			sourceTree = "<group>";
+		};
+		33BC806D2BD290250065FB60 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				33BC80712BD290540065FB60 /* LoginViewController.swift */,
+				3389DC902C43E991000F3935 /* LoginModels.swift */,
+				33BC80762BD2906E0065FB60 /* LoginInteractor.swift */,
+				33BC80732BD2905F0065FB60 /* LoginPresenter.swift */,
+				335B0A0D2BD2A5830029CEBD /* LoginAssembly.swift */,
+				3389DC8E2C43E8F2000F3935 /* LoginProtocols.swift */,
+				3389DC952C43F229000F3935 /* LoginDialog.swift */,
+			);
+			path = LoginScreen;
+			sourceTree = "<group>";
+		};
 		33D2243B2B7B6E2800116BAD = {
 			isa = PBXGroup;
 			children = (
@@ -97,9 +347,13 @@
 		33D224462B7B6E2800116BAD /* SSL */ = {
 			isa = PBXGroup;
 			children = (
+				337726C52C3D98ED0010240F /* Enums */,
+				33F1770B2BB7110500FA1B0D /* Services */,
+				33F176FF2BB7025900FA1B0D /* Modules */,
+				33D224832B7B819C00116BAD /* Fonts */,
+				33D224802B7B800500116BAD /* UIElements */,
 				33D224472B7B6E2800116BAD /* AppDelegate.swift */,
 				33D224492B7B6E2800116BAD /* SceneDelegate.swift */,
-				33D2244B2B7B6E2800116BAD /* ViewController.swift */,
 				33D224502B7B6E2A00116BAD /* Assets.xcassets */,
 				33D224552B7B6E2A00116BAD /* Info.plist */,
 				33D2247D2B7B784200116BAD /* Localizable.xcstrings */,
@@ -124,6 +378,102 @@
 			path = SSLUITests;
 			sourceTree = "<group>";
 		};
+		33D224802B7B800500116BAD /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				3389DC9A2C4427D0000F3935 /* SecondaryButton */,
+				3389DC972C442747000F3935 /* PrimaryButton */,
+				3389DC922C43F050000F3935 /* TextField */,
+				339732332BEE8DFD009ECB44 /* SSLFonts.swift */,
+				339732312BEE1F4A009ECB44 /* SSLColors.swift */,
+				33D2248B2B7B8DC000116BAD /* SSLLabel.swift */,
+				33F6E1472BC6867900CAE32F /* ProfilePicView.swift */,
+				33F6E1492BC68B3E00CAE32F /* CheckboxWithLabel.swift */,
+				333332302C34356F00B6021D /* SSLNavigationController.swift */,
+				33A677292C402B5600876024 /* TemplateViewController.swift */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		33D224832B7B819C00116BAD /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				333C6A272C4962FD00A4814C /* Onest-Light.ttf */,
+				3389DC9F2C4549E0000F3935 /* Onest-Medium.ttf */,
+				33C065D92C414D1700CE3181 /* Rubik-ExtraBold.ttf */,
+				3333322E2C34347300B6021D /* Onest-Bold.ttf */,
+				33D224842B7B822900116BAD /* Onest.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		33D3AA0F2C46B6EE009E474A /* ConfirmationCodeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				33D3AA102C46B75F009E474A /* ConfirmationCodePresenter.swift */,
+				33D3AA112C46B75F009E474A /* ConfirmationCodeWorker.swift */,
+				33D3AA132C46B75F009E474A /* ConfirmationCodeModels.swift */,
+				33D3AA142C46B75F009E474A /* ConfirmationCodeViewController.swift */,
+				33D3AA152C46B75F009E474A /* ConfirmationCodeProtocols.swift */,
+				33D3AA162C46B75F009E474A /* ConfirmationCodeAssembly.swift */,
+				33D3AA172C46B75F009E474A /* ConfirmationCodeInteractor.swift */,
+			);
+			path = ConfirmationCodeScreen;
+			sourceTree = "<group>";
+		};
+		33D3AA202C46BAA4009E474A /* ForgotPasswordEmailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				33D3AA262C46BB3A009E474A /* ForgotPasswordEmailAssembly.swift */,
+				33D3AA212C46BB3A009E474A /* ForgotPasswordEmailInteractor.swift */,
+				33D3AA252C46BB3A009E474A /* ForgotPasswordEmailModels.swift */,
+				33D3AA272C46BB3A009E474A /* ForgotPasswordEmailPresenter.swift */,
+				33D3AA242C46BB3A009E474A /* ForgotPasswordEmailProtocols.swift */,
+				33D3AA232C46BB3A009E474A /* ForgotPasswordEmailViewController.swift */,
+				33D3AA222C46BB3A009E474A /* ForgotPasswordEmailWorker.swift */,
+			);
+			path = ForgotPasswordEmailScreen;
+			sourceTree = "<group>";
+		};
+		33D3AA2F2C46C326009E474A /* NewPasswordScreen */ = {
+			isa = PBXGroup;
+			children = (
+				33D3AA312C46C75F009E474A /* NewPasswordAssembly.swift */,
+				33D3AA362C46C75F009E474A /* NewPasswordInteractor.swift */,
+				33D3AA332C46C75F009E474A /* NewPasswordModels.swift */,
+				33D3AA302C46C75F009E474A /* NewPasswordPresenter.swift */,
+				33D3AA322C46C75F009E474A /* NewPasswordProtocols.swift */,
+				33D3AA352C46C75F009E474A /* NewPasswordViewController.swift */,
+				33D3AA342C46C75F009E474A /* NewPasswordWorker.swift */,
+			);
+			path = NewPasswordScreen;
+			sourceTree = "<group>";
+		};
+		33F176FF2BB7025900FA1B0D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				333C6A292C496C5700A4814C /* SuccessScreen */,
+				33D3AA2F2C46C326009E474A /* NewPasswordScreen */,
+				33D3AA202C46BAA4009E474A /* ForgotPasswordEmailScreen */,
+				33D3AA0F2C46B6EE009E474A /* ConfirmationCodeScreen */,
+				3389DCB82C4594A3000F3935 /* RegisterSecondScreen */,
+				3389DCA52C45577A000F3935 /* RegisterFirstScreen */,
+				33BC806D2BD290250065FB60 /* LoginScreen */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		33F1770B2BB7110500FA1B0D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				331536382C4D5963002BA7C0 /* SSLNetworkService */,
+				33FF0F6E2C3C2A730070FA9E /* MultipartFormData.swift */,
+				333332322C34554C00B6021D /* SSLValidator.swift */,
+				3389DCA12C455643000F3935 /* SSLRouter.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,6 +491,8 @@
 			dependencies = (
 			);
 			name = SSL;
+			packageProductDependencies = (
+			);
 			productName = SSL;
 			productReference = 33D224442B7B6E2800116BAD /* SSL.app */;
 			productType = "com.apple.product-type.application";
@@ -189,7 +541,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					33D224432B7B6E2800116BAD = {
 						CreatedOnToolsVersion = 15.2;
@@ -214,6 +566,8 @@
 				ru,
 			);
 			mainGroup = 33D2243B2B7B6E2800116BAD;
+			packageReferences = (
+			);
 			productRefGroup = 33D224452B7B6E2800116BAD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,7 +585,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				33D2247E2B7B784200116BAD /* Localizable.xcstrings in Resources */,
+				33C065DA2C414D1700CE3181 /* Rubik-ExtraBold.ttf in Resources */,
+				3333322F2C34347300B6021D /* Onest-Bold.ttf in Resources */,
+				333C6A282C4962FD00A4814C /* Onest-Light.ttf in Resources */,
+				3389DCA02C4549E0000F3935 /* Onest-Medium.ttf in Resources */,
 				33D224512B7B6E2A00116BAD /* Assets.xcassets in Resources */,
+				335B0A182BD3D5400029CEBD /* Onest.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,9 +636,78 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33D2244C2B7B6E2800116BAD /* ViewController.swift in Sources */,
+				3389DC9C2C442834000F3935 /* SecondaryButtonContainer.swift in Sources */,
+				333C6A332C496DD100A4814C /* SuccessAssembly.swift in Sources */,
+				33D3AA3D2C46C75F009E474A /* NewPasswordInteractor.swift in Sources */,
+				33D3AA372C46C75F009E474A /* NewPasswordPresenter.swift in Sources */,
+				3389DC912C43E991000F3935 /* LoginModels.swift in Sources */,
+				333332312C34356F00B6021D /* SSLNavigationController.swift in Sources */,
+				33D3AA3B2C46C75F009E474A /* NewPasswordWorker.swift in Sources */,
+				33D3AA292C46BB3A009E474A /* ForgotPasswordEmailWorker.swift in Sources */,
+				333C6A352C496DD100A4814C /* SuccessViewController.swift in Sources */,
+				33FF0F6F2C3C2A730070FA9E /* MultipartFormData.swift in Sources */,
+				33BC80722BD290540065FB60 /* LoginViewController.swift in Sources */,
+				333C6A372C496DD100A4814C /* SuccessModels.swift in Sources */,
+				333C6A322C496DD100A4814C /* SuccessInteractor.swift in Sources */,
+				335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */,
+				33D3AA2A2C46BB3A009E474A /* ForgotPasswordEmailViewController.swift in Sources */,
+				337726CC2C3D9E4E0010240F /* VerbalServerResponse.swift in Sources */,
+				33FF0F6D2C3C1CC60070FA9E /* HTTPMethod.swift in Sources */,
+				33D3AA2C2C46BB3A009E474A /* ForgotPasswordEmailModels.swift in Sources */,
+				3389DC8F2C43E8F2000F3935 /* LoginProtocols.swift in Sources */,
 				33D224482B7B6E2800116BAD /* AppDelegate.swift in Sources */,
+				3315363E2C4D5DA6002BA7C0 /* SSLNetworkModelProtocols.swift in Sources */,
+				3389DCB12C4557A5000F3935 /* RegisterFirstModels.swift in Sources */,
+				3389DCB22C4557A5000F3935 /* RegisterFirstViewController.swift in Sources */,
+				3389DCB72C4562B1000F3935 /* RegisterFirstDialog.swift in Sources */,
+				3389DCB42C4557A5000F3935 /* RegisterFirstAssembly.swift in Sources */,
+				33D3AA392C46C75F009E474A /* NewPasswordProtocols.swift in Sources */,
+				339732322BEE1F4A009ECB44 /* SSLColors.swift in Sources */,
+				333C6A312C496DD100A4814C /* SuccessProtocols.swift in Sources */,
+				337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */,
+				3389DC992C44275A000F3935 /* PrimaryButtonContainer.swift in Sources */,
+				33D224822B7B803C00116BAD /* PrimaryButton.swift in Sources */,
+				333C6A362C496DD100A4814C /* SuccessWorker.swift in Sources */,
+				33D3AA2B2C46BB3A009E474A /* ForgotPasswordEmailProtocols.swift in Sources */,
+				33D3AA182C46B75F009E474A /* ConfirmationCodePresenter.swift in Sources */,
+				33D3AA192C46B75F009E474A /* ConfirmationCodeWorker.swift in Sources */,
+				33D3AA1B2C46B75F009E474A /* ConfirmationCodeModels.swift in Sources */,
+				33D3AA1C2C46B75F009E474A /* ConfirmationCodeViewController.swift in Sources */,
+				33D3AA1D2C46B75F009E474A /* ConfirmationCodeProtocols.swift in Sources */,
+				33D3AA1E2C46B75F009E474A /* ConfirmationCodeAssembly.swift in Sources */,
+				33D3AA1F2C46B75F009E474A /* ConfirmationCodeInteractor.swift in Sources */,
+				33A6772A2C402B5600876024 /* TemplateViewController.swift in Sources */,
+				3389DCCA2C45A22F000F3935 /* RegisterSecondDialog.swift in Sources */,
+				33BC80772BD2906E0065FB60 /* LoginInteractor.swift in Sources */,
+				335B0A0E2BD2A5830029CEBD /* LoginAssembly.swift in Sources */,
+				33D2248C2B7B8DC000116BAD /* SSLLabel.swift in Sources */,
+				337726CA2C3D9C670010240F /* HTTPCode.swift in Sources */,
+				330DADFF2B9E155D0013A394 /* SecondaryButton.swift in Sources */,
+				33D3AA2D2C46BB3A009E474A /* ForgotPasswordEmailAssembly.swift in Sources */,
+				339732342BEE8DFD009ECB44 /* SSLFonts.swift in Sources */,
 				33D2244A2B7B6E2800116BAD /* SceneDelegate.swift in Sources */,
+				33D2248A2B7B8C5200116BAD /* InsetedTextField.swift in Sources */,
+				33BC80742BD2905F0065FB60 /* LoginPresenter.swift in Sources */,
+				3389DC962C43F22A000F3935 /* LoginDialog.swift in Sources */,
+				3389DC9E2C442CEF000F3935 /* UserInfoTextFieldContainer.swift in Sources */,
+				33D3AA382C46C75F009E474A /* NewPasswordAssembly.swift in Sources */,
+				333332332C34554C00B6021D /* SSLValidator.swift in Sources */,
+				3389DCC12C4594C4000F3935 /* RegisterSecondPresenter.swift in Sources */,
+				333C6A342C496DD100A4814C /* SuccessPresenter.swift in Sources */,
+				33D3AA282C46BB3A009E474A /* ForgotPasswordEmailInteractor.swift in Sources */,
+				3315363A2C4D5A72002BA7C0 /* SSLNetworkService.swift in Sources */,
+				3389DCC42C4594C4000F3935 /* RegisterSecondModels.swift in Sources */,
+				3389DCC52C4594C4000F3935 /* RegisterSecondViewController.swift in Sources */,
+				33D3AA3C2C46C75F009E474A /* NewPasswordViewController.swift in Sources */,
+				3389DCC62C4594C4000F3935 /* RegisterSecondProtocols.swift in Sources */,
+				3389DCC72C4594C4000F3935 /* RegisterSecondAssembly.swift in Sources */,
+				3389DCC82C4594C4000F3935 /* RegisterSecondInteractor.swift in Sources */,
+				3389DCA22C455643000F3935 /* SSLRouter.swift in Sources */,
+				33D3AA3A2C46C75F009E474A /* NewPasswordModels.swift in Sources */,
+				33F6E1482BC6867900CAE32F /* ProfilePicView.swift in Sources */,
+				33F6E14A2BC68B3E00CAE32F /* CheckboxWithLabel.swift in Sources */,
+				33D2248E2B7B8F3800116BAD /* UserInfoTextField.swift in Sources */,
+				33D3AA2E2C46BB3A009E474A /* ForgotPasswordEmailPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +749,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -384,6 +813,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -446,6 +876,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SSL/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to set your profile pic.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -475,6 +906,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SSL/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to set your profile pic.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

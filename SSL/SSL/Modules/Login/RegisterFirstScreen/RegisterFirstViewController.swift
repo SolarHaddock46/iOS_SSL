@@ -1,14 +1,14 @@
 import UIKit
 import Photos
 
-final class RegisterFirstViewController: TemplateViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+final class RegisterFirstViewController: AuthTemplateViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     private let router: SSLRoutingLogic
     
     private var dialog: RegisterFirstDialog?
     private var profilePicPicker: ProfilePicView
     private var profilePicData: Data?
-    private var elements: [ContentElement] = {
+    private var elements: [AuthContentElement] = {
         return [
             .heading(text: "Register an account"),
             .spacing(height: 24),

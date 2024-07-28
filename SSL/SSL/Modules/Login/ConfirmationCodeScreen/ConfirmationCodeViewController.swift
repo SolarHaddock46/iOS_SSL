@@ -8,10 +8,10 @@
 
 import UIKit
 
-final class ConfirmationCodeViewController: TemplateViewController, ConfirmationCodeViewControllerProtocol {
+final class ConfirmationCodeViewController: AuthTemplateViewController, ConfirmationCodeViewControllerProtocol {
     private let interactor: ConfirmationCodeBusinessLogic
     private var router: SSLRoutingLogic
-    private var elements: [ContentElement] = {
+    private var elements: [AuthContentElement] = {
        return [
         .heading(text: "Confirmation code"),
         .spacing(height: 16),

@@ -1,12 +1,12 @@
 import UIKit
 
-final class RegisterSecondViewController: TemplateViewController, RegisterSecondViewControllerProtocol {
+final class RegisterSecondViewController: AuthTemplateViewController, RegisterSecondViewControllerProtocol {
     var interactor: RegisterSecondInteractorProtocol
     private let router: SSLRoutingLogic
     private var formData: RegisterFirstFormData
     private var dialog: RegisterSecondDialog?
     
-    private var elements: [ContentElement] = {
+    private var elements: [AuthContentElement] = {
         return [
             .heading(text: "Register an account"),
             .spacing(height: 40),

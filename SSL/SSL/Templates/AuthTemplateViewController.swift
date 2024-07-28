@@ -1,6 +1,6 @@
 import UIKit
 
-enum ContentElement {
+enum AuthContentElement {
     case label(text: String)
     case heading(text: String)
     case subtext(text: String)
@@ -23,7 +23,7 @@ enum SecondaryButtonTitle {
     case attributedText(NSAttributedString)
 }
 
-class TemplateViewController: UIViewController {
+class AuthTemplateViewController: UIViewController {
     
     private let backgroundView: UIView = {
         let view = UIView()
@@ -108,7 +108,7 @@ class TemplateViewController: UIViewController {
         ])
     }
     
-    func setupContentView(withElements elements: [ContentElement]) {
+    func setupContentView(withElements elements: [AuthContentElement]) {
         elements.forEach { element in
             let view: UIView
             

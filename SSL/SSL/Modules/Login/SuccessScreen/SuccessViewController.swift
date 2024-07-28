@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SuccessViewController: TemplateViewController, SuccessViewControllerProtocol {
+final class SuccessViewController: AuthTemplateViewController, SuccessViewControllerProtocol {
     private let interactor: SuccessBusinessLogic
     private let router: SSLRoutingLogic
     
@@ -36,7 +36,7 @@ final class SuccessViewController: TemplateViewController, SuccessViewController
         return label
     }()
     
-    private lazy var elements: [ContentElement] = {
+    private lazy var elements: [AuthContentElement] = {
         return [
             .customView(successView),
             .spacing(height: 28),
@@ -68,6 +68,7 @@ final class SuccessViewController: TemplateViewController, SuccessViewController
     }
     
     @objc func closeButtonTapped(_ sender: UIButton) {
-        navigationController?.popToRootViewController(animated: true)
+//        navigationController?.popToRootViewController(animated: true)
+        router.navigate(source: self, destination: .profileView, data: nil)
     }
 }

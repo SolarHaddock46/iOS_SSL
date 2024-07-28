@@ -8,11 +8,11 @@
 
 import UIKit
 
-final class NewPasswordViewController: TemplateViewController, NewPasswordViewControllerProtocol {
+final class NewPasswordViewController: AuthTemplateViewController, NewPasswordViewControllerProtocol {
     private let interactor: NewPasswordBusinessLogic
     private let router: SSLRoutingLogic
     
-    private var elements: [ContentElement] = {
+    private var elements: [AuthContentElement] = {
        return [
         .heading(text: "Change password"),
         .spacing(height: 16),

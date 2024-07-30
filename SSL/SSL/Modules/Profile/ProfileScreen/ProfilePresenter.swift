@@ -1,16 +1,14 @@
-//
-//  ProfilePresenter.swift
-//  SSL
-//
-//  Created by Владимир Мацнев on 28.07.2024.
-//
-
 import Foundation
 
 final class ProfilePresenter: ProfilePresentationLogic {
-    weak var view: ProfileViewControllerProtocol?
+    weak var viewController: ProfileViewControllerProtocol?
 
     func presentInitForm(_ response: Profile.InitForm.Response) {
-//        view?.displayInitForm(ViewModel())
+        // No need to do anything here since we're fetching the data directly
+    }
+
+    func presentProfileData(_ items: [ProfileViewController.Item]) {
+        // Pass the profile data to the view controller
+        viewController?.displayProfileData(items)
     }
 }

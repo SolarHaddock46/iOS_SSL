@@ -56,6 +56,10 @@ final class ProfileViewController: UIViewController {
         self.interactor = interactor
         self.router = router
         super.init(nibName: nil, bundle: nil)
+        
+        if let presenter = interactor as? ProfilePresenter {
+            presenter.viewController = self
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -66,7 +70,7 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         configureDataSource()
-        populateData()
+        interactor.requestInitForm(Profile.InitForm.Request())
     }
     
     private func setupCollectionView() {
@@ -126,36 +130,6 @@ final class ProfileViewController: UIViewController {
         dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView) { collectionView, indexPath, item in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
         }
-    }
-    
-    private func populateData() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-        snapshot.appendSections([.main])
-        
-        let telegramPicView = TelegramPicView()
-        telegramPicView.image = UIImage(named: "placeholder_image")
-        telegramPicView.text = "@johndoe"
-        
-        let nameCardElements: [ProfileCardContentElement] = [
-            .customView(telegramPicView),
-            .spacing(height: 16),
-            .nameLabel(text: "Шестакова Константин Константинович")
-        ]
-        
-        let dataCardElements: [ProfileCardContentElement] = [
-            .dataButton(text: "johndoe@example.com", isSecure: false),
-            .spacing(height: 24),
-            .dataButton(text: "huipenis", isSecure: true)
-        ]
-        
-        let items: [Item] = [
-            .nameCard(elements: nameCardElements),
-            .dataCard(elements: dataCardElements),
-            .logoutButton
-        ]
-        
-        snapshot.appendItems(items)
-        dataSource.apply(snapshot, animatingDifferences: false)
     }
     
     private func createStackView() -> UIStackView {
@@ -279,5 +253,20 @@ final class ProfileViewController: UIViewController {
             editButton.widthAnchor.constraint(equalToConstant: 30),
             editButton.heightAnchor.constraint(equalToConstant: 30)
         ])
+    }
+}
+
+extension ProfileViewController: ProfileViewControllerProtocol {
+    func displayInitForm(_ viewModel: Profile.InitForm.ViewModel) {
+        // No need to do anything here since we're fetching the data directly
+    }
+    
+    func displayProfileData(_ items: [Item]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(items)
+        DispatchQueue.main.async {
+            self.dataSource.apply(snapshot, animatingDifferences: false)
+        }
     }
 }

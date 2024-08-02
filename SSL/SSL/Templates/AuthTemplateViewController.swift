@@ -160,7 +160,7 @@ class AuthTemplateViewController: UIViewController {
     }
     
     private func createPrimaryButton(title: String, action: Selector) -> PrimaryButtonContainer {
-        let buttonContainer = PrimaryButtonContainer(localizationKey: title)
+        let buttonContainer = PrimaryButtonContainer(id: "", localizationKey: title)
         buttonContainer.addTarget(self, action: action, for: .touchUpInside)
         return buttonContainer
     }

@@ -1,7 +1,7 @@
 import UIKit
 
-class UniversalCollectionViewCell: UICollectionViewCell {
-    private var content: UniversalContentView?
+class ProfileCollectionViewCell: UICollectionViewCell {
+    private var content: ProfileContentView?
 
     func configure(with item: ProfileViewController.Item) {
         content?.removeFromSuperview()
@@ -21,7 +21,7 @@ class UniversalCollectionViewCell: UICollectionViewCell {
             ]
         }
 
-        let newContent = UniversalContentView(elements: elements)
+        let newContent = ProfileContentView(elements: elements)
         content = newContent
         contentView.addSubview(newContent)
 
@@ -49,8 +49,8 @@ class UniversalCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             button.topAnchor.constraint(equalTo: containerView.topAnchor),
             button.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            button.heightAnchor.constraint(equalToConstant: 30),
-            button.widthAnchor.constraint(equalToConstant: 30)
+            button.heightAnchor.constraint(equalToConstant: 24),
+            button.widthAnchor.constraint(equalToConstant: 24)
         ])
 
         return containerView

@@ -1,6 +1,6 @@
 import UIKit
 
-class UniversalContentView: UIView {
+class ProfileContentView: UIView {
     private let stackView: UIStackView
 
     init(elements: [ProfileCardContentElement]) {
@@ -25,10 +25,10 @@ class UniversalContentView: UIView {
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 24),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24)
         ])
         
         if elements.contains(where: { $0.isNameLabel }) {
@@ -50,6 +50,12 @@ class UniversalContentView: UIView {
         switch element {
         case .nameLabel(let text):
             return createNameLabel(withText: text)
+        case .subtext(let text):
+            return createSubtext(withText: text)
+        case .label(let text):
+            return createLabel(withText: text)
+        case .heading(let text):
+            return createHeading(withText: text)
         case .dataButton(let id, let text, let isSecure):
             return createDataButton(withId: id, text: text, isSecure: isSecure)
         case .customView(let customView):
@@ -69,7 +75,24 @@ class UniversalContentView: UIView {
        let label = SSLLabel(localizationKey: text, isHeading: true)
        label.textAlignment = .center
        return label
-   }
+    }
+    
+    private func createSubtext(withText text: String) -> SSLLabel {
+       let label = SSLLabel(localizationKey: text, isSubtext: true)
+       return label
+    }
+    
+    private func createLabel(withText text: String) -> SSLLabel {
+       let label = SSLLabel(localizationKey: text)
+       label.textAlignment = .left
+       return label
+    }
+    
+    private func createHeading(withText text: String) -> SSLLabel {
+       let label = SSLLabel(localizationKey: text, isHeading: true)
+       return label
+    }
+    
 
     private func createDataButton(withId id: String, text: String, isSecure: Bool) -> UIView {
         let buttonView = DataButtonView(id: id, text: text, isSecure: isSecure)
@@ -107,10 +130,10 @@ class UniversalContentView: UIView {
         addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            button.topAnchor.constraint(equalTo: topAnchor, constant: 24),
             button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            button.heightAnchor.constraint(equalToConstant: 30),
-            button.widthAnchor.constraint(equalToConstant: 30)
+            button.heightAnchor.constraint(equalToConstant: 24),
+            button.widthAnchor.constraint(equalToConstant: 24)
         ])
     }
 

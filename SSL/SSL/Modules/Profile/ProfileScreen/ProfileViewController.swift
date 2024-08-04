@@ -2,6 +2,9 @@ import UIKit
 
 enum ProfileCardContentElement: Hashable {
     case nameLabel(text: String)
+    case heading(text: String)
+    case subtext(text: String)
+    case label(text: String)
     case spacing(height: CGFloat)
     case dataButton(id: String, text: String, isSecure: Bool)
     case customView(UIView)
@@ -82,7 +85,7 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
         headingLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(headingLabel)
 
-        listCollectionView = Self.createCollectionView()
+        listCollectionView = ProfileAssembly.createCollectionView()
         contentView.addSubview(listCollectionView)
 
         listCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -91,32 +94,15 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
             headingLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             headingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
 
-            listCollectionView.topAnchor.constraint(equalTo: headingLabel.bottomAnchor, constant: 16),
+            listCollectionView.topAnchor.constraint(equalTo: headingLabel.bottomAnchor),
             listCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             listCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             listCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
 
-    private static func createCollectionView() -> UICollectionView {
-        let layout = UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment in
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100))
-            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-            let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
-            section.interGroupSpacing = 20
-            return section
-        }
-
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .clear
-        return collectionView
-    }
-
     private func configureDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<UniversalCollectionViewCell, Item> { (cell, indexPath, item) in
+        let cellRegistration = UICollectionView.CellRegistration<ProfileCollectionViewCell, Item> { (cell, indexPath, item) in
             cell.configure(with: item)
         }
 
@@ -137,7 +123,10 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
         snapshot.appendSections([.newEmail])
         snapshot.appendItems([
             .textFieldCard(elements: [
+                .heading(text: "Edit email"),
+                .spacing(height: 28),
                 .textField(id: "newEmailTextField", placeholder: "New Email", isSecure: false),
+                .spacing(height: 28),
                 .button(id: "saveNewEmailButton", text: "Save New Email")
             ])
         ], toSection: .newEmail)
@@ -150,7 +139,12 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
         snapshot.appendSections([.confirmationCode])
         snapshot.appendItems([
             .textFieldCard(elements: [
+                .heading(text: "Edit email"),
+                .spacing(height: 16),
+                .subtext(text: "We have sent you a confirmation code, please check your email"),
+                .spacing(height: 28),
                 .textField(id: "confirmationCodeTextField", placeholder: "Confirmation Code", isSecure: false),
+                .spacing(height: 28),
                 .button(id: "confirmButton", text: "Confirm")
             ])
         ], toSection: .confirmationCode)
@@ -163,7 +157,10 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
         snapshot.appendSections([.oldPassword])
         snapshot.appendItems([
             .textFieldCard(elements: [
+                .heading(text: "Change Password"),
+                .spacing(height: 28),
                 .textField(id: "oldPasswordTextField", placeholder: "Old Password", isSecure: true),
+                .spacing(height: 28),
                 .button(id: "changePasswordButton", text: "Change Password")
             ])
         ], toSection: .oldPassword)
@@ -176,9 +173,14 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
         snapshot.appendSections([.newPassword])
         snapshot.appendItems([
             .textFieldCard(elements: [
+                .heading(text: "Change Password"),
+                .spacing(height: 16),
+                .subtext(text: "Your password must contain at least 8 Latin letters, numbers, or characters"),
+                .spacing(height: 32),
                 .textField(id: "newPasswordTextField", placeholder: "New Password", isSecure: true),
                 .spacing(height: 16),
                 .textField(id: "confirmNewPasswordTextField", placeholder: "Confirm New Password", isSecure: true),
+                .spacing(height: 32),
                 .button(id: "savePasswordButton", text: "Save Password")
             ])
         ], toSection: .newPassword)
@@ -192,12 +194,13 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
         snapshot.appendItems([
             .textFieldCard(elements: [
                 .textField(id: "firstNameTextField", placeholder: "First Name", isSecure: false),
-                .spacing(height: 16),
+                .spacing(height: 18),
                 .textField(id: "middleNameTextField", placeholder: "Middle Name", isSecure: false),
-                .spacing(height: 16),
+                .spacing(height: 18),
                 .textField(id: "lastNameTextField", placeholder: "Last Name", isSecure: false),
-                .spacing(height: 16),
+                .spacing(height: 18),
                 .textField(id: "telegramUsernameTextField", placeholder: "Telegram Username", isSecure: false),
+                .spacing(height: 18),
                 .button(id: "saveNameAndTelegramButton", text: "Save")
             ])
         ], toSection: .nameAndTelegram)

@@ -6,7 +6,6 @@ class UniversalContentView: UIView {
     init(elements: [ProfileCardContentElement]) {
         stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 16
 
         super.init(frame: .zero)
         setupViews(elements: elements)
@@ -40,8 +39,6 @@ class UniversalContentView: UIView {
     private func setupAppearance() {
         backgroundColor = .white
         layer.cornerRadius = 16
-        layer.borderColor = UIColor.lightGray.cgColor
-        layer.borderWidth = 1.0
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.1
         layer.shadowOffset = CGSize(width: 0, height: 2)

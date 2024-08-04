@@ -14,6 +14,7 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
     private let router: SSLRoutingLogic
 
     private var contentView: UIView!
+    private var headingLabel: SSLLabel!
     private var listCollectionView: UICollectionView!
     private var dataSource: DataSource!
 
@@ -66,7 +67,7 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
 
     private func setupViews() {
         contentView = UIView()
-        contentView.backgroundColor = .systemBackground
+        contentView.backgroundColor = .templateBackgroundColor
         view.addSubview(contentView)
 
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -77,12 +78,20 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
 
+        headingLabel = SSLLabel(localizationKey: "Profile", color: .mainTextColor, size: 34, isMedium: true)
+        headingLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(headingLabel)
+
         listCollectionView = Self.createCollectionView()
         contentView.addSubview(listCollectionView)
 
         listCollectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            listCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            headingLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            headingLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            headingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+
+            listCollectionView.topAnchor.constraint(equalTo: headingLabel.bottomAnchor, constant: 16),
             listCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             listCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             listCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)

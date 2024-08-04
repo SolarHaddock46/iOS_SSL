@@ -55,6 +55,7 @@
 		3389DCC72C4594C4000F3935 /* RegisterSecondAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DCBF2C4594C4000F3935 /* RegisterSecondAssembly.swift */; };
 		3389DCC82C4594C4000F3935 /* RegisterSecondInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DCC02C4594C4000F3935 /* RegisterSecondInteractor.swift */; };
 		3389DCCA2C45A22F000F3935 /* RegisterSecondDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3389DCC92C45A22F000F3935 /* RegisterSecondDialog.swift */; };
+		338B3D762C5F98AD009D82EA /* DataButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338B3D752C5F98AD009D82EA /* DataButtonView.swift */; };
 		339732322BEE1F4A009ECB44 /* SSLColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732312BEE1F4A009ECB44 /* SSLColors.swift */; };
 		339732342BEE8DFD009ECB44 /* SSLFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339732332BEE8DFD009ECB44 /* SSLFonts.swift */; };
 		33A6772A2C402B5600876024 /* AuthTemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A677292C402B5600876024 /* AuthTemplateViewController.swift */; };
@@ -165,6 +166,7 @@
 		3389DCBF2C4594C4000F3935 /* RegisterSecondAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSecondAssembly.swift; sourceTree = "<group>"; };
 		3389DCC02C4594C4000F3935 /* RegisterSecondInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSecondInteractor.swift; sourceTree = "<group>"; };
 		3389DCC92C45A22F000F3935 /* RegisterSecondDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSecondDialog.swift; sourceTree = "<group>"; };
+		338B3D752C5F98AD009D82EA /* DataButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataButtonView.swift; sourceTree = "<group>"; };
 		339732312BEE1F4A009ECB44 /* SSLColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLColors.swift; sourceTree = "<group>"; };
 		339732332BEE8DFD009ECB44 /* SSLFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLFonts.swift; sourceTree = "<group>"; };
 		33A677292C402B5600876024 /* AuthTemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTemplateViewController.swift; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 				333332302C34356F00B6021D /* SSLNavigationController.swift */,
 				331536522C56753A002BA7C0 /* TelegramPicView.swift */,
 				331536542C567F6B002BA7C0 /* LogoutButton.swift */,
+				338B3D752C5F98AD009D82EA /* DataButtonView.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -735,6 +738,7 @@
 				33D3AA192C46B75F009E474A /* ConfirmationCodeWorker.swift in Sources */,
 				33D3AA1B2C46B75F009E474A /* ConfirmationCodeModels.swift in Sources */,
 				33D3AA1C2C46B75F009E474A /* ConfirmationCodeViewController.swift in Sources */,
+				338B3D762C5F98AD009D82EA /* DataButtonView.swift in Sources */,
 				33D3AA1D2C46B75F009E474A /* ConfirmationCodeProtocols.swift in Sources */,
 				33D3AA1E2C46B75F009E474A /* ConfirmationCodeAssembly.swift in Sources */,
 				33D3AA1F2C46B75F009E474A /* ConfirmationCodeInteractor.swift in Sources */,

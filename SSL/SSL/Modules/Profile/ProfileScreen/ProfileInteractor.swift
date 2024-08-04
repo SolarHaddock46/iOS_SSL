@@ -23,13 +23,13 @@ final class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
         let nameCardElements: [ProfileCardContentElement] = [
             .customView(telegramPicView),
             .spacing(height: 16),
-            .nameLabel(text: "Шестакова Константин Константинович")
+            .nameLabel(text: "Шестакова Константин Константинович") // Name in Cyrillic
         ]
 
         let dataCardElements: [ProfileCardContentElement] = [
             .dataButton(id: "emailButton", text: "johndoe@example.com", isSecure: false),
             .spacing(height: 24),
-            .dataButton(id: "passwordButton", text: "huipenis", isSecure: true)
+            .dataButton(id: "passwordButton", text: "huipenis", isSecure: true) // Consider changing this to a realistic placeholder
         ]
 
         let items: [ProfileViewController.Item] = [

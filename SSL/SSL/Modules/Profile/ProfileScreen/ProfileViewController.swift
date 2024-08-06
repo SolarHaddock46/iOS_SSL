@@ -2,21 +2,38 @@ import UIKit
 
 enum ProfileCardContentElement: Hashable {
     case nameLabel(text: String)
-    case heading(text: String)
     case subtext(text: String)
     case label(text: String)
-    case spacing(height: CGFloat)
+    case heading(text: String)
     case dataButton(id: String, text: String, isSecure: Bool)
     case customView(UIView)
+    case spacing(height: CGFloat)
     case textField(id: String, placeholder: String, isSecure: Bool)
     case button(id: String, text: String)
-    case logoutButton 
+    case logoutButton
+    case secondaryButton(id: String, text: String)
+    case secondaryButtonWithAttributedTitle(id: String, attributedTitle: NSAttributedString)
 }
-
 
 class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
     private let interactor: ProfileBusinessLogic
     private let router: SSLRoutingLogic
+
+    private let resendLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .mainTextColor
+        label.font = UIFont.onest(ofSize: 16)
+
+        let attributedText = NSMutableAttributedString(string: "Didn't receive the code? Resend")
+        let range = (attributedText.string as NSString).range(of: "Resend")
+
+        attributedText.addAttribute(.font, value: UIFont.onestBold(ofSize: 16), range: range)
+
+        label.textAlignment = .left
+        label.attributedText = attributedText
+
+        return label
+    }()
 
     private var contentView: UIView!
     private var headingLabel: SSLLabel!
@@ -64,12 +81,14 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
         NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTap(_:)), name: .buttonTapped, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleEditButtonTap(_:)), name: .editButtonTapped, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleLogoutButtonTap(_:)), name: .logoutButtonTapped, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSecondaryButtonTap(_:)), name: .secondaryButtonTapped, object: nil)
     }
 
     deinit {
         NotificationCenter.default.removeObserver(self, name: .buttonTapped, object: nil)
         NotificationCenter.default.removeObserver(self, name: .editButtonTapped, object: nil)
         NotificationCenter.default.removeObserver(self, name: .logoutButtonTapped, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .secondaryButtonTapped, object: nil)
     }
 
     private func setupViews() {
@@ -148,7 +167,9 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
                 .subtext(text: "We have sent you a confirmation code, please check your email"),
                 .spacing(height: 28),
                 .textField(id: "confirmationCodeTextField", placeholder: "Confirmation Code", isSecure: false),
-                .spacing(height: 28),
+                .spacing(height: 8),
+                .secondaryButtonWithAttributedTitle(id: "resendCodeButton", attributedTitle: resendLabel.attributedText ?? NSAttributedString(string: "")),
+                .spacing(height: 20),
                 .button(id: "confirmButton", text: "Confirm")
             ])
         ], toSection: .confirmationCode)
@@ -215,7 +236,6 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
 
     func displayInitForm(_ viewModel: Profile.InitForm.ViewModel) {
         // Convert response items to viewable items
-        // This may need to be adjusted based on your data structure
     }
 
     func displayProfileData(_ items: [ProfileViewController.Item]) {
@@ -277,6 +297,20 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
         }
     }
 
+    @objc private func handleSecondaryButtonTap(_ notification: Notification) {
+        guard let tappedView = notification.object as? SecondaryButtonView else {
+            return
+        }
+
+        switch tappedView.id {
+        case "resendCodeButton":
+            // Handle resend code action
+            print("Resend code button tapped")
+        default:
+            break
+        }
+    }
+
     private func editNameAndTelegramButtonTapped() {
         navigateToNameAndTelegramSection()
     }
@@ -291,7 +325,7 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
             self.handleLogout()
         }
         let cancelAction = UIAlertAction(title: cancelActionTitle, style: .cancel, handler: nil)
-
+        
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
 
@@ -309,4 +343,3 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
         router.navigate(source: self, destination: .registerFirst, data: nil) // роут сделать на логин
     }
 }
-

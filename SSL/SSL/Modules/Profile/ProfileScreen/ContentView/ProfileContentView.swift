@@ -102,6 +102,10 @@ class ProfileContentView: UIView {
             return createButton(withId: id, text: text)
         case .logoutButton:
             return createLogoutButton()
+        case .secondaryButton(let id, let text):
+            return createSecondaryButton(withId: id, text: text)
+        case .secondaryButtonWithAttributedTitle(let id, let attributedTitle):
+            return createSecondaryButton(withId: id, attributedTitle: attributedTitle)
         }
     }
 
@@ -160,12 +164,30 @@ class ProfileContentView: UIView {
         return logoutButton
     }
 
+    private func createSecondaryButton(withId id: String, text: String) -> SecondaryButtonView {
+        let buttonView = SecondaryButtonView(id: id, text: text)
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(secondaryButtonTapped(_:)))
+        buttonView.addGestureRecognizer(tapRecognizer)
+        return buttonView
+    }
+
+    private func createSecondaryButton(withId id: String, attributedTitle: NSAttributedString) -> SecondaryButtonView {
+        let buttonView = SecondaryButtonView(id: id, attributedText: attributedTitle)
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(secondaryButtonTapped(_:)))
+        buttonView.addGestureRecognizer(tapRecognizer)
+        return buttonView
+    }
+
     @objc private func buttonTapped(_ sender: UITapGestureRecognizer) {
         NotificationCenter.default.post(name: .buttonTapped, object: sender.view)
     }
 
     @objc private func logoutButtonTapped(_ sender: UIButton) {
         NotificationCenter.default.post(name: .logoutButtonTapped, object: nil)
+    }
+
+    @objc private func secondaryButtonTapped(_ sender: UITapGestureRecognizer) {
+        NotificationCenter.default.post(name: .secondaryButtonTapped, object: sender.view)
     }
 
     private func addEditButtonToNameCard() {

@@ -35,6 +35,7 @@
 		335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F2F782BC2F8B600153A35 /* NetworkError.swift */; };
 		3369C9CF2C5FCB0200E77C48 /* PrimaryButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369C9CE2C5FCB0200E77C48 /* PrimaryButtonView.swift */; };
 		3369C9D32C623E9300E77C48 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369C9D22C623E9300E77C48 /* NotificationExtensions.swift */; };
+		3369C9D52C6241DE00E77C48 /* SecondaryButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369C9D42C6241DE00E77C48 /* SecondaryButtonView.swift */; };
 		337726CA2C3D9C670010240F /* HTTPCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337726C92C3D9C670010240F /* HTTPCode.swift */; };
 		337726CC2C3D9E4E0010240F /* VerbalServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337726CB2C3D9E4E0010240F /* VerbalServerResponse.swift */; };
 		337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337AC2D82BC1A2C60059629D /* APIRoutes.swift */; };
@@ -150,6 +151,7 @@
 		335F2F782BC2F8B600153A35 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		3369C9CE2C5FCB0200E77C48 /* PrimaryButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonView.swift; sourceTree = "<group>"; };
 		3369C9D22C623E9300E77C48 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
+		3369C9D42C6241DE00E77C48 /* SecondaryButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonView.swift; sourceTree = "<group>"; };
 		337726C92C3D9C670010240F /* HTTPCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCode.swift; sourceTree = "<group>"; };
 		337726CB2C3D9E4E0010240F /* VerbalServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalServerResponse.swift; sourceTree = "<group>"; };
 		337AC2D82BC1A2C60059629D /* APIRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoutes.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 			children = (
 				33D224812B7B803C00116BAD /* PrimaryButton.swift */,
 				3389DC982C44275A000F3935 /* PrimaryButtonContainer.swift */,
+				3369C9CE2C5FCB0200E77C48 /* PrimaryButtonView.swift */,
 			);
 			path = PrimaryButton;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 			children = (
 				330DADFE2B9E155D0013A394 /* SecondaryButton.swift */,
 				3389DC9B2C442834000F3935 /* SecondaryButtonContainer.swift */,
+				3369C9D42C6241DE00E77C48 /* SecondaryButtonView.swift */,
 			);
 			path = SecondaryButton;
 			sourceTree = "<group>";
@@ -477,7 +481,6 @@
 				331536522C56753A002BA7C0 /* TelegramPicView.swift */,
 				331536542C567F6B002BA7C0 /* LogoutButton.swift */,
 				338B3D752C5F98AD009D82EA /* DataButtonView.swift */,
-				3369C9CE2C5FCB0200E77C48 /* PrimaryButtonView.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -777,6 +780,7 @@
 				33D3AA2D2C46BB3A009E474A /* ForgotPasswordEmailAssembly.swift in Sources */,
 				339732342BEE8DFD009ECB44 /* SSLFonts.swift in Sources */,
 				33D2244A2B7B6E2800116BAD /* SceneDelegate.swift in Sources */,
+				3369C9D52C6241DE00E77C48 /* SecondaryButtonView.swift in Sources */,
 				33D2248A2B7B8C5200116BAD /* InsetedTextField.swift in Sources */,
 				331536512C566C66002BA7C0 /* ProfileViewController.swift in Sources */,
 				33BC80742BD2905F0065FB60 /* LoginPresenter.swift in Sources */,

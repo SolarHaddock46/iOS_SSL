@@ -8,12 +8,10 @@ final class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
         self.presenter = presenter
     }
 
-    // Internal by default
     func requestInitForm(_ request: Profile.InitForm.Request) {
         fetchProfileData()
     }
 
-    // Internal by default
     func fetchProfileData() {
         // Simulate fetching profile data
         let telegramPicView = TelegramPicView()
@@ -23,13 +21,13 @@ final class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
         let nameCardElements: [ProfileCardContentElement] = [
             .customView(telegramPicView),
             .spacing(height: 16),
-            .nameLabel(text: "Шестакова Константин Константинович") // Name in Cyrillic
+            .nameLabel(text: "Шестакова Константин Константинович")
         ]
 
         let dataCardElements: [ProfileCardContentElement] = [
             .dataButton(id: "emailButton", text: "johndoe@example.com", isSecure: false),
             .spacing(height: 24),
-            .dataButton(id: "passwordButton", text: "huipenis", isSecure: true) // Consider changing this to a realistic placeholder
+            .dataButton(id: "passwordButton", text: "huipenis", isSecure: true)
         ]
 
         let items: [ProfileViewController.Item] = [
@@ -38,7 +36,10 @@ final class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
             .logoutButton
         ]
 
-        // Pass the fetched data to the presenter
         presenter.presentProfileData(items)
+    }
+
+    func handleLogout() {
+        // Additional logout logic, if any
     }
 }

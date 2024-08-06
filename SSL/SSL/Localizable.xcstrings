@@ -15,6 +15,12 @@
     "Add a profile picture" : {
 
     },
+    "Are you sure that you want to log out?" : {
+
+    },
+    "Cancel" : {
+
+    },
     "Check your email" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -180,6 +186,9 @@
           }
         }
       }
+    },
+    "Log out" : {
+
     },
     "Next" : {
       "extractionState" : "manual",

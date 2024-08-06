@@ -34,6 +34,7 @@
 		335B0A182BD3D5400029CEBD /* Onest.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33D224842B7B822900116BAD /* Onest.ttf */; };
 		335F2F792BC2F8B600153A35 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335F2F782BC2F8B600153A35 /* NetworkError.swift */; };
 		3369C9CF2C5FCB0200E77C48 /* PrimaryButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369C9CE2C5FCB0200E77C48 /* PrimaryButtonView.swift */; };
+		3369C9D32C623E9300E77C48 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369C9D22C623E9300E77C48 /* NotificationExtensions.swift */; };
 		337726CA2C3D9C670010240F /* HTTPCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337726C92C3D9C670010240F /* HTTPCode.swift */; };
 		337726CC2C3D9E4E0010240F /* VerbalServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337726CB2C3D9E4E0010240F /* VerbalServerResponse.swift */; };
 		337AC2D92BC1A2C60059629D /* APIRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337AC2D82BC1A2C60059629D /* APIRoutes.swift */; };
@@ -148,6 +149,7 @@
 		335B0A0D2BD2A5830029CEBD /* LoginAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembly.swift; sourceTree = "<group>"; };
 		335F2F782BC2F8B600153A35 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		3369C9CE2C5FCB0200E77C48 /* PrimaryButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonView.swift; sourceTree = "<group>"; };
+		3369C9D22C623E9300E77C48 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		337726C92C3D9C670010240F /* HTTPCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCode.swift; sourceTree = "<group>"; };
 		337726CB2C3D9E4E0010240F /* VerbalServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalServerResponse.swift; sourceTree = "<group>"; };
 		337AC2D82BC1A2C60059629D /* APIRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoutes.swift; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 			children = (
 				338B3D7A2C5FA812009D82EA /* ProfileContentView.swift */,
 				338B3D7E2C5FA833009D82EA /* ProfileCollectionViewCell.swift */,
+				3369C9D22C623E9300E77C48 /* NotificationExtensions.swift */,
 			);
 			path = ContentView;
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				33D3AA1B2C46B75F009E474A /* ConfirmationCodeModels.swift in Sources */,
 				33D3AA1C2C46B75F009E474A /* ConfirmationCodeViewController.swift in Sources */,
 				338B3D762C5F98AD009D82EA /* DataButtonView.swift in Sources */,
+				3369C9D32C623E9300E77C48 /* NotificationExtensions.swift in Sources */,
 				33D3AA1D2C46B75F009E474A /* ConfirmationCodeProtocols.swift in Sources */,
 				33D3AA1E2C46B75F009E474A /* ConfirmationCodeAssembly.swift in Sources */,
 				33D3AA1F2C46B75F009E474A /* ConfirmationCodeInteractor.swift in Sources */,

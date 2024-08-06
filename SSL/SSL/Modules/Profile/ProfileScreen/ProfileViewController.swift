@@ -10,9 +10,11 @@ enum ProfileCardContentElement: Hashable {
     case customView(UIView)
     case textField(id: String, placeholder: String, isSecure: Bool)
     case button(id: String, text: String)
+    case logoutButton 
 }
 
-final class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
+
+class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
     private let interactor: ProfileBusinessLogic
     private let router: SSLRoutingLogic
 
@@ -61,11 +63,13 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
 
         NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTap(_:)), name: .buttonTapped, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleEditButtonTap(_:)), name: .editButtonTapped, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleLogoutButtonTap(_:)), name: .logoutButtonTapped, object: nil)
     }
 
     deinit {
         NotificationCenter.default.removeObserver(self, name: .buttonTapped, object: nil)
         NotificationCenter.default.removeObserver(self, name: .editButtonTapped, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .logoutButtonTapped, object: nil)
     }
 
     private func setupViews() {
@@ -241,6 +245,10 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
         navigateToNameAndTelegramSection()
     }
 
+    @objc private func handleLogoutButtonTap(_ notification: Notification) {
+        presentLogoutConfirmation()
+    }
+
     private func dataButtonTapped(_ buttonView: DataButtonView) {
         switch buttonView.id {
         case "emailButton":
@@ -272,9 +280,33 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
     private func editNameAndTelegramButtonTapped() {
         navigateToNameAndTelegramSection()
     }
+
+    private func presentLogoutConfirmation() {
+        let title = NSLocalizedString("Are you sure that you want to log out?", comment: "")
+        let confirmActionTitle = NSLocalizedString("Log out", comment: "")
+        let cancelActionTitle = NSLocalizedString("Cancel", comment: "")
+
+        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
+        let confirmAction = UIAlertAction(title: confirmActionTitle, style: .destructive) { _ in
+            self.handleLogout()
+        }
+        let cancelAction = UIAlertAction(title: cancelActionTitle, style: .cancel, handler: nil)
+
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = view
+            popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+
+        present(alertController, animated: true)
+    }
+
+    private func handleLogout() {
+        print("User confirmed logout")
+        router.navigate(source: self, destination: .registerFirst, data: nil) // роут сделать на логин
+    }
 }
 
-extension Notification.Name {
-    static let buttonTapped = Notification.Name("buttonTapped")
-    static let editButtonTapped = Notification.Name("editButtonTapped")
-}

@@ -1,11 +1,14 @@
 import UIKit
+import Foundation
 
 class ProfileContentView: UIView {
     private let stackView: UIStackView
+    private let containsLogoutButton: Bool
 
     init(elements: [ProfileCardContentElement]) {
-        stackView = UIStackView()
-        stackView.axis = .vertical
+        self.stackView = UIStackView()
+        self.stackView.axis = .vertical
+        self.containsLogoutButton = elements.contains(where: { $0.isLogoutButton })
 
         super.init(frame: .zero)
         setupViews(elements: elements)
@@ -17,33 +20,62 @@ class ProfileContentView: UIView {
     }
 
     private func setupViews(elements: [ProfileCardContentElement]) {
-        elements.forEach { element in
-            let view = createView(for: element)
-            stackView.addArrangedSubview(view)
-        }
+        if containsLogoutButton {
+            elements.forEach { element in
+                if case .logoutButton = element {
+                    let view = createView(for: element)
+                    addSubview(view)
 
-        addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 24),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24)
-        ])
-        
-        if elements.contains(where: { $0.isNameLabel }) {
-            addEditButtonToNameCard()
+                    view.translatesAutoresizingMaskIntoConstraints = false
+                    NSLayoutConstraint.activate([
+                        view.topAnchor.constraint(equalTo: topAnchor),
+                        view.leadingAnchor.constraint(equalTo: leadingAnchor),
+                        view.trailingAnchor.constraint(equalTo: trailingAnchor),
+                        view.bottomAnchor.constraint(equalTo: bottomAnchor)
+                    ])
+                }
+            }
+        } else {
+            elements.forEach { element in
+                let view = createView(for: element)
+                stackView.addArrangedSubview(view)
+            }
+
+            addSubview(stackView)
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                stackView.topAnchor.constraint(equalTo: topAnchor, constant: 24),
+                stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+                stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+                stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24)
+            ])
+
+            if elements.contains(where: { $0.isNameLabel }) {
+                addEditButtonToNameCard()
+            }
         }
     }
 
     private func setupAppearance() {
-        backgroundColor = .white
-        layer.cornerRadius = 16
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.1
-        layer.shadowOffset = CGSize(width: 0, height: 2)
-        layer.shadowRadius = 4
-        layer.masksToBounds = false
+        if containsLogoutButton {
+            backgroundColor = .templateBackgroundColor
+            layer.cornerRadius = 16
+            layer.borderWidth = 2
+            layer.borderColor = UIColor.logoutButtonColor.cgColor
+
+            layer.shadowColor = UIColor.logoutButtonColor.cgColor
+            layer.shadowOpacity = 0.5
+            layer.shadowOffset = CGSize(width: 0, height: 2)
+            layer.shadowRadius = 4
+        } else {
+            backgroundColor = .white
+            layer.cornerRadius = 16
+            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowOpacity = 0.1
+            layer.shadowOffset = CGSize(width: 0, height: 2)
+            layer.shadowRadius = 4
+            layer.masksToBounds = false
+        }
     }
 
     private func createView(for element: ProfileCardContentElement) -> UIView {
@@ -68,31 +100,32 @@ class ProfileContentView: UIView {
             return createTextField(withId: id, placeholder: placeholder, isSecure: isSecure)
         case .button(let id, let text):
             return createButton(withId: id, text: text)
+        case .logoutButton:
+            return createLogoutButton()
         }
     }
 
     private func createNameLabel(withText text: String) -> SSLLabel {
-       let label = SSLLabel(localizationKey: text, isHeading: true)
-       label.textAlignment = .center
-       return label
+        let label = SSLLabel(localizationKey: text, isHeading: true)
+        label.textAlignment = .center
+        return label
     }
-    
+
     private func createSubtext(withText text: String) -> SSLLabel {
-       let label = SSLLabel(localizationKey: text, isSubtext: true)
-       return label
+        let label = SSLLabel(localizationKey: text, isSubtext: true)
+        return label
     }
-    
+
     private func createLabel(withText text: String) -> SSLLabel {
-       let label = SSLLabel(localizationKey: text)
-       label.textAlignment = .left
-       return label
+        let label = SSLLabel(localizationKey: text)
+        label.textAlignment = .left
+        return label
     }
-    
+
     private func createHeading(withText text: String) -> SSLLabel {
-       let label = SSLLabel(localizationKey: text, isHeading: true)
-       return label
+        let label = SSLLabel(localizationKey: text, isHeading: true)
+        return label
     }
-    
 
     private func createDataButton(withId id: String, text: String, isSecure: Bool) -> UIView {
         let buttonView = DataButtonView(id: id, text: text, isSecure: isSecure)
@@ -114,8 +147,25 @@ class ProfileContentView: UIView {
         return buttonView
     }
 
+    private func createLogoutButton() -> LogoutButton {
+        let logoutButton = LogoutButton(frame: .zero)
+        logoutButton.setCardText("Log Out")
+        logoutButton.addTarget(self, action: #selector(logoutButtonTapped(_:)), for: .touchUpInside)
+
+        logoutButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            logoutButton.heightAnchor.constraint(equalToConstant: 46)
+        ])
+
+        return logoutButton
+    }
+
     @objc private func buttonTapped(_ sender: UITapGestureRecognizer) {
         NotificationCenter.default.post(name: .buttonTapped, object: sender.view)
+    }
+
+    @objc private func logoutButtonTapped(_ sender: UIButton) {
+        NotificationCenter.default.post(name: .logoutButtonTapped, object: nil)
     }
 
     private func addEditButtonToNameCard() {
@@ -126,7 +176,7 @@ class ProfileContentView: UIView {
         button.tintColor = .systemBlue
         button.backgroundColor = .clear
         button.addTarget(self, action: #selector(editButtonTapped(_:)), for: .touchUpInside)
-        
+
         addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -146,6 +196,15 @@ extension ProfileCardContentElement {
     var isNameLabel: Bool {
         switch self {
         case .nameLabel:
+            return true
+        default:
+            return false
+        }
+    }
+
+    var isLogoutButton: Bool {
+        switch self {
+        case .logoutButton:
             return true
         default:
             return false

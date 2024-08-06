@@ -16,9 +16,7 @@ class ProfileCollectionViewCell: UICollectionViewCell {
              .buttonCard(let elems):
             elements = elems
         case .logoutButton:
-            elements = [
-                .button(id: "logoutButton", text: "Log out")
-            ]
+            elements = [.logoutButton]
         }
 
         let newContent = ProfileContentView(elements: elements)
@@ -42,7 +40,7 @@ class ProfileCollectionViewCell: UICollectionViewCell {
         button.tintColor = .systemBlue
         button.backgroundColor = .clear
         button.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
-        
+
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(button)

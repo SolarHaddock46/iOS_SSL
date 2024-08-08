@@ -1,4 +1,3 @@
-import Foundation
 import UIKit
 
 protocol ProfilePicViewDelegate: AnyObject {
@@ -7,13 +6,13 @@ protocol ProfilePicViewDelegate: AnyObject {
 }
 
 final class ProfilePicView: UIView {
+    
     override var intrinsicContentSize: CGSize {
         CGSize(width: UIScreen.main.bounds.width, height: 154)
     }
     
     private lazy var avatarChangeRecognizer: UITapGestureRecognizer = {
-        let recognizer = UITapGestureRecognizer()
-        recognizer.addTarget(self, action: #selector(avatarDidTap))
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(avatarDidTap))
         return recognizer
     }()
     
@@ -22,18 +21,11 @@ final class ProfilePicView: UIView {
         imageView.layer.cornerRadius = 16
         imageView.backgroundColor = .lightGray
         imageView.tintColor = .gray
-        
-        let placeholderImage = UIImage(named: "placeholder_image")
-        imageView.image = placeholderImage
-        
+        imageView.image = UIImage(named: "placeholder_image")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
-        imageView.layer.borderColor = UIColor.clear.cgColor
-        imageView.layer.borderWidth = 0
-        
         imageView.addGestureRecognizer(avatarChangeRecognizer)
-        
         return imageView
     }()
     
@@ -46,12 +38,8 @@ final class ProfilePicView: UIView {
     }()
     
     var avatar: UIImage? {
-        get {
-            avatarImageView.image
-        }
-        set {
-            avatarImageView.image = newValue
-        }
+        get { return avatarImageView.image }
+        set { avatarImageView.image = newValue }
     }
     
     var descriptionText: String? {
@@ -62,32 +50,43 @@ final class ProfilePicView: UIView {
     
     weak var delegate: ProfilePicViewDelegate?
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, showDescriptionLabel: Bool, initialAvatar: UIImage? = nil) {
         super.init(frame: frame)
-        setupLayout()
+        
+        // Initialize with an avatar if provided
+        if let avatarImage = initialAvatar {
+            self.avatar = avatarImage
+        }
+        
+        setupLayout(showDescriptionLabel: showDescriptionLabel)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupLayout() {
+    private func setupLayout(showDescriptionLabel: Bool) {
         addSubview(avatarImageView)
-        addSubview(descriptionLabel)
-        
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([
+        var constraints = [
             avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 19),
             avatarImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             avatarImageView.widthAnchor.constraint(equalToConstant: 90),
-            avatarImageView.heightAnchor.constraint(equalToConstant: 90),
-            
-            descriptionLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 8),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
-        ])
+            avatarImageView.heightAnchor.constraint(equalToConstant: 90)
+        ]
+        
+        if showDescriptionLabel {
+            addSubview(descriptionLabel)
+            descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+            constraints += [
+                descriptionLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 8),
+                descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+                descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+            ]
+        }
+        
+        NSLayoutConstraint.activate(constraints)
     }
     
     @objc private func avatarDidTap() {

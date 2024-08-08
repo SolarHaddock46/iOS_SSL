@@ -2,16 +2,15 @@ import UIKit
 import Photos
 
 final class RegisterFirstViewController: AuthTemplateViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+
     private let router: SSLRoutingLogic
-    
     private var dialog: RegisterFirstDialog?
     private var profilePicPicker: ProfilePicView
     private var profilePicData: Data?
+
     private var elements: [AuthContentElement] = {
         return [
             .heading(text: "Register an account"),
-            .spacing(height: 24),
             .customView(UIView()),
             .spacing(height: 24),
             .textField(name: "Second name", placeholder: NSLocalizedString("Second name", comment: ""), isSecure: false),
@@ -32,11 +31,14 @@ final class RegisterFirstViewController: AuthTemplateViewController, UIImagePick
 
     init(router: SSLRoutingLogic) {
         self.router = router
-        self.profilePicPicker = ProfilePicView()
+        self.profilePicPicker = ProfilePicView(frame: .zero, showDescriptionLabel: true)
         profilePicPicker.descriptionText = NSLocalizedString("Add a profile picture", comment: "")
+
         super.init(nibName: nil, bundle: nil)
+        
         dialog = RegisterFirstDialog(viewController: self)
-        elements[1] = .customView(profilePicPicker)
+        
+        elements[2] = .customView(profilePicPicker)
         profilePicPicker.delegate = self
     }
 
@@ -48,39 +50,30 @@ final class RegisterFirstViewController: AuthTemplateViewController, UIImagePick
         super.viewDidLoad()
         setupContentView(withElements: elements)
     }
-    
+
     private func isFormValid() -> Bool {
         guard let firstName = getTextFieldValue(forName: "First name"),
               let secondName = getTextFieldValue(forName: "Second name"),
               let fatherName = getTextFieldValue(forName: "Father name") else {
             return false
         }
-        
+
         let firstNameIsValid = SSLValidator.nameIsValid(name: firstName)
         let secondNameIsValid = SSLValidator.nameIsValid(name: secondName)
         let fatherNameIsValid = (fatherName.isEmpty) ? true : SSLValidator.nameIsValid(name: fatherName)
-        
-        if let firstNameTextField = textFieldsByName["First name"] {
-            firstNameTextField.isValid = firstNameIsValid
-        }
-        
-        if let secondNameTextField = textFieldsByName["Second name"] {
-            secondNameTextField.isValid = secondNameIsValid
-        }
-        
-        if let fatherNameTextField = textFieldsByName["Father name"] {
-            fatherNameTextField.isValid = fatherNameIsValid
-        }
-        
-        let conditionsAccepted: Bool = getCheckboxState(forName: "conditions") ?? false
-        
+
+        textFieldsByName["First name"]?.isValid = firstNameIsValid
+        textFieldsByName["Second name"]?.isValid = secondNameIsValid
+        textFieldsByName["Father name"]?.isValid = fatherNameIsValid
+
+        let conditionsAccepted = getCheckboxState(forName: "conditions") ?? false
         if !conditionsAccepted {
             dialog?.showAlert(title: "Error", message: "Please accept the Terms of use and the Privacy Policy")
         }
-        
+
         return firstNameIsValid && secondNameIsValid && fatherNameIsValid && conditionsAccepted
     }
-    
+
     @objc func nextButtonTapped(_ sender: UIButton) {
         if isFormValid() {
             let formData = RegisterFirstFormData(
@@ -94,34 +87,34 @@ final class RegisterFirstViewController: AuthTemplateViewController, UIImagePick
             router.navigate(source: self, destination: .registerSecond, data: formData)
         }
     }
-    
+
     @objc func toLoginButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             picker.dismiss(animated: true, completion: nil)
             return
         }
-                
-        let targetSize = CGSize(width: 1024, height: 1024)
-        guard let resizedImage = resizeImage(pickedImage, targetSize: targetSize) else {
-            picker.dismiss(animated: true, completion: nil)
-            return
+
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            let targetSize = CGSize(width: 1024, height: 1024)
+            let resizedImage = self?.resizeImage(pickedImage, targetSize: targetSize)
+
+            DispatchQueue.main.async {
+                self?.profilePicPicker.avatar = resizedImage
+                self?.profilePicData = resizedImage?.jpegData(compressionQuality: 0.8)
+                picker.dismiss(animated: true, completion: nil)
+            }
         }
-        
-        profilePicPicker.avatar = resizedImage
-        profilePicData = resizedImage.jpegData(compressionQuality: 0.8)
-        picker.dismiss(animated: true, completion: nil)
     }
 
     func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage? {
         let renderer = UIGraphicsImageRenderer(size: targetSize)
-        let resizedImage = renderer.image { _ in
+        return renderer.image { _ in
             image.draw(in: CGRect(origin: .zero, size: targetSize))
         }
-        return resizedImage
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -137,13 +130,13 @@ extension RegisterFirstViewController: ProfilePicViewDelegate {
 
     func requestPhotoLibraryAccess() {
         PHPhotoLibrary.requestAuthorization { [weak self] status in
-            switch status {
-            case .authorized, .limited:
-                DispatchQueue.main.async { [weak self] in
+            DispatchQueue.main.async { [weak self] in
+                switch status {
+                case .authorized, .limited:
                     self?.showImagePicker()
+                default:
+                    break
                 }
-            default:
-                break
             }
         }
     }

@@ -13,44 +13,33 @@ enum ProfileCardContentElement: Hashable {
     case logoutButton
     case secondaryButton(id: String, text: String)
     case secondaryButtonWithAttributedTitle(id: String, attributedTitle: NSAttributedString)
+    case profilePicView(showDescriptionLabel: Bool)
 }
 
 class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
+
     private let interactor: ProfileBusinessLogic
     private let router: SSLRoutingLogic
-
     private let resendLabel: UILabel = {
         let label = UILabel()
         label.textColor = .mainTextColor
         label.font = UIFont.onest(ofSize: 16)
-
         let attributedText = NSMutableAttributedString(string: "Didn't receive the code? Resend")
         let range = (attributedText.string as NSString).range(of: "Resend")
-
         attributedText.addAttribute(.font, value: UIFont.onestBold(ofSize: 16), range: range)
-
         label.textAlignment = .left
         label.attributedText = attributedText
-
         return label
     }()
-
     private var contentView: UIView!
     private var headingLabel: SSLLabel!
     private var listCollectionView: UICollectionView!
     private var dataSource: DataSource!
 
     typealias DataSource = UICollectionViewDiffableDataSource<Section, Item>
-
     enum Section: Int {
-        case main
-        case newEmail
-        case confirmationCode
-        case oldPassword
-        case newPassword
-        case nameAndTelegram
+        case main, newEmail, confirmationCode, oldPassword, newPassword, nameAndTelegram
     }
-
     enum Item: Hashable {
         case nameCard(elements: [ProfileCardContentElement])
         case dataCard(elements: [ProfileCardContentElement])
@@ -78,10 +67,11 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
         configureDataSource()
         navigateToMainSection()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTap(_:)), name: .buttonTapped, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleEditButtonTap(_:)), name: .editButtonTapped, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleLogoutButtonTap(_:)), name: .logoutButtonTapped, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleSecondaryButtonTap(_:)), name: .secondaryButtonTapped, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTap), name: .buttonTapped, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleEditButtonTap), name: .editButtonTapped, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleLogoutButtonTap), name: .logoutButtonTapped, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSecondaryButtonTap), name: .secondaryButtonTapped, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleProfilePicTap), name: .profilePicTapped, object: nil)
     }
 
     deinit {
@@ -89,6 +79,7 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
         NotificationCenter.default.removeObserver(self, name: .editButtonTapped, object: nil)
         NotificationCenter.default.removeObserver(self, name: .logoutButtonTapped, object: nil)
         NotificationCenter.default.removeObserver(self, name: .secondaryButtonTapped, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .profilePicTapped, object: nil)
     }
 
     private func setupViews() {
@@ -116,7 +107,6 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
             headingLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             headingLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             headingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-
             listCollectionView.topAnchor.constraint(equalTo: headingLabel.bottomAnchor),
             listCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             listCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
@@ -133,8 +123,6 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
         }
     }
-
-    // MARK: - Navigation Methods
 
     private func navigateToMainSection() {
         interactor.requestInitForm(Profile.InitForm.Request())
@@ -218,6 +206,7 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
         snapshot.appendSections([.nameAndTelegram])
         snapshot.appendItems([
             .textFieldCard(elements: [
+                .profilePicView(showDescriptionLabel: false),
                 .textField(id: "firstNameTextField", placeholder: "First Name", isSecure: false),
                 .spacing(height: 18),
                 .textField(id: "middleNameTextField", placeholder: "Middle Name", isSecure: false),
@@ -232,13 +221,11 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 
-    // MARK: - ViewController Protocol Methods
-
     func displayInitForm(_ viewModel: Profile.InitForm.ViewModel) {
         // Convert response items to viewable items
     }
 
-    func displayProfileData(_ items: [ProfileViewController.Item]) {
+    func displayProfileData(_ items: [Item]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapshot.appendSections([.main])
         snapshot.appendItems(items)
@@ -247,13 +234,8 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
         }
     }
 
-    // MARK: - Action Methods
-
     @objc private func handleButtonTap(_ notification: Notification) {
-        guard let tappedView = notification.object else {
-            return
-        }
-
+        guard let tappedView = notification.object else { return }
         if let buttonView = tappedView as? DataButtonView {
             dataButtonTapped(buttonView)
         } else if let buttonContainer = tappedView as? PrimaryButtonView {
@@ -275,8 +257,7 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
             navigateToNewEmailSection()
         case "passwordButton":
             navigateToOldPasswordSection()
-        default:
-            break
+        default: break
         }
     }
 
@@ -292,23 +273,21 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
             navigateToMainSection()
         case "saveNameAndTelegramButton":
             navigateToMainSection()
-        default:
-            break
+        default: break
         }
     }
 
     @objc private func handleSecondaryButtonTap(_ notification: Notification) {
-        guard let tappedView = notification.object as? SecondaryButtonView else {
-            return
-        }
-
+        guard let tappedView = notification.object as? SecondaryButtonView else { return }
         switch tappedView.id {
         case "resendCodeButton":
-            // Handle resend code action
             print("Resend code button tapped")
-        default:
-            break
+        default: break
         }
+    }
+
+    @objc private func handleProfilePicTap(_ notification: Notification) {
+        print("Profile picture view tapped")
     }
 
     private func editNameAndTelegramButtonTapped() {
@@ -319,13 +298,11 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
         let title = NSLocalizedString("Are you sure that you want to log out?", comment: "")
         let confirmActionTitle = NSLocalizedString("Log out", comment: "")
         let cancelActionTitle = NSLocalizedString("Cancel", comment: "")
-
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         let confirmAction = UIAlertAction(title: confirmActionTitle, style: .destructive) { _ in
             self.handleLogout()
         }
         let cancelAction = UIAlertAction(title: cancelActionTitle, style: .cancel, handler: nil)
-        
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
 
@@ -340,6 +317,18 @@ class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
 
     private func handleLogout() {
         print("User confirmed logout")
-        router.navigate(source: self, destination: .registerFirst, data: nil) // роут сделать на логин
+        router.navigate(source: self, destination: .registerFirst, data: nil)
     }
+}
+
+extension ProfileCardContentElement {
+    var isNameLabel: Bool {
+            if case .nameLabel = self { return true }
+            return false
+        }
+
+        var isLogoutButton: Bool {
+            if case .logoutButton = self { return true }
+            return false
+        }
 }

@@ -1,6 +1,6 @@
 import UIKit
 
-class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
+class LoginViewController: AuthTemplateViewController, LoginViewControllerProtocol {
     var interactor: LoginInteractorProtocol?
     var router: SSLRoutingLogic
     private var dialog: LoginDialog?
@@ -19,7 +19,7 @@ class LoginViewController: TemplateViewController, LoginViewControllerProtocol {
         return label
     }()
     
-    private lazy var elements: [ContentElement] = {
+    private lazy var elements: [AuthContentElement] = {
         return [
             .heading(text: "Log in"),
             .spacing(height: 44),

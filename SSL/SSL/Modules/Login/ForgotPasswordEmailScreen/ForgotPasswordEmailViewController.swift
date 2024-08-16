@@ -8,11 +8,11 @@
 
 import UIKit
 
-final class ForgotPasswordEmailViewController: TemplateViewController, ForgotPasswordEmailViewControllerProtocol {
+final class ForgotPasswordEmailViewController: AuthTemplateViewController, ForgotPasswordEmailViewControllerProtocol {
     private let interactor: ForgotPasswordEmailBusinessLogic
     private let router: SSLRoutingLogic
     
-    private var elements: [ContentElement] = {
+    private var elements: [AuthContentElement] = {
        return [
         .heading(text: "Reset password"),
         .spacing(height: 32),

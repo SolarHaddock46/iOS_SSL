@@ -3,9 +3,10 @@ import UIKit
 final class PrimaryButtonContainer: UIView {
     private let button: PrimaryButton
     
-    init(localizationKey: String) {
+    init(id: String, localizationKey: String) {
         button = PrimaryButton(localizationKey: localizationKey)
         super.init(frame: .zero)
+        accessibilityIdentifier = id
         setup()
     }
     
